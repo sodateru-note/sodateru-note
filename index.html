@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>育てるノート｜PT国家試験対策</title>
+<meta name="theme-color" content="#1a2847">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="育てるノート">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   育てるノート — index.html
+   問題データ : questions.json
+   解説画像   : images/<question_id>.png  (例: images/a1.png)
+   ============================================================ */
+:root {
+  --yellow: #f5d547;
+  --yellow-light: #fdf6cc;
+  --yellow-mid: #f9e87a;
+  --navy: #1a2847;
+  --navy-light: #2d4070;
+  --orange: #e8722a;
+  --orange-light: #fdeee3;
+  --teal: #3ab5b5;
+  --teal-light: #e0f5f5;
+  --cream: #fffef5;
+  --warm-white: #fafaf2;
+  --text: #1a1a1a;
+  --text-soft: #555;
+  --text-light: #999;
+  --correct: #2d8a4e;
+  --correct-bg: #e8f5ed;
+  --wrong: #c0392b;
+  --wrong-bg: #fdecea;
+  --border: #e8e4d8;
+  --card-shadow: 0 2px 16px rgba(26,40,71,0.10);
+  --radius: 16px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  min-height: 100vh;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ===== LOADING ===== */
+#app-loading {
+  position: fixed; inset: 0;
+  background: var(--navy);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  z-index: 9999; gap: 16px;
+}
+#app-loading .logo {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 28px; font-weight: 900; color: var(--yellow);
+}
+#app-loading .spinner {
+  width: 36px; height: 36px;
+  border: 4px solid rgba(245,213,71,0.3);
+  border-top-color: var(--yellow);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ===== HEADER ===== */
+.header {
+  background: var(--navy);
+  padding: 14px 18px 12px;
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-logo {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 20px; font-weight: 900;
+  color: var(--yellow);
+  letter-spacing: -0.02em; line-height: 1;
+}
+.header-logo span {
+  font-size: 11px; font-weight: 400;
+  color: rgba(255,255,255,0.6);
+  display: block; margin-top: 2px; letter-spacing: 0.05em;
+}
+.countdown-box {
+  background: var(--yellow); border-radius: 12px;
+  padding: 6px 12px; text-align: center;
+  cursor: pointer; transition: transform 0.15s; min-width: 80px;
+}
+.countdown-box:active { transform: scale(0.96); }
+.countdown-days {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 22px; font-weight: 900; color: var(--navy); line-height: 1;
+}
+.countdown-label { font-size: 10px; color: var(--navy); font-weight: 700; opacity: 0.7; }
+
+/* ===== NAV ===== */
+.nav-tabs {
+  background: white; display: flex;
+  border-bottom: 2px solid var(--border);
+  position: sticky; top: 66px; z-index: 99;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.nav-tab {
+  flex: 1; padding: 10px 4px; text-align: center;
+  font-size: 10px; font-weight: 700; color: var(--text-light);
+  cursor: pointer; border-bottom: 3px solid transparent;
+  margin-bottom: -2px; transition: all 0.2s; user-select: none;
+}
+.nav-tab.active { color: var(--navy); border-bottom-color: var(--orange); }
+.nav-tab .tab-icon { font-size: 20px; display: block; margin-bottom: 2px; }
+
+/* ===== SCREENS ===== */
+.screen { display: none; padding: 16px 14px 100px; animation: fadeUp 0.25s ease; }
+.screen.active { display: block; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+/* ===== MODAL ===== */
+.modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5); z-index: 500;
+  align-items: flex-end; justify-content: center;
+}
+.modal-overlay.show { display: flex; }
+.modal-sheet {
+  background: white; width: 100%; max-width: 480px;
+  border-radius: 24px 24px 0 0; padding: 24px 20px 40px;
+  animation: slideUp 0.3s ease;
+}
+@keyframes slideUp { from { transform:translateY(100%); } to { transform:translateY(0); } }
+.modal-title {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 18px; font-weight: 900; color: var(--navy);
+  margin-bottom: 6px; text-align: center;
+}
+.modal-sub { font-size: 13px; color: var(--text-soft); text-align: center; margin-bottom: 20px; line-height: 1.6; }
+.modal-input {
+  width: 100%; padding: 14px; border: 2px solid var(--border);
+  border-radius: 12px; font-size: 16px; font-family: inherit;
+  outline: none; color: var(--text); margin-bottom: 14px;
+}
+.modal-input:focus { border-color: var(--orange); }
+.modal-btn {
+  width: 100%; padding: 16px; border: none; border-radius: 12px;
+  font-size: 15px; font-weight: 700; font-family: inherit;
+  cursor: pointer; background: var(--navy); color: var(--yellow);
+}
+
+/* ===== HOME ===== */
+.home-hero {
+  background: var(--navy); border-radius: var(--radius);
+  padding: 20px 18px 18px; margin-bottom: 14px;
+  position: relative; overflow: hidden;
+}
+.home-hero::before {
+  content: '✳︎'; position: absolute; right: 16px; top: 14px;
+  font-size: 36px; color: var(--orange); opacity: 0.9;
+}
+.home-hero-label {
+  font-size: 11px; font-weight: 700; color: var(--orange);
+  letter-spacing: 0.1em; margin-bottom: 6px;
+}
+.home-hero h2 {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 22px; font-weight: 900; color: var(--yellow);
+  margin-bottom: 6px; line-height: 1.2;
+}
+.home-hero p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+
+.progress-card {
+  background: white; border-radius: var(--radius);
+  padding: 16px; margin-bottom: 14px;
+  box-shadow: var(--card-shadow); border-left: 5px solid var(--yellow);
+}
+.progress-card h3 { font-size: 13px; color: var(--text-soft); margin-bottom: 12px; font-weight: 700; }
+.progress-bar-wrap { background: var(--border); border-radius: 99px; height: 10px; overflow: hidden; margin-bottom: 8px; }
+.progress-bar {
+  height: 100%; border-radius: 99px;
+  background: linear-gradient(90deg, var(--orange), var(--yellow));
+  transition: width 0.8s cubic-bezier(.4,0,.2,1);
+}
+.progress-stats { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-soft); }
+.progress-stats strong { color: var(--orange); }
+
+.category-tabs { display: flex; gap: 8px; margin-bottom: 12px; }
+.cat-main-tab {
+  flex: 1; padding: 10px; border-radius: 12px; border: 2px solid var(--border);
+  background: white; font-size: 13px; font-weight: 700;
+  cursor: pointer; color: var(--text-soft); transition: all 0.2s;
+  text-align: center; font-family: inherit;
+}
+.cat-main-tab.active { background: var(--navy); color: var(--yellow); border-color: var(--navy); }
+.cat-panel { display: none; }
+.cat-panel.active { display: block; }
+
+.category-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+.category-card {
+  background: white; border-radius: 12px; padding: 13px 10px;
+  box-shadow: var(--card-shadow); cursor: pointer; transition: transform 0.15s;
+  border-top: 4px solid var(--yellow); position: relative; overflow: hidden;
+}
+.category-card:active { transform: scale(0.97); }
+.category-card .cat-icon { font-size: 22px; margin-bottom: 6px; }
+.category-card .cat-name { font-size: 12px; font-weight: 700; color: var(--navy); margin-bottom: 3px; line-height: 1.3; }
+.category-card .cat-count { font-size: 11px; color: var(--text-light); }
+.category-card .cat-rate { font-size: 11px; margin-top: 5px; font-weight: 900; color: var(--orange); }
+
+.random-btns { display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px; }
+.random-btn {
+  width: 100%; padding: 15px 18px; border: none; border-radius: 14px;
+  font-size: 14px; font-weight: 700; font-family: inherit;
+  cursor: pointer; display: flex; align-items: center; gap: 10px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.random-btn:active { transform: scale(0.98); }
+.random-btn-all  { background: var(--navy);   color: var(--yellow); box-shadow: 0 4px 16px rgba(26,40,71,0.3); }
+.random-btn-common { background: var(--orange); color: white; box-shadow: 0 4px 16px rgba(232,114,42,0.3); }
+.random-btn-special { background: var(--teal);  color: white; box-shadow: 0 4px 16px rgba(58,181,181,0.25); }
+.random-btn .btn-label { flex: 1; text-align: left; }
+.random-btn .btn-sub { font-size: 11px; opacity: 0.75; font-weight: 400; }
+.random-btn .btn-arrow { font-size: 18px; }
+
+/* ===== QUIZ ===== */
+.quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.quiz-progress-text { font-size: 13px; color: var(--text-soft); }
+.quiz-progress-text strong { color: var(--navy); font-size: 16px; }
+.quiz-category-badge {
+  font-size: 11px; padding: 4px 10px; border-radius: 99px;
+  background: var(--yellow); color: var(--navy); font-weight: 900;
+}
+.quiz-progress-bar { background: var(--border); border-radius: 99px; height: 6px; margin-bottom: 16px; overflow: hidden; }
+.quiz-progress-fill {
+  height: 100%; border-radius: 99px;
+  background: linear-gradient(90deg, var(--orange), var(--yellow)); transition: width 0.4s ease;
+}
+.question-card {
+  background: white; border-radius: var(--radius);
+  padding: 18px; box-shadow: var(--card-shadow); margin-bottom: 12px;
+  border-top: 5px solid var(--orange);
+}
+.question-meta { font-size: 11px; color: var(--text-light); margin-bottom: 8px; }
+.question-text { font-size: 15px; line-height: 1.75; font-weight: 500; color: var(--navy); }
+
+.choices-list { display: flex; flex-direction: column; gap: 9px; margin-bottom: 12px; }
+.choice-btn {
+  background: white; border: 2px solid var(--border); border-radius: 12px;
+  padding: 13px 14px; text-align: left; font-size: 14px; line-height: 1.5;
+  cursor: pointer; transition: all 0.15s; display: flex; align-items: flex-start; gap: 10px;
+  font-family: inherit; color: var(--text);
+}
+.choice-btn:active { transform: scale(0.98); }
+.choice-num {
+  min-width: 26px; height: 26px; border-radius: 50%;
+  background: var(--border); color: var(--text-soft);
+  font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.choice-btn.correct  { border-color: var(--correct); background: var(--correct-bg); }
+.choice-btn.correct .choice-num { background: var(--correct); color: white; }
+.choice-btn.wrong    { border-color: var(--wrong);   background: var(--wrong-bg); }
+.choice-btn.wrong .choice-num   { background: var(--wrong);   color: white; }
+.choice-btn.selected {
+  border-color: var(--orange);
+  background: var(--orange-light);
+}
+.choice-btn.selected .choice-num {
+  background: var(--orange);
+  color: white;
+}
+.choice-btn:disabled { cursor: default; }
+
+.answer-panel { background: white; border-radius: var(--radius); overflow: hidden; box-shadow: var(--card-shadow); margin-bottom: 12px; display: none; }
+.answer-panel.show { display: block; }
+.answer-result { padding: 13px 16px; font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.answer-result.correct { background: var(--correct-bg); color: var(--correct); }
+.answer-result.wrong   { background: var(--wrong-bg);   color: var(--wrong); }
+
+.explanation-tabs { display: flex; border-bottom: 1px solid var(--border); background: var(--warm-white); }
+.exp-tab {
+  flex: 1; padding: 10px 4px; font-size: 11px; text-align: center;
+  cursor: pointer; color: var(--text-light);
+  border-bottom: 3px solid transparent; margin-bottom: -1px; transition: all 0.2s; font-weight: 700;
+}
+.exp-tab.active { color: var(--orange); border-bottom-color: var(--orange); }
+
+.exp-content { padding: 14px; }
+.exp-text { font-size: 13px; line-height: 1.85; color: var(--text); }
+.exp-text strong { color: var(--navy); }
+.exp-text .keyword {
+  background: var(--yellow-light); color: var(--navy);
+  padding: 1px 6px; border-radius: 4px; font-weight: 700;
+  border-bottom: 2px solid var(--yellow);
+}
+
+/* 解説画像エリア
+   images/<question_id>.png を配置するとここに表示されます */
+.exp-image-area {
+  background: var(--warm-white); border-radius: 10px;
+  padding: 16px; text-align: center; margin-top: 10px;
+  border: 2px dashed var(--border);
+}
+.exp-image-area img { width: 100%; border-radius: 8px; display: block; }
+.exp-image-area .img-ph { font-size: 36px; margin-bottom: 8px; }
+.exp-image-area p { font-size: 12px; color: var(--text-light); line-height: 1.6; }
+/* 画像パスの説明コメント:
+   questions.json の "image" フィールドに "images/a1.png" のように入力すると
+   この <img> タグに自動反映されます */
+
+.quiz-actions { display: flex; gap: 8px; margin-top: 4px; }
+.btn-secondary {
+  flex: 1; padding: 14px; border-radius: 12px; border: 2px solid var(--border);
+  background: white; font-size: 14px; font-weight: 700; cursor: pointer;
+  color: var(--text-soft); font-family: inherit; transition: all 0.15s;
+}
+.btn-primary {
+  flex: 2; padding: 14px; border-radius: 12px; border: none;
+  background: var(--navy); font-size: 14px; font-weight: 700;
+  cursor: pointer; color: var(--yellow); font-family: inherit; transition: all 0.15s;
+}
+.btn-primary:active, .btn-secondary:active { transform: scale(0.97); }
+
+/* ===== NOTES ===== */
+.note-add-btn {
+  width: 100%; padding: 14px; border-radius: var(--radius);
+  border: 2px dashed var(--yellow); background: var(--yellow-light);
+  color: var(--navy); font-size: 14px; font-weight: 700;
+  cursor: pointer; margin-bottom: 16px; font-family: inherit;
+}
+.section-title {
+  font-size: 12px; font-weight: 900; color: var(--text-soft);
+  margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.1em;
+  display: flex; align-items: center; gap: 6px;
+}
+.memo-card {
+  background: white; border-radius: 12px; padding: 14px;
+  box-shadow: var(--card-shadow); margin-bottom: 9px;
+  border-left: 5px solid var(--orange); cursor: pointer;
+}
+.memo-card .memo-q { font-size: 13px; font-weight: 700; margin-bottom: 5px; color: var(--navy); }
+.memo-card .memo-preview { font-size: 12px; color: var(--text-soft); line-height: 1.6; }
+.memo-card .memo-tags { display: flex; gap: 5px; margin-top: 7px; flex-wrap: wrap; }
+.memo-tag { font-size: 11px; padding: 2px 8px; border-radius: 99px; background: var(--yellow-light); color: var(--navy); font-weight: 700; }
+.memo-tag.wrong-tag { background: var(--wrong-bg); color: var(--wrong); }
+
+
+/* ===== NOTE FOLDERS ===== */
+.note-folder-grid{display:flex;flex-direction:column;gap:12px}.note-folder-card{background:white;border-radius:var(--radius);padding:16px;box-shadow:var(--card-shadow);border-left:6px solid var(--yellow);cursor:pointer;display:flex;align-items:center;gap:12px}.note-folder-card:active{transform:scale(.98)}.note-folder-icon{font-size:30px}.note-folder-title{font-size:15px;font-weight:900;color:var(--navy)}.note-folder-sub{font-size:12px;color:var(--text-soft);margin-top:3px}.note-back-btn{border:none;background:var(--navy);color:var(--yellow);border-radius:12px;padding:10px 14px;font-size:13px;font-weight:700;margin-bottom:14px;cursor:pointer}.empty-note{background:white;border-radius:var(--radius);padding:22px 16px;text-align:center;box-shadow:var(--card-shadow);color:var(--text-soft);font-size:13px;line-height:1.7}.note-card-actions{display:flex;gap:8px;margin-top:10px}.note-mini-btn{flex:1;border:1px solid var(--border);background:var(--warm-white);border-radius:10px;padding:8px;font-size:12px;font-weight:700;color:var(--navy);cursor:pointer}
+/* ===== SOCIAL ===== */
+.social-compose{background:white;border-radius:var(--radius);padding:14px;box-shadow:var(--card-shadow);margin-bottom:14px;border-top:5px solid var(--teal)}.social-compose-title{font-size:15px;font-weight:900;color:var(--navy);margin-bottom:8px}.social-input{width:100%;border:2px solid var(--border);border-radius:12px;padding:11px;font-family:inherit;font-size:13px;outline:none;margin-bottom:8px}.social-input:focus{border-color:var(--teal)}.social-post-btn{width:100%;border:none;border-radius:12px;background:var(--teal);color:white;padding:12px;font-weight:900;font-size:14px;font-family:inherit;cursor:pointer}.social-card{background:white;border-radius:var(--radius);box-shadow:var(--card-shadow);padding:14px;margin-bottom:12px}.social-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}.social-avatar{width:38px;height:38px;border-radius:50%;background:var(--yellow-light);display:flex;align-items:center;justify-content:center;font-size:20px}.social-name{font-size:13px;font-weight:900;color:var(--navy)}.social-date{font-size:11px;color:var(--text-light)}.social-title{font-size:14px;font-weight:900;color:var(--navy);margin-bottom:6px}.social-text{font-size:13px;color:var(--text-soft);line-height:1.7;margin-bottom:10px}.social-image-ph{width:100%;height:150px;border-radius:12px;background:linear-gradient(135deg,var(--yellow-light),var(--teal-light));display:flex;align-items:center;justify-content:center;font-size:44px;margin-bottom:10px}.social-actions{display:flex;gap:8px}.social-action-btn{flex:1;border:1px solid var(--border);background:var(--warm-white);border-radius:10px;padding:9px;font-size:12px;font-weight:700;color:var(--text-soft);cursor:pointer}
+
+
+.q-image{
+  width:100%;
+  border-radius:18px;
+  margin-top:12px;
+  box-shadow:0 4px 14px rgba(0,0,0,0.08);
+}
+
+
+/* ===== IMAGE PROMPT GENERATOR ===== */
+.prompt-generator-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 14px;
+  border-top: 5px solid var(--orange);
+}
+.prompt-generator-title {
+  font-size: 15px;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.prompt-generator-sub {
+  font-size: 12px;
+  color: var(--text-soft);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.prompt-select {
+  width: 100%;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 11px;
+  font-family: inherit;
+  font-size: 13px;
+  background: white;
+  margin-bottom: 8px;
+}
+.prompt-output {
+  width: 100%;
+  min-height: 220px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 12px;
+  line-height: 1.7;
+  font-family: inherit;
+  resize: vertical;
+  outline: none;
+  color: var(--text);
+}
+.prompt-btn-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.prompt-btn {
+  flex: 1;
+  border: none;
+  border-radius: 12px;
+  padding: 11px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.prompt-btn.primary {
+  background: var(--navy);
+  color: var(--yellow);
+}
+.prompt-btn.secondary {
+  background: var(--yellow-light);
+  color: var(--navy);
+  border: 1px solid var(--yellow);
+}
+.prompt-hint {
+  font-size: 11px;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+/* ===== STATS ===== */
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin-bottom: 14px; }
+.stat-box { background: white; border-radius: 12px; padding: 14px 8px; text-align: center; box-shadow: var(--card-shadow); }
+.stat-box .stat-num {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 26px; font-weight: 900; color: var(--navy); line-height: 1; margin-bottom: 3px;
+}
+.stat-box.hl .stat-num { color: var(--orange); }
+.stat-box .stat-label { font-size: 11px; color: var(--text-light); }
+
+.stats-section { margin-bottom: 16px; }
+.stats-section-header {
+  background: var(--navy); color: var(--yellow); padding: 10px 14px;
+  border-radius: 10px 10px 0 0; font-size: 13px; font-weight: 900;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+.stats-section-body {
+  background: white; border-radius: 0 0 10px 10px; padding: 14px;
+  box-shadow: var(--card-shadow); display: flex; flex-direction: column; gap: 12px;
+}
+.stat-bar-label { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px; color: var(--text-soft); }
+.stat-bar-label strong { color: var(--orange); font-weight: 900; }
+.stat-bar-track { background: var(--border); border-radius: 99px; height: 8px; overflow: hidden; }
+.stat-bar-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--orange), var(--yellow)); }
+
+/* ===== TOAST ===== */
+.result-toast {
+  position: fixed; top: 80px; left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  background: var(--navy); color: var(--yellow);
+  padding: 11px 22px; border-radius: 99px;
+  font-size: 14px; font-weight: 700; opacity: 0;
+  pointer-events: none; transition: all 0.3s; z-index: 999; white-space: nowrap;
+}
+.result-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ローディング画面（questions.json 読み込み中に表示） -->
+<div id="app-loading">
+  <div class="logo">育てるノート</div>
+  <div class="spinner"></div>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-logo">育てるノート<span>PT国家試験対策</span></div>
+  <div class="countdown-box" onclick="openCountdownModal()" id="countdown-box">
+    <div class="countdown-days" id="countdown-days">－</div>
+    <div class="countdown-label">日まで</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-tabs">
+  <div class="nav-tab active" onclick="showScreen('home',this)"><span class="tab-icon">🏠</span>ホーム</div>
+  <div class="nav-tab" onclick="showScreen('quiz',this)"><span class="tab-icon">📝</span>問題を解く</div>
+  <div class="nav-tab" onclick="showScreen('notes',this)"><span class="tab-icon">📚</span>ノート</div>
+  <div class="nav-tab" onclick="showScreen('stats',this)"><span class="tab-icon">📊</span>成績</div>
+  <div class="nav-tab" onclick="showScreen('social',this)"><span class="tab-icon">🌱</span>育てるノート</div>
+</div>
+
+<!-- TOAST -->
+<div class="result-toast" id="toast"></div>
+
+<!-- 国試日設定モーダル -->
+<div class="modal-overlay" id="countdown-modal">
+  <div class="modal-sheet">
+    <div class="modal-title">🎯 国試日を設定する</div>
+    <div class="modal-sub">国家試験の日付を入力してください。<br>ヘッダーにカウントダウンが表示されます。</div>
+    <input type="date" class="modal-input" id="exam-date-input">
+    <button class="modal-btn" onclick="saveExamDate()">設定する</button>
+    <button onclick="closeCountdownModal()" style="width:100%;padding:12px;background:none;border:none;color:var(--text-soft);font-size:14px;cursor:pointer;margin-top:8px">キャンセル</button>
+  </div>
+</div>
+
+<!-- ========== HOME ========== -->
+<div class="screen active" id="screen-home">
+  <div class="home-hero">
+    <div class="home-hero-label">+ 育てるノート</div>
+    <h2>今日も一問一答！</h2>
+    <p>コツコツ積み重ねた知識が、<br>合格への確実な一歩になる。</p>
+  </div>
+
+  <div class="progress-card">
+    <h3>📈 全体の進捗</h3>
+    <div class="progress-bar-wrap"><div class="progress-bar" id="overall-progress-bar" style="width:0%"></div></div>
+    <div class="progress-stats">
+      <span><strong id="stat-done">0</strong> / <span id="stat-total">0</span>問 完了</span>
+      <span>正答率 <strong id="stat-rate">－%</strong></span>
+    </div>
+  </div>
+
+  <!-- カテゴリタブ -->
+  <div class="category-tabs">
+    <button class="cat-main-tab active" onclick="switchCatTab('common',this)">共通問題</button>
+    <button class="cat-main-tab" onclick="switchCatTab('special',this)">専門問題</button>
+  </div>
+  <div class="cat-panel active" id="cat-common">
+    <div class="category-grid" id="grid-common"></div>
+  </div>
+  <div class="cat-panel" id="cat-special">
+    <div class="category-grid" id="grid-special"></div>
+  </div>
+
+  <!-- ランダム出題ボタン -->
+  <div class="random-btns">
+    <button class="random-btn random-btn-all" onclick="startQuiz('all')">
+      <span>🎲</span>
+      <span class="btn-label">全問ランダム<span class="btn-sub">共通＋専門すべてから出題</span></span>
+      <span class="btn-arrow">›</span>
+    </button>
+    <button class="random-btn random-btn-common" onclick="startQuiz('common')">
+      <span>📘</span>
+      <span class="btn-label">共通問題ランダム<span class="btn-sub" id="sub-common">読み込み中...</span></span>
+      <span class="btn-arrow">›</span>
+    </button>
+    <button class="random-btn random-btn-special" onclick="startQuiz('special')">
+      <span>📗</span>
+      <span class="btn-label">専門問題ランダム<span class="btn-sub" id="sub-special">読み込み中...</span></span>
+      <span class="btn-arrow">›</span>
+    </button>
+  </div>
+</div>
+
+<!-- ========== QUIZ ========== -->
+<div class="screen" id="screen-quiz">
+  <div class="quiz-header">
+    <div class="quiz-progress-text"><strong id="q-current">1</strong> / <span id="q-total">5</span> 問</div>
+    <div id="q-category-badge" class="quiz-category-badge">－</div>
+  </div>
+  <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="q-progress-fill" style="width:0%"></div></div>
+
+  <div class="question-card">
+    <div class="question-meta" id="q-meta"></div>
+    <div class="question-text" id="q-text"></div>
+  </div>
+
+  <div class="choices-list" id="choices-list"></div>
+
+  <div class="answer-panel" id="answer-panel">
+    <div class="answer-result" id="answer-result"></div>
+    <div class="explanation-tabs">
+      <div class="exp-tab active" onclick="switchExpTab('text',this)">📖 解説</div>
+      <div class="exp-tab" onclick="switchExpTab('image',this)">🖼 資料</div>
+      <div class="exp-tab" onclick="switchExpTab('memo',this)">✏️ メモ</div>
+    </div>
+    <div class="exp-content">
+      <div id="exp-text-area" class="exp-text"></div>
+
+      <!--
+        【解説画像の使い方】
+        questions.json の各問題の "image" フィールドにファイル名を入力してください。
+        例: "image": "images/a1.png"
+        ・images/ フォルダに画像ファイルを置くだけで自動表示されます
+        ・空文字 "" のときは「画像なし」プレースホルダーが表示されます
+      -->
+      <div id="exp-image-area" class="exp-image-area" style="display:none">
+        <div id="exp-image-placeholder">
+          <div class="img-ph">🖼</div>
+          <p>この問題には解説画像がありません。<br>images/ フォルダに画像を追加して<br>questions.json の "image" に記載してください。</p>
+        </div>
+        <img id="exp-image-tag" src="" alt="解説画像" style="display:none" onerror="this.style.display='none';document.getElementById('exp-image-placeholder').style.display=''">
+      </div>
+
+      <div id="exp-memo-area" style="display:none">
+        <textarea id="memo-input" style="width:100%;height:90px;border:2px solid var(--border);border-radius:10px;padding:10px;font-size:13px;font-family:inherit;resize:none;outline:none;line-height:1.7" placeholder="苦手ポイント・覚え方・気づきをメモ"></textarea>
+        <button onclick="saveMemo()" style="margin-top:8px;width:100%;padding:10px;background:var(--navy);color:var(--yellow);border:none;border-radius:10px;font-weight:700;font-size:13px;cursor:pointer">メモを保存</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="quiz-actions">
+    <button class="btn-secondary" id="btn-skip" onclick="nextQuestion()">スキップ</button>
+    <button class="btn-primary"   id="btn-next" onclick="nextQuestion()" style="display:none">次の問題 →</button>
+    <button class="btn-secondary" id="btn-bm"   onclick="toggleBookmark()" style="width:48px;flex:none;padding:14px 0">⭐</button>
+  </div>
+</div>
+
+<!-- ========== NOTES ========== -->
+<div class="screen" id="screen-notes">
+  <div id="notes-home">
+    <button class="note-add-btn" onclick="alert('今後、自由ノート作成機能を追加できます')">＋ 新しいノートを追加</button>
+    <div class="note-folder-grid">
+      <div class="note-folder-card" onclick="openNoteFolder('weak')" style="border-left-color:var(--wrong)"><div class="note-folder-icon">📁</div><div><div class="note-folder-title">苦手問題</div><div class="note-folder-sub"><span id="weak-count">0</span>問｜3回以上間違えた問題が自動で入ります</div></div></div>
+      <div class="note-folder-card" onclick="openNoteFolder('bookmark')" style="border-left-color:var(--yellow)"><div class="note-folder-icon">📁</div><div><div class="note-folder-title">ブックマーク</div><div class="note-folder-sub"><span id="bookmark-count">0</span>問｜⭐を押した問題を保存</div></div></div>
+      <div class="note-folder-card" onclick="openNoteFolder('material')" style="border-left-color:var(--teal)"><div class="note-folder-icon">📁</div><div><div class="note-folder-title">解説資料</div><div class="note-folder-sub"><span id="material-count">0</span>件｜画像つき解説をまとめて確認</div></div></div>
+    </div>
+  </div>
+  <div id="notes-folder-view" style="display:none"><button class="note-back-btn" onclick="backToNotesHome()">← ノートに戻る</button><div class="section-title" id="notes-folder-title">📁 フォルダ</div><div id="notes-folder-list"></div></div>
+</div>
+<!-- ========== SOCIAL ========== -->
+<div class="screen" id="screen-social">
+  <div class="home-hero" style="background:linear-gradient(135deg,var(--navy),var(--navy-light));"><div class="home-hero-label">+ 育てるノート</div><h2>みんなで育てる学習ノート</h2><p>まとめ画像や覚え方を投稿して、<br>国試対策をみんなで積み上げる場所。</p></div>
+
+  <div class="prompt-generator-card" id="admin-login-card">
+    <div class="prompt-generator-title">🔐 管理者専用</div>
+    <div class="prompt-generator-sub">
+      解説画像プロンプト生成は管理者だけが使えます。<br>
+      管理者パスコードを入力してください。
+    </div>
+    <input class="social-input" id="admin-pass-input" type="password" placeholder="管理者パスコード">
+    <button class="prompt-btn primary" style="width:100%" onclick="unlockAdminTools()">管理者ツールを開く</button>
+    <div class="prompt-hint">※本格ログイン導入前の簡易ロックです。</div>
+  </div>
+
+  <div class="prompt-generator-card" id="admin-prompt-generator" style="display:none">
+    <div class="prompt-generator-title">🖼 解説画像プロンプト自動生成</div>
+    <button class="note-mini-btn" style="margin-bottom:10px" onclick="lockAdminTools()">管理者ツールを閉じる</button>
+    <div class="prompt-generator-sub">
+      問題を選ぶだけで、ChatGPT画像生成に貼れるプロンプトを自動作成します。<br>
+      画像名は <strong>問題ID.webp</strong> にすると自動で問題に紐付きます。
+    </div>
+    <select class="prompt-select" id="prompt-question-select" onchange="generateImagePrompt()">
+      <option value="">問題を選択してください</option>
+    </select>
+    <textarea class="prompt-output" id="image-prompt-output" placeholder="ここに画像生成用プロンプトが表示されます"></textarea>
+    <div class="prompt-btn-row">
+      <button class="prompt-btn primary" onclick="copyImagePrompt()">プロンプトをコピー</button>
+      <button class="prompt-btn secondary" onclick="generateImagePrompt()">再生成</button>
+    </div>
+    <div class="prompt-hint">
+      生成した画像は <strong>images/問題ID.webp</strong> という名前で保存してください。例：images/pt52_001.webp
+    </div>
+  </div>
+
+  <div class="social-compose"><div class="social-compose-title">📸 投稿する</div><input class="social-input" id="social-title-input" placeholder="タイトル例：心電図の覚え方"><textarea class="social-input" id="social-text-input" rows="3" placeholder="本文例：ここはP波・QRS・T波の流れで覚えると整理しやすい！"></textarea><button class="social-post-btn" onclick="addSocialPost()">育てるノートに投稿</button><div style="font-size:11px;color:var(--text-light);line-height:1.6;margin-top:8px">※現在はこの端末内に保存されるデモ機能です。ログイン機能を追加すると全員の投稿として共有できます。</div></div>
+  <div id="social-feed"></div>
+</div>
+<!-- ========== STATS ========== -->
+<div class="screen" id="screen-stats">
+  <div class="stats-grid">
+    <div class="stat-box hl"><div class="stat-num" id="s-total">0</div><div class="stat-label">総回答数</div></div>
+    <div class="stat-box hl"><div class="stat-num" id="s-rate">－%</div><div class="stat-label">正答率</div></div>
+    <div class="stat-box"><div class="stat-num" id="s-streak">0</div><div class="stat-label">連続学習日</div></div>
+  </div>
+  <div class="stats-section">
+    <div class="stats-section-header">📘 共通問題　カテゴリ別正答率</div>
+    <div class="stats-section-body" id="stats-common"></div>
+  </div>
+  <div class="stats-section">
+    <div class="stats-section-header">📗 専門問題　カテゴリ別正答率</div>
+    <div class="stats-section-body" id="stats-special"></div>
+  </div>
+  <div style="background:white;border-radius:var(--radius);padding:16px;box-shadow:var(--card-shadow)">
+    <div style="font-size:13px;font-weight:700;color:var(--text-soft);margin-bottom:14px">📅 今週の学習記録</div>
+    <div id="week-chart" style="display:flex;justify-content:space-between;align-items:flex-end;gap:6px;height:80px;"></div>
+  </div>
+</div>
+
+<!-- ================================================================
+  カテゴリ設定（アイコン・色）— questions.json に追加したカテゴリも
+  ここに登録すればカードに反映されます
+================================================================ -->
+<script>
+const CAT_META = {
+  '解剖学':     { icon:'🦴', color:'#e8722a' },
+  '生理学':     { icon:'💓', color:'#3ab5b5' },
+  '病理学':     { icon:'🔬', color:'#c0392b' },
+  '運動学':     { icon:'🏃', color:'#7b61d6' },
+  '人間発達学': { icon:'👶', color:'#f5d547' },
+  '内科学':     { icon:'🏥', color:'#2d8a4e' },
+  '神経内科学': { icon:'🧠', color:'#1a6fa8' },
+  '臨床心理学': { icon:'💭', color:'#e8722a' },
+  '精神医学':   { icon:'🌙', color:'#7b61d6' },
+  '整形外科学': { icon:'🦿', color:'#3ab5b5' },
+  'リハ概論':   { icon:'♿', color:'#f5d547' },
+  '運動療法':   { icon:'🏋️', color:'#e8722a' },
+  '物理療法':   { icon:'⚡', color:'#3ab5b5' },
+  'PT評価学':   { icon:'📋', color:'#f5d547' },
+  '内部障害':   { icon:'💊', color:'#2d8a4e' },
+  '小児疾患':   { icon:'🍼', color:'#7b61d6' },
+  '整形外科障害':{ icon:'🦵', color:'#c0392b' },
+  '脳血管障害': { icon:'🩸', color:'#1a6fa8' },
+  '神経・筋障害':{ icon:'⚡', color:'#e8722a' },
+  '脊髄損傷':   { icon:'🦴', color:'#3ab5b5' },
+  '補装具療法': { icon:'🦾', color:'#7b61d6' },
+  'ADL':        { icon:'🚶', color:'#f5d547' },
+  '法規・研究・他':{ icon:'📜', color:'#2d8a4e' },
+};
+
+// ===== STATE =====
+let DB = null;           // questions.json の内容
+let currentQs = [];
+let currentIdx = 0;
+let answered   = false;
+let bookmarked = false;
+let selectedChoices = [];
+const savedMemos = JSON.parse(localStorage.getItem('savedMemos') || '{}');   // { questionId: 'メモ文字列' }
+const bookmarkedIds = JSON.parse(localStorage.getItem('bookmarkedIds') || '[]');
+// 正答記録: { questionId: { done: number, correct: number } }
+const answerStats = JSON.parse(localStorage.getItem('answerStats') || '{}');
+const learningLog = JSON.parse(localStorage.getItem('learningLog') || '{}');
+
+function todayKey() {
+  return new Date().toISOString().split('T')[0];
+}
+
+function addLearningRecord() {
+  const today = todayKey();
+  learningLog[today] = (learningLog[today] || 0) + 1;
+  localStorage.setItem('learningLog', JSON.stringify(learningLog));
+}
+
+function calcLearningStreak() {
+  let streak = 0;
+  const d = new Date();
+
+  while (true) {
+    const key = d.toISOString().split('T')[0];
+
+    if (learningLog[key]) {
+      streak++;
+      d.setDate(d.getDate() - 1);
+    } else {
+      break;
+    }
+  }
+
+  return streak;
+}
+
+
+function normalizeDB(raw) {
+  const defaultCategories = {
+    common: ['解剖学','生理学','病理学','運動学','人間発達学','内科学','神経内科学','臨床心理学','精神医学','整形外科学','リハ概論'],
+    special: ['運動療法','物理療法','PT評価学','内部障害','小児疾患','整形外科障害','脳血管障害','神経・筋障害','脊髄損傷','補装具療法','ADL','法規・研究・他']
+  };
+  const normalized = { categories: raw.categories || defaultCategories, questions: {} };
+  [...normalized.categories.common, ...normalized.categories.special].forEach(cat => normalized.questions[cat] = []);
+  if (Array.isArray(raw.questions)) {
+    raw.questions.forEach(q => {
+      const cat = q.category || '法規・研究・他';
+      if (!normalized.questions[cat]) normalized.questions[cat] = [];
+      normalized.questions[cat].push({ id:q.id, meta:q.meta||'', text:q.text||q.question||'', choices:q.choices||[], answer:q.answer, explanation:q.explanation||'', image:q.image||'', difficulty:q.difficulty||'standard', tags:q.tags||[] });
+    });
+  } else {
+    Object.entries(raw.questions || {}).forEach(([cat, qs]) => {
+      if (!normalized.questions[cat]) normalized.questions[cat] = [];
+      (qs || []).forEach(q => normalized.questions[cat].push({ ...q, text:q.text || q.question || '', image:q.image || '' }));
+    });
+  }
+  return normalized;
+}
+
+// ===== questions.json 読み込み =====
+async function loadQuestions() {
+  try {
+    const res = await fetch('questions.json');
+    if (!res.ok) throw new Error('questions.json が見つかりません');
+    DB = normalizeDB(await res.json());
+    onLoaded();
+  } catch (e) {
+    document.getElementById('app-loading').innerHTML =
+      `<div style="color:#f5d547;font-family:'Noto Sans JP',sans-serif;text-align:center;padding:24px">
+        <div style="font-size:28px;margin-bottom:12px">⚠️</div>
+        <div style="font-size:15px;font-weight:700;margin-bottom:8px">問題データを読み込めませんでした</div>
+        <div style="font-size:12px;opacity:.7">${e.message}</div>
+      </div>`;
+  }
+}
+
+function onLoaded() {
+  document.getElementById('app-loading').style.display = 'none';
+  buildCategoryGrids();
+  buildStatsSection('stats-common', DB.categories.common);
+  buildStatsSection('stats-special', DB.categories.special);
+  updateHomeStats();
+  updateRandomBtnSubs();
+  buildWeekChart();
+  updateCountdown();
+  updateNoteCounts();
+  renderSocialFeed();
+  showAdminTools();
+  buildPromptQuestionOptions();
+  // 問題タブを開いたときのデフォルト用に初期化
+  if (currentQs.length === 0) {
+    currentQs = getQsByMode('all');
+    loadQuestion();
+  }
+}
+
+// ===== カテゴリグリッド生成 =====
+function buildCategoryGrids() {
+  buildGrid('grid-common',  DB.categories.common);
+  buildGrid('grid-special', DB.categories.special);
+}
+function buildGrid(containerId, cats) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = cats.map(cat => {
+    const meta  = CAT_META[cat] || { icon:'📖', color:'#e8722a' };
+    const qs    = DB.questions[cat] || [];
+    const stats = getCatStats(cat);
+    const rate  = stats.done > 0 ? Math.round(stats.correct / stats.done * 100) + '%' : '－%';
+    return `
+      <div class="category-card" onclick="startQuiz('${cat}')" style="border-top-color:${meta.color}">
+        <div class="cat-icon">${meta.icon}</div>
+        <div class="cat-name">${cat}</div>
+        <div class="cat-count">${qs.length}問</div>
+        <div class="cat-rate">${rate}</div>
+      </div>`;
+  }).join('');
+}
+
+// ===== 成績セクション生成 =====
+function buildStatsSection(containerId, cats) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = cats.map(cat => {
+    const meta  = CAT_META[cat] || { icon:'📖', color:'#e8722a' };
+    const stats = getCatStats(cat);
+    const pct   = stats.done > 0 ? Math.round(stats.correct / stats.done * 100) : 0;
+    const label = stats.done > 0 ? pct + '%' : '未挑戦';
+    return `
+      <div class="stat-bar-row">
+        <div class="stat-bar-label">
+          <span>${meta.icon} ${cat}</span>
+          <strong>${label}</strong>
+        </div>
+        <div class="stat-bar-track">
+          <div class="stat-bar-fill" style="width:${pct}%;background:linear-gradient(90deg,${meta.color},${meta.color}99)"></div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+// ===== ホーム統計更新 =====
+function updateHomeStats() {
+  const allQs = getAllQs();
+  const total  = allQs.length;
+  const done   = Object.values(answerStats).reduce((s, v) => s + (v.done > 0 ? 1 : 0), 0);
+  const cTotal = Object.values(answerStats).reduce((s, v) => s + v.done, 0);
+  const cRight = Object.values(answerStats).reduce((s, v) => s + v.correct, 0);
+  const rate   = cTotal > 0 ? Math.round(cRight / cTotal * 100) : 0;
+  document.getElementById('overall-progress-bar').style.width = total > 0 ? (done / total * 100) + '%' : '0%';
+  document.getElementById('stat-done').textContent  = done;
+  document.getElementById('stat-total').textContent = total;
+  document.getElementById('stat-rate').textContent  = cTotal > 0 ? rate + '%' : '－%';
+  document.getElementById('s-total').textContent    = cTotal;
+  document.getElementById('s-rate').textContent     = cTotal > 0 ? rate + '%' : '－%';
+  document.getElementById('s-streak').textContent   = localStorage.getItem('streak') || '0';
+}
+function updateRandomBtnSubs() {
+  const commonQs  = DB.categories.common.flatMap( c => DB.questions[c] || []);
+  const specialQs = DB.categories.special.flatMap(c => DB.questions[c] || []);
+  document.getElementById('sub-common').textContent  = `${DB.categories.common.length}科目 / ${commonQs.length}問`;
+  document.getElementById('sub-special').textContent = `${DB.categories.special.length}科目 / ${specialQs.length}問`;
+}
+
+// ===== データ取得ヘルパー =====
+function getAllQs() {
+  return [...DB.categories.common, ...DB.categories.special].flatMap(c => DB.questions[c] || []);
+}
+function getCatStats(cat) {
+  const qs = DB.questions[cat] || [];
+  return qs.reduce((acc, q) => {
+    const s = answerStats[q.id];
+    if (s) { acc.done += s.done; acc.correct += s.correct; }
+    return acc;
+  }, { done: 0, correct: 0 });
+}
+function getCategoryOfId(id) {
+  for (const [cat, qs] of Object.entries(DB.questions)) {
+    if (qs.find(q => q.id === id)) return cat;
+  }
+  return '';
+}
+
+// ===== 出題セット生成 =====
+function getQsByMode(mode) {
+  if (!DB) return [];
+  const shuffle = arr => [...arr].sort(() => Math.random() - 0.5);
+  if (mode === 'all')     return shuffle(getAllQs());
+  if (mode === 'common')  return shuffle(DB.categories.common.flatMap( c => DB.questions[c] || []));
+  if (mode === 'special') return shuffle(DB.categories.special.flatMap(c => DB.questions[c] || []));
+  return (DB.questions[mode] || []).slice();
+}
+
+// ===== SCREEN =====
+function showScreen(id, tab) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('screen-' + id).classList.add('active');
+  if (tab) tab.classList.add('active');
+  if (id === 'stats') {
+    buildStatsSection('stats-common',  DB.categories.common);
+    buildStatsSection('stats-special', DB.categories.special);
+    updateHomeStats();
+  }
+  if (id === 'notes') { backToNotesHome(); updateNoteCounts(); }
+  if (id === 'social') { renderSocialFeed(); }
+}
+function switchCatTab(type, btn) {
+  document.querySelectorAll('.cat-main-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.cat-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('cat-' + type).classList.add('active');
+}
+
+// ===== QUIZ =====
+function startQuiz(mode) {
+  currentQs  = getQsByMode(mode);
+  currentIdx = 0;
+  document.querySelectorAll('.nav-tab').forEach((t, i) => t.classList.toggle('active', i === 1));
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen-quiz').classList.add('active');
+  loadQuestion();
+}
+
+function loadQuestion() {
+  if (currentIdx >= currentQs.length) {
+    showToast('🎉 全問終了！お疲れ様でした');
+    setTimeout(() => showScreen('home', document.querySelector('.nav-tab')), 1500);
+    return;
+  }
+  const q = currentQs[currentIdx];
+  answered = false;
+  bookmarked = bookmarkedIds.includes(q.id);
+  selectedChoices = [];
+  document.getElementById('btn-bm').textContent = bookmarked ? '🌟' : '⭐';
+  document.getElementById('q-current').textContent    = currentIdx + 1;
+  document.getElementById('q-total').textContent      = currentQs.length;
+  document.getElementById('q-progress-fill').style.width = ((currentIdx + 1) / currentQs.length * 100) + '%';
+  document.getElementById('q-category-badge').textContent = getCategoryOfId(q.id);
+  document.getElementById('q-meta').textContent = q.meta;
+  document.getElementById('q-text').textContent = q.text;
+
+  const cl = document.getElementById('choices-list');
+  cl.innerHTML = '';
+  q.choices.forEach((c, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'choice-btn';
+    btn.innerHTML = `<span class="choice-num">${i + 1}</span><span>${c}</span>`;
+    btn.onclick = () => selectChoice(i);
+    cl.appendChild(btn);
+  });
+
+  document.getElementById('answer-panel').classList.remove('show');
+  document.getElementById('btn-skip').style.display = '';
+  document.getElementById('btn-next').style.display = 'none';
+  switchExpTab('text', document.querySelector('.exp-tab'));
+  document.getElementById('memo-input').value = savedMemos[q.id] || '';
+}
+
+function selectChoice(idx) {
+  if (answered) return;
+
+  const q = currentQs[currentIdx];
+
+  // q.answer は「5」のような単数でも、「[2, 5]」のような複数でも対応
+  const correctAnswers = Array.isArray(q.answer) ? q.answer : [q.answer];
+  const requiredCount = correctAnswers.length;
+
+  const btns = document.querySelectorAll('.choice-btn');
+
+  // 選択済みをもう一度押したら解除
+  if (selectedChoices.includes(idx)) {
+    selectedChoices = selectedChoices.filter(i => i !== idx);
+    btns[idx].classList.remove('selected');
+    return;
+  }
+
+  // 必要数以上は選べない
+  if (selectedChoices.length >= requiredCount) return;
+
+  selectedChoices.push(idx);
+  btns[idx].classList.add('selected');
+
+  // 複数回答の場合、必要数を選ぶまでは判定しない
+  if (selectedChoices.length !== requiredCount) {
+    showToast(`あと${requiredCount - selectedChoices.length}つ選んでください`);
+    return;
+  }
+
+  answered = true;
+
+  const selectedNums = selectedChoices.map(i => i + 1).sort((a, b) => a - b);
+  const correctNums = correctAnswers.slice().sort((a, b) => a - b);
+
+  const ok =
+    selectedNums.length === correctNums.length &&
+    selectedNums.every((num, i) => num === correctNums[i]);
+
+  btns.forEach((b, i) => {
+    b.disabled = true;
+
+    // 正解選択肢は緑
+    if (correctNums.includes(i + 1)) {
+      b.classList.add('correct');
+    }
+
+    // 選んだけど不正解だった選択肢は赤
+    if (selectedNums.includes(i + 1) && !correctNums.includes(i + 1)) {
+      b.classList.add('wrong');
+    }
+
+    b.classList.remove('selected');
+  });
+
+  const res = document.getElementById('answer-result');
+  res.textContent = ok ? '✅ 正解！' : '❌ 不正解';
+  res.className   = 'answer-result ' + (ok ? 'correct' : 'wrong');
+
+  // 解説テキスト
+  document.getElementById('exp-text-area').innerHTML = q.explanation;
+
+  // 解説画像の設定
+  // questions.json の "image" フィールドに "images/a1.png" のように入力すると自動表示
+  const imgPath = q.image || '';
+  const imgTag  = document.getElementById('exp-image-tag');
+  const imgPh   = document.getElementById('exp-image-placeholder');
+  if (imgPath) {
+    imgTag.src = imgPath;
+    imgTag.style.display = '';
+    imgPh.style.display  = 'none';
+  } else {
+    imgTag.src = '';
+    imgTag.style.display = 'none';
+    imgPh.style.display  = '';
+  }
+
+  document.getElementById('answer-panel').classList.add('show');
+  document.getElementById('btn-skip').style.display = 'none';
+  document.getElementById('btn-next').style.display = '';
+  showToast(ok ? '🎉 正解！' : '😅 解説を確認しよう');
+
+  // 記録保存
+  if (!answerStats[q.id]) answerStats[q.id] = { done: 0, correct: 0 };
+  answerStats[q.id].done++;
+  if (ok) answerStats[q.id].correct++;
+  localStorage.setItem('answerStats', JSON.stringify(answerStats));
+  addLearningRecord();
+  updateNoteCounts();
+}
+
+function nextQuestion() { currentIdx++; loadQuestion(); }
+
+function switchExpTab(type, tab) {
+  document.querySelectorAll('.exp-tab').forEach(t => t.classList.remove('active'));
+  if (tab) tab.classList.add('active');
+  document.getElementById('exp-text-area').style.display  = type === 'text'  ? '' : 'none';
+  document.getElementById('exp-image-area').style.display = type === 'image' ? '' : 'none';
+  document.getElementById('exp-memo-area').style.display  = type === 'memo'  ? '' : 'none';
+}
+
+function saveMemo() {
+  const q = currentQs[currentIdx];
+  savedMemos[q.id] = document.getElementById('memo-input').value;
+  localStorage.setItem('savedMemos', JSON.stringify(savedMemos));
+  updateNoteCounts();
+  showToast('✏️ メモを保存しました');
+}
+function toggleBookmark() {
+  const q = currentQs[currentIdx];
+  if (!q) return;
+  const idx = bookmarkedIds.indexOf(q.id);
+  if (idx >= 0) { bookmarkedIds.splice(idx, 1); bookmarked = false; }
+  else { bookmarkedIds.push(q.id); bookmarked = true; }
+  localStorage.setItem('bookmarkedIds', JSON.stringify(bookmarkedIds));
+  document.getElementById('btn-bm').textContent = bookmarked ? '🌟' : '⭐';
+  updateNoteCounts();
+  showToast(bookmarked ? '🌟 ブックマーク追加' : 'ブックマーク解除');
+}
+
+
+// ===== NOTES FOLDER =====
+function findQuestionById(id){for(const qs of Object.values(DB.questions||{})){const f=qs.find(q=>q.id===id);if(f)return f;}return null;}
+function getWrongCount(qid){const s=answerStats[qid];if(!s)return 0;return Math.max(0,(s.done||0)-(s.correct||0));}
+function getWeakQuestions(){return getAllQs().filter(q=>getWrongCount(q.id)>=3);}
+function getBookmarkedQuestions(){return bookmarkedIds.map(id=>findQuestionById(id)).filter(Boolean);}
+function getMaterialQuestions(){return getAllQs().filter(q=>q.image&&q.image.trim()!=='');}
+function updateNoteCounts(){if(!DB)return;const w=document.getElementById('weak-count'),b=document.getElementById('bookmark-count'),m=document.getElementById('material-count');if(w)w.textContent=getWeakQuestions().length;if(b)b.textContent=getBookmarkedQuestions().length;if(m)m.textContent=getMaterialQuestions().length;}
+function openNoteFolder(type){document.getElementById('notes-home').style.display='none';document.getElementById('notes-folder-view').style.display='';const title=document.getElementById('notes-folder-title');const list=document.getElementById('notes-folder-list');let qs=[];if(type==='weak'){title.textContent='📁 苦手問題';qs=getWeakQuestions();}else if(type==='bookmark'){title.textContent='📁 ブックマーク';qs=getBookmarkedQuestions();}else{title.textContent='📁 解説資料';qs=getMaterialQuestions();}if(qs.length===0){const msg=type==='weak'?'まだ苦手問題はありません。<br>同じ問題を3回間違えると自動でここに入ります。':type==='bookmark'?'まだブックマークはありません。<br>問題画面で⭐を押すとここに保存されます。':'まだ解説資料はありません。<br>questions.json の image に画像パスが入るとここに表示されます。';list.innerHTML=`<div class="empty-note">${msg}</div>`;return;}list.innerHTML=qs.map(q=>{const cat=getCategoryOfId(q.id);const wrong=getWrongCount(q.id);const imageBadge=q.image?'<span class="memo-tag">🖼 資料あり</span>':'';const wrongBadge=wrong>=3?`<span class="memo-tag wrong-tag">❌ ${wrong}回ミス</span>`:'';return `<div class="memo-card"><div class="memo-q">Q. ${escapeHtml(q.text)}</div><div class="memo-preview">${escapeHtml(stripHtml(q.explanation).slice(0,90))}${stripHtml(q.explanation).length>90?'...':''}</div><div class="memo-tags"><span class="memo-tag">${cat||'未分類'}</span>${wrongBadge}${imageBadge}</div><div class="note-card-actions"><button class="note-mini-btn" onclick="startSingleQuestion('${q.id}')">この問題を解く</button>${type==='bookmark'?`<button class="note-mini-btn" onclick="removeBookmarkFromNotes('${q.id}')">解除</button>`:''}</div></div>`;}).join('');}
+function backToNotesHome(){const h=document.getElementById('notes-home'),v=document.getElementById('notes-folder-view');if(h&&v){h.style.display='';v.style.display='none';}updateNoteCounts();}
+function stripHtml(s){const d=document.createElement('div');d.innerHTML=s||'';return d.textContent||d.innerText||'';}
+function startSingleQuestion(id){const q=findQuestionById(id);if(!q)return;currentQs=[q];currentIdx=0;document.querySelectorAll('.nav-tab').forEach((t,i)=>t.classList.toggle('active',i===1));document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('screen-quiz').classList.add('active');loadQuestion();}
+function removeBookmarkFromNotes(id){const idx=bookmarkedIds.indexOf(id);if(idx>=0)bookmarkedIds.splice(idx,1);localStorage.setItem('bookmarkedIds',JSON.stringify(bookmarkedIds));updateNoteCounts();openNoteFolder('bookmark');showToast('ブックマーク解除');}
+
+
+
+// ===== ADMIN TOOL LOCK =====
+// 仮パスコード。必要に応じて好きな文字に変更してください。
+// 例: 'sodateru2026'
+const ADMIN_PASS = 'sodateru.0103';
+
+function unlockAdminTools() {
+  const input = document.getElementById('admin-pass-input');
+  const pass = input ? input.value : '';
+
+  if (pass !== ADMIN_PASS) {
+    showToast('パスコードが違います');
+    return;
+  }
+
+  localStorage.setItem('isAdminUnlocked', 'true');
+  showAdminTools();
+  showToast('🔓 管理者ツールを開きました');
+}
+
+function lockAdminTools() {
+  localStorage.removeItem('isAdminUnlocked');
+  showAdminTools();
+  showToast('🔒 管理者ツールを閉じました');
+}
+
+function showAdminTools() {
+  const login = document.getElementById('admin-login-card');
+  const generator = document.getElementById('admin-prompt-generator');
+  if (!login || !generator) return;
+
+  const unlocked = localStorage.getItem('isAdminUnlocked') === 'true';
+  login.style.display = unlocked ? 'none' : '';
+  generator.style.display = unlocked ? '' : 'none';
+
+  if (unlocked) buildPromptQuestionOptions();
+}
+
+// ===== IMAGE PROMPT GENERATOR =====
+function buildPromptQuestionOptions() {
+  const select = document.getElementById('prompt-question-select');
+  if (!select || !DB) return;
+
+  const qs = getAllQs();
+  select.innerHTML = '<option value="">問題を選択してください</option>' + qs.map(q => {
+    const cat = getCategoryOfId(q.id) || '未分類';
+    const label = `${q.id}｜${cat}｜${q.text}`.slice(0, 90);
+    return `<option value="${q.id}">${escapeHtml(label)}</option>`;
+  }).join('');
+}
+
+function generateImagePrompt() {
+  const select = document.getElementById('prompt-question-select');
+  const output = document.getElementById('image-prompt-output');
+  if (!select || !output) return;
+
+  const qid = select.value;
+  if (!qid) {
+    output.value = '';
+    return;
+  }
+
+  const q = findQuestionById(qid);
+  if (!q) return;
+
+  const cat = getCategoryOfId(q.id) || '未分類';
+  const choicesText = (q.choices || []).map((c, i) => `${i + 1}. ${c}`).join('\n');
+  const answerText = Array.isArray(q.answer) ? q.answer.join('、') : q.answer;
+
+  output.value =
+`理学療法士国家試験受験生向けの、X投稿・サイト掲載用の解説画像を作成してください。
+
+【画像の目的】
+・この問題の必須知識を、初心者でもパッと理解できるようにする
+・保存してあとで見返したくなる構成にする
+・過去問の丸写しではなく、論点をオリジナルの図解として整理する
+
+【問題ID】
+${q.id}
+
+【カテゴリー】
+${cat}
+
+【テーマ】
+${q.text}
+
+【選択肢】
+${choicesText}
+
+【正答】
+${answerText}
+
+【解説の要点】
+${stripHtml(q.explanation)}
+
+【画像構成】
+・上部：大きなタイトル
+・中央：図解、矢印、比較表、イラストを使って直感的に理解できる構成
+・下部：「ここ試験に出る」「勘違いポイント」「覚え方」を入れる
+・一番下に @sodateru_note を入れる
+
+【デザイン】
+・縦長スマホ向け
+・柔らかい色
+・医療系だけど堅苦しくしすぎない
+・文字は大きく、余白多め
+・重要語句は強調
+・初心者、浪人生、理学療法士国家試験受験生向け
+
+【注意】
+・問題文そのものを丸写ししない
+・著作権的に安全なオリジナル解説画像にする
+・細かすぎる説明より、国試で点につながる知識を優先する
+
+【保存ファイル名】
+${q.id}.webp`;
+}
+
+function copyImagePrompt() {
+  const output = document.getElementById('image-prompt-output');
+  if (!output || !output.value.trim()) {
+    showToast('先に問題を選んでください');
+    return;
+  }
+  output.select();
+  document.execCommand('copy');
+  showToast('📋 プロンプトをコピーしました');
+}
+
+// ===== SOCIAL / 育てるノート =====
+function getSocialPosts(){const saved=JSON.parse(localStorage.getItem('socialPosts')||'[]');if(saved.length>0)return saved;return [{id:'sample_1',title:'心電図は「波の順番」で覚える',text:'P波→QRS波→T波の流れで、心房興奮・心室興奮・再分極を整理すると一気に覚えやすくなります。',author:'育てるノート',date:'サンプル',icon:'💓',likes:12},{id:'sample_2',title:'歩行周期は60：40でまず覚える',text:'立脚期60%、遊脚期40%。細かい相に入る前に、この土台を押さえると歩行問題が解きやすいです。',author:'育てるノート',date:'サンプル',icon:'🚶',likes:8}];}
+function renderSocialFeed(){const feed=document.getElementById('social-feed');if(!feed)return;const posts=getSocialPosts();feed.innerHTML=posts.map(p=>`<div class="social-card"><div class="social-head"><div class="social-avatar">${p.icon||'🌱'}</div><div><div class="social-name">${escapeHtml(p.author||'匿名ユーザー')}</div><div class="social-date">${escapeHtml(p.date||'')}</div></div></div><div class="social-title">${escapeHtml(p.title)}</div><div class="social-text">${escapeHtml(p.text)}</div><div class="social-image-ph">${p.icon||'📚'}</div><div class="social-actions"><button class="social-action-btn" onclick="likeSocialPost('${p.id}')">♡ ${p.likes||0}</button><button class="social-action-btn" onclick="showToast('保存しました（デモ）')">🔖 保存</button></div></div>`).join('');}
+function addSocialPost(){const title=document.getElementById('social-title-input').value.trim();const text=document.getElementById('social-text-input').value.trim();if(!title||!text){showToast('タイトルと本文を入力してください');return;}const posts=JSON.parse(localStorage.getItem('socialPosts')||'[]');posts.unshift({id:'post_'+Date.now(),title,text,author:'自分',date:new Date().toLocaleDateString('ja-JP'),icon:'🌱',likes:0});localStorage.setItem('socialPosts',JSON.stringify(posts));document.getElementById('social-title-input').value='';document.getElementById('social-text-input').value='';renderSocialFeed();showToast('🌱 投稿しました');}
+function likeSocialPost(id){const saved=JSON.parse(localStorage.getItem('socialPosts')||'[]');const target=saved.find(p=>p.id===id);if(target){target.likes=(target.likes||0)+1;localStorage.setItem('socialPosts',JSON.stringify(saved));renderSocialFeed();}else{showToast('サンプル投稿です');}}
+function escapeHtml(str){return String(str||'').replace(/[&<>"']/g,s=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));}
+
+// ===== COUNTDOWN =====
+function openCountdownModal() {
+  const saved = localStorage.getItem('examDate');
+  if (saved) document.getElementById('exam-date-input').value = saved;
+  document.getElementById('countdown-modal').classList.add('show');
+}
+function closeCountdownModal() { document.getElementById('countdown-modal').classList.remove('show'); }
+function saveExamDate() {
+  const val = document.getElementById('exam-date-input').value;
+  if (!val) return;
+  localStorage.setItem('examDate', val);
+  updateCountdown(); closeCountdownModal(); showToast('📅 国試日を設定しました');
+}
+function updateCountdown() {
+  const saved = localStorage.getItem('examDate');
+  const box   = document.getElementById('countdown-days');
+  if (!saved) { box.textContent = '－'; return; }
+  const today = new Date(); today.setHours(0,0,0,0);
+  const exam  = new Date(saved); exam.setHours(0,0,0,0);
+  const diff  = Math.ceil((exam - today) / 86400000);
+  box.textContent = diff < 0 ? '終了' : diff === 0 ? '今日' : diff;
+}
+
+// ===== TOAST =====
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+// ===== WEEKLY CHART =====
+function buildWeekChart() {
+  const days   = ['月','火','水','木','金','土','日'];
+  const counts = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date();
+    d.setDate(d.getDate() - i);
+    const key = d.toISOString().split('T')[0];
+    counts.push(learningLog[key] || 0);
+  }
+  const max    = Math.max(...counts);
+  document.getElementById('week-chart').innerHTML = days.map((d, i) =>
+    `<div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1">
+      <div style="width:100%;background:${i===6?'var(--orange)':'var(--yellow-light)'};height:${Math.round(counts[i]/max*60)+10}px;border-radius:6px 6px 0 0;border:${i===6?'none':'1px solid var(--border)'}"></div>
+      <span style="font-size:10px;color:var(--text-light)">${d}</span>
+    </div>`
+  ).join('');
+}
+
+// ===== INIT =====
+loadQuestions();
+</script>
+</body>
+</html>
