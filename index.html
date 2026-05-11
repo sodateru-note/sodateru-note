@@ -327,6 +327,119 @@ body {
 
 .social-compose{background:white;border-radius:var(--radius);padding:14px;box-shadow:var(--card-shadow);margin-bottom:14px;border-top:5px solid var(--teal)}.social-compose-title{font-size:15px;font-weight:900;color:var(--navy);margin-bottom:8px}.social-input{width:100%;border:2px solid var(--border);border-radius:12px;padding:11px;font-family:inherit;font-size:13px;outline:none;margin-bottom:8px}.social-input:focus{border-color:var(--teal)}.social-post-btn{width:100%;border:none;border-radius:12px;background:var(--teal);color:white;padding:12px;font-weight:900;font-size:14px;font-family:inherit;cursor:pointer}.social-card{background:white;border-radius:var(--radius);box-shadow:var(--card-shadow);padding:14px;margin-bottom:12px}.social-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}.social-avatar{width:38px;height:38px;border-radius:50%;background:var(--yellow-light);display:flex;align-items:center;justify-content:center;font-size:20px}.social-name{font-size:13px;font-weight:900;color:var(--navy)}.social-date{font-size:11px;color:var(--text-light)}.social-title{font-size:14px;font-weight:900;color:var(--navy);margin-bottom:6px}.social-text{font-size:13px;color:var(--text-soft);line-height:1.7;margin-bottom:10px}.social-image-ph{width:100%;height:150px;border-radius:12px;background:linear-gradient(135deg,var(--yellow-light),var(--teal-light));display:flex;align-items:center;justify-content:center;font-size:44px;margin-bottom:10px}.social-actions{display:flex;gap:8px}.social-action-btn{flex:1;border:1px solid var(--border);background:var(--warm-white);border-radius:10px;padding:9px;font-size:12px;font-weight:700;color:var(--text-soft);cursor:pointer}
 
+
+/* ============================================================
+   「育てるノート」への導線
+   ============================================================ */
+.canva-note-banner,
+.canva-note-card {
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  border-radius: var(--radius);
+  padding: 16px;
+  color: white;
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(245,213,71,0.25);
+}
+.canva-note-banner { margin-bottom: 14px; }
+.canva-note-card { margin: 0 14px 14px; }
+.canva-note-banner::before,
+.canva-note-card::before {
+  content: '📘';
+  position: absolute;
+  right: 14px;
+  top: 10px;
+  font-size: 38px;
+  opacity: 0.22;
+}
+.canva-note-label {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--navy);
+  border-radius: 99px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+.canva-note-title {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--yellow);
+  line-height: 1.35;
+  margin-bottom: 6px;
+  padding-right: 42px;
+}
+.canva-note-text {
+  font-size: 12px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.82);
+  margin-bottom: 12px;
+}
+.canva-note-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.canva-note-point {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: white;
+  border-radius: 99px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.canva-note-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  background: var(--yellow);
+  color: var(--navy);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 13px;
+  font-weight: 900;
+}
+.canva-note-btn:active { transform: scale(0.98); }
+.canva-note-sub-btn {
+  display: block;
+  text-align: center;
+  margin-top: 8px;
+  color: rgba(255,255,255,0.75);
+  font-size: 11px;
+  text-decoration: underline;
+}
+.canva-mini-link {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--yellow-light);
+  border: 2px dashed var(--yellow);
+}
+.canva-mini-link-title {
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.canva-mini-link-text {
+  font-size: 12px;
+  color: var(--text-soft);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+.canva-mini-link a {
+  color: var(--orange);
+  font-size: 13px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
 .q-image{
   width:100%;
   border-radius:18px;
@@ -410,6 +523,18 @@ body {
     <p>コツコツ積み重ねた知識が、<br>合格への確実な一歩になる。</p>
   </div>
 
+  <div class="canva-note-banner">
+    <div class="canva-note-label">📘 育てるノート</div>
+    <div class="canva-note-title">問題でつまずいたら、図解ノートで復習しよう</div>
+    <div class="canva-note-text">過去問だけで終わらず、解剖・生理・運動学などの必須知識を図解で整理できます。</div>
+    <div class="canva-note-points">
+      <span class="canva-note-point">保存用まとめ</span>
+      <span class="canva-note-point">スマホ復習</span>
+      <span class="canva-note-point">国試前の見直し</span>
+    </div>
+    <a class="canva-note-btn" id="home-canva-link" href="#" target="_blank" rel="noopener">育てるノートを見る</a>
+  </div>
+
   <div class="progress-card">
     <h3>📈 全体の進捗</h3>
     <div class="progress-bar-wrap"><div class="progress-bar" id="overall-progress-bar" style="width:0%"></div></div>
@@ -486,6 +611,19 @@ body {
         <button onclick="saveMemo()" style="margin-top:8px;width:100%;padding:10px;background:var(--navy);color:var(--yellow);border:none;border-radius:10px;font-weight:700;font-size:13px;cursor:pointer">メモを保存</button>
       </div>
     </div>
+
+    <div class="canva-note-card" id="quiz-canva-card">
+      <div class="canva-note-label">📘 育てるノートで深掘り</div>
+      <div class="canva-note-title" id="quiz-canva-title">この問題の理解に必要な図解ノート</div>
+      <div class="canva-note-text" id="quiz-canva-text">解説を読んでも不安なところは、育てるノートで復習できます。</div>
+      <div class="canva-note-points" id="quiz-canva-points">
+        <span class="canva-note-point">関連知識</span>
+        <span class="canva-note-point">図解で整理</span>
+        <span class="canva-note-point">あとで復習</span>
+      </div>
+      <a class="canva-note-btn" id="quiz-canva-link" href="#" target="_blank" rel="noopener">関連ノートを見る</a>
+      <a class="canva-note-sub-btn" id="quiz-canva-list-link" href="#" target="_blank" rel="noopener">育てるノート一覧へ</a>
+    </div>
   </div>
 
   <div class="quiz-actions">
@@ -509,6 +647,13 @@ body {
 
 <div class="screen" id="screen-social">
   <div class="home-hero" style="background:linear-gradient(135deg,var(--navy),var(--navy-light));"><div class="home-hero-label">+ 育てるノート</div><h2>みんなで育てる学習ノート</h2><p>まとめ画像や覚え方を投稿して、<br>国試対策をみんなで積み上げる場所。</p></div>
+
+  <div class="canva-note-banner">
+    <div class="canva-note-label">📘 公式まとめノート</div>
+    <div class="canva-note-title">まずは育てるノートを見てみる</div>
+    <div class="canva-note-text">X投稿や解説資料として作ってきたまとめを、学習ノートとして活用できます。</div>
+    <a class="canva-note-btn" id="social-canva-link" href="#" target="_blank" rel="noopener">育てるノートを開く</a>
+  </div>
 
   <div class="social-compose"><div class="social-compose-title">📸 投稿する</div><input class="social-input" id="social-title-input" placeholder="タイトル例：心電図の覚え方"><textarea class="social-input" id="social-text-input" rows="3" placeholder="本文例：ここはP波・QRS・T波の流れで覚えると整理しやすい！"></textarea><button class="social-post-btn" onclick="addSocialPost()">育てるノートに投稿</button><div style="font-size:11px;color:var(--text-light);line-height:1.6;margin-top:8px">※現在はこの端末内に保存されるデモ機能です。ログイン機能を追加すると全員の投稿として共有できます。</div></div>
   <div id="social-feed"></div>
@@ -535,6 +680,14 @@ body {
 </div>
 
 <script>
+// ============================================================
+// 「育てるノート」リンク設定
+// ↓ noteのURLを設定しています。
+// 問題ごとに q.canvaUrl / q.noteUrl がある場合は、そちらを優先します。
+// ============================================================
+const CANVA_NOTE_URL = 'https://note.com/sodateru_note_pt';
+const CANVA_NOTE_LIST_URL = CANVA_NOTE_URL;
+
 const CAT_META = {
   '解剖学':     { icon:'🦴', color:'#e8722a' },
   '生理学':     { icon:'💓', color:'#3ab5b5' },
@@ -640,6 +793,7 @@ function onLoaded() {
   updateCountdown();
   updateNoteCounts();
   renderSocialFeed();
+  setupCanvaLinks();
   if (currentQs.length === 0) {
     currentQs = getQsByMode('all');
     loadQuestion();
@@ -852,6 +1006,7 @@ function selectChoice(idx) {
     imgPh.style.display  = '';
   }
 
+  updateQuizCanvaCard(q);
   document.getElementById('answer-panel').classList.add('show');
   document.getElementById('btn-skip').style.display = 'none';
   document.getElementById('btn-next').style.display = '';
@@ -910,6 +1065,37 @@ function getSocialPosts(){const saved=JSON.parse(localStorage.getItem('socialPos
 function renderSocialFeed(){const feed=document.getElementById('social-feed');if(!feed)return;const posts=getSocialPosts();feed.innerHTML=posts.map(p=>`<div class="social-card"><div class="social-head"><div class="social-avatar">${p.icon||'🌱'}</div><div><div class="social-name">${escapeHtml(p.author||'匿名ユーザー')}</div><div class="social-date">${escapeHtml(p.date||'')}</div></div></div><div class="social-title">${escapeHtml(p.title)}</div><div class="social-text">${escapeHtml(p.text)}</div><div class="social-image-ph">${p.icon||'📚'}</div><div class="social-actions"><button class="social-action-btn" onclick="likeSocialPost('${p.id}')">♡ ${p.likes||0}</button><button class="social-action-btn" onclick="showToast('保存しました（デモ）')">🔖 保存</button></div></div>`).join('');}
 function addSocialPost(){const title=document.getElementById('social-title-input').value.trim();const text=document.getElementById('social-text-input').value.trim();if(!title||!text){showToast('タイトルと本文を入力してください');return;}const posts=JSON.parse(localStorage.getItem('socialPosts')||'[]');posts.unshift({id:'post_'+Date.now(),title,text,author:'自分',date:new Date().toLocaleDateString('ja-JP'),icon:'🌱',likes:0});localStorage.setItem('socialPosts',JSON.stringify(posts));document.getElementById('social-title-input').value='';document.getElementById('social-text-input').value='';renderSocialFeed();showToast('🌱 投稿しました');}
 function likeSocialPost(id){const saved=JSON.parse(localStorage.getItem('socialPosts')||'[]');const target=saved.find(p=>p.id===id);if(target){target.likes=(target.likes||0)+1;localStorage.setItem('socialPosts',JSON.stringify(saved));renderSocialFeed();}else{showToast('サンプル投稿です');}}
+
+
+function setupCanvaLinks(){
+  const links = ['home-canva-link','social-canva-link'];
+  links.forEach(id=>{const el=document.getElementById(id);if(el)el.href=CANVA_NOTE_LIST_URL;});
+}
+function getQuestionCanvaUrl(q){return CANVA_NOTE_URL;}
+function getQuestionCanvaTitle(q){return q.canvaTitle || q.canva_title || q.noteTitle || q.note_title || `${getCategoryOfId(q.id)||'この分野'}の育てるノート`;}
+function getQuestionCanvaDescription(q){return q.canvaDescription || q.canva_description || q.noteDescription || q.note_description || 'この問題で必要な知識を、図解ノートでやさしく整理しています。解説だけで終わらず、関連知識まで育てていきましょう。';}
+function getQuestionCanvaPoints(q){
+  if(Array.isArray(q.canvaPoints))return q.canvaPoints;
+  if(Array.isArray(q.notePoints))return q.notePoints;
+  if(Array.isArray(q.tags)&&q.tags.length)return q.tags;
+  const cat=getCategoryOfId(q.id)||'関連知識';
+  return [cat,'図解で整理','あとで復習'];
+}
+function updateQuizCanvaCard(q){
+  const title=document.getElementById('quiz-canva-title');
+  const text=document.getElementById('quiz-canva-text');
+  const points=document.getElementById('quiz-canva-points');
+  const link=document.getElementById('quiz-canva-link');
+  const list=document.getElementById('quiz-canva-list-link');
+  if(!title||!text||!points||!link)return;
+  title.textContent=`この問題を理解するための「${getQuestionCanvaTitle(q)}」`;
+  text.textContent=getQuestionCanvaDescription(q);
+  link.href=getQuestionCanvaUrl(q);
+  list.href=CANVA_NOTE_LIST_URL;
+  const p=getQuestionCanvaPoints(q).slice(0,5);
+  points.innerHTML=p.map(x=>`<span class="canva-note-point">${escapeHtml(x)}</span>`).join('');
+}
+
 function escapeHtml(str){return String(str||'').replace(/[&<>"']/g,s=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));}
 
 function openCountdownModal() {

@@ -5,22 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>管理ツール｜育てるノート</title>
 <meta name="theme-color" content="#1a2847">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="育てるノート 管理">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 :root {
   --yellow: #f5d547;
   --yellow-light: #fdf6cc;
+  --yellow-mid: #f9e87a;
   --navy: #1a2847;
   --navy-light: #2d4070;
   --orange: #e8722a;
   --orange-light: #fdeee3;
   --teal: #3ab5b5;
+  --teal-light: #e0f5f5;
   --cream: #fffef5;
   --warm-white: #fafaf2;
   --text: #1a1a1a;
   --text-soft: #555;
   --text-light: #999;
+  --correct: #2d8a4e;
+  --correct-bg: #e8f5ed;
+  --wrong: #c0392b;
+  --wrong-bg: #fdecea;
   --border: #e8e4d8;
   --card-shadow: 0 2px 16px rgba(26,40,71,0.10);
   --radius: 16px;
@@ -34,32 +44,6 @@ body {
   max-width: 480px;
   margin: 0 auto;
 }
-
-#app-loading {
-  position: fixed; inset: 0;
-  background: var(--navy);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  z-index: 9999; gap: 16px;
-}
-#app-loading .logo {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-size: 24px; font-weight: 900; color: var(--yellow);
-}
-#app-loading .logo span {
-  font-size: 13px; font-weight: 400;
-  color: rgba(255,255,255,0.6);
-  display: block; margin-top: 4px;
-}
-#app-loading .spinner {
-  width: 36px; height: 36px;
-  border: 4px solid rgba(245,213,71,0.3);
-  border-top-color: var(--yellow);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
 .header {
   background: var(--navy);
   padding: 14px 18px 12px;
@@ -68,142 +52,122 @@ body {
 }
 .header-logo {
   font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-size: 18px; font-weight: 900;
+  font-size: 20px; font-weight: 900;
   color: var(--yellow);
   letter-spacing: -0.02em; line-height: 1;
 }
 .header-logo span {
   font-size: 11px; font-weight: 400;
   color: rgba(255,255,255,0.6);
-  display: block; margin-top: 2px;
+  display: block; margin-top: 2px; letter-spacing: 0.05em;
 }
-.header-badge {
-  background: var(--orange); color: white;
-  padding: 5px 12px; border-radius: 99px;
-  font-size: 11px; font-weight: 900;
+.header-link {
+  background: var(--yellow); border-radius: 12px;
+  padding: 9px 12px; text-align: center;
+  cursor: pointer; transition: transform 0.15s; min-width: 84px;
+  color: var(--navy); text-decoration: none; font-size: 12px; font-weight: 900;
 }
-
-.main { padding: 16px 14px 80px; }
-
-.card {
-  background: white; border-radius: var(--radius);
-  padding: 18px; box-shadow: var(--card-shadow);
-  margin-bottom: 14px;
-}
-.card-title {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-size: 16px; font-weight: 900; color: var(--navy);
-  margin-bottom: 6px;
-}
-.card-sub {
-  font-size: 12px; color: var(--text-soft); line-height: 1.7; margin-bottom: 14px;
-}
-
-#auth-screen { animation: fadeUp 0.25s ease; }
-.auth-hero {
-  background: var(--navy); border-radius: var(--radius);
-  padding: 22px 18px 20px; margin-bottom: 14px; text-align: center;
-}
-.auth-hero .auth-icon { font-size: 40px; margin-bottom: 10px; }
-.auth-hero h2 {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-size: 20px; font-weight: 900; color: var(--yellow); margin-bottom: 6px;
-}
-.auth-hero p { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.7; }
-
-.auth-note {
-  background: var(--orange-light); border-radius: 10px;
-  padding: 12px 14px; font-size: 12px; color: var(--text-soft);
-  line-height: 1.7; margin-bottom: 14px; border-left: 4px solid var(--orange);
-}
-
-.form-label {
-  font-size: 12px; font-weight: 700; color: var(--text-soft);
-  margin-bottom: 6px; display: block;
-}
-.form-input {
-  width: 100%; padding: 13px 14px; border: 2px solid var(--border);
-  border-radius: 12px; font-size: 15px; font-family: inherit;
-  outline: none; color: var(--text); margin-bottom: 12px;
-  transition: border-color 0.2s;
-}
-.form-input:focus { border-color: var(--orange); }
-
-.btn-primary {
-  width: 100%; padding: 15px; border: none; border-radius: 12px;
-  font-size: 15px; font-weight: 900; font-family: inherit;
-  cursor: pointer; background: var(--navy); color: var(--yellow);
-  transition: transform 0.15s, opacity 0.15s;
-}
-.btn-primary:active { transform: scale(0.98); }
-.btn-secondary {
-  width: 100%; padding: 12px; border: 1px solid var(--border);
-  border-radius: 12px; font-size: 13px; font-weight: 700; font-family: inherit;
-  cursor: pointer; background: var(--warm-white); color: var(--text-soft);
-  margin-top: 8px;
-}
-
-#firebase-login-placeholder {
-  border: 2px dashed var(--border); border-radius: 12px;
-  padding: 16px; text-align: center; color: var(--text-light);
-  font-size: 12px; line-height: 1.7; margin-top: 12px; display: none;
-}
-
-#admin-screen { display: none; animation: fadeUp 0.25s ease; }
+.header-link:active { transform: scale(0.96); }
+.admin-screen { padding: 16px 14px 100px; animation: fadeUp 0.25s ease; }
 @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
-
-.tool-section-title {
-  font-size: 11px; font-weight: 900; color: var(--text-light);
-  letter-spacing: 0.12em; text-transform: uppercase;
-  margin-bottom: 10px; padding-left: 2px;
+.home-hero {
+  background: var(--navy); border-radius: var(--radius);
+  padding: 20px 18px 18px; margin-bottom: 14px;
+  position: relative; overflow: hidden;
 }
-
-.prompt-select {
-  width: 100%; border: 2px solid var(--border); border-radius: 12px;
-  padding: 11px 14px; font-family: inherit; font-size: 13px;
-  background: white; margin-bottom: 10px; outline: none;
-  transition: border-color 0.2s;
+.home-hero::before {
+  content: '✳︎'; position: absolute; right: 16px; top: 14px;
+  font-size: 36px; color: var(--orange); opacity: 0.9;
 }
-.prompt-select:focus { border-color: var(--orange); }
-
-.prompt-output {
-  width: 100%; min-height: 240px; border: 2px solid var(--border);
-  border-radius: 12px; padding: 12px; font-size: 12px; line-height: 1.75;
-  font-family: inherit; resize: vertical; outline: none; color: var(--text);
-  transition: border-color 0.2s;
+.home-hero-label {
+  font-size: 11px; font-weight: 700; color: var(--orange);
+  letter-spacing: 0.1em; margin-bottom: 6px;
 }
-.prompt-output:focus { border-color: var(--orange); }
-
+.home-hero h2 {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 22px; font-weight: 900; color: var(--yellow);
+  margin-bottom: 6px; line-height: 1.2;
+}
+.home-hero p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+.progress-card, .admin-card {
+  background: white; border-radius: var(--radius);
+  padding: 16px; margin-bottom: 14px;
+  box-shadow: var(--card-shadow); border-left: 5px solid var(--yellow);
+}
+.admin-card.orange { border-left-color: var(--orange); }
+.admin-card.teal { border-left-color: var(--teal); }
+.admin-card.red { border-left-color: var(--wrong); }
+.section-title {
+  font-size: 12px; font-weight: 900; color: var(--text-soft);
+  margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.1em;
+  display: flex; align-items: center; gap: 6px;
+}
+.progress-card h3 { font-size: 13px; color: var(--text-soft); margin-bottom: 12px; font-weight: 700; }
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin-bottom: 14px; }
+.stat-box { background: white; border-radius: 12px; padding: 14px 8px; text-align: center; box-shadow: var(--card-shadow); }
+.stat-box .stat-num {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 26px; font-weight: 900; color: var(--navy); line-height: 1; margin-bottom: 3px;
+}
+.stat-box.hl .stat-num { color: var(--orange); }
+.stat-box .stat-label { font-size: 11px; color: var(--text-light); }
+.admin-input, .admin-select, .admin-textarea {
+  width: 100%; padding: 13px 14px; border: 2px solid var(--border);
+  border-radius: 12px; font-size: 14px; font-family: inherit;
+  outline: none; color: var(--text); background: white;
+}
+.admin-input:focus, .admin-select:focus, .admin-textarea:focus { border-color: var(--orange); }
+.admin-textarea { min-height: 170px; resize: vertical; line-height: 1.75; }
+.toolbar { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.file-box {
+  border: 2px dashed var(--border); background: var(--warm-white);
+  border-radius: var(--radius); padding: 14px; margin-bottom: 12px;
+}
+.file-box p { font-size: 12px; color: var(--text-soft); line-height: 1.7; margin-top: 8px; }
+.admin-btn, .btn-primary, .btn-secondary {
+  padding: 14px; border-radius: 12px; font-size: 14px; font-weight: 700;
+  cursor: pointer; font-family: inherit; transition: all 0.15s;
+}
+.admin-btn:active, .btn-primary:active, .btn-secondary:active { transform: scale(0.97); }
+.btn-primary { border: none; background: var(--navy); color: var(--yellow); }
+.btn-secondary { border: 2px solid var(--border); background: white; color: var(--text-soft); }
+.btn-orange { border: none; background: var(--orange); color: white; }
+.btn-teal { border: none; background: var(--teal); color: white; }
+.btn-red { border: none; background: var(--wrong); color: white; }
 .btn-row { display: flex; gap: 8px; margin-top: 10px; }
-.btn-row .btn-copy {
-  flex: 2; padding: 12px; border: none; border-radius: 12px;
-  font-size: 14px; font-weight: 900; font-family: inherit;
-  cursor: pointer; background: var(--navy); color: var(--yellow);
+.btn-row > button { flex: 1; }
+.question-list { display: flex; flex-direction: column; gap: 9px; max-height: 52vh; overflow: auto; padding-right: 2px; }
+.question-item {
+  background: white; border-radius: 12px; padding: 13px 12px;
+  box-shadow: var(--card-shadow); cursor: pointer; transition: transform 0.15s;
+  border-left: 5px solid var(--yellow);
 }
-.btn-row .btn-regen {
-  flex: 1; padding: 12px; border: 1px solid var(--border); border-radius: 12px;
-  font-size: 13px; font-weight: 700; font-family: inherit;
-  cursor: pointer; background: var(--yellow-light); color: var(--navy);
+.question-item:active { transform: scale(0.98); }
+.question-item.active { outline: 2px solid var(--orange); }
+.question-item.done { border-left-color: var(--teal); }
+.question-item.missing { border-left-color: var(--wrong); }
+.q-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
+.memo-tag {
+  font-size: 11px; padding: 2px 8px; border-radius: 99px;
+  background: var(--yellow-light); color: var(--navy); font-weight: 700;
 }
-
-.hint-text {
-  font-size: 11px; color: var(--text-light); line-height: 1.7; margin-top: 10px;
+.memo-tag.done { background: var(--teal-light); color: #146b6b; }
+.memo-tag.missing { background: var(--wrong-bg); color: var(--wrong); }
+.memo-tag.orange { background: var(--orange-light); color: var(--orange); }
+.q-title { font-size: 13px; font-weight: 700; line-height: 1.6; color: var(--navy); }
+.empty-note {
+  background:white;border-radius:var(--radius);padding:22px 16px;text-align:center;
+  box-shadow:var(--card-shadow);color:var(--text-soft);font-size:13px;line-height:1.7;
 }
-.hint-text strong { color: var(--text-soft); }
-
-.status-bar {
-  background: var(--navy-light); border-radius: 10px;
-  padding: 10px 14px; display: flex; align-items: center;
-  justify-content: space-between; margin-bottom: 14px;
+.detail-title { font-size: 15px; line-height: 1.8; color: var(--navy); font-weight: 900; margin-bottom: 8px; }
+.choice-preview { font-size: 13px; line-height: 1.75; color: var(--text); padding-left: 20px; margin-bottom: 10px; }
+.small-label { font-size: 12px; font-weight: 900; color: var(--text-soft); margin: 12px 0 6px; }
+.note { font-size: 11px; color: var(--text-light); line-height: 1.7; margin-top: 6px; }
+.preview-img {
+  width: 100%; border-radius: 18px; margin-top: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08); display: none;
 }
-.status-bar .status-label { font-size: 12px; color: rgba(255,255,255,0.7); }
-.status-bar .status-value { font-size: 13px; font-weight: 900; color: var(--yellow); }
-.btn-logout {
-  border: 1px solid rgba(255,255,255,0.3); background: transparent;
-  color: rgba(255,255,255,0.7); border-radius: 8px; padding: 5px 12px;
-  font-size: 11px; font-weight: 700; font-family: inherit; cursor: pointer;
-}
-
 .result-toast {
   position: fixed; top: 80px; left: 50%;
   transform: translateX(-50%) translateY(-20px);
@@ -213,342 +177,403 @@ body {
   pointer-events: none; transition: all 0.3s; z-index: 999; white-space: nowrap;
 }
 .result-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-
-#error-msg {
-  background: #fdecea; color: #c0392b; border-radius: 10px;
-  padding: 10px 14px; font-size: 13px; font-weight: 700;
-  margin-bottom: 12px; display: none; border-left: 4px solid #c0392b;
+.fixed-actions {
+  position: sticky; bottom: 0; background: linear-gradient(180deg, rgba(255,254,245,0), var(--cream) 30%);
+  padding-top: 18px; margin-top: 8px;
 }
+.code-note { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; background: var(--warm-white); padding: 2px 6px; border-radius: 6px; color: var(--navy); }
 </style>
 </head>
 <body>
-
-<div id="app-loading">
-  <div class="logo">育てるノート<span>管理ツール</span></div>
-  <div class="spinner"></div>
-</div>
-
 <div class="header">
   <div class="header-logo">育てるノート<span>管理ツール</span></div>
-  <div class="header-badge">🔐 ADMIN</div>
+  <a class="header-link" href="index.html">サイトへ</a>
 </div>
-
 <div class="result-toast" id="toast"></div>
 
-<div class="main">
-  <div id="auth-screen">
-    <div class="auth-hero">
-      <div class="auth-icon">🔐</div>
-      <h2>管理者ログイン</h2>
-      <p>このページは管理者専用です。<br>パスコードを入力してアクセスしてください。</p>
-    </div>
-
-    <div class="auth-note">
-      ⚠️ 現在は簡易ロックです。<br>
-      本格運用ではFirebaseログインに移行するのがおすすめです。
-    </div>
-
-    <div class="card">
-      <div class="card-title">🔑 パスコード認証</div>
-      <div class="card-sub">管理者パスコードを入力してください。</div>
-
-      <div id="error-msg">パスコードが違います</div>
-
-      <label class="form-label" for="pass-input">パスコード</label>
-      <input class="form-input" id="pass-input" type="password"
-             placeholder="パスコードを入力"
-             onkeydown="if(event.key==='Enter')verifyPasscode()">
-      <button class="btn-primary" onclick="verifyPasscode()">ログイン</button>
-
-      <div id="firebase-login-placeholder">
-        🔥 Firebase ログインボタンがここに入ります（将来対応）
-      </div>
-    </div>
-
-    <div style="text-align:center;margin-top:4px">
-      <a href="index.html" style="font-size:13px;color:var(--text-light);text-decoration:none">← 一般ユーザー向けページに戻る</a>
-    </div>
+<main class="admin-screen">
+  <div class="home-hero">
+    <div class="home-hero-label">+ ADMIN</div>
+    <h2>解説資料を育てる</h2>
+    <p>全問題を一覧管理して、画像プロンプト生成・画像名登録・JSON更新までまとめて行えます。</p>
   </div>
 
-  <div id="admin-screen">
-    <div class="status-bar">
-      <div>
-        <div class="status-label">ログイン中</div>
-        <div class="status-value" id="status-user">管理者</div>
+  <div class="file-box">
+    <div class="section-title">📂 questions.json 読み込み</div>
+    <input type="file" id="json-file" class="admin-input" accept=".json,application/json">
+    <p>同じフォルダに <span class="code-note">questions.json</span> がある場合は自動読み込みします。表示されない場合はここから選択してください。</p>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-box hl"><div class="stat-num" id="total-count">0</div><div class="stat-label">全問題</div></div>
+    <div class="stat-box"><div class="stat-num" id="done-count">0</div><div class="stat-label">画像あり</div></div>
+    <div class="stat-box hl"><div class="stat-num" id="missing-count">0</div><div class="stat-label">未作成</div></div>
+  </div>
+
+  <section class="admin-card">
+    <div class="section-title">🔍 問題を探す</div>
+    <div class="toolbar">
+      <input id="search-input" class="admin-input" type="search" placeholder="問題文・ID・カテゴリで検索">
+      <div class="row">
+        <select id="status-filter" class="admin-select">
+          <option value="all">すべて</option>
+          <option value="missing">未作成だけ</option>
+          <option value="done">画像ありだけ</option>
+        </select>
+        <select id="category-filter" class="admin-select">
+          <option value="all">全カテゴリ</option>
+        </select>
       </div>
-      <button class="btn-logout" onclick="logout()">ログアウト</button>
     </div>
+    <div class="question-list" id="question-list">
+      <div class="empty-note">questions.jsonを読み込むと、ここに全問題が表示されます。</div>
+    </div>
+  </section>
 
-    <div class="tool-section-title">🖼 解説画像ツール</div>
+  <section class="admin-card orange" id="detail-card">
+    <div class="section-title">📝 プロンプト生成・画像名登録</div>
+    <div id="detail-empty" class="empty-note">上の一覧から問題を選択してください。</div>
+    <div id="detail-area" style="display:none">
+      <div class="q-row" id="selected-meta"></div>
+      <div class="detail-title" id="selected-question"></div>
+      <ol class="choice-preview" id="selected-choices"></ol>
 
-    <div class="card" style="border-top: 5px solid var(--orange);">
-      <div class="card-title">解説画像プロンプト自動生成</div>
-      <div class="card-sub">
-        問題を選ぶだけで、ChatGPT画像生成に貼れるプロンプトを自動作成します。<br>
-        画像名は <strong>問題ID.webp</strong> にすると自動で問題に紐付きます。
+      <div class="row">
+        <div>
+          <div class="small-label">正答</div>
+          <input id="answer-input" class="admin-input" placeholder="例：3">
+        </div>
+        <div>
+          <div class="small-label">テーマ</div>
+          <input id="theme-input" class="admin-input" placeholder="例：循環応答">
+        </div>
       </div>
 
-      <select class="prompt-select" id="prompt-question-select" onchange="generateImagePrompt()">
-        <option value="">読み込み中...</option>
-      </select>
-
-      <textarea class="prompt-output" id="image-prompt-output"
-                placeholder="問題を選択するとプロンプトがここに表示されます" readonly></textarea>
+      <div class="small-label">解説画像ファイル名</div>
+      <input id="image-input" class="admin-input" placeholder="例：q054_am42.png">
+      <p class="note">保存先は <span class="code-note">images/explanations/</span> を想定。index.html側で表示されるよう、JSONには <span class="code-note">image</span> として保存します。</p>
+      <img id="image-preview" class="preview-img" alt="解説画像プレビュー">
 
       <div class="btn-row">
-        <button class="btn-copy" onclick="copyImagePrompt()">📋 プロンプトをコピー</button>
-        <button class="btn-regen" onclick="generateImagePrompt()">再生成</button>
+        <button class="admin-btn btn-teal" onclick="autoFillImageName()">自動命名</button>
+        <button class="admin-btn btn-orange" onclick="saveImageName()">画像名を保存</button>
       </div>
 
-      <div class="hint-text">
-        生成した画像は <strong>images/問題ID.webp</strong> という名前で保存してください。<br>
-        例：<strong>images/pt52_001.webp</strong><br>
-        questions.json の "image" フィールドに同じパスを入力すると、解説タブに自動表示されます。
+      <div class="btn-row">
+        <button class="admin-btn btn-primary" onclick="generatePrompt()">プロンプト生成</button>
+        <button class="admin-btn btn-secondary" onclick="copyPrompt()">コピー</button>
       </div>
-    </div>
 
-    <div class="tool-section-title">📊 データ概要</div>
-
-    <div class="card">
-      <div class="card-title">読み込み済み問題数</div>
-      <div id="db-stats" style="font-size:13px;color:var(--text-soft);line-height:2;">
-        読み込み中...
-      </div>
+      <div class="small-label">生成プロンプト</div>
+      <textarea id="prompt-output" class="admin-textarea" placeholder="ここにプロンプトが生成されます"></textarea>
     </div>
+  </section>
 
-    <div style="text-align:center;margin-top:4px">
-      <a href="index.html" style="font-size:13px;color:var(--text-light);text-decoration:none">← 一般ユーザー向けページに戻る</a>
+  <section class="admin-card teal">
+    <div class="section-title">💾 書き出し</div>
+    <p class="note" style="margin-bottom:10px;color:var(--text-soft)">GitHub Pages上ではHTMLから直接questions.jsonを書き換えられません。画像名を保存したあと、更新済みJSONをダウンロードして元のquestions.jsonと差し替えてください。</p>
+    <div class="btn-row">
+      <button class="admin-btn btn-primary" onclick="downloadJson()">questions.jsonをダウンロード</button>
+      <button class="admin-btn btn-secondary" onclick="copyJson()">JSONコピー</button>
     </div>
-  </div>
-</div>
+  </section>
+</main>
 
 <script>
-let DB = null;
+let originalShape = 'array';
+let originalData = null;
+let flatQuestions = [];
+let selectedKey = null;
 
-async function loadQuestions() {
-  try {
-    const res = await fetch('questions.json');
-    if (!res.ok) throw new Error('questions.json が見つかりません');
-    DB = normalizeDB(await res.json());
-    initAuth();
-  } catch (e) {
-    document.getElementById('app-loading').innerHTML =
-      `<div style="color:#f5d547;font-family:'Noto Sans JP',sans-serif;text-align:center;padding:24px">
-        <div style="font-size:28px;margin-bottom:12px">⚠️</div>
-        <div style="font-size:15px;font-weight:700;margin-bottom:8px">問題データを読み込めませんでした</div>
-        <div style="font-size:12px;opacity:.7">${e.message}</div>
-      </div>`;
-  }
-}
+const $ = id => document.getElementById(id);
 
-function normalizeDB(raw) {
-  const defaultCategories = {
-    common: ['解剖学','生理学','病理学','運動学','人間発達学','内科学','神経内科学','臨床心理学','精神医学','整形外科学','リハ概論'],
-    special: ['運動療法','物理療法','PT評価学','内部障害','小児疾患','整形外科障害','脳血管障害','神経・筋障害','脊髄損傷','補装具療法','ADL','法規・研究・他']
-  };
-  const normalized = { categories: raw.categories || defaultCategories, questions: {} };
-  [...normalized.categories.common, ...normalized.categories.special].forEach(cat => normalized.questions[cat] = []);
-  if (Array.isArray(raw.questions)) {
-    raw.questions.forEach(q => {
-      const cat = q.category || '法規・研究・他';
-      if (!normalized.questions[cat]) normalized.questions[cat] = [];
-      normalized.questions[cat].push({
-        id: q.id, meta: q.meta || '', text: q.text || q.question || '',
-        choices: q.choices || [], answer: q.answer,
-        explanation: q.explanation || '', image: q.image || ''
-      });
-    });
-  } else {
-    Object.entries(raw.questions || {}).forEach(([cat, qs]) => {
-      if (!normalized.questions[cat]) normalized.questions[cat] = [];
-      (qs || []).forEach(q => normalized.questions[cat].push({
-        ...q, text: q.text || q.question || '', image: q.image || ''
-      }));
-    });
-  }
-  return normalized;
-}
-
-function getAllQs() {
-  return [...DB.categories.common, ...DB.categories.special].flatMap(c => DB.questions[c] || []);
-}
-
-function getCategoryOfId(id) {
-  for (const [cat, qs] of Object.entries(DB.questions)) {
-    if (qs.find(q => q.id === id)) return cat;
-  }
-  return '';
-}
-
-function initAuth() {
-  document.getElementById('app-loading').style.display = 'none';
-  const isAuthed = sessionStorage.getItem('adminAuth') === 'true';
-  if (isAuthed) {
-    showAdminScreen('管理者');
-  } else {
-    showAuthScreen();
-  }
-}
-
-function showAuthScreen() {
-  document.getElementById('auth-screen').style.display = '';
-  document.getElementById('admin-screen').style.display = 'none';
-}
-
-function showAdminScreen(userLabel) {
-  document.getElementById('auth-screen').style.display = 'none';
-  document.getElementById('admin-screen').style.display = '';
-  document.getElementById('status-user').textContent = userLabel || '管理者';
-  buildPromptQuestionOptions();
-  buildDbStats();
-}
-
-async function verifyPasscode() {
-  const pass = document.getElementById('pass-input').value;
-  const errEl = document.getElementById('error-msg');
-  errEl.style.display = 'none';
-
-  if (!pass.trim()) {
-    errEl.textContent = 'パスコードを入力してください';
-    errEl.style.display = '';
-    return;
-  }
-
-  sessionStorage.setItem('adminAuth', 'true');
-  showAdminScreen('管理者');
-  showToast('🔓 ログインしました');
-}
-
-function logout() {
-  sessionStorage.removeItem('adminAuth');
-  showAuthScreen();
-  showToast('🔒 ログアウトしました');
-}
-
-function buildPromptQuestionOptions() {
-  const select = document.getElementById('prompt-question-select');
-  if (!select || !DB) return;
-  const qs = getAllQs();
-  select.innerHTML =
-    '<option value="">問題を選択してください</option>' +
-    qs.map(q => {
-      const cat = getCategoryOfId(q.id) || '未分類';
-      const label = `${q.id}｜${cat}｜${q.text}`.slice(0, 90);
-      return `<option value="${q.id}">${escapeHtml(label)}</option>`;
-    }).join('');
-}
-
-function generateImagePrompt() {
-  const select = document.getElementById('prompt-question-select');
-  const output = document.getElementById('image-prompt-output');
-  if (!select || !output) return;
-
-  const qid = select.value;
-  if (!qid) { output.value = ''; return; }
-
-  const q = getAllQs().find(q => q.id === qid);
-  if (!q) return;
-
-  const cat = getCategoryOfId(q.id) || '未分類';
-  const choicesText = (q.choices || []).map((c, i) => `${i + 1}. ${c}`).join('\n');
-  const answerText  = Array.isArray(q.answer) ? q.answer.join('、') : q.answer;
-
-  output.value =
-`理学療法士国家試験受験生向けの、X投稿・サイト掲載用の解説画像を作成してください。
-
-【画像の目的】
-・この問題の必須知識を、初心者でもパッと理解できるようにする
-・保存してあとで見返したくなる構成にする
-・過去問の丸写しではなく、論点をオリジナルの図解として整理する
-
-【問題ID】
-${q.id}
-
-【カテゴリー】
-${cat}
-
-【テーマ】
-${q.text}
-
-【選択肢】
-${choicesText}
-
-【正答】
-${answerText}
-
-【解説の要点】
-${stripHtml(q.explanation)}
-
-【画像構成】
-・上部：大きなタイトル
-・中央：図解、矢印、比較表、イラストを使って直感的に理解できる構成
-・下部：「ここ試験に出る」「勘違いポイント」「覚え方」を入れる
-・一番下に @sodateru_note を入れる
-
-【デザイン】
-・縦長スマホ向け
-・柔らかい色
-・医療系だけど堅苦しくしすぎない
-・文字は大きく、余白多め
-・重要語句は強調
-・初心者、浪人生、理学療法士国家試験受験生向け
-
-【注意】
-・問題文そのものを丸写ししない
-・著作権的に安全なオリジナル解説画像にする
-・細かすぎる説明より、国試で点につながる知識を優先する
-
-【保存ファイル名】
-${q.id}.webp`;
-}
-
-function copyImagePrompt() {
-  const output = document.getElementById('image-prompt-output');
-  if (!output || !output.value.trim()) {
-    showToast('先に問題を選んでください');
-    return;
-  }
-  navigator.clipboard.writeText(output.value)
-    .then(() => showToast('📋 プロンプトをコピーしました'))
-    .catch(() => {
-      output.select();
-      document.execCommand('copy');
-      showToast('📋 プロンプトをコピーしました');
-    });
-}
-
-function buildDbStats() {
-  if (!DB) return;
-  const allQs = getAllQs();
-  const withImage = allQs.filter(q => q.image && q.image.trim() !== '');
-  const commonTotal  = DB.categories.common.flatMap(c => DB.questions[c] || []).length;
-  const specialTotal = DB.categories.special.flatMap(c => DB.questions[c] || []).length;
-
-  document.getElementById('db-stats').innerHTML = `
-    <div>📘 共通問題：<strong>${commonTotal}問</strong>（${DB.categories.common.length}カテゴリ）</div>
-    <div>📗 専門問題：<strong>${specialTotal}問</strong>（${DB.categories.special.length}カテゴリ）</div>
-    <div>📝 合計：<strong>${allQs.length}問</strong></div>
-    <div>🖼 解説画像あり：<strong>${withImage.length}問</strong>（残り ${allQs.length - withImage.length}問）</div>
-  `;
-}
-
-function stripHtml(s) {
-  const d = document.createElement('div');
-  d.innerHTML = s || '';
-  return d.textContent || d.innerText || '';
-}
-function escapeHtml(str) {
-  return String(str || '').replace(/[&<>"']/g, s =>
-    ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s])
-  );
-}
 function showToast(msg) {
-  const t = document.getElementById('toast');
+  const t = $('toast');
   t.textContent = msg; t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2000);
 }
 
-loadQuestions();
+function escapeHtml(str){return String(str||'').replace(/[&<>"']/g,s=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));}
+function stripHtml(s){const d=document.createElement('div');d.innerHTML=s||'';return d.textContent||d.innerText||'';}
+
+function normalizeAndFlatten(raw) {
+  originalData = raw;
+  flatQuestions = [];
+  if (Array.isArray(raw)) {
+    originalShape = 'array';
+    raw.forEach((q, i) => flatQuestions.push({ q, ref: raw, index: i, category: getCategory(q), key: makeKey(q, i) }));
+  } else if (Array.isArray(raw.questions)) {
+    originalShape = 'object-array';
+    raw.questions.forEach((q, i) => flatQuestions.push({ q, ref: raw.questions, index: i, category: getCategory(q), key: makeKey(q, i) }));
+  } else if (raw.questions && typeof raw.questions === 'object') {
+    originalShape = 'category-object';
+    Object.entries(raw.questions).forEach(([cat, qs]) => {
+      (qs || []).forEach((q, i) => {
+        if (!q.category) q.category = cat;
+        flatQuestions.push({ q, ref: qs, index: i, category: cat, key: makeKey(q, flatQuestions.length) });
+      });
+    });
+  } else {
+    throw new Error('questions.jsonの形式を読み取れませんでした');
+  }
+}
+
+function makeKey(q, i) { return q.id || q.no || q.code || `q_${String(i+1).padStart(4,'0')}`; }
+function getId(q, i=0){ return q.id || q.no || q.code || `q_${String(i+1).padStart(4,'0')}`; }
+function getCategory(q){ return q.category || q.subject || q.field || q.unit || '未分類'; }
+function getText(q){ return q.text || q.question || q.questionText || q.title || ''; }
+function getChoices(q){ return q.choices || q.options || q.answers || []; }
+function getAnswer(q){ return q.answer ?? q.correct ?? q.correctAnswer ?? q.correct_choice ?? ''; }
+function getExplanation(q){ return q.explanation || q.commentary || q.description || ''; }
+function getImage(q){ return q.image || q.explanationImage || q.imageName || q.explanation_image || ''; }
+function setImage(q, value){
+  const v = value.trim();
+  q.image = normalizeImagePath(v);
+  delete q.explanationImage;
+  delete q.imageName;
+  delete q.explanation_image;
+}
+function normalizeImagePath(v){
+  if (!v) return '';
+  if (v.includes('/') || v.startsWith('http')) return v;
+  return `images/explanations/${v}`;
+}
+function fileNameOnly(path){ return String(path||'').split('/').pop(); }
+
+async function tryAutoLoad() {
+  try {
+    const res = await fetch('questions.json', { cache: 'no-store' });
+    if (!res.ok) return;
+    const data = await res.json();
+    loadData(data);
+  } catch(e) { console.log('auto load skipped', e.message); }
+}
+
+function loadData(data) {
+  normalizeAndFlatten(data);
+  setupCategories();
+  updateStats();
+  renderList();
+  showToast('questions.jsonを読み込みました');
+}
+
+function setupCategories(){
+  const cats = [...new Set(flatQuestions.map(item => item.category || getCategory(item.q)))].sort();
+  $('category-filter').innerHTML = '<option value="all">全カテゴリ</option>';
+  cats.forEach(cat => {
+    const op = document.createElement('option'); op.value = cat; op.textContent = cat;
+    $('category-filter').appendChild(op);
+  });
+}
+
+function updateStats(){
+  const total = flatQuestions.length;
+  const done = flatQuestions.filter(item => !!getImage(item.q)).length;
+  $('total-count').textContent = total;
+  $('done-count').textContent = done;
+  $('missing-count').textContent = total - done;
+}
+
+function getFiltered(){
+  const key = $('search-input').value.trim().toLowerCase();
+  const status = $('status-filter').value;
+  const cat = $('category-filter').value;
+  return flatQuestions.filter(item => {
+    const q = item.q;
+    const hay = [getId(q, item.index), item.category, getText(q), getChoices(q).join(' '), getImage(q)].join(' ').toLowerCase();
+    if (key && !hay.includes(key)) return false;
+    if (cat !== 'all' && item.category !== cat) return false;
+    if (status === 'missing' && getImage(q)) return false;
+    if (status === 'done' && !getImage(q)) return false;
+    return true;
+  });
+}
+
+function renderList(){
+  const list = getFiltered();
+  const box = $('question-list');
+  if (!flatQuestions.length) { box.innerHTML = '<div class="empty-note">questions.jsonを読み込むと、ここに全問題が表示されます。</div>'; return; }
+  if (!list.length) { box.innerHTML = '<div class="empty-note">条件に合う問題がありません。</div>'; return; }
+  box.innerHTML = list.map(item => {
+    const q = item.q;
+    const img = getImage(q);
+    const active = selectedKey === item.key ? ' active' : '';
+    return `<div class="question-item ${img ? 'done' : 'missing'}${active}" onclick="selectQuestion('${escapeAttr(item.key)}')">
+      <div class="q-row">
+        <span class="memo-tag">${escapeHtml(getId(q,item.index))}</span>
+        <span class="memo-tag orange">${escapeHtml(item.category)}</span>
+        <span class="memo-tag ${img ? 'done' : 'missing'}">${img ? '画像あり' : '未作成'}</span>
+      </div>
+      <div class="q-title">${escapeHtml(getText(q)).slice(0,110)}${getText(q).length>110?'…':''}</div>
+    </div>`;
+  }).join('');
+}
+function escapeAttr(s){ return String(s).replace(/'/g, '&#39;').replace(/"/g, '&quot;'); }
+
+function selectQuestion(key){
+  selectedKey = key;
+  const item = flatQuestions.find(x => String(x.key) === String(key));
+  if (!item) return;
+  const q = item.q;
+  $('detail-empty').style.display = 'none';
+  $('detail-area').style.display = '';
+  $('selected-meta').innerHTML = `<span class="memo-tag">${escapeHtml(getId(q,item.index))}</span><span class="memo-tag orange">${escapeHtml(item.category)}</span><span class="memo-tag ${getImage(q)?'done':'missing'}">${getImage(q)?'画像あり':'未作成'}</span>`;
+  $('selected-question').textContent = getText(q);
+  $('selected-choices').innerHTML = getChoices(q).map(c => `<li>${escapeHtml(c)}</li>`).join('');
+  $('answer-input').value = Array.isArray(getAnswer(q)) ? getAnswer(q).join(', ') : getAnswer(q);
+  $('theme-input').value = guessTheme(q, item.category);
+  $('image-input').value = fileNameOnly(getImage(q)) || makeImageName(q, item);
+  $('prompt-output').value = '';
+  updatePreview();
+  renderList();
+  $('detail-card').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function guessTheme(q, category){
+  if (q.theme || q.topic || q.keyword) return q.theme || q.topic || q.keyword;
+  const tags = q.tags || q.keywords || [];
+  if (Array.isArray(tags) && tags.length) return tags.slice(0,3).join('・');
+  return category || '理学療法士国家試験';
+}
+
+function makeImageName(q, item){
+  const id = String(getId(q,item.index)).toLowerCase();
+  const meta = String(q.meta || '').toLowerCase();
+  let base = id || meta || `q_${String(item.index+1).padStart(4,'0')}`;
+  base = base
+    .replace(/第/g,'')
+    .replace(/回/g,'')
+    .replace(/午前/g,'am')
+    .replace(/午後/g,'pm')
+    .replace(/[^a-z0-9ぁ-んァ-ン一-龥]+/gi,'_')
+    .replace(/_+/g,'_')
+    .replace(/^_|_$/g,'');
+  if (!base || base === 'undefined') base = `q_${String(item.index+1).padStart(4,'0')}`;
+  if (!base.startsWith('q')) base = 'q_' + base;
+  return base + '.png';
+}
+
+function autoFillImageName(){
+  const item = flatQuestions.find(x => String(x.key) === String(selectedKey));
+  if (!item) { showToast('問題を選択してください'); return; }
+  $('image-input').value = makeImageName(item.q, item);
+  updatePreview();
+  showToast('画像名を自動生成しました');
+}
+
+function saveImageName(){
+  const item = flatQuestions.find(x => String(x.key) === String(selectedKey));
+  if (!item) { showToast('問題を選択してください'); return; }
+  setImage(item.q, $('image-input').value);
+  updateStats();
+  renderList();
+  updatePreview();
+  showToast('画像名をquestions.jsonに反映しました');
+}
+
+function updatePreview(){
+  const name = $('image-input').value.trim();
+  const img = $('image-preview');
+  if (!name) { img.style.display = 'none'; img.src = ''; return; }
+  img.src = normalizeImagePath(name);
+  img.style.display = '';
+}
+
+function generatePrompt(){
+  const item = flatQuestions.find(x => String(x.key) === String(selectedKey));
+  if (!item) { showToast('問題を選択してください'); return; }
+  const q = item.q;
+  const choices = getChoices(q).map((c,i)=>`${i+1}. ${stripHtml(c)}`).join('\n');
+  const prompt = `理学療法士国家試験受験生向けの、X投稿用解説画像を作成してください。
+
+【問題ID】
+${getId(q,item.index)}
+
+【カテゴリー】
+${item.category}
+
+【テーマ】
+${$('theme-input').value || guessTheme(q,item.category)}
+
+【問題】
+${stripHtml(getText(q))}
+
+【選択肢】
+${choices}
+
+【正答】
+${$('answer-input').value || getAnswer(q)}
+
+【目的】
+保存されることを最優先にしてください。
+あとで見返したくなる、国試前に復習したくなる構成にしてください。
+
+【対象】
+理学療法士国家試験を受ける学生・浪人生。
+初学者でもパッと理解できるようにしてください。
+
+【デザイン】
+・スマホで見やすい縦長画像
+・育てるノートらしい、柔らかく親しみやすい雰囲気
+・黄色、ネイビー、オレンジを基調にした学習ノート風
+・余白をしっかり取り、情報を詰め込みすぎない
+・重要語句は大きく強調
+・図解、矢印、比較表、アイコンを使って直感的に理解できる構成
+・堅苦しい教科書風ではなく、保存したくなるまとめ画像
+
+【必ず入れてほしい要素】
+・1枚目で目を引くタイトル
+・「ここ試験に出る」などの強調
+・この問題を解くための必須知識
+・勘違いポイント
+・選択肢の正誤が理解できる整理
+・最後に「つまりこれを覚える」とまとめる
+・画像下部に @sodateru_note を入れる
+
+【注意】
+過去問の単なる解説ではなく、この問題を解くために必要な知識を図解でわかりやすくまとめてください。
+文字は読みやすく、スマホ表示でも潰れないようにしてください。`;
+  $('prompt-output').value = prompt;
+  showToast('プロンプトを生成しました');
+}
+
+async function copyPrompt(){
+  await copyText($('prompt-output').value, 'プロンプトをコピーしました');
+}
+async function copyJson(){
+  if (!originalData) { showToast('JSONがありません'); return; }
+  await copyText(JSON.stringify(originalData, null, 2), 'JSONをコピーしました');
+}
+async function copyText(text, msg){
+  if (!text) { showToast('コピーする内容がありません'); return; }
+  try { await navigator.clipboard.writeText(text); }
+  catch(e){ const ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); }
+  showToast(msg);
+}
+function downloadJson(){
+  if (!originalData) { showToast('JSONがありません'); return; }
+  const blob = new Blob([JSON.stringify(originalData, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'questions.json'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+  showToast('questions.jsonをダウンロードしました');
+}
+
+$('json-file').addEventListener('change', e => {
+  const file = e.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try { loadData(JSON.parse(reader.result)); }
+    catch(err){ alert('JSONの読み込みに失敗しました: ' + err.message); }
+  };
+  reader.readAsText(file);
+});
+$('search-input').addEventListener('input', renderList);
+$('status-filter').addEventListener('change', renderList);
+$('category-filter').addEventListener('change', renderList);
+$('image-input').addEventListener('input', updatePreview);
+
+tryAutoLoad();
 </script>
 </body>
 </html>
