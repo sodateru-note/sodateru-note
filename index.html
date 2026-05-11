@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -13,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   育てるノート — index.html
+   育てるノート — index.html（一般ユーザー向け）
    問題データ : questions.json
    解説画像   : images/<question_id>.png  (例: images/a1.png)
    ============================================================ */
@@ -52,69 +53,69 @@ body {
 
 /* ===== LOADING ===== */
 #app-loading {
-  position: fixed; inset: 0;
-  background: var(--navy);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  z-index: 9999; gap: 16px;
+position: fixed; inset: 0;
+background: var(–navy);
+display: flex; flex-direction: column;
+align-items: center; justify-content: center;
+z-index: 9999; gap: 16px;
 }
 #app-loading .logo {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-size: 28px; font-weight: 900; color: var(--yellow);
+font-family: ‘M PLUS Rounded 1c’, sans-serif;
+font-size: 28px; font-weight: 900; color: var(–yellow);
 }
 #app-loading .spinner {
-  width: 36px; height: 36px;
-  border: 4px solid rgba(245,213,71,0.3);
-  border-top-color: var(--yellow);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
+width: 36px; height: 36px;
+border: 4px solid rgba(245,213,71,0.3);
+border-top-color: var(–yellow);
+border-radius: 50%;
+animation: spin 0.8s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* ===== HEADER ===== */
 .header {
-  background: var(--navy);
-  padding: 14px 18px 12px;
-  position: sticky; top: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
+background: var(–navy);
+padding: 14px 18px 12px;
+position: sticky; top: 0; z-index: 100;
+display: flex; align-items: center; justify-content: space-between;
 }
 .header-logo {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-size: 20px; font-weight: 900;
-  color: var(--yellow);
-  letter-spacing: -0.02em; line-height: 1;
+font-family: ‘M PLUS Rounded 1c’, sans-serif;
+font-size: 20px; font-weight: 900;
+color: var(–yellow);
+letter-spacing: -0.02em; line-height: 1;
 }
 .header-logo span {
-  font-size: 11px; font-weight: 400;
-  color: rgba(255,255,255,0.6);
-  display: block; margin-top: 2px; letter-spacing: 0.05em;
+font-size: 11px; font-weight: 400;
+color: rgba(255,255,255,0.6);
+display: block; margin-top: 2px; letter-spacing: 0.05em;
 }
 .countdown-box {
-  background: var(--yellow); border-radius: 12px;
-  padding: 6px 12px; text-align: center;
-  cursor: pointer; transition: transform 0.15s; min-width: 80px;
+background: var(–yellow); border-radius: 12px;
+padding: 6px 12px; text-align: center;
+cursor: pointer; transition: transform 0.15s; min-width: 80px;
 }
 .countdown-box:active { transform: scale(0.96); }
 .countdown-days {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-size: 22px; font-weight: 900; color: var(--navy); line-height: 1;
+font-family: ‘M PLUS Rounded 1c’, sans-serif;
+font-size: 22px; font-weight: 900; color: var(–navy); line-height: 1;
 }
-.countdown-label { font-size: 10px; color: var(--navy); font-weight: 700; opacity: 0.7; }
+.countdown-label { font-size: 10px; color: var(–navy); font-weight: 700; opacity: 0.7; }
 
 /* ===== NAV ===== */
 .nav-tabs {
-  background: white; display: flex;
-  border-bottom: 2px solid var(--border);
-  position: sticky; top: 66px; z-index: 99;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+background: white; display: flex;
+border-bottom: 2px solid var(–border);
+position: sticky; top: 66px; z-index: 99;
+box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 .nav-tab {
-  flex: 1; padding: 10px 4px; text-align: center;
-  font-size: 10px; font-weight: 700; color: var(--text-light);
-  cursor: pointer; border-bottom: 3px solid transparent;
-  margin-bottom: -2px; transition: all 0.2s; user-select: none;
+flex: 1; padding: 10px 4px; text-align: center;
+font-size: 10px; font-weight: 700; color: var(–text-light);
+cursor: pointer; border-bottom: 3px solid transparent;
+margin-bottom: -2px; transition: all 0.2s; user-select: none;
 }
-.nav-tab.active { color: var(--navy); border-bottom-color: var(--orange); }
+.nav-tab.active { color: var(–navy); border-bottom-color: var(–orange); }
 .nav-tab .tab-icon { font-size: 20px; display: block; margin-bottom: 2px; }
 
 /* ===== SCREENS ===== */
@@ -124,367 +125,288 @@ body {
 
 /* ===== MODAL ===== */
 .modal-overlay {
-  display: none; position: fixed; inset: 0;
-  background: rgba(0,0,0,0.5); z-index: 500;
-  align-items: flex-end; justify-content: center;
+display: none; position: fixed; inset: 0;
+background: rgba(0,0,0,0.5); z-index: 500;
+align-items: flex-end; justify-content: center;
 }
 .modal-overlay.show { display: flex; }
 .modal-sheet {
-  background: white; width: 100%; max-width: 480px;
-  border-radius: 24px 24px 0 0; padding: 24px 20px 40px;
-  animation: slideUp 0.3s ease;
+background: white; width: 100%; max-width: 480px;
+border-radius: 24px 24px 0 0; padding: 24px 20px 40px;
+animation: slideUp 0.3s ease;
 }
 @keyframes slideUp { from { transform:translateY(100%); } to { transform:translateY(0); } }
 .modal-title {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-size: 18px; font-weight: 900; color: var(--navy);
-  margin-bottom: 6px; text-align: center;
+font-family: ‘M PLUS Rounded 1c’, sans-serif;
+font-size: 18px; font-weight: 900; color: var(–navy);
+margin-bottom: 6px; text-align: center;
 }
-.modal-sub { font-size: 13px; color: var(--text-soft); text-align: center; margin-bottom: 20px; line-height: 1.6; }
+.modal-sub { font-size: 13px; color: var(–text-soft); text-align: center; margin-bottom: 20px; line-height: 1.6; }
 .modal-input {
-  width: 100%; padding: 14px; border: 2px solid var(--border);
-  border-radius: 12px; font-size: 16px; font-family: inherit;
-  outline: none; color: var(--text); margin-bottom: 14px;
+width: 100%; padding: 14px; border: 2px solid var(–border);
+border-radius: 12px; font-size: 16px; font-family: inherit;
+outline: none; color: var(–text); margin-bottom: 14px;
 }
-.modal-input:focus { border-color: var(--orange); }
+.modal-input:focus { border-color: var(–orange); }
 .modal-btn {
-  width: 100%; padding: 16px; border: none; border-radius: 12px;
-  font-size: 15px; font-weight: 700; font-family: inherit;
-  cursor: pointer; background: var(--navy); color: var(--yellow);
+width: 100%; padding: 16px; border: none; border-radius: 12px;
+font-size: 15px; font-weight: 700; font-family: inherit;
+cursor: pointer; background: var(–navy); color: var(–yellow);
 }
 
 /* ===== HOME ===== */
 .home-hero {
-  background: var(--navy); border-radius: var(--radius);
-  padding: 20px 18px 18px; margin-bottom: 14px;
-  position: relative; overflow: hidden;
+background: var(–navy); border-radius: var(–radius);
+padding: 20px 18px 18px; margin-bottom: 14px;
+position: relative; overflow: hidden;
 }
 .home-hero::before {
-  content: '✳︎'; position: absolute; right: 16px; top: 14px;
-  font-size: 36px; color: var(--orange); opacity: 0.9;
+content: ‘✳︎’; position: absolute; right: 16px; top: 14px;
+font-size: 36px; color: var(–orange); opacity: 0.9;
 }
 .home-hero-label {
-  font-size: 11px; font-weight: 700; color: var(--orange);
-  letter-spacing: 0.1em; margin-bottom: 6px;
+font-size: 11px; font-weight: 700; color: var(–orange);
+letter-spacing: 0.1em; margin-bottom: 6px;
 }
 .home-hero h2 {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-size: 22px; font-weight: 900; color: var(--yellow);
-  margin-bottom: 6px; line-height: 1.2;
+font-family: ‘M PLUS Rounded 1c’, sans-serif;
+font-size: 22px; font-weight: 900; color: var(–yellow);
+margin-bottom: 6px; line-height: 1.2;
 }
 .home-hero p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.7; }
 
 .progress-card {
-  background: white; border-radius: var(--radius);
-  padding: 16px; margin-bottom: 14px;
-  box-shadow: var(--card-shadow); border-left: 5px solid var(--yellow);
+background: white; border-radius: var(–radius);
+padding: 16px; margin-bottom: 14px;
+box-shadow: var(–card-shadow); border-left: 5px solid var(–yellow);
 }
-.progress-card h3 { font-size: 13px; color: var(--text-soft); margin-bottom: 12px; font-weight: 700; }
-.progress-bar-wrap { background: var(--border); border-radius: 99px; height: 10px; overflow: hidden; margin-bottom: 8px; }
+.progress-card h3 { font-size: 13px; color: var(–text-soft); margin-bottom: 12px; font-weight: 700; }
+.progress-bar-wrap { background: var(–border); border-radius: 99px; height: 10px; overflow: hidden; margin-bottom: 8px; }
 .progress-bar {
-  height: 100%; border-radius: 99px;
-  background: linear-gradient(90deg, var(--orange), var(--yellow));
-  transition: width 0.8s cubic-bezier(.4,0,.2,1);
+height: 100%; border-radius: 99px;
+background: linear-gradient(90deg, var(–orange), var(–yellow));
+transition: width 0.8s cubic-bezier(.4,0,.2,1);
 }
-.progress-stats { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-soft); }
-.progress-stats strong { color: var(--orange); }
+.progress-stats { display: flex; justify-content: space-between; font-size: 12px; color: var(–text-soft); }
+.progress-stats strong { color: var(–orange); }
 
 .category-tabs { display: flex; gap: 8px; margin-bottom: 12px; }
 .cat-main-tab {
-  flex: 1; padding: 10px; border-radius: 12px; border: 2px solid var(--border);
-  background: white; font-size: 13px; font-weight: 700;
-  cursor: pointer; color: var(--text-soft); transition: all 0.2s;
-  text-align: center; font-family: inherit;
+flex: 1; padding: 10px; border-radius: 12px; border: 2px solid var(–border);
+background: white; font-size: 13px; font-weight: 700;
+cursor: pointer; color: var(–text-soft); transition: all 0.2s;
+text-align: center; font-family: inherit;
 }
-.cat-main-tab.active { background: var(--navy); color: var(--yellow); border-color: var(--navy); }
+.cat-main-tab.active { background: var(–navy); color: var(–yellow); border-color: var(–navy); }
 .cat-panel { display: none; }
 .cat-panel.active { display: block; }
 
 .category-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
 .category-card {
-  background: white; border-radius: 12px; padding: 13px 10px;
-  box-shadow: var(--card-shadow); cursor: pointer; transition: transform 0.15s;
-  border-top: 4px solid var(--yellow); position: relative; overflow: hidden;
+background: white; border-radius: 12px; padding: 13px 10px;
+box-shadow: var(–card-shadow); cursor: pointer; transition: transform 0.15s;
+border-top: 4px solid var(–yellow); position: relative; overflow: hidden;
 }
 .category-card:active { transform: scale(0.97); }
 .category-card .cat-icon { font-size: 22px; margin-bottom: 6px; }
-.category-card .cat-name { font-size: 12px; font-weight: 700; color: var(--navy); margin-bottom: 3px; line-height: 1.3; }
-.category-card .cat-count { font-size: 11px; color: var(--text-light); }
-.category-card .cat-rate { font-size: 11px; margin-top: 5px; font-weight: 900; color: var(--orange); }
+.category-card .cat-name { font-size: 12px; font-weight: 700; color: var(–navy); margin-bottom: 3px; line-height: 1.3; }
+.category-card .cat-count { font-size: 11px; color: var(–text-light); }
+.category-card .cat-rate { font-size: 11px; margin-top: 5px; font-weight: 900; color: var(–orange); }
 
 .random-btns { display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px; }
 .random-btn {
-  width: 100%; padding: 15px 18px; border: none; border-radius: 14px;
-  font-size: 14px; font-weight: 700; font-family: inherit;
-  cursor: pointer; display: flex; align-items: center; gap: 10px;
-  transition: transform 0.15s, box-shadow 0.15s;
+width: 100%; padding: 15px 18px; border: none; border-radius: 14px;
+font-size: 14px; font-weight: 700; font-family: inherit;
+cursor: pointer; display: flex; align-items: center; gap: 10px;
+transition: transform 0.15s, box-shadow 0.15s;
 }
 .random-btn:active { transform: scale(0.98); }
-.random-btn-all  { background: var(--navy);   color: var(--yellow); box-shadow: 0 4px 16px rgba(26,40,71,0.3); }
-.random-btn-common { background: var(--orange); color: white; box-shadow: 0 4px 16px rgba(232,114,42,0.3); }
-.random-btn-special { background: var(--teal);  color: white; box-shadow: 0 4px 16px rgba(58,181,181,0.25); }
+.random-btn-all  { background: var(–navy);   color: var(–yellow); box-shadow: 0 4px 16px rgba(26,40,71,0.3); }
+.random-btn-common { background: var(–orange); color: white; box-shadow: 0 4px 16px rgba(232,114,42,0.3); }
+.random-btn-special { background: var(–teal);  color: white; box-shadow: 0 4px 16px rgba(58,181,181,0.25); }
 .random-btn .btn-label { flex: 1; text-align: left; }
 .random-btn .btn-sub { font-size: 11px; opacity: 0.75; font-weight: 400; }
 .random-btn .btn-arrow { font-size: 18px; }
 
 /* ===== QUIZ ===== */
 .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-.quiz-progress-text { font-size: 13px; color: var(--text-soft); }
-.quiz-progress-text strong { color: var(--navy); font-size: 16px; }
+.quiz-progress-text { font-size: 13px; color: var(–text-soft); }
+.quiz-progress-text strong { color: var(–navy); font-size: 16px; }
 .quiz-category-badge {
-  font-size: 11px; padding: 4px 10px; border-radius: 99px;
-  background: var(--yellow); color: var(--navy); font-weight: 900;
+font-size: 11px; padding: 4px 10px; border-radius: 99px;
+background: var(–yellow); color: var(–navy); font-weight: 900;
 }
-.quiz-progress-bar { background: var(--border); border-radius: 99px; height: 6px; margin-bottom: 16px; overflow: hidden; }
+.quiz-progress-bar { background: var(–border); border-radius: 99px; height: 6px; margin-bottom: 16px; overflow: hidden; }
 .quiz-progress-fill {
-  height: 100%; border-radius: 99px;
-  background: linear-gradient(90deg, var(--orange), var(--yellow)); transition: width 0.4s ease;
+height: 100%; border-radius: 99px;
+background: linear-gradient(90deg, var(–orange), var(–yellow)); transition: width 0.4s ease;
 }
 .question-card {
-  background: white; border-radius: var(--radius);
-  padding: 18px; box-shadow: var(--card-shadow); margin-bottom: 12px;
-  border-top: 5px solid var(--orange);
+background: white; border-radius: var(–radius);
+padding: 18px; box-shadow: var(–card-shadow); margin-bottom: 12px;
+border-top: 5px solid var(–orange);
 }
-.question-meta { font-size: 11px; color: var(--text-light); margin-bottom: 8px; }
-.question-text { font-size: 15px; line-height: 1.75; font-weight: 500; color: var(--navy); }
+.question-meta { font-size: 11px; color: var(–text-light); margin-bottom: 8px; }
+.question-text { font-size: 15px; line-height: 1.75; font-weight: 500; color: var(–navy); }
 
 .choices-list { display: flex; flex-direction: column; gap: 9px; margin-bottom: 12px; }
 .choice-btn {
-  background: white; border: 2px solid var(--border); border-radius: 12px;
-  padding: 13px 14px; text-align: left; font-size: 14px; line-height: 1.5;
-  cursor: pointer; transition: all 0.15s; display: flex; align-items: flex-start; gap: 10px;
-  font-family: inherit; color: var(--text);
+background: white; border: 2px solid var(–border); border-radius: 12px;
+padding: 13px 14px; text-align: left; font-size: 14px; line-height: 1.5;
+cursor: pointer; transition: all 0.15s; display: flex; align-items: flex-start; gap: 10px;
+font-family: inherit; color: var(–text);
 }
 .choice-btn:active { transform: scale(0.98); }
 .choice-num {
-  min-width: 26px; height: 26px; border-radius: 50%;
-  background: var(--border); color: var(--text-soft);
-  font-size: 12px; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+min-width: 26px; height: 26px; border-radius: 50%;
+background: var(–border); color: var(–text-soft);
+font-size: 12px; font-weight: 700;
+display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
-.choice-btn.correct  { border-color: var(--correct); background: var(--correct-bg); }
-.choice-btn.correct .choice-num { background: var(--correct); color: white; }
-.choice-btn.wrong    { border-color: var(--wrong);   background: var(--wrong-bg); }
-.choice-btn.wrong .choice-num   { background: var(--wrong);   color: white; }
+.choice-btn.correct  { border-color: var(–correct); background: var(–correct-bg); }
+.choice-btn.correct .choice-num { background: var(–correct); color: white; }
+.choice-btn.wrong    { border-color: var(–wrong);   background: var(–wrong-bg); }
+.choice-btn.wrong .choice-num   { background: var(–wrong);   color: white; }
 .choice-btn.selected {
-  border-color: var(--orange);
-  background: var(--orange-light);
+border-color: var(–orange);
+background: var(–orange-light);
 }
 .choice-btn.selected .choice-num {
-  background: var(--orange);
-  color: white;
+background: var(–orange);
+color: white;
 }
 .choice-btn:disabled { cursor: default; }
 
-.answer-panel { background: white; border-radius: var(--radius); overflow: hidden; box-shadow: var(--card-shadow); margin-bottom: 12px; display: none; }
+.answer-panel { background: white; border-radius: var(–radius); overflow: hidden; box-shadow: var(–card-shadow); margin-bottom: 12px; display: none; }
 .answer-panel.show { display: block; }
 .answer-result { padding: 13px 16px; font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
-.answer-result.correct { background: var(--correct-bg); color: var(--correct); }
-.answer-result.wrong   { background: var(--wrong-bg);   color: var(--wrong); }
+.answer-result.correct { background: var(–correct-bg); color: var(–correct); }
+.answer-result.wrong   { background: var(–wrong-bg);   color: var(–wrong); }
 
-.explanation-tabs { display: flex; border-bottom: 1px solid var(--border); background: var(--warm-white); }
+.explanation-tabs { display: flex; border-bottom: 1px solid var(–border); background: var(–warm-white); }
 .exp-tab {
-  flex: 1; padding: 10px 4px; font-size: 11px; text-align: center;
-  cursor: pointer; color: var(--text-light);
-  border-bottom: 3px solid transparent; margin-bottom: -1px; transition: all 0.2s; font-weight: 700;
+flex: 1; padding: 10px 4px; font-size: 11px; text-align: center;
+cursor: pointer; color: var(–text-light);
+border-bottom: 3px solid transparent; margin-bottom: -1px; transition: all 0.2s; font-weight: 700;
 }
-.exp-tab.active { color: var(--orange); border-bottom-color: var(--orange); }
+.exp-tab.active { color: var(–orange); border-bottom-color: var(–orange); }
 
 .exp-content { padding: 14px; }
-.exp-text { font-size: 13px; line-height: 1.85; color: var(--text); }
-.exp-text strong { color: var(--navy); }
+.exp-text { font-size: 13px; line-height: 1.85; color: var(–text); }
+.exp-text strong { color: var(–navy); }
 .exp-text .keyword {
-  background: var(--yellow-light); color: var(--navy);
-  padding: 1px 6px; border-radius: 4px; font-weight: 700;
-  border-bottom: 2px solid var(--yellow);
+background: var(–yellow-light); color: var(–navy);
+padding: 1px 6px; border-radius: 4px; font-weight: 700;
+border-bottom: 2px solid var(–yellow);
 }
 
-/* 解説画像エリア
-   images/<question_id>.png を配置するとここに表示されます */
 .exp-image-area {
-  background: var(--warm-white); border-radius: 10px;
-  padding: 16px; text-align: center; margin-top: 10px;
-  border: 2px dashed var(--border);
+background: var(–warm-white); border-radius: 10px;
+padding: 16px; text-align: center; margin-top: 10px;
+border: 2px dashed var(–border);
 }
 .exp-image-area img { width: 100%; border-radius: 8px; display: block; }
 .exp-image-area .img-ph { font-size: 36px; margin-bottom: 8px; }
-.exp-image-area p { font-size: 12px; color: var(--text-light); line-height: 1.6; }
-/* 画像パスの説明コメント:
-   questions.json の "image" フィールドに "images/a1.png" のように入力すると
-   この <img> タグに自動反映されます */
+.exp-image-area p { font-size: 12px; color: var(–text-light); line-height: 1.6; }
 
 .quiz-actions { display: flex; gap: 8px; margin-top: 4px; }
 .btn-secondary {
-  flex: 1; padding: 14px; border-radius: 12px; border: 2px solid var(--border);
-  background: white; font-size: 14px; font-weight: 700; cursor: pointer;
-  color: var(--text-soft); font-family: inherit; transition: all 0.15s;
+flex: 1; padding: 14px; border-radius: 12px; border: 2px solid var(–border);
+background: white; font-size: 14px; font-weight: 700; cursor: pointer;
+color: var(–text-soft); font-family: inherit; transition: all 0.15s;
 }
 .btn-primary {
-  flex: 2; padding: 14px; border-radius: 12px; border: none;
-  background: var(--navy); font-size: 14px; font-weight: 700;
-  cursor: pointer; color: var(--yellow); font-family: inherit; transition: all 0.15s;
+flex: 2; padding: 14px; border-radius: 12px; border: none;
+background: var(–navy); font-size: 14px; font-weight: 700;
+cursor: pointer; color: var(–yellow); font-family: inherit; transition: all 0.15s;
 }
 .btn-primary:active, .btn-secondary:active { transform: scale(0.97); }
 
 /* ===== NOTES ===== */
 .note-add-btn {
-  width: 100%; padding: 14px; border-radius: var(--radius);
-  border: 2px dashed var(--yellow); background: var(--yellow-light);
-  color: var(--navy); font-size: 14px; font-weight: 700;
-  cursor: pointer; margin-bottom: 16px; font-family: inherit;
+width: 100%; padding: 14px; border-radius: var(–radius);
+border: 2px dashed var(–yellow); background: var(–yellow-light);
+color: var(–navy); font-size: 14px; font-weight: 700;
+cursor: pointer; margin-bottom: 16px; font-family: inherit;
 }
 .section-title {
-  font-size: 12px; font-weight: 900; color: var(--text-soft);
-  margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.1em;
-  display: flex; align-items: center; gap: 6px;
+font-size: 12px; font-weight: 900; color: var(–text-soft);
+margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.1em;
+display: flex; align-items: center; gap: 6px;
 }
 .memo-card {
-  background: white; border-radius: 12px; padding: 14px;
-  box-shadow: var(--card-shadow); margin-bottom: 9px;
-  border-left: 5px solid var(--orange); cursor: pointer;
+background: white; border-radius: 12px; padding: 14px;
+box-shadow: var(–card-shadow); margin-bottom: 9px;
+border-left: 5px solid var(–orange); cursor: pointer;
 }
-.memo-card .memo-q { font-size: 13px; font-weight: 700; margin-bottom: 5px; color: var(--navy); }
-.memo-card .memo-preview { font-size: 12px; color: var(--text-soft); line-height: 1.6; }
+.memo-card .memo-q { font-size: 13px; font-weight: 700; margin-bottom: 5px; color: var(–navy); }
+.memo-card .memo-preview { font-size: 12px; color: var(–text-soft); line-height: 1.6; }
 .memo-card .memo-tags { display: flex; gap: 5px; margin-top: 7px; flex-wrap: wrap; }
-.memo-tag { font-size: 11px; padding: 2px 8px; border-radius: 99px; background: var(--yellow-light); color: var(--navy); font-weight: 700; }
-.memo-tag.wrong-tag { background: var(--wrong-bg); color: var(--wrong); }
-
+.memo-tag { font-size: 11px; padding: 2px 8px; border-radius: 99px; background: var(–yellow-light); color: var(–navy); font-weight: 700; }
+.memo-tag.wrong-tag { background: var(–wrong-bg); color: var(–wrong); }
 
 /* ===== NOTE FOLDERS ===== */
-.note-folder-grid{display:flex;flex-direction:column;gap:12px}.note-folder-card{background:white;border-radius:var(--radius);padding:16px;box-shadow:var(--card-shadow);border-left:6px solid var(--yellow);cursor:pointer;display:flex;align-items:center;gap:12px}.note-folder-card:active{transform:scale(.98)}.note-folder-icon{font-size:30px}.note-folder-title{font-size:15px;font-weight:900;color:var(--navy)}.note-folder-sub{font-size:12px;color:var(--text-soft);margin-top:3px}.note-back-btn{border:none;background:var(--navy);color:var(--yellow);border-radius:12px;padding:10px 14px;font-size:13px;font-weight:700;margin-bottom:14px;cursor:pointer}.empty-note{background:white;border-radius:var(--radius);padding:22px 16px;text-align:center;box-shadow:var(--card-shadow);color:var(--text-soft);font-size:13px;line-height:1.7}.note-card-actions{display:flex;gap:8px;margin-top:10px}.note-mini-btn{flex:1;border:1px solid var(--border);background:var(--warm-white);border-radius:10px;padding:8px;font-size:12px;font-weight:700;color:var(--navy);cursor:pointer}
-/* ===== SOCIAL ===== */
-.social-compose{background:white;border-radius:var(--radius);padding:14px;box-shadow:var(--card-shadow);margin-bottom:14px;border-top:5px solid var(--teal)}.social-compose-title{font-size:15px;font-weight:900;color:var(--navy);margin-bottom:8px}.social-input{width:100%;border:2px solid var(--border);border-radius:12px;padding:11px;font-family:inherit;font-size:13px;outline:none;margin-bottom:8px}.social-input:focus{border-color:var(--teal)}.social-post-btn{width:100%;border:none;border-radius:12px;background:var(--teal);color:white;padding:12px;font-weight:900;font-size:14px;font-family:inherit;cursor:pointer}.social-card{background:white;border-radius:var(--radius);box-shadow:var(--card-shadow);padding:14px;margin-bottom:12px}.social-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}.social-avatar{width:38px;height:38px;border-radius:50%;background:var(--yellow-light);display:flex;align-items:center;justify-content:center;font-size:20px}.social-name{font-size:13px;font-weight:900;color:var(--navy)}.social-date{font-size:11px;color:var(--text-light)}.social-title{font-size:14px;font-weight:900;color:var(--navy);margin-bottom:6px}.social-text{font-size:13px;color:var(--text-soft);line-height:1.7;margin-bottom:10px}.social-image-ph{width:100%;height:150px;border-radius:12px;background:linear-gradient(135deg,var(--yellow-light),var(--teal-light));display:flex;align-items:center;justify-content:center;font-size:44px;margin-bottom:10px}.social-actions{display:flex;gap:8px}.social-action-btn{flex:1;border:1px solid var(--border);background:var(--warm-white);border-radius:10px;padding:9px;font-size:12px;font-weight:700;color:var(--text-soft);cursor:pointer}
+.note-folder-grid{display:flex;flex-direction:column;gap:12px}.note-folder-card{background:white;border-radius:var(–radius);padding:16px;box-shadow:var(–card-shadow);border-left:6px solid var(–yellow);cursor:pointer;display:flex;align-items:center;gap:12px}.note-folder-card:active{transform:scale(.98)}.note-folder-icon{font-size:30px}.note-folder-title{font-size:15px;font-weight:900;color:var(–navy)}.note-folder-sub{font-size:12px;color:var(–text-soft);margin-top:3px}.note-back-btn{border:none;background:var(–navy);color:var(–yellow);border-radius:12px;padding:10px 14px;font-size:13px;font-weight:700;margin-bottom:14px;cursor:pointer}.empty-note{background:white;border-radius:var(–radius);padding:22px 16px;text-align:center;box-shadow:var(–card-shadow);color:var(–text-soft);font-size:13px;line-height:1.7}.note-card-actions{display:flex;gap:8px;margin-top:10px}.note-mini-btn{flex:1;border:1px solid var(–border);background:var(–warm-white);border-radius:10px;padding:8px;font-size:12px;font-weight:700;color:var(–navy);cursor:pointer}
 
+/* ===== SOCIAL ===== */
+.social-compose{background:white;border-radius:var(–radius);padding:14px;box-shadow:var(–card-shadow);margin-bottom:14px;border-top:5px solid var(–teal)}.social-compose-title{font-size:15px;font-weight:900;color:var(–navy);margin-bottom:8px}.social-input{width:100%;border:2px solid var(–border);border-radius:12px;padding:11px;font-family:inherit;font-size:13px;outline:none;margin-bottom:8px}.social-input:focus{border-color:var(–teal)}.social-post-btn{width:100%;border:none;border-radius:12px;background:var(–teal);color:white;padding:12px;font-weight:900;font-size:14px;font-family:inherit;cursor:pointer}.social-card{background:white;border-radius:var(–radius);box-shadow:var(–card-shadow);padding:14px;margin-bottom:12px}.social-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}.social-avatar{width:38px;height:38px;border-radius:50%;background:var(–yellow-light);display:flex;align-items:center;justify-content:center;font-size:20px}.social-name{font-size:13px;font-weight:900;color:var(–navy)}.social-date{font-size:11px;color:var(–text-light)}.social-title{font-size:14px;font-weight:900;color:var(–navy);margin-bottom:6px}.social-text{font-size:13px;color:var(–text-soft);line-height:1.7;margin-bottom:10px}.social-image-ph{width:100%;height:150px;border-radius:12px;background:linear-gradient(135deg,var(–yellow-light),var(–teal-light));display:flex;align-items:center;justify-content:center;font-size:44px;margin-bottom:10px}.social-actions{display:flex;gap:8px}.social-action-btn{flex:1;border:1px solid var(–border);background:var(–warm-white);border-radius:10px;padding:9px;font-size:12px;font-weight:700;color:var(–text-soft);cursor:pointer}
 
 .q-image{
-  width:100%;
-  border-radius:18px;
-  margin-top:12px;
-  box-shadow:0 4px 14px rgba(0,0,0,0.08);
-}
-
-
-/* ===== IMAGE PROMPT GENERATOR ===== */
-.prompt-generator-card {
-  background: white;
-  border-radius: var(--radius);
-  padding: 14px;
-  box-shadow: var(--card-shadow);
-  margin-bottom: 14px;
-  border-top: 5px solid var(--orange);
-}
-.prompt-generator-title {
-  font-size: 15px;
-  font-weight: 900;
-  color: var(--navy);
-  margin-bottom: 8px;
-}
-.prompt-generator-sub {
-  font-size: 12px;
-  color: var(--text-soft);
-  line-height: 1.7;
-  margin-bottom: 10px;
-}
-.prompt-select {
-  width: 100%;
-  border: 2px solid var(--border);
-  border-radius: 12px;
-  padding: 11px;
-  font-family: inherit;
-  font-size: 13px;
-  background: white;
-  margin-bottom: 8px;
-}
-.prompt-output {
-  width: 100%;
-  min-height: 220px;
-  border: 2px solid var(--border);
-  border-radius: 12px;
-  padding: 12px;
-  font-size: 12px;
-  line-height: 1.7;
-  font-family: inherit;
-  resize: vertical;
-  outline: none;
-  color: var(--text);
-}
-.prompt-btn-row {
-  display: flex;
-  gap: 8px;
-  margin-top: 8px;
-}
-.prompt-btn {
-  flex: 1;
-  border: none;
-  border-radius: 12px;
-  padding: 11px;
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 900;
-  cursor: pointer;
-}
-.prompt-btn.primary {
-  background: var(--navy);
-  color: var(--yellow);
-}
-.prompt-btn.secondary {
-  background: var(--yellow-light);
-  color: var(--navy);
-  border: 1px solid var(--yellow);
-}
-.prompt-hint {
-  font-size: 11px;
-  color: var(--text-light);
-  line-height: 1.6;
-  margin-top: 8px;
+width:100%;
+border-radius:18px;
+margin-top:12px;
+box-shadow:0 4px 14px rgba(0,0,0,0.08);
 }
 
 /* ===== STATS ===== */
 .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin-bottom: 14px; }
-.stat-box { background: white; border-radius: 12px; padding: 14px 8px; text-align: center; box-shadow: var(--card-shadow); }
+.stat-box { background: white; border-radius: 12px; padding: 14px 8px; text-align: center; box-shadow: var(–card-shadow); }
 .stat-box .stat-num {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-size: 26px; font-weight: 900; color: var(--navy); line-height: 1; margin-bottom: 3px;
+font-family: ‘M PLUS Rounded 1c’, sans-serif;
+font-size: 26px; font-weight: 900; color: var(–navy); line-height: 1; margin-bottom: 3px;
 }
-.stat-box.hl .stat-num { color: var(--orange); }
-.stat-box .stat-label { font-size: 11px; color: var(--text-light); }
+.stat-box.hl .stat-num { color: var(–orange); }
+.stat-box .stat-label { font-size: 11px; color: var(–text-light); }
 
 .stats-section { margin-bottom: 16px; }
 .stats-section-header {
-  background: var(--navy); color: var(--yellow); padding: 10px 14px;
-  border-radius: 10px 10px 0 0; font-size: 13px; font-weight: 900;
-  font-family: 'M PLUS Rounded 1c', sans-serif;
+background: var(–navy); color: var(–yellow); padding: 10px 14px;
+border-radius: 10px 10px 0 0; font-size: 13px; font-weight: 900;
+font-family: ‘M PLUS Rounded 1c’, sans-serif;
 }
 .stats-section-body {
-  background: white; border-radius: 0 0 10px 10px; padding: 14px;
-  box-shadow: var(--card-shadow); display: flex; flex-direction: column; gap: 12px;
+background: white; border-radius: 0 0 10px 10px; padding: 14px;
+box-shadow: var(–card-shadow); display: flex; flex-direction: column; gap: 12px;
 }
-.stat-bar-label { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px; color: var(--text-soft); }
-.stat-bar-label strong { color: var(--orange); font-weight: 900; }
-.stat-bar-track { background: var(--border); border-radius: 99px; height: 8px; overflow: hidden; }
-.stat-bar-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--orange), var(--yellow)); }
+.stat-bar-label { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px; color: var(–text-soft); }
+.stat-bar-label strong { color: var(–orange); font-weight: 900; }
+.stat-bar-track { background: var(–border); border-radius: 99px; height: 8px; overflow: hidden; }
+.stat-bar-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(–orange), var(–yellow)); }
 
 /* ===== TOAST ===== */
 .result-toast {
-  position: fixed; top: 80px; left: 50%;
-  transform: translateX(-50%) translateY(-20px);
-  background: var(--navy); color: var(--yellow);
-  padding: 11px 22px; border-radius: 99px;
-  font-size: 14px; font-weight: 700; opacity: 0;
-  pointer-events: none; transition: all 0.3s; z-index: 999; white-space: nowrap;
+position: fixed; top: 80px; left: 50%;
+transform: translateX(-50%) translateY(-20px);
+background: var(–navy); color: var(–yellow);
+padding: 11px 22px; border-radius: 99px;
+font-size: 14px; font-weight: 700; opacity: 0;
+pointer-events: none; transition: all 0.3s; z-index: 999; white-space: nowrap;
 }
 .result-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 </style>
+
 </head>
 <body>
 
-<!-- ローディング画面（questions.json 読み込み中に表示） -->
+<!-- ローディング画面 -->
+
 <div id="app-loading">
   <div class="logo">育てるノート</div>
   <div class="spinner"></div>
 </div>
 
 <!-- HEADER -->
+
 <div class="header">
   <div class="header-logo">育てるノート<span>PT国家試験対策</span></div>
   <div class="countdown-box" onclick="openCountdownModal()" id="countdown-box">
@@ -494,6 +416,7 @@ body {
 </div>
 
 <!-- NAV -->
+
 <div class="nav-tabs">
   <div class="nav-tab active" onclick="showScreen('home',this)"><span class="tab-icon">🏠</span>ホーム</div>
   <div class="nav-tab" onclick="showScreen('quiz',this)"><span class="tab-icon">📝</span>問題を解く</div>
@@ -503,9 +426,11 @@ body {
 </div>
 
 <!-- TOAST -->
+
 <div class="result-toast" id="toast"></div>
 
 <!-- 国試日設定モーダル -->
+
 <div class="modal-overlay" id="countdown-modal">
   <div class="modal-sheet">
     <div class="modal-title">🎯 国試日を設定する</div>
@@ -517,6 +442,7 @@ body {
 </div>
 
 <!-- ========== HOME ========== -->
+
 <div class="screen active" id="screen-home">
   <div class="home-hero">
     <div class="home-hero-label">+ 育てるノート</div>
@@ -534,6 +460,7 @@ body {
   </div>
 
   <!-- カテゴリタブ -->
+
   <div class="category-tabs">
     <button class="cat-main-tab active" onclick="switchCatTab('common',this)">共通問題</button>
     <button class="cat-main-tab" onclick="switchCatTab('special',this)">専門問題</button>
@@ -546,6 +473,7 @@ body {
   </div>
 
   <!-- ランダム出題ボタン -->
+
   <div class="random-btns">
     <button class="random-btn random-btn-all" onclick="startQuiz('all')">
       <span>🎲</span>
@@ -566,6 +494,7 @@ body {
 </div>
 
 <!-- ========== QUIZ ========== -->
+
 <div class="screen" id="screen-quiz">
   <div class="quiz-header">
     <div class="quiz-progress-text"><strong id="q-current">1</strong> / <span id="q-total">5</span> 問</div>
@@ -590,26 +519,22 @@ body {
     <div class="exp-content">
       <div id="exp-text-area" class="exp-text"></div>
 
-      <!--
-        【解説画像の使い方】
-        questions.json の各問題の "image" フィールドにファイル名を入力してください。
-        例: "image": "images/a1.png"
-        ・images/ フォルダに画像ファイルを置くだけで自動表示されます
-        ・空文字 "" のときは「画像なし」プレースホルダーが表示されます
-      -->
-      <div id="exp-image-area" class="exp-image-area" style="display:none">
-        <div id="exp-image-placeholder">
-          <div class="img-ph">🖼</div>
-          <p>この問題には解説画像がありません。<br>images/ フォルダに画像を追加して<br>questions.json の "image" に記載してください。</p>
-        </div>
-        <img id="exp-image-tag" src="" alt="解説画像" style="display:none" onerror="this.style.display='none';document.getElementById('exp-image-placeholder').style.display=''">
-      </div>
-
-      <div id="exp-memo-area" style="display:none">
-        <textarea id="memo-input" style="width:100%;height:90px;border:2px solid var(--border);border-radius:10px;padding:10px;font-size:13px;font-family:inherit;resize:none;outline:none;line-height:1.7" placeholder="苦手ポイント・覚え方・気づきをメモ"></textarea>
-        <button onclick="saveMemo()" style="margin-top:8px;width:100%;padding:10px;background:var(--navy);color:var(--yellow);border:none;border-radius:10px;font-weight:700;font-size:13px;cursor:pointer">メモを保存</button>
-      </div>
+```
+  <div id="exp-image-area" class="exp-image-area" style="display:none">
+    <div id="exp-image-placeholder">
+      <div class="img-ph">🖼</div>
+      <p>この問題には解説画像がありません。<br>images/ フォルダに画像を追加して<br>questions.json の "image" に記載してください。</p>
     </div>
+    <img id="exp-image-tag" src="" alt="解説画像" style="display:none" onerror="this.style.display='none';document.getElementById('exp-image-placeholder').style.display=''">
+  </div>
+
+  <div id="exp-memo-area" style="display:none">
+    <textarea id="memo-input" style="width:100%;height:90px;border:2px solid var(--border);border-radius:10px;padding:10px;font-size:13px;font-family:inherit;resize:none;outline:none;line-height:1.7" placeholder="苦手ポイント・覚え方・気づきをメモ"></textarea>
+    <button onclick="saveMemo()" style="margin-top:8px;width:100%;padding:10px;background:var(--navy);color:var(--yellow);border:none;border-radius:10px;font-weight:700;font-size:13px;cursor:pointer">メモを保存</button>
+  </div>
+</div>
+```
+
   </div>
 
   <div class="quiz-actions">
@@ -620,6 +545,7 @@ body {
 </div>
 
 <!-- ========== NOTES ========== -->
+
 <div class="screen" id="screen-notes">
   <div id="notes-home">
     <button class="note-add-btn" onclick="alert('今後、自由ノート作成機能を追加できます')">＋ 新しいノートを追加</button>
@@ -631,45 +557,20 @@ body {
   </div>
   <div id="notes-folder-view" style="display:none"><button class="note-back-btn" onclick="backToNotesHome()">← ノートに戻る</button><div class="section-title" id="notes-folder-title">📁 フォルダ</div><div id="notes-folder-list"></div></div>
 </div>
+
 <!-- ========== SOCIAL ========== -->
+
+<!-- 管理者向け機能（画像プロンプト生成）は admin.html に移動しました -->
+
 <div class="screen" id="screen-social">
   <div class="home-hero" style="background:linear-gradient(135deg,var(--navy),var(--navy-light));"><div class="home-hero-label">+ 育てるノート</div><h2>みんなで育てる学習ノート</h2><p>まとめ画像や覚え方を投稿して、<br>国試対策をみんなで積み上げる場所。</p></div>
-
-  <div class="prompt-generator-card" id="admin-login-card">
-    <div class="prompt-generator-title">🔐 管理者専用</div>
-    <div class="prompt-generator-sub">
-      解説画像プロンプト生成は管理者だけが使えます。<br>
-      管理者パスコードを入力してください。
-    </div>
-    <input class="social-input" id="admin-pass-input" type="password" placeholder="管理者パスコード">
-    <button class="prompt-btn primary" style="width:100%" onclick="unlockAdminTools()">管理者ツールを開く</button>
-    <div class="prompt-hint">※本格ログイン導入前の簡易ロックです。</div>
-  </div>
-
-  <div class="prompt-generator-card" id="admin-prompt-generator" style="display:none">
-    <div class="prompt-generator-title">🖼 解説画像プロンプト自動生成</div>
-    <button class="note-mini-btn" style="margin-bottom:10px" onclick="lockAdminTools()">管理者ツールを閉じる</button>
-    <div class="prompt-generator-sub">
-      問題を選ぶだけで、ChatGPT画像生成に貼れるプロンプトを自動作成します。<br>
-      画像名は <strong>問題ID.webp</strong> にすると自動で問題に紐付きます。
-    </div>
-    <select class="prompt-select" id="prompt-question-select" onchange="generateImagePrompt()">
-      <option value="">問題を選択してください</option>
-    </select>
-    <textarea class="prompt-output" id="image-prompt-output" placeholder="ここに画像生成用プロンプトが表示されます"></textarea>
-    <div class="prompt-btn-row">
-      <button class="prompt-btn primary" onclick="copyImagePrompt()">プロンプトをコピー</button>
-      <button class="prompt-btn secondary" onclick="generateImagePrompt()">再生成</button>
-    </div>
-    <div class="prompt-hint">
-      生成した画像は <strong>images/問題ID.webp</strong> という名前で保存してください。例：images/pt52_001.webp
-    </div>
-  </div>
 
   <div class="social-compose"><div class="social-compose-title">📸 投稿する</div><input class="social-input" id="social-title-input" placeholder="タイトル例：心電図の覚え方"><textarea class="social-input" id="social-text-input" rows="3" placeholder="本文例：ここはP波・QRS・T波の流れで覚えると整理しやすい！"></textarea><button class="social-post-btn" onclick="addSocialPost()">育てるノートに投稿</button><div style="font-size:11px;color:var(--text-light);line-height:1.6;margin-top:8px">※現在はこの端末内に保存されるデモ機能です。ログイン機能を追加すると全員の投稿として共有できます。</div></div>
   <div id="social-feed"></div>
 </div>
+
 <!-- ========== STATS ========== -->
+
 <div class="screen" id="screen-stats">
   <div class="stats-grid">
     <div class="stat-box hl"><div class="stat-num" id="s-total">0</div><div class="stat-label">総回答数</div></div>
@@ -691,9 +592,9 @@ body {
 </div>
 
 <!-- ================================================================
-  カテゴリ設定（アイコン・色）— questions.json に追加したカテゴリも
-  ここに登録すればカードに反映されます
+  カテゴリ設定（アイコン・色）
 ================================================================ -->
+
 <script>
 const CAT_META = {
   '解剖学':     { icon:'🦴', color:'#e8722a' },
@@ -722,21 +623,18 @@ const CAT_META = {
 };
 
 // ===== STATE =====
-let DB = null;           // questions.json の内容
+let DB = null;
 let currentQs = [];
 let currentIdx = 0;
 let answered   = false;
 let bookmarked = false;
 let selectedChoices = [];
-const savedMemos = JSON.parse(localStorage.getItem('savedMemos') || '{}');   // { questionId: 'メモ文字列' }
+const savedMemos    = JSON.parse(localStorage.getItem('savedMemos')    || '{}');
 const bookmarkedIds = JSON.parse(localStorage.getItem('bookmarkedIds') || '[]');
-// 正答記録: { questionId: { done: number, correct: number } }
-const answerStats = JSON.parse(localStorage.getItem('answerStats') || '{}');
-const learningLog = JSON.parse(localStorage.getItem('learningLog') || '{}');
+const answerStats   = JSON.parse(localStorage.getItem('answerStats')   || '{}');
+const learningLog   = JSON.parse(localStorage.getItem('learningLog')   || '{}');
 
-function todayKey() {
-  return new Date().toISOString().split('T')[0];
-}
+function todayKey() { return new Date().toISOString().split('T')[0]; }
 
 function addLearningRecord() {
   const today = todayKey();
@@ -747,21 +645,13 @@ function addLearningRecord() {
 function calcLearningStreak() {
   let streak = 0;
   const d = new Date();
-
   while (true) {
     const key = d.toISOString().split('T')[0];
-
-    if (learningLog[key]) {
-      streak++;
-      d.setDate(d.getDate() - 1);
-    } else {
-      break;
-    }
+    if (learningLog[key]) { streak++; d.setDate(d.getDate() - 1); }
+    else { break; }
   }
-
   return streak;
 }
-
 
 function normalizeDB(raw) {
   const defaultCategories = {
@@ -813,9 +703,6 @@ function onLoaded() {
   updateCountdown();
   updateNoteCounts();
   renderSocialFeed();
-  showAdminTools();
-  buildPromptQuestionOptions();
-  // 問題タブを開いたときのデフォルト用に初期化
   if (currentQs.length === 0) {
     currentQs = getQsByMode('all');
     loadQuestion();
@@ -985,56 +872,34 @@ function loadQuestion() {
 
 function selectChoice(idx) {
   if (answered) return;
-
   const q = currentQs[currentIdx];
-
-  // q.answer は「5」のような単数でも、「[2, 5]」のような複数でも対応
   const correctAnswers = Array.isArray(q.answer) ? q.answer : [q.answer];
   const requiredCount = correctAnswers.length;
-
   const btns = document.querySelectorAll('.choice-btn');
 
-  // 選択済みをもう一度押したら解除
   if (selectedChoices.includes(idx)) {
     selectedChoices = selectedChoices.filter(i => i !== idx);
     btns[idx].classList.remove('selected');
     return;
   }
-
-  // 必要数以上は選べない
   if (selectedChoices.length >= requiredCount) return;
-
   selectedChoices.push(idx);
   btns[idx].classList.add('selected');
 
-  // 複数回答の場合、必要数を選ぶまでは判定しない
   if (selectedChoices.length !== requiredCount) {
     showToast(`あと${requiredCount - selectedChoices.length}つ選んでください`);
     return;
   }
 
   answered = true;
-
   const selectedNums = selectedChoices.map(i => i + 1).sort((a, b) => a - b);
-  const correctNums = correctAnswers.slice().sort((a, b) => a - b);
-
-  const ok =
-    selectedNums.length === correctNums.length &&
-    selectedNums.every((num, i) => num === correctNums[i]);
+  const correctNums  = correctAnswers.slice().sort((a, b) => a - b);
+  const ok = selectedNums.length === correctNums.length && selectedNums.every((num, i) => num === correctNums[i]);
 
   btns.forEach((b, i) => {
     b.disabled = true;
-
-    // 正解選択肢は緑
-    if (correctNums.includes(i + 1)) {
-      b.classList.add('correct');
-    }
-
-    // 選んだけど不正解だった選択肢は赤
-    if (selectedNums.includes(i + 1) && !correctNums.includes(i + 1)) {
-      b.classList.add('wrong');
-    }
-
+    if (correctNums.includes(i + 1)) b.classList.add('correct');
+    if (selectedNums.includes(i + 1) && !correctNums.includes(i + 1)) b.classList.add('wrong');
     b.classList.remove('selected');
   });
 
@@ -1042,11 +907,8 @@ function selectChoice(idx) {
   res.textContent = ok ? '✅ 正解！' : '❌ 不正解';
   res.className   = 'answer-result ' + (ok ? 'correct' : 'wrong');
 
-  // 解説テキスト
   document.getElementById('exp-text-area').innerHTML = q.explanation;
 
-  // 解説画像の設定
-  // questions.json の "image" フィールドに "images/a1.png" のように入力すると自動表示
   const imgPath = q.image || '';
   const imgTag  = document.getElementById('exp-image-tag');
   const imgPh   = document.getElementById('exp-image-placeholder');
@@ -1065,7 +927,6 @@ function selectChoice(idx) {
   document.getElementById('btn-next').style.display = '';
   showToast(ok ? '🎉 正解！' : '😅 解説を確認しよう');
 
-  // 記録保存
   if (!answerStats[q.id]) answerStats[q.id] = { done: 0, correct: 0 };
   answerStats[q.id].done++;
   if (ok) answerStats[q.id].correct++;
@@ -1103,7 +964,6 @@ function toggleBookmark() {
   showToast(bookmarked ? '🌟 ブックマーク追加' : 'ブックマーク解除');
 }
 
-
 // ===== NOTES FOLDER =====
 function findQuestionById(id){for(const qs of Object.values(DB.questions||{})){const f=qs.find(q=>q.id===id);if(f)return f;}return null;}
 function getWrongCount(qid){const s=answerStats[qid];if(!s)return 0;return Math.max(0,(s.done||0)-(s.correct||0));}
@@ -1117,137 +977,7 @@ function stripHtml(s){const d=document.createElement('div');d.innerHTML=s||'';re
 function startSingleQuestion(id){const q=findQuestionById(id);if(!q)return;currentQs=[q];currentIdx=0;document.querySelectorAll('.nav-tab').forEach((t,i)=>t.classList.toggle('active',i===1));document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('screen-quiz').classList.add('active');loadQuestion();}
 function removeBookmarkFromNotes(id){const idx=bookmarkedIds.indexOf(id);if(idx>=0)bookmarkedIds.splice(idx,1);localStorage.setItem('bookmarkedIds',JSON.stringify(bookmarkedIds));updateNoteCounts();openNoteFolder('bookmark');showToast('ブックマーク解除');}
 
-
-
-// ===== ADMIN TOOL LOCK =====
-// 仮パスコード。必要に応じて好きな文字に変更してください。
-// 例: 'sodateru2026'
-const ADMIN_PASS = 'sodateru.0103';
-
-function unlockAdminTools() {
-  const input = document.getElementById('admin-pass-input');
-  const pass = input ? input.value : '';
-
-  if (pass !== ADMIN_PASS) {
-    showToast('パスコードが違います');
-    return;
-  }
-
-  localStorage.setItem('isAdminUnlocked', 'true');
-  showAdminTools();
-  showToast('🔓 管理者ツールを開きました');
-}
-
-function lockAdminTools() {
-  localStorage.removeItem('isAdminUnlocked');
-  showAdminTools();
-  showToast('🔒 管理者ツールを閉じました');
-}
-
-function showAdminTools() {
-  const login = document.getElementById('admin-login-card');
-  const generator = document.getElementById('admin-prompt-generator');
-  if (!login || !generator) return;
-
-  const unlocked = localStorage.getItem('isAdminUnlocked') === 'true';
-  login.style.display = unlocked ? 'none' : '';
-  generator.style.display = unlocked ? '' : 'none';
-
-  if (unlocked) buildPromptQuestionOptions();
-}
-
-// ===== IMAGE PROMPT GENERATOR =====
-function buildPromptQuestionOptions() {
-  const select = document.getElementById('prompt-question-select');
-  if (!select || !DB) return;
-
-  const qs = getAllQs();
-  select.innerHTML = '<option value="">問題を選択してください</option>' + qs.map(q => {
-    const cat = getCategoryOfId(q.id) || '未分類';
-    const label = `${q.id}｜${cat}｜${q.text}`.slice(0, 90);
-    return `<option value="${q.id}">${escapeHtml(label)}</option>`;
-  }).join('');
-}
-
-function generateImagePrompt() {
-  const select = document.getElementById('prompt-question-select');
-  const output = document.getElementById('image-prompt-output');
-  if (!select || !output) return;
-
-  const qid = select.value;
-  if (!qid) {
-    output.value = '';
-    return;
-  }
-
-  const q = findQuestionById(qid);
-  if (!q) return;
-
-  const cat = getCategoryOfId(q.id) || '未分類';
-  const choicesText = (q.choices || []).map((c, i) => `${i + 1}. ${c}`).join('\n');
-  const answerText = Array.isArray(q.answer) ? q.answer.join('、') : q.answer;
-
-  output.value =
-`理学療法士国家試験受験生向けの、X投稿・サイト掲載用の解説画像を作成してください。
-
-【画像の目的】
-・この問題の必須知識を、初心者でもパッと理解できるようにする
-・保存してあとで見返したくなる構成にする
-・過去問の丸写しではなく、論点をオリジナルの図解として整理する
-
-【問題ID】
-${q.id}
-
-【カテゴリー】
-${cat}
-
-【テーマ】
-${q.text}
-
-【選択肢】
-${choicesText}
-
-【正答】
-${answerText}
-
-【解説の要点】
-${stripHtml(q.explanation)}
-
-【画像構成】
-・上部：大きなタイトル
-・中央：図解、矢印、比較表、イラストを使って直感的に理解できる構成
-・下部：「ここ試験に出る」「勘違いポイント」「覚え方」を入れる
-・一番下に @sodateru_note を入れる
-
-【デザイン】
-・縦長スマホ向け
-・柔らかい色
-・医療系だけど堅苦しくしすぎない
-・文字は大きく、余白多め
-・重要語句は強調
-・初心者、浪人生、理学療法士国家試験受験生向け
-
-【注意】
-・問題文そのものを丸写ししない
-・著作権的に安全なオリジナル解説画像にする
-・細かすぎる説明より、国試で点につながる知識を優先する
-
-【保存ファイル名】
-${q.id}.webp`;
-}
-
-function copyImagePrompt() {
-  const output = document.getElementById('image-prompt-output');
-  if (!output || !output.value.trim()) {
-    showToast('先に問題を選んでください');
-    return;
-  }
-  output.select();
-  document.execCommand('copy');
-  showToast('📋 プロンプトをコピーしました');
-}
-
-// ===== SOCIAL / 育てるノート =====
+// ===== SOCIAL =====
 function getSocialPosts(){const saved=JSON.parse(localStorage.getItem('socialPosts')||'[]');if(saved.length>0)return saved;return [{id:'sample_1',title:'心電図は「波の順番」で覚える',text:'P波→QRS波→T波の流れで、心房興奮・心室興奮・再分極を整理すると一気に覚えやすくなります。',author:'育てるノート',date:'サンプル',icon:'💓',likes:12},{id:'sample_2',title:'歩行周期は60：40でまず覚える',text:'立脚期60%、遊脚期40%。細かい相に入る前に、この土台を押さえると歩行問題が解きやすいです。',author:'育てるノート',date:'サンプル',icon:'🚶',likes:8}];}
 function renderSocialFeed(){const feed=document.getElementById('social-feed');if(!feed)return;const posts=getSocialPosts();feed.innerHTML=posts.map(p=>`<div class="social-card"><div class="social-head"><div class="social-avatar">${p.icon||'🌱'}</div><div><div class="social-name">${escapeHtml(p.author||'匿名ユーザー')}</div><div class="social-date">${escapeHtml(p.date||'')}</div></div></div><div class="social-title">${escapeHtml(p.title)}</div><div class="social-text">${escapeHtml(p.text)}</div><div class="social-image-ph">${p.icon||'📚'}</div><div class="social-actions"><button class="social-action-btn" onclick="likeSocialPost('${p.id}')">♡ ${p.likes||0}</button><button class="social-action-btn" onclick="showToast('保存しました（デモ）')">🔖 保存</button></div></div>`).join('');}
 function addSocialPost(){const title=document.getElementById('social-title-input').value.trim();const text=document.getElementById('social-text-input').value.trim();if(!title||!text){showToast('タイトルと本文を入力してください');return;}const posts=JSON.parse(localStorage.getItem('socialPosts')||'[]');posts.unshift({id:'post_'+Date.now(),title,text,author:'自分',date:new Date().toLocaleDateString('ja-JP'),icon:'🌱',likes:0});localStorage.setItem('socialPosts',JSON.stringify(posts));document.getElementById('social-title-input').value='';document.getElementById('social-text-input').value='';renderSocialFeed();showToast('🌱 投稿しました');}
@@ -1294,7 +1024,7 @@ function buildWeekChart() {
     const key = d.toISOString().split('T')[0];
     counts.push(learningLog[key] || 0);
   }
-  const max    = Math.max(...counts);
+  const max = Math.max(...counts, 1);
   document.getElementById('week-chart').innerHTML = days.map((d, i) =>
     `<div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1">
       <div style="width:100%;background:${i===6?'var(--orange)':'var(--yellow-light)'};height:${Math.round(counts[i]/max*60)+10}px;border-radius:6px 6px 0 0;border:${i===6?'none':'1px solid var(--border)'}"></div>
@@ -1306,5 +1036,6 @@ function buildWeekChart() {
 // ===== INIT =====
 loadQuestions();
 </script>
+
 </body>
 </html>

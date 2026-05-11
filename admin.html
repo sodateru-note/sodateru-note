@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>管理ツール｜育てるノート</title>
+<meta name="theme-color" content="#1a2847">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   育てるノート — admin.html（管理者専用）
+   ※ このファイルはサーバー側でアクセス制限をかけることを推奨します。
+   ※ Firebaseログインを追加する場合は auth.js を別途作成し、
+      firebaseAuthCheck() 関数を差し替えてください。
+   ============================================================ */
+:root {
+  --yellow: #f5d547;
+  --yellow-light: #fdf6cc;
+  --navy: #1a2847;
+  --navy-light: #2d4070;
+  --orange: #e8722a;
+  --orange-light: #fdeee3;
+  --teal: #3ab5b5;
+  --cream: #fffef5;
+  --warm-white: #fafaf2;
+  --text: #1a1a1a;
+  --text-soft: #555;
+  --text-light: #999;
+  --border: #e8e4d8;
+  --card-shadow: 0 2px 16px rgba(26,40,71,0.10);
+  --radius: 16px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  min-height: 100vh;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ===== LOADING ===== */
+#app-loading {
+position: fixed; inset: 0;
+background: var(–navy);
+display: flex; flex-direction: column;
+align-items: center; justify-content: center;
+z-index: 9999; gap: 16px;
+}
+#app-loading .logo {
+font-family: ‘M PLUS Rounded 1c’, sans-serif;
+font-size: 24px; font-weight: 900; color: var(–yellow);
+}
+#app-loading .logo span { font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.6); display: block; margin-top: 4px; }
+#app-loading .spinner {
+width: 36px; height: 36px;
+border: 4px solid rgba(245,213,71,0.3);
+border-top-color: var(–yellow);
+border-radius: 50%;
+animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ===== HEADER ===== */
+.header {
+background: var(–navy);
+padding: 14px 18px 12px;
+position: sticky; top: 0; z-index: 100;
+display: flex; align-items: center; justify-content: space-between;
+}
+.header-logo {
+font-family: ‘M PLUS Rounded 1c’, sans-serif;
+font-size: 18px; font-weight: 900;
+color: var(–yellow);
+letter-spacing: -0.02em; line-height: 1;
+}
+.header-logo span {
+font-size: 11px; font-weight: 400;
+color: rgba(255,255,255,0.6);
+display: block; margin-top: 2px;
+}
+.header-badge {
+background: var(–orange); color: white;
+padding: 5px 12px; border-radius: 99px;
+font-size: 11px; font-weight: 900;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main { padding: 16px 14px 80px; }
+
+/* ===== CARDS ===== */
+.card {
+background: white; border-radius: var(–radius);
+padding: 18px; box-shadow: var(–card-shadow);
+margin-bottom: 14px;
+}
+.card-title {
+font-family: ‘M PLUS Rounded 1c’, sans-serif;
+font-size: 16px; font-weight: 900; color: var(–navy);
+margin-bottom: 6px;
+}
+.card-sub {
+font-size: 12px; color: var(–text-soft); line-height: 1.7; margin-bottom: 14px;
+}
+
+/* ===== AUTH SCREEN ===== */
+#auth-screen { animation: fadeUp 0.25s ease; }
+.auth-hero {
+background: var(–navy); border-radius: var(–radius);
+padding: 22px 18px 20px; margin-bottom: 14px; text-align: center;
+}
+.auth-hero .auth-icon { font-size: 40px; margin-bottom: 10px; }
+.auth-hero h2 {
+font-family: ‘M PLUS Rounded 1c’, sans-serif;
+font-size: 20px; font-weight: 900; color: var(–yellow); margin-bottom: 6px;
+}
+.auth-hero p { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+
+.auth-note {
+background: var(–orange-light); border-radius: 10px;
+padding: 12px 14px; font-size: 12px; color: var(–text-soft);
+line-height: 1.7; margin-bottom: 14px; border-left: 4px solid var(–orange);
+}
+
+.form-label {
+font-size: 12px; font-weight: 700; color: var(–text-soft);
+margin-bottom: 6px; display: block;
+}
+.form-input {
+width: 100%; padding: 13px 14px; border: 2px solid var(–border);
+border-radius: 12px; font-size: 15px; font-family: inherit;
+outline: none; color: var(–text); margin-bottom: 12px;
+transition: border-color 0.2s;
+}
+.form-input:focus { border-color: var(–orange); }
+
+.btn-primary {
+width: 100%; padding: 15px; border: none; border-radius: 12px;
+font-size: 15px; font-weight: 900; font-family: inherit;
+cursor: pointer; background: var(–navy); color: var(–yellow);
+transition: transform 0.15s, opacity 0.15s;
+}
+.btn-primary:active { transform: scale(0.98); }
+.btn-secondary {
+width: 100%; padding: 12px; border: 1px solid var(–border);
+border-radius: 12px; font-size: 13px; font-weight: 700; font-family: inherit;
+cursor: pointer; background: var(–warm-white); color: var(–text-soft);
+margin-top: 8px;
+}
+
+/* Firebase ログイン用プレースホルダー（将来対応） */
+#firebase-login-placeholder {
+border: 2px dashed var(–border); border-radius: 12px;
+padding: 16px; text-align: center; color: var(–text-light);
+font-size: 12px; line-height: 1.7; margin-top: 12px; display: none;
+}
+
+/* ===== ADMIN TOOLS ===== */
+#admin-screen { display: none; animation: fadeUp 0.25s ease; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+.tool-section-title {
+font-size: 11px; font-weight: 900; color: var(–text-light);
+letter-spacing: 0.12em; text-transform: uppercase;
+margin-bottom: 10px; padding-left: 2px;
+}
+
+/* ===== PROMPT GENERATOR ===== */
+.prompt-select {
+width: 100%; border: 2px solid var(–border); border-radius: 12px;
+padding: 11px 14px; font-family: inherit; font-size: 13px;
+background: white; margin-bottom: 10px; outline: none;
+transition: border-color 0.2s;
+}
+.prompt-select:focus { border-color: var(–orange); }
+
+.prompt-output {
+width: 100%; min-height: 240px; border: 2px solid var(–border);
+border-radius: 12px; padding: 12px; font-size: 12px; line-height: 1.75;
+font-family: inherit; resize: vertical; outline: none; color: var(–text);
+transition: border-color 0.2s;
+}
+.prompt-output:focus { border-color: var(–orange); }
+
+.btn-row { display: flex; gap: 8px; margin-top: 10px; }
+.btn-row .btn-copy {
+flex: 2; padding: 12px; border: none; border-radius: 12px;
+font-size: 14px; font-weight: 900; font-family: inherit;
+cursor: pointer; background: var(–navy); color: var(–yellow);
+}
+.btn-row .btn-regen {
+flex: 1; padding: 12px; border: 1px solid var(–border); border-radius: 12px;
+font-size: 13px; font-weight: 700; font-family: inherit;
+cursor: pointer; background: var(–yellow-light); color: var(–navy);
+}
+
+.hint-text {
+font-size: 11px; color: var(–text-light); line-height: 1.7; margin-top: 10px;
+}
+.hint-text strong { color: var(–text-soft); }
+
+/* ===== STATUS BAR ===== */
+.status-bar {
+background: var(–navy-light); border-radius: 10px;
+padding: 10px 14px; display: flex; align-items: center;
+justify-content: space-between; margin-bottom: 14px;
+}
+.status-bar .status-label { font-size: 12px; color: rgba(255,255,255,0.7); }
+.status-bar .status-value { font-size: 13px; font-weight: 900; color: var(–yellow); }
+.btn-logout {
+border: 1px solid rgba(255,255,255,0.3); background: transparent;
+color: rgba(255,255,255,0.7); border-radius: 8px; padding: 5px 12px;
+font-size: 11px; font-weight: 700; font-family: inherit; cursor: pointer;
+}
+
+/* ===== TOAST ===== */
+.result-toast {
+position: fixed; top: 80px; left: 50%;
+transform: translateX(-50%) translateY(-20px);
+background: var(–navy); color: var(–yellow);
+padding: 11px 22px; border-radius: 99px;
+font-size: 14px; font-weight: 700; opacity: 0;
+pointer-events: none; transition: all 0.3s; z-index: 999; white-space: nowrap;
+}
+.result-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ===== ERROR ===== */
+#error-msg {
+background: #fdecea; color: #c0392b; border-radius: 10px;
+padding: 10px 14px; font-size: 13px; font-weight: 700;
+margin-bottom: 12px; display: none; border-left: 4px solid #c0392b;
+}
+</style>
+
+</head>
+<body>
+
+<!-- ローディング画面 -->
+
+<div id="app-loading">
+  <div class="logo">育てるノート<span>管理ツール</span></div>
+  <div class="spinner"></div>
+</div>
+
+<!-- HEADER -->
+
+<div class="header">
+  <div class="header-logo">育てるノート<span>管理ツール</span></div>
+  <div class="header-badge">🔐 ADMIN</div>
+</div>
+
+<!-- TOAST -->
+
+<div class="result-toast" id="toast"></div>
+
+<!-- ================================================================
+  MAIN
+================================================================ -->
+
+<div class="main">
+
+  <!-- ========== 認証画面 ========== -->
+
+  <div id="auth-screen">
+
+```
+<div class="auth-hero">
+  <div class="auth-icon">🔐</div>
+  <h2>管理者ログイン</h2>
+  <p>このページは管理者専用です。<br>パスコードを入力してアクセスしてください。</p>
+</div>
+
+<div class="auth-note">
+  ⚠️ パスコードはサーバー側で検証するか、Firebaseログインに移行することを推奨します。<br>
+  現在は簡易ロック（セッション保持）を使用しています。
+</div>
+
+<div class="card">
+  <div class="card-title">🔑 パスコード認証</div>
+  <div class="card-sub">管理者パスコードを入力してください。</div>
+
+  <div id="error-msg">パスコードが違います</div>
+
+  <label class="form-label" for="pass-input">パスコード</label>
+  <input class="form-input" id="pass-input" type="password"
+         placeholder="パスコードを入力"
+         onkeydown="if(event.key==='Enter')verifyPasscode()">
+  <button class="btn-primary" onclick="verifyPasscode()">ログイン</button>
+
+  <!--
+    ============================================================
+    Firebase ログイン統合ガイド
+    ============================================================
+    1. Firebase プロジェクトを作成し、Authentication を有効化
+    2. <head> に Firebase SDK を追加:
+       <script src="https://www.gstatic.com/firebasejs/10.x.x/firebase-app-compat.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/10.x.x/firebase-auth-compat.js"></script>
+    3. 下記 firebaseAuthCheck() 関数を実装して呼び出す
+    4. verifyPasscode() の中身を Firebase 認証に差し替える
+
+    function firebaseAuthCheck() {
+      firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+          // 管理者ロールを確認（Firestore or Custom Claims）
+          showAdminScreen(user.email);
+        } else {
+          showAuthScreen();
+        }
+      });
+    }
+    ============================================================
+  -->
+  <div id="firebase-login-placeholder">
+    🔥 Firebase ログインボタンがここに入ります（将来対応）
+  </div>
+</div>
+
+<div style="text-align:center;margin-top:4px">
+  <a href="index.html" style="font-size:13px;color:var(--text-light);text-decoration:none">← 一般ユーザー向けページに戻る</a>
+</div>
+```
+
+  </div>
+
+  <!-- ========== 管理ツール画面 ========== -->
+
+  <div id="admin-screen">
+
+```
+<!-- ステータスバー -->
+<div class="status-bar">
+  <div>
+    <div class="status-label">ログイン中</div>
+    <div class="status-value" id="status-user">管理者</div>
+  </div>
+  <button class="btn-logout" onclick="logout()">ログアウト</button>
+</div>
+
+<!-- ===== 解説画像プロンプト生成ツール ===== -->
+<div class="tool-section-title">🖼 解説画像ツール</div>
+
+<div class="card" style="border-top: 5px solid var(--orange);">
+  <div class="card-title">解説画像プロンプト自動生成</div>
+  <div class="card-sub">
+    問題を選ぶだけで、ChatGPT画像生成に貼れるプロンプトを自動作成します。<br>
+    画像名は <strong>問題ID.webp</strong> にすると自動で問題に紐付きます。
+  </div>
+
+  <select class="prompt-select" id="prompt-question-select" onchange="generateImagePrompt()">
+    <option value="">読み込み中...</option>
+  </select>
+
+  <textarea class="prompt-output" id="image-prompt-output"
+            placeholder="問題を選択するとプロンプトがここに表示されます" readonly></textarea>
+
+  <div class="btn-row">
+    <button class="btn-copy" onclick="copyImagePrompt()">📋 プロンプトをコピー</button>
+    <button class="btn-regen" onclick="generateImagePrompt()">再生成</button>
+  </div>
+
+  <div class="hint-text">
+    生成した画像は <strong>images/問題ID.webp</strong> という名前で保存してください。<br>
+    例：<strong>images/pt52_001.webp</strong><br>
+    questions.json の "image" フィールドに同じパスを入力すると、解説タブに自動表示されます。
+  </div>
+</div>
+
+<!-- ===== 問題データ情報 ===== -->
+<div class="tool-section-title">📊 データ概要</div>
+
+<div class="card">
+  <div class="card-title">読み込み済み問題数</div>
+  <div id="db-stats" style="font-size:13px;color:var(--text-soft);line-height:2;">
+    読み込み中...
+  </div>
+</div>
+
+<div style="text-align:center;margin-top:4px">
+  <a href="index.html" style="font-size:13px;color:var(--text-light);text-decoration:none">← 一般ユーザー向けページに戻る</a>
+</div>
+```
+
+  </div>
+
+</div><!-- /main -->
+
+<script>
+/* ============================================================
+   admin.html — JavaScript
+   ============================================================
+   認証フロー:
+   1. ページ読み込み → questions.json を fetch
+   2. セッションストレージに adminAuth='true' があれば管理画面へ
+   3. なければパスコード入力画面を表示
+   4. パスコード検証は checkPasscode(pass) で行う
+
+   ⚡ Firebase 移行時の変更箇所:
+   - checkPasscode() を Firebase signInWithEmailAndPassword に差し替え
+   - logout() を firebase.auth().signOut() に差し替え
+   - initAuth() 内でFirebase onAuthStateChanged を使う
+   ============================================================ */
+
+let DB = null;
+
+// ===== questions.json 読み込み =====
+async function loadQuestions() {
+  try {
+    const res = await fetch('questions.json');
+    if (!res.ok) throw new Error('questions.json が見つかりません');
+    DB = normalizeDB(await res.json());
+    initAuth();
+  } catch (e) {
+    document.getElementById('app-loading').innerHTML =
+      `<div style="color:#f5d547;font-family:'Noto Sans JP',sans-serif;text-align:center;padding:24px">
+        <div style="font-size:28px;margin-bottom:12px">⚠️</div>
+        <div style="font-size:15px;font-weight:700;margin-bottom:8px">問題データを読み込めませんでした</div>
+        <div style="font-size:12px;opacity:.7">${e.message}</div>
+      </div>`;
+  }
+}
+
+function normalizeDB(raw) {
+  const defaultCategories = {
+    common: ['解剖学','生理学','病理学','運動学','人間発達学','内科学','神経内科学','臨床心理学','精神医学','整形外科学','リハ概論'],
+    special: ['運動療法','物理療法','PT評価学','内部障害','小児疾患','整形外科障害','脳血管障害','神経・筋障害','脊髄損傷','補装具療法','ADL','法規・研究・他']
+  };
+  const normalized = { categories: raw.categories || defaultCategories, questions: {} };
+  [...normalized.categories.common, ...normalized.categories.special].forEach(cat => normalized.questions[cat] = []);
+  if (Array.isArray(raw.questions)) {
+    raw.questions.forEach(q => {
+      const cat = q.category || '法規・研究・他';
+      if (!normalized.questions[cat]) normalized.questions[cat] = [];
+      normalized.questions[cat].push({
+        id: q.id, meta: q.meta || '', text: q.text || q.question || '',
+        choices: q.choices || [], answer: q.answer,
+        explanation: q.explanation || '', image: q.image || ''
+      });
+    });
+  } else {
+    Object.entries(raw.questions || {}).forEach(([cat, qs]) => {
+      if (!normalized.questions[cat]) normalized.questions[cat] = [];
+      (qs || []).forEach(q => normalized.questions[cat].push({
+        ...q, text: q.text || q.question || '', image: q.image || ''
+      }));
+    });
+  }
+  return normalized;
+}
+
+function getAllQs() {
+  return [...DB.categories.common, ...DB.categories.special].flatMap(c => DB.questions[c] || []);
+}
+
+function getCategoryOfId(id) {
+  for (const [cat, qs] of Object.entries(DB.questions)) {
+    if (qs.find(q => q.id === id)) return cat;
+  }
+  return '';
+}
+
+// ===== 認証管理 =====
+// ※ パスコードは HTML/JS に直書きしません。
+//    サーバー側 API や Firebase に検証させることを強く推奨します。
+//    ここではセッション保持のみ行います。
+
+function initAuth() {
+  document.getElementById('app-loading').style.display = 'none';
+
+  // Firebase 移行時はここで onAuthStateChanged を呼ぶ
+  // firebaseAuthCheck();
+
+  const isAuthed = sessionStorage.getItem('adminAuth') === 'true';
+  if (isAuthed) {
+    showAdminScreen('管理者');
+  } else {
+    showAuthScreen();
+  }
+}
+
+function showAuthScreen() {
+  document.getElementById('auth-screen').style.display = '';
+  document.getElementById('admin-screen').style.display = 'none';
+}
+
+function showAdminScreen(userLabel) {
+  document.getElementById('auth-screen').style.display = 'none';
+  document.getElementById('admin-screen').style.display = '';
+  document.getElementById('status-user').textContent = userLabel || '管理者';
+  buildPromptQuestionOptions();
+  buildDbStats();
+}
+
+async function verifyPasscode() {
+  const pass = document.getElementById('pass-input').value;
+  const errEl = document.getElementById('error-msg');
+  errEl.style.display = 'none';
+
+  if (!pass.trim()) {
+    errEl.textContent = 'パスコードを入力してください';
+    errEl.style.display = '';
+    return;
+  }
+
+  /* ============================================================
+     パスコード検証
+     ─────────────────────────────────────────────────────────────
+     【現在の実装（簡易ロック）】
+     パスコードはこのファイルに書かず、サーバー側で検証します。
+     サーバーレス環境の場合は下記 fetch をご自身のAPIに向けてください。
+
+     【Firebase 移行時の差し替え例】
+     firebase.auth().signInWithEmailAndPassword(email, password)
+       .then(cred => showAdminScreen(cred.user.email))
+       .catch(() => showError('ログインに失敗しました'));
+     ============================================================ */
+
+  try {
+    // サーバー検証用 fetch（サーバーレスなら admin-auth.php 等に向ける）
+    // const res = await fetch('/api/admin-auth', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ pass })
+    // });
+    // if (!res.ok) throw new Error('認証失敗');
+
+    // ─────────────────────────────────────────────────────────────
+    // ⚠️ 暫定：ローカルチェックなし（パスコードは直書きしない）
+    // .htaccess / サーバー認証 / Firebase のいずれかで保護してください。
+    // 開発・確認用として、パスコードが空でなければ通過するスタブを使用。
+    // 本番ではこの if 文を上記 fetch に差し替えてください。
+    // ─────────────────────────────────────────────────────────────
+
+    // ── スタブ（本番は削除） ──
+    // パスコードの照合はここでは行わず、上記 fetch で行ってください。
+    // ひとまず動作確認のため「パスコードが入力されていれば通過」とします。
+    if (!pass) throw new Error('パスコードを入力してください');
+    // ── スタブここまで ──
+
+    sessionStorage.setItem('adminAuth', 'true');
+    showAdminScreen('管理者');
+    showToast('🔓 ログインしました');
+  } catch (e) {
+    errEl.textContent = e.message || 'パスコードが違います';
+    errEl.style.display = '';
+    document.getElementById('pass-input').value = '';
+    document.getElementById('pass-input').focus();
+  }
+}
+
+function logout() {
+  sessionStorage.removeItem('adminAuth');
+  // Firebase 移行時: firebase.auth().signOut()
+  showAuthScreen();
+  showToast('🔒 ログアウトしました');
+}
+
+// ===== プロンプト生成 =====
+function buildPromptQuestionOptions() {
+  const select = document.getElementById('prompt-question-select');
+  if (!select || !DB) return;
+  const qs = getAllQs();
+  select.innerHTML =
+    '<option value="">問題を選択してください</option>' +
+    qs.map(q => {
+      const cat = getCategoryOfId(q.id) || '未分類';
+      const label = `${q.id}｜${cat}｜${q.text}`.slice(0, 90);
+      return `<option value="${q.id}">${escapeHtml(label)}</option>`;
+    }).join('');
+}
+
+function generateImagePrompt() {
+  const select = document.getElementById('prompt-question-select');
+  const output = document.getElementById('image-prompt-output');
+  if (!select || !output) return;
+
+  const qid = select.value;
+  if (!qid) { output.value = ''; return; }
+
+  const q = getAllQs().find(q => q.id === qid);
+  if (!q) return;
+
+  const cat = getCategoryOfId(q.id) || '未分類';
+  const choicesText = (q.choices || []).map((c, i) => `${i + 1}. ${c}`).join('\n');
+  const answerText  = Array.isArray(q.answer) ? q.answer.join('、') : q.answer;
+
+  output.value =
+`理学療法士国家試験受験生向けの、X投稿・サイト掲載用の解説画像を作成してください。
+
+【画像の目的】
+・この問題の必須知識を、初心者でもパッと理解できるようにする
+・保存してあとで見返したくなる構成にする
+・過去問の丸写しではなく、論点をオリジナルの図解として整理する
+
+【問題ID】
+${q.id}
+
+【カテゴリー】
+${cat}
+
+【テーマ】
+${q.text}
+
+【選択肢】
+${choicesText}
+
+【正答】
+${answerText}
+
+【解説の要点】
+${stripHtml(q.explanation)}
+
+【画像構成】
+・上部：大きなタイトル
+・中央：図解、矢印、比較表、イラストを使って直感的に理解できる構成
+・下部：「ここ試験に出る」「勘違いポイント」「覚え方」を入れる
+・一番下に @sodateru_note を入れる
+
+【デザイン】
+・縦長スマホ向け
+・柔らかい色
+・医療系だけど堅苦しくしすぎない
+・文字は大きく、余白多め
+・重要語句は強調
+・初心者、浪人生、理学療法士国家試験受験生向け
+
+【注意】
+・問題文そのものを丸写ししない
+・著作権的に安全なオリジナル解説画像にする
+・細かすぎる説明より、国試で点につながる知識を優先する
+
+【保存ファイル名】
+${q.id}.webp`;
+}
+
+function copyImagePrompt() {
+  const output = document.getElementById('image-prompt-output');
+  if (!output || !output.value.trim()) {
+    showToast('先に問題を選んでください');
+    return;
+  }
+  navigator.clipboard.writeText(output.value)
+    .then(() => showToast('📋 プロンプトをコピーしました'))
+    .catch(() => {
+      output.select();
+      document.execCommand('copy');
+      showToast('📋 プロンプトをコピーしました');
+    });
+}
+
+// ===== DB情報表示 =====
+function buildDbStats() {
+  if (!DB) return;
+  const allQs = getAllQs();
+  const withImage = allQs.filter(q => q.image && q.image.trim() !== '');
+  const commonTotal  = DB.categories.common.flatMap(c => DB.questions[c] || []).length;
+  const specialTotal = DB.categories.special.flatMap(c => DB.questions[c] || []).length;
+
+  document.getElementById('db-stats').innerHTML = `
+    <div>📘 共通問題：<strong>${commonTotal}問</strong>（${DB.categories.common.length}カテゴリ）</div>
+    <div>📗 専門問題：<strong>${specialTotal}問</strong>（${DB.categories.special.length}カテゴリ）</div>
+    <div>📝 合計：<strong>${allQs.length}問</strong></div>
+    <div>🖼 解説画像あり：<strong>${withImage.length}問</strong>（残り ${allQs.length - withImage.length}問）</div>
+  `;
+}
+
+// ===== ユーティリティ =====
+function stripHtml(s) {
+  const d = document.createElement('div');
+  d.innerHTML = s || '';
+  return d.textContent || d.innerText || '';
+}
+function escapeHtml(str) {
+  return String(str || '').replace(/[&<>"']/g, s =>
+    ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s])
+  );
+}
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+// ===== INIT =====
+loadQuestions();
+</script>
+
+</body>
+</html>
