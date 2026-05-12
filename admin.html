@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>管理ツール｜育てるノート</title>
 <meta name="theme-color" content="#1a2847">
 <meta name="mobile-web-app-capable" content="yes">
@@ -12,568 +12,221 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-:root {
-  --yellow: #f5d547;
-  --yellow-light: #fdf6cc;
-  --yellow-mid: #f9e87a;
-  --navy: #1a2847;
-  --navy-light: #2d4070;
-  --orange: #e8722a;
-  --orange-light: #fdeee3;
-  --teal: #3ab5b5;
-  --teal-light: #e0f5f5;
-  --cream: #fffef5;
-  --warm-white: #fafaf2;
-  --text: #1a1a1a;
-  --text-soft: #555;
-  --text-light: #999;
-  --correct: #2d8a4e;
-  --correct-bg: #e8f5ed;
-  --wrong: #c0392b;
-  --wrong-bg: #fdecea;
-  --border: #e8e4d8;
-  --card-shadow: 0 2px 16px rgba(26,40,71,0.10);
-  --radius: 16px;
+:root{
+  --yellow:#f5d547;--yellow-light:#fdf6cc;--navy:#1a2847;--navy-light:#2d4070;
+  --orange:#e8722a;--orange-light:#fdeee3;--teal:#3ab5b5;--teal-light:#e0f5f5;
+  --cream:#fffef5;--warm-white:#fafaf2;--text:#1a1a1a;--text-soft:#555;--text-light:#999;
+  --correct:#2d8a4e;--correct-bg:#e8f5ed;--wrong:#c0392b;--wrong-bg:#fdecea;
+  --border:#e8e4d8;--card-shadow:0 2px 18px rgba(26,40,71,.10);--radius:18px;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: 'Noto Sans JP', sans-serif;
-  background: var(--cream);
-  color: var(--text);
-  min-height: 100vh;
-  max-width: 480px;
-  margin: 0 auto;
-}
-.header {
-  background: var(--navy);
-  padding: 14px 18px 12px;
-  position: sticky; top: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.header-logo {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-size: 20px; font-weight: 900;
-  color: var(--yellow);
-  letter-spacing: -0.02em; line-height: 1;
-}
-.header-logo span {
-  font-size: 11px; font-weight: 400;
-  color: rgba(255,255,255,0.6);
-  display: block; margin-top: 2px; letter-spacing: 0.05em;
-}
-.header-link {
-  background: var(--yellow); border-radius: 12px;
-  padding: 9px 12px; text-align: center;
-  cursor: pointer; transition: transform 0.15s; min-width: 84px;
-  color: var(--navy); text-decoration: none; font-size: 12px; font-weight: 900;
-}
-.header-link:active { transform: scale(0.96); }
-.admin-screen { padding: 16px 14px 100px; animation: fadeUp 0.25s ease; }
-@keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
-.home-hero {
-  background: var(--navy); border-radius: var(--radius);
-  padding: 20px 18px 18px; margin-bottom: 14px;
-  position: relative; overflow: hidden;
-}
-.home-hero::before {
-  content: '✳︎'; position: absolute; right: 16px; top: 14px;
-  font-size: 36px; color: var(--orange); opacity: 0.9;
-}
-.home-hero-label {
-  font-size: 11px; font-weight: 700; color: var(--orange);
-  letter-spacing: 0.1em; margin-bottom: 6px;
-}
-.home-hero h2 {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-size: 22px; font-weight: 900; color: var(--yellow);
-  margin-bottom: 6px; line-height: 1.2;
-}
-.home-hero p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.7; }
-.progress-card, .admin-card {
-  background: white; border-radius: var(--radius);
-  padding: 16px; margin-bottom: 14px;
-  box-shadow: var(--card-shadow); border-left: 5px solid var(--yellow);
-}
-.admin-card.orange { border-left-color: var(--orange); }
-.admin-card.teal { border-left-color: var(--teal); }
-.admin-card.red { border-left-color: var(--wrong); }
-.section-title {
-  font-size: 12px; font-weight: 900; color: var(--text-soft);
-  margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.1em;
-  display: flex; align-items: center; gap: 6px;
-}
-.progress-card h3 { font-size: 13px; color: var(--text-soft); margin-bottom: 12px; font-weight: 700; }
-.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin-bottom: 14px; }
-.stat-box { background: white; border-radius: 12px; padding: 14px 8px; text-align: center; box-shadow: var(--card-shadow); }
-.stat-box .stat-num {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-size: 26px; font-weight: 900; color: var(--navy); line-height: 1; margin-bottom: 3px;
-}
-.stat-box.hl .stat-num { color: var(--orange); }
-.stat-box .stat-label { font-size: 11px; color: var(--text-light); }
-.admin-input, .admin-select, .admin-textarea {
-  width: 100%; padding: 13px 14px; border: 2px solid var(--border);
-  border-radius: 12px; font-size: 14px; font-family: inherit;
-  outline: none; color: var(--text); background: white;
-}
-.admin-input:focus, .admin-select:focus, .admin-textarea:focus { border-color: var(--orange); }
-.admin-textarea { min-height: 170px; resize: vertical; line-height: 1.75; }
-.toolbar { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
-.row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.file-box {
-  border: 2px dashed var(--border); background: var(--warm-white);
-  border-radius: var(--radius); padding: 14px; margin-bottom: 12px;
-}
-.file-box p { font-size: 12px; color: var(--text-soft); line-height: 1.7; margin-top: 8px; }
-.admin-btn, .btn-primary, .btn-secondary {
-  padding: 14px; border-radius: 12px; font-size: 14px; font-weight: 700;
-  cursor: pointer; font-family: inherit; transition: all 0.15s;
-}
-.admin-btn:active, .btn-primary:active, .btn-secondary:active { transform: scale(0.97); }
-.btn-primary { border: none; background: var(--navy); color: var(--yellow); }
-.btn-secondary { border: 2px solid var(--border); background: white; color: var(--text-soft); }
-.btn-orange { border: none; background: var(--orange); color: white; }
-.btn-teal { border: none; background: var(--teal); color: white; }
-.btn-red { border: none; background: var(--wrong); color: white; }
-.btn-row { display: flex; gap: 8px; margin-top: 10px; }
-.btn-row > button { flex: 1; }
-.question-list { display: flex; flex-direction: column; gap: 9px; max-height: 52vh; overflow: auto; padding-right: 2px; }
-.question-item {
-  background: white; border-radius: 12px; padding: 13px 12px;
-  box-shadow: var(--card-shadow); cursor: pointer; transition: transform 0.15s;
-  border-left: 5px solid var(--yellow);
-}
-.question-item:active { transform: scale(0.98); }
-.question-item.active { outline: 2px solid var(--orange); }
-.question-item.done { border-left-color: var(--teal); }
-.question-item.missing { border-left-color: var(--wrong); }
-.q-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
-.memo-tag {
-  font-size: 11px; padding: 2px 8px; border-radius: 99px;
-  background: var(--yellow-light); color: var(--navy); font-weight: 700;
-}
-.memo-tag.done { background: var(--teal-light); color: #146b6b; }
-.memo-tag.missing { background: var(--wrong-bg); color: var(--wrong); }
-.memo-tag.orange { background: var(--orange-light); color: var(--orange); }
-.q-title { font-size: 13px; font-weight: 700; line-height: 1.6; color: var(--navy); }
-.empty-note {
-  background:white;border-radius:var(--radius);padding:22px 16px;text-align:center;
-  box-shadow:var(--card-shadow);color:var(--text-soft);font-size:13px;line-height:1.7;
-}
-.detail-title { font-size: 15px; line-height: 1.8; color: var(--navy); font-weight: 900; margin-bottom: 8px; }
-.choice-preview { font-size: 13px; line-height: 1.75; color: var(--text); padding-left: 20px; margin-bottom: 10px; }
-.small-label { font-size: 12px; font-weight: 900; color: var(--text-soft); margin: 12px 0 6px; }
-.note { font-size: 11px; color: var(--text-light); line-height: 1.7; margin-top: 6px; }
-.preview-img {
-  width: 100%; border-radius: 18px; margin-top: 12px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08); display: none;
-}
-.result-toast {
-  position: fixed; top: 80px; left: 50%;
-  transform: translateX(-50%) translateY(-20px);
-  background: var(--navy); color: var(--yellow);
-  padding: 11px 22px; border-radius: 99px;
-  font-size: 14px; font-weight: 700; opacity: 0;
-  pointer-events: none; transition: all 0.3s; z-index: 999; white-space: nowrap;
-}
-.result-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-.fixed-actions {
-  position: sticky; bottom: 0; background: linear-gradient(180deg, rgba(255,254,245,0), var(--cream) 30%);
-  padding-top: 18px; margin-top: 8px;
-}
-.code-note { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; background: var(--warm-white); padding: 2px 6px; border-radius: 6px; color: var(--navy); }
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'Noto Sans JP',sans-serif;background:var(--cream);color:var(--text);min-height:100vh}.header{background:var(--navy);padding:14px 28px;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 18px rgba(26,40,71,.18)}.header-logo{font-family:'M PLUS Rounded 1c',sans-serif;font-size:23px;font-weight:900;color:var(--yellow);letter-spacing:-.02em;line-height:1}.header-logo span{font-size:11px;font-weight:400;color:rgba(255,255,255,.65);display:block;margin-top:3px;letter-spacing:.08em}.header-actions{display:flex;gap:10px;align-items:center}.header-link,.mini-btn{background:var(--yellow);border:none;border-radius:12px;padding:10px 14px;text-align:center;cursor:pointer;color:var(--navy);text-decoration:none;font-size:12px;font-weight:900;font-family:inherit}.mini-btn.ghost{background:rgba(255,255,255,.11);color:white;border:1px solid rgba(255,255,255,.18)}.admin-screen{width:min(1480px,calc(100% - 48px));margin:0 auto;padding:22px 0 42px}.top-layout{display:grid;grid-template-columns:1.25fr .75fr;gap:16px;margin-bottom:16px}.home-hero{background:var(--navy);border-radius:var(--radius);padding:24px 26px;position:relative;overflow:hidden;min-height:158px}.home-hero:before{content:'✳︎';position:absolute;right:22px;top:15px;font-size:52px;color:var(--orange);opacity:.9}.home-hero-label{font-size:11px;font-weight:900;color:var(--orange);letter-spacing:.12em;margin-bottom:8px}.home-hero h2{font-family:'M PLUS Rounded 1c',sans-serif;font-size:30px;font-weight:900;color:var(--yellow);margin-bottom:8px;line-height:1.2}.home-hero p{font-size:14px;color:rgba(255,255,255,.78);line-height:1.8;max-width:760px}.guide-card,.admin-card,.stat-box{background:white;border-radius:var(--radius);box-shadow:var(--card-shadow)}.guide-card{padding:18px 18px;border-left:6px solid var(--orange)}.guide-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:11px}.step{background:var(--warm-white);border:1px solid var(--border);border-radius:14px;padding:12px}.step b{display:block;font-size:13px;color:var(--navy);margin-bottom:5px}.step span{font-size:11px;color:var(--text-soft);line-height:1.6}.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}.stat-box{padding:16px;text-align:center;border-bottom:4px solid var(--yellow)}.stat-box.teal{border-bottom-color:var(--teal)}.stat-box.orange{border-bottom-color:var(--orange)}.stat-box.red{border-bottom-color:var(--wrong)}.stat-num{font-family:'M PLUS Rounded 1c',sans-serif;font-size:32px;font-weight:900;color:var(--navy);line-height:1;margin-bottom:4px}.stat-label{font-size:12px;color:var(--text-soft);font-weight:700}.main-layout{display:grid;grid-template-columns:390px minmax(0,1fr);gap:18px;align-items:start}.left-pane{position:sticky;top:78px;display:flex;flex-direction:column;gap:14px;max-height:calc(100vh - 96px)}.right-pane{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:18px;align-items:start}.admin-card{padding:18px;border-left:6px solid var(--yellow)}.admin-card.orange{border-left-color:var(--orange)}.admin-card.teal{border-left-color:var(--teal)}.admin-card.red{border-left-color:var(--wrong)}.section-title{font-size:12px;font-weight:900;color:var(--text-soft);margin-bottom:12px;text-transform:uppercase;letter-spacing:.1em;display:flex;align-items:center;justify-content:space-between;gap:8px}.section-title span:first-child{display:flex;align-items:center;gap:6px}.admin-input,.admin-select,.admin-textarea{width:100%;padding:13px 14px;border:2px solid var(--border);border-radius:13px;font-size:14px;font-family:inherit;outline:none;color:var(--text);background:white}.admin-input:focus,.admin-select:focus,.admin-textarea:focus{border-color:var(--orange)}.admin-textarea{min-height:330px;resize:vertical;line-height:1.75}.toolbar{display:flex;flex-direction:column;gap:10px}.row{display:grid;grid-template-columns:1fr 1fr;gap:9px}.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}.file-box{border:2px dashed var(--border);background:var(--warm-white);border-radius:var(--radius);padding:15px}.file-box.dragover,.drop-zone.dragover{border-color:var(--orange);background:var(--orange-light)}.hint{font-size:12px;color:var(--text-soft);line-height:1.7;margin-top:8px}.note{font-size:12px;color:var(--text-light);line-height:1.75;margin-top:7px}.code-note{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;background:var(--warm-white);padding:2px 6px;border-radius:6px;color:var(--navy)}.admin-btn{padding:13px 14px;border-radius:13px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;transition:all .15s;border:none}.admin-btn:active{transform:scale(.98)}.btn-primary{background:var(--navy);color:var(--yellow)}.btn-secondary{background:white;color:var(--text-soft);border:2px solid var(--border)}.btn-orange{background:var(--orange);color:white}.btn-teal{background:var(--teal);color:white}.btn-red{background:var(--wrong);color:white}.btn-row{display:flex;gap:9px;margin-top:10px}.btn-row>button{flex:1}.quick-filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.chip{border:none;border-radius:999px;background:var(--warm-white);color:var(--navy);font-size:12px;font-weight:900;padding:8px 11px;cursor:pointer;border:1px solid var(--border)}.chip.active{background:var(--navy);color:var(--yellow);border-color:var(--navy)}.question-list{display:flex;flex-direction:column;gap:9px;overflow:auto;padding:2px 3px 4px;min-height:240px;max-height:calc(100vh - 445px)}.question-item{background:white;border-radius:14px;padding:13px 12px;box-shadow:0 1px 10px rgba(26,40,71,.08);cursor:pointer;transition:transform .15s,outline .15s;border-left:6px solid var(--yellow)}.question-item:hover{transform:translateY(-1px)}.question-item.active{outline:3px solid var(--orange)}.question-item.done{border-left-color:var(--teal)}.question-item.missing{border-left-color:var(--wrong)}.question-item.noexp{background:linear-gradient(90deg,#fff,#fff7f3)}.q-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:7px}.memo-tag{font-size:11px;padding:2px 8px;border-radius:99px;background:var(--yellow-light);color:var(--navy);font-weight:800}.memo-tag.done{background:var(--teal-light);color:#146b6b}.memo-tag.missing{background:var(--wrong-bg);color:var(--wrong)}.memo-tag.orange{background:var(--orange-light);color:var(--orange)}.memo-tag.gray{background:var(--warm-white);color:var(--text-soft)}.q-title{font-size:13px;font-weight:800;line-height:1.6;color:var(--navy)}.empty-note{background:white;border-radius:var(--radius);padding:24px 16px;text-align:center;box-shadow:var(--card-shadow);color:var(--text-soft);font-size:13px;line-height:1.8}.detail-title{font-size:17px;line-height:1.85;color:var(--navy);font-weight:900;margin-bottom:10px}.choice-preview{font-size:14px;line-height:1.75;color:var(--text);padding-left:24px;margin-bottom:12px}.small-label{font-size:12px;font-weight:900;color:var(--text-soft);margin:14px 0 7px}.drop-zone{border:2px dashed var(--border);background:var(--warm-white);border-radius:16px;padding:18px;text-align:center;margin-top:12px}.drop-zone strong{display:block;color:var(--navy);font-size:14px;margin-bottom:4px}.drop-zone p{font-size:12px;color:var(--text-soft);line-height:1.7}.preview-img{width:100%;max-height:520px;object-fit:contain;border-radius:18px;margin-top:12px;box-shadow:0 4px 16px rgba(0,0,0,.08);display:none;background:white}.side-card{position:sticky;top:78px}.save-status{font-size:12px;color:var(--text-soft);font-weight:800}.save-status.ok{color:var(--correct)}.save-status.warn{color:var(--orange)}.result-toast{position:fixed;top:82px;left:50%;transform:translateX(-50%) translateY(-20px);background:var(--navy);color:var(--yellow);padding:12px 24px;border-radius:99px;font-size:14px;font-weight:800;opacity:0;pointer-events:none;transition:all .3s;z-index:999;white-space:nowrap}.result-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}.modal-backdrop{position:fixed;inset:0;background:rgba(26,40,71,.45);z-index:500;display:none;align-items:center;justify-content:center;padding:24px}.modal{background:white;border-radius:22px;box-shadow:0 18px 50px rgba(0,0,0,.2);max-width:720px;width:100%;padding:22px}.modal h3{font-family:'M PLUS Rounded 1c',sans-serif;color:var(--navy);font-size:23px;margin-bottom:10px}.modal p,.modal li{font-size:14px;line-height:1.8;color:var(--text-soft)}.modal ol{padding-left:22px;margin:12px 0}.modal-backdrop.show{display:flex}@media(max-width:1200px){.right-pane{grid-template-columns:1fr}.side-card{position:static}.guide-steps{grid-template-columns:repeat(2,1fr)}}@media(max-width:880px){.admin-screen{width:min(100% - 24px,720px)}.top-layout,.main-layout{grid-template-columns:1fr}.left-pane{position:static;max-height:none}.question-list{max-height:420px}.stats-grid{grid-template-columns:repeat(2,1fr)}.header{padding:12px 16px}.header-actions .mini-btn{display:none}.home-hero h2{font-size:24px}.guide-steps{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="header">
+<header class="header">
   <div class="header-logo">育てるノート<span>管理ツール</span></div>
-  <a class="header-link" href="index.html">サイトへ</a>
-</div>
+  <div class="header-actions">
+    <button class="mini-btn ghost" onclick="openHelp()">使い方</button>
+    <a class="header-link" href="index.html">サイトへ</a>
+  </div>
+</header>
 <div class="result-toast" id="toast"></div>
 
 <main class="admin-screen">
-  <div class="home-hero">
-    <div class="home-hero-label">+ ADMIN</div>
-    <h2>解説資料を育てる</h2>
-    <p>全問題を一覧管理して、画像プロンプト生成・画像名登録・JSON更新までまとめて行えます。</p>
-  </div>
-
-  <div class="file-box">
-    <div class="section-title">📂 questions.json 読み込み</div>
-    <input type="file" id="json-file" class="admin-input" accept=".json,application/json">
-    <p>同じフォルダに <span class="code-note">questions.json</span> がある場合は自動読み込みします。表示されない場合はここから選択してください。</p>
+  <div class="top-layout">
+    <div class="home-hero">
+      <div class="home-hero-label">+ ADMIN DASHBOARD</div>
+      <h2>解説資料を、迷わず育てる</h2>
+      <p>MacBook Airで作業しやすい横長レイアウトです。左で問題を探して、中央で編集、右で保存・書き出しを行います。</p>
+    </div>
+    <div class="guide-card">
+      <div class="section-title"><span>🧭 今日やること</span><span class="save-status" id="autosave-status">自動保存：待機中</span></div>
+      <div class="guide-steps">
+        <div class="step"><b>1. 読み込む</b><span>questions.jsonを選択</span></div>
+        <div class="step"><b>2. 探す</b><span>未画像・第55回などで絞る</span></div>
+        <div class="step"><b>3. 作る</b><span>プロンプトをコピーして画像生成</span></div>
+        <div class="step"><b>4. 保存</b><span>画像名を登録してJSON出力</span></div>
+      </div>
+    </div>
   </div>
 
   <div class="stats-grid">
-    <div class="stat-box hl"><div class="stat-num" id="total-count">0</div><div class="stat-label">全問題</div></div>
-    <div class="stat-box"><div class="stat-num" id="done-count">0</div><div class="stat-label">画像あり</div></div>
-    <div class="stat-box hl"><div class="stat-num" id="missing-count">0</div><div class="stat-label">未作成</div></div>
+    <div class="stat-box orange"><div class="stat-num" id="total-count">0</div><div class="stat-label">全問題</div></div>
+    <div class="stat-box teal"><div class="stat-num" id="done-count">0</div><div class="stat-label">画像あり</div></div>
+    <div class="stat-box red"><div class="stat-num" id="missing-count">0</div><div class="stat-label">未画像</div></div>
+    <div class="stat-box"><div class="stat-num" id="noexp-count">0</div><div class="stat-label">解説未入力</div></div>
   </div>
 
-  <section class="admin-card">
-    <div class="section-title">🔍 問題を探す</div>
-    <div class="toolbar">
-      <input id="search-input" class="admin-input" type="search" placeholder="問題文・ID・カテゴリで検索">
-      <div class="row">
-        <select id="status-filter" class="admin-select">
-          <option value="all">すべて</option>
-          <option value="missing">未作成だけ</option>
-          <option value="done">画像ありだけ</option>
-        </select>
-        <select id="category-filter" class="admin-select">
-          <option value="all">全カテゴリ</option>
-        </select>
-      </div>
-    </div>
-    <div class="question-list" id="question-list">
-      <div class="empty-note">questions.jsonを読み込むと、ここに全問題が表示されます。</div>
-    </div>
-  </section>
-
-  <section class="admin-card orange" id="detail-card">
-    <div class="section-title">📝 プロンプト生成・画像名登録</div>
-    <div id="detail-empty" class="empty-note">上の一覧から問題を選択してください。</div>
-    <div id="detail-area" style="display:none">
-      <div class="q-row" id="selected-meta"></div>
-      <div class="detail-title" id="selected-question"></div>
-      <ol class="choice-preview" id="selected-choices"></ol>
-
-      <div class="row">
-        <div>
-          <div class="small-label">正答</div>
-          <input id="answer-input" class="admin-input" placeholder="例：3">
+  <div class="main-layout">
+    <aside class="left-pane">
+      <section class="admin-card">
+        <div class="section-title"><span>📂 questions.json 読み込み</span></div>
+        <div class="file-box" id="json-drop">
+          <input type="file" id="json-file" class="admin-input" accept=".json,application/json">
+          <p class="hint">同じフォルダに <span class="code-note">questions.json</span> があれば自動読み込みします。失敗したらここにファイルを選択、またはドラッグ&ドロップしてください。</p>
         </div>
-        <div>
-          <div class="small-label">テーマ</div>
-          <input id="theme-input" class="admin-input" placeholder="例：循環応答">
+        <div class="btn-row">
+          <button class="admin-btn btn-secondary" onclick="loadAutosave()">前回の自動保存を復元</button>
+          <button class="admin-btn btn-red" onclick="clearAutosave()">自動保存を削除</button>
         </div>
-      </div>
+      </section>
 
-      <div class="small-label">解説画像ファイル名</div>
-      <input id="image-input" class="admin-input" placeholder="例：q054_am42.png">
-      <p class="note">保存先は <span class="code-note">images/explanations/</span> を想定。index.html側で表示されるよう、JSONには <span class="code-note">image</span> として保存します。</p>
-      <img id="image-preview" class="preview-img" alt="解説画像プレビュー">
+      <section class="admin-card orange">
+        <div class="section-title"><span>🔍 問題を探す</span><span id="visible-count" class="memo-tag gray">0件</span></div>
+        <div class="toolbar">
+          <input id="search-input" class="admin-input" type="search" placeholder="問題文・ID・カテゴリで検索">
+          <div class="row">
+            <select id="status-filter" class="admin-select">
+              <option value="all">すべて</option>
+              <option value="missing">未画像のみ</option>
+              <option value="done">画像ありのみ</option>
+              <option value="noexp">解説未入力のみ</option>
+            </select>
+            <select id="category-filter" class="admin-select"><option value="all">全カテゴリ</option></select>
+          </div>
+          <div class="quick-filters">
+            <button class="chip" id="chip-all" onclick="quickFilter('all')">全部</button>
+            <button class="chip" id="chip-55" onclick="quickFilter('55')">第55回だけ表示</button>
+            <button class="chip" id="chip-missing" onclick="quickFilter('missing')">未画像のみ</button>
+            <button class="chip" id="chip-noexp" onclick="quickFilter('noexp')">解説未入力のみ</button>
+          </div>
+        </div>
+        <div class="question-list" id="question-list"><div class="empty-note">questions.jsonを読み込むと、ここに全問題が表示されます。</div></div>
+      </section>
+    </aside>
 
-      <div class="btn-row">
-        <button class="admin-btn btn-teal" onclick="autoFillImageName()">自動命名</button>
-        <button class="admin-btn btn-orange" onclick="saveImageName()">画像名を保存</button>
-      </div>
+    <section class="right-pane">
+      <section class="admin-card orange" id="detail-card">
+        <div class="section-title"><span>📝 問題編集・プロンプト生成</span></div>
+        <div id="detail-empty" class="empty-note">左の一覧から問題を選んでください。<br>選ぶと、画像名登録・プロンプト生成・ドラッグ&ドロップ登録ができます。</div>
+        <div id="detail-area" style="display:none">
+          <div class="q-row" id="selected-meta"></div>
+          <div class="detail-title" id="selected-question"></div>
+          <ol class="choice-preview" id="selected-choices"></ol>
 
-      <div class="btn-row">
-        <button class="admin-btn btn-primary" onclick="generatePrompt()">プロンプト生成</button>
-        <button class="admin-btn btn-secondary" onclick="copyPrompt()">コピー</button>
-      </div>
+          <div class="row3">
+            <div><div class="small-label">正答</div><input id="answer-input" class="admin-input" placeholder="例：3"></div>
+            <div><div class="small-label">テーマ</div><input id="theme-input" class="admin-input" placeholder="例：循環応答"></div>
+            <div><div class="small-label">回数フィルタ用</div><input id="round-input" class="admin-input" placeholder="例：第55回"></div>
+          </div>
 
-      <div class="small-label">生成プロンプト</div>
-      <textarea id="prompt-output" class="admin-textarea" placeholder="ここにプロンプトが生成されます"></textarea>
-    </div>
-  </section>
+          <div class="small-label">解説文・メモ</div>
+          <textarea id="explanation-input" class="admin-textarea" style="min-height:130px" placeholder="解説やメモがあればここに入力。空欄なら『解説未入力』として絞り込みできます。"></textarea>
+          <div class="btn-row"><button class="admin-btn btn-secondary" onclick="saveExplanation()">解説を保存</button></div>
 
-  <section class="admin-card teal">
-    <div class="section-title">💾 書き出し</div>
-    <p class="note" style="margin-bottom:10px;color:var(--text-soft)">GitHub Pages上ではHTMLから直接questions.jsonを書き換えられません。画像名を保存したあと、更新済みJSONをダウンロードして元のquestions.jsonと差し替えてください。</p>
-    <div class="btn-row">
-      <button class="admin-btn btn-primary" onclick="downloadJson()">questions.jsonをダウンロード</button>
-      <button class="admin-btn btn-secondary" onclick="copyJson()">JSONコピー</button>
-    </div>
-  </section>
+          <div class="small-label">解説画像ファイル名</div>
+          <input id="image-input" class="admin-input" placeholder="例：q055_pm15.png">
+          <p class="note">保存先は <span class="code-note">images/explanations/</span>。JSONには <span class="code-note">image</span> として保存します。</p>
+
+          <div class="drop-zone" id="image-drop">
+            <strong>画像をここにドラッグ&ドロップ</strong>
+            <p>画像ファイル名を自動入力します。実際の画像ファイルは <span class="code-note">images/explanations/</span> フォルダへ入れてください。</p>
+            <input type="file" id="image-file" accept="image/*" style="display:none">
+            <button class="admin-btn btn-secondary" style="margin-top:10px" onclick="$('image-file').click()">画像を選択する</button>
+          </div>
+          <img id="image-preview" class="preview-img" alt="解説画像プレビュー">
+
+          <div class="btn-row">
+            <button class="admin-btn btn-teal" onclick="autoFillImageName()">自動命名</button>
+            <button class="admin-btn btn-orange" onclick="saveImageName()">画像名を保存</button>
+            <button class="admin-btn btn-secondary" onclick="openPreviewPath()">画像パス確認</button>
+          </div>
+
+          <div class="btn-row">
+            <button class="admin-btn btn-primary" onclick="generatePrompt(true)">ワンクリック画像生成プロンプト</button>
+            <button class="admin-btn btn-secondary" onclick="copyPrompt()">コピー</button>
+          </div>
+
+          <div class="small-label">生成プロンプト</div>
+          <textarea id="prompt-output" class="admin-textarea" placeholder="ここにプロンプトが生成されます"></textarea>
+        </div>
+      </section>
+
+      <aside class="side-card">
+        <section class="admin-card teal">
+          <div class="section-title"><span>💾 保存・書き出し</span></div>
+          <p class="note" style="color:var(--text-soft);margin-bottom:10px">変更内容はこのブラウザに自動保存されます。ただし、最終的には更新済みJSONをダウンロードして、元の <span class="code-note">questions.json</span> と差し替えてください。</p>
+          <div class="btn-row" style="flex-direction:column">
+            <button class="admin-btn btn-primary" onclick="downloadJson()">questions.jsonをダウンロード</button>
+            <button class="admin-btn btn-secondary" onclick="copyJson()">JSONをコピー</button>
+          </div>
+        </section>
+        <section class="admin-card">
+          <div class="section-title"><span>✅ 初心者チェック</span></div>
+          <p class="note" style="color:var(--text-soft)">① 未画像のみ → ② 問題選択 → ③ プロンプト生成 → ④ 画像作成 → ⑤ 画像をフォルダへ → ⑥ 画像名保存 → ⑦ JSONダウンロード。</p>
+        </section>
+      </aside>
+    </section>
+  </div>
 </main>
 
+<div class="modal-backdrop" id="help-modal" onclick="closeHelp(event)">
+  <div class="modal">
+    <h3>管理ツールの使い方</h3>
+    <p>基本はこの順番だけ覚えればOKです。</p>
+    <ol>
+      <li><b>questions.jsonを読み込む</b>：同じフォルダにあれば自動、無理なら左上から選択。</li>
+      <li><b>未画像のみ</b>を押す：まだ画像がない問題だけに絞れます。</li>
+      <li><b>問題を選ぶ</b>：中央に問題文・選択肢・編集欄が出ます。</li>
+      <li><b>ワンクリック画像生成プロンプト</b>：押すだけでプロンプトを作ってコピーできます。</li>
+      <li><b>画像を作る</b>：ChatGPTやCanva等で作成し、画像を <span class="code-note">images/explanations/</span> に入れます。</li>
+      <li><b>画像名を保存</b>：JSONに画像パスが入ります。最後にJSONをダウンロードして差し替えます。</li>
+    </ol>
+    <div class="btn-row"><button class="admin-btn btn-primary" onclick="closeHelp()">閉じる</button></div>
+  </div>
+</div>
+
 <script>
-let originalShape = 'array';
-let originalData = null;
-let flatQuestions = [];
-let selectedKey = null;
-
-const $ = id => document.getElementById(id);
-
-function showToast(msg) {
-  const t = $('toast');
-  t.textContent = msg; t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2000);
-}
-
-function escapeHtml(str){return String(str||'').replace(/[&<>"']/g,s=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));}
-function stripHtml(s){const d=document.createElement('div');d.innerHTML=s||'';return d.textContent||d.innerText||'';}
-
-function normalizeAndFlatten(raw) {
-  originalData = raw;
-  flatQuestions = [];
-  if (Array.isArray(raw)) {
-    originalShape = 'array';
-    raw.forEach((q, i) => flatQuestions.push({ q, ref: raw, index: i, category: getCategory(q), key: makeKey(q, i) }));
-  } else if (Array.isArray(raw.questions)) {
-    originalShape = 'object-array';
-    raw.questions.forEach((q, i) => flatQuestions.push({ q, ref: raw.questions, index: i, category: getCategory(q), key: makeKey(q, i) }));
-  } else if (raw.questions && typeof raw.questions === 'object') {
-    originalShape = 'category-object';
-    Object.entries(raw.questions).forEach(([cat, qs]) => {
-      (qs || []).forEach((q, i) => {
-        if (!q.category) q.category = cat;
-        flatQuestions.push({ q, ref: qs, index: i, category: cat, key: makeKey(q, flatQuestions.length) });
-      });
-    });
-  } else {
-    throw new Error('questions.jsonの形式を読み取れませんでした');
-  }
-}
-
-function makeKey(q, i) { return q.id || q.no || q.code || `q_${String(i+1).padStart(4,'0')}`; }
-function getId(q, i=0){ return q.id || q.no || q.code || `q_${String(i+1).padStart(4,'0')}`; }
-function getCategory(q){ return q.category || q.subject || q.field || q.unit || '未分類'; }
-function getText(q){ return q.text || q.question || q.questionText || q.title || ''; }
-function getChoices(q){ return q.choices || q.options || q.answers || []; }
-function getAnswer(q){ return q.answer ?? q.correct ?? q.correctAnswer ?? q.correct_choice ?? ''; }
-function getExplanation(q){ return q.explanation || q.commentary || q.description || ''; }
-function getImage(q){ return q.image || q.explanationImage || q.imageName || q.explanation_image || ''; }
-function setImage(q, value){
-  const v = value.trim();
-  q.image = normalizeImagePath(v);
-  delete q.explanationImage;
-  delete q.imageName;
-  delete q.explanation_image;
-}
-function normalizeImagePath(v){
-  if (!v) return '';
-  if (v.includes('/') || v.startsWith('http')) return v;
-  return `images/explanations/${v}`;
-}
-function fileNameOnly(path){ return String(path||'').split('/').pop(); }
-
-async function tryAutoLoad() {
-  try {
-    const res = await fetch('questions.json', { cache: 'no-store' });
-    if (!res.ok) return;
-    const data = await res.json();
-    loadData(data);
-  } catch(e) { console.log('auto load skipped', e.message); }
-}
-
-function loadData(data) {
-  normalizeAndFlatten(data);
-  setupCategories();
-  updateStats();
-  renderList();
-  showToast('questions.jsonを読み込みました');
-}
-
-function setupCategories(){
-  const cats = [...new Set(flatQuestions.map(item => item.category || getCategory(item.q)))].sort();
-  $('category-filter').innerHTML = '<option value="all">全カテゴリ</option>';
-  cats.forEach(cat => {
-    const op = document.createElement('option'); op.value = cat; op.textContent = cat;
-    $('category-filter').appendChild(op);
-  });
-}
-
-function updateStats(){
-  const total = flatQuestions.length;
-  const done = flatQuestions.filter(item => !!getImage(item.q)).length;
-  $('total-count').textContent = total;
-  $('done-count').textContent = done;
-  $('missing-count').textContent = total - done;
-}
-
-function getFiltered(){
-  const key = $('search-input').value.trim().toLowerCase();
-  const status = $('status-filter').value;
-  const cat = $('category-filter').value;
-  return flatQuestions.filter(item => {
-    const q = item.q;
-    const hay = [getId(q, item.index), item.category, getText(q), getChoices(q).join(' '), getImage(q)].join(' ').toLowerCase();
-    if (key && !hay.includes(key)) return false;
-    if (cat !== 'all' && item.category !== cat) return false;
-    if (status === 'missing' && getImage(q)) return false;
-    if (status === 'done' && !getImage(q)) return false;
-    return true;
-  });
-}
-
-function renderList(){
-  const list = getFiltered();
-  const box = $('question-list');
-  if (!flatQuestions.length) { box.innerHTML = '<div class="empty-note">questions.jsonを読み込むと、ここに全問題が表示されます。</div>'; return; }
-  if (!list.length) { box.innerHTML = '<div class="empty-note">条件に合う問題がありません。</div>'; return; }
-  box.innerHTML = list.map(item => {
-    const q = item.q;
-    const img = getImage(q);
-    const active = selectedKey === item.key ? ' active' : '';
-    return `<div class="question-item ${img ? 'done' : 'missing'}${active}" onclick="selectQuestion('${escapeAttr(item.key)}')">
-      <div class="q-row">
-        <span class="memo-tag">${escapeHtml(getId(q,item.index))}</span>
-        <span class="memo-tag orange">${escapeHtml(item.category)}</span>
-        <span class="memo-tag ${img ? 'done' : 'missing'}">${img ? '画像あり' : '未作成'}</span>
-      </div>
-      <div class="q-title">${escapeHtml(getText(q)).slice(0,110)}${getText(q).length>110?'…':''}</div>
-    </div>`;
-  }).join('');
-}
-function escapeAttr(s){ return String(s).replace(/'/g, '&#39;').replace(/"/g, '&quot;'); }
-
-function selectQuestion(key){
-  selectedKey = key;
-  const item = flatQuestions.find(x => String(x.key) === String(key));
-  if (!item) return;
-  const q = item.q;
-  $('detail-empty').style.display = 'none';
-  $('detail-area').style.display = '';
-  $('selected-meta').innerHTML = `<span class="memo-tag">${escapeHtml(getId(q,item.index))}</span><span class="memo-tag orange">${escapeHtml(item.category)}</span><span class="memo-tag ${getImage(q)?'done':'missing'}">${getImage(q)?'画像あり':'未作成'}</span>`;
-  $('selected-question').textContent = getText(q);
-  $('selected-choices').innerHTML = getChoices(q).map(c => `<li>${escapeHtml(c)}</li>`).join('');
-  $('answer-input').value = Array.isArray(getAnswer(q)) ? getAnswer(q).join(', ') : getAnswer(q);
-  $('theme-input').value = guessTheme(q, item.category);
-  $('image-input').value = fileNameOnly(getImage(q)) || makeImageName(q, item);
-  $('prompt-output').value = '';
-  updatePreview();
-  renderList();
-  $('detail-card').scrollIntoView({behavior:'smooth', block:'start'});
-}
-
-function guessTheme(q, category){
-  if (q.theme || q.topic || q.keyword) return q.theme || q.topic || q.keyword;
-  const tags = q.tags || q.keywords || [];
-  if (Array.isArray(tags) && tags.length) return tags.slice(0,3).join('・');
-  return category || '理学療法士国家試験';
-}
-
-function makeImageName(q, item){
-  const id = String(getId(q,item.index)).toLowerCase();
-  const meta = String(q.meta || '').toLowerCase();
-  let base = id || meta || `q_${String(item.index+1).padStart(4,'0')}`;
-  base = base
-    .replace(/第/g,'')
-    .replace(/回/g,'')
-    .replace(/午前/g,'am')
-    .replace(/午後/g,'pm')
-    .replace(/[^a-z0-9ぁ-んァ-ン一-龥]+/gi,'_')
-    .replace(/_+/g,'_')
-    .replace(/^_|_$/g,'');
-  if (!base || base === 'undefined') base = `q_${String(item.index+1).padStart(4,'0')}`;
-  if (!base.startsWith('q')) base = 'q_' + base;
-  return base + '.png';
-}
-
-function autoFillImageName(){
-  const item = flatQuestions.find(x => String(x.key) === String(selectedKey));
-  if (!item) { showToast('問題を選択してください'); return; }
-  $('image-input').value = makeImageName(item.q, item);
-  updatePreview();
-  showToast('画像名を自動生成しました');
-}
-
-function saveImageName(){
-  const item = flatQuestions.find(x => String(x.key) === String(selectedKey));
-  if (!item) { showToast('問題を選択してください'); return; }
-  setImage(item.q, $('image-input').value);
-  updateStats();
-  renderList();
-  updatePreview();
-  showToast('画像名をquestions.jsonに反映しました');
-}
-
-function updatePreview(){
-  const name = $('image-input').value.trim();
-  const img = $('image-preview');
-  if (!name) { img.style.display = 'none'; img.src = ''; return; }
-  img.src = normalizeImagePath(name);
-  img.style.display = '';
-}
-
-function generatePrompt(){
-  const item = flatQuestions.find(x => String(x.key) === String(selectedKey));
-  if (!item) { showToast('問題を選択してください'); return; }
-  const q = item.q;
-  const choices = getChoices(q).map((c,i)=>`${i+1}. ${stripHtml(c)}`).join('\n');
-  const prompt = `理学療法士国家試験受験生向けの、X投稿用解説画像を作成してください。
-
-【問題ID】
-${getId(q,item.index)}
-
-【カテゴリー】
-${item.category}
-
-【テーマ】
-${$('theme-input').value || guessTheme(q,item.category)}
-
-【問題】
-${stripHtml(getText(q))}
-
-【選択肢】
-${choices}
-
-【正答】
-${$('answer-input').value || getAnswer(q)}
-
-【目的】
-保存されることを最優先にしてください。
-あとで見返したくなる、国試前に復習したくなる構成にしてください。
-
-【対象】
-理学療法士国家試験を受ける学生・浪人生。
-初学者でもパッと理解できるようにしてください。
-
-【デザイン】
-・スマホで見やすい縦長画像
-・育てるノートらしい、柔らかく親しみやすい雰囲気
-・黄色、ネイビー、オレンジを基調にした学習ノート風
-・余白をしっかり取り、情報を詰め込みすぎない
-・重要語句は大きく強調
-・図解、矢印、比較表、アイコンを使って直感的に理解できる構成
-・堅苦しい教科書風ではなく、保存したくなるまとめ画像
-
-【必ず入れてほしい要素】
-・1枚目で目を引くタイトル
-・「ここ試験に出る」などの強調
-・この問題を解くための必須知識
-・勘違いポイント
-・選択肢の正誤が理解できる整理
-・最後に「つまりこれを覚える」とまとめる
-・画像下部に @sodateru_note を入れる
-
-【注意】
-過去問の単なる解説ではなく、この問題を解くために必要な知識を図解でわかりやすくまとめてください。
-文字は読みやすく、スマホ表示でも潰れないようにしてください。`;
-  $('prompt-output').value = prompt;
-  showToast('プロンプトを生成しました');
-}
-
-async function copyPrompt(){
-  await copyText($('prompt-output').value, 'プロンプトをコピーしました');
-}
-async function copyJson(){
-  if (!originalData) { showToast('JSONがありません'); return; }
-  await copyText(JSON.stringify(originalData, null, 2), 'JSONをコピーしました');
-}
-async function copyText(text, msg){
-  if (!text) { showToast('コピーする内容がありません'); return; }
-  try { await navigator.clipboard.writeText(text); }
-  catch(e){ const ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); }
-  showToast(msg);
-}
-function downloadJson(){
-  if (!originalData) { showToast('JSONがありません'); return; }
-  const blob = new Blob([JSON.stringify(originalData, null, 2)], {type:'application/json'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url; a.download = 'questions.json'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
-  showToast('questions.jsonをダウンロードしました');
-}
-
-$('json-file').addEventListener('change', e => {
-  const file = e.target.files[0]; if (!file) return;
-  const reader = new FileReader();
-  reader.onload = () => {
-    try { loadData(JSON.parse(reader.result)); }
-    catch(err){ alert('JSONの読み込みに失敗しました: ' + err.message); }
-  };
-  reader.readAsText(file);
-});
-$('search-input').addEventListener('input', renderList);
-$('status-filter').addEventListener('change', renderList);
-$('category-filter').addEventListener('change', renderList);
-$('image-input').addEventListener('input', updatePreview);
-
-tryAutoLoad();
+let originalData=null;let flatQuestions=[];let selectedKey=null;let activeQuick='all';let autosaveTimer=null;
+const AUTOSAVE_KEY='sodateru_note_admin_autosave_v2';
+const $=id=>document.getElementById(id);
+function showToast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2100)}
+function escapeHtml(str){return String(str||'').replace(/[&<>"']/g,s=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]))}
+function escapeAttr(s){return String(s).replace(/'/g,'&#39;').replace(/"/g,'&quot;')}
+function stripHtml(s){const d=document.createElement('div');d.innerHTML=s||'';return d.textContent||d.innerText||''}
+function getId(q,i=0){return q.id||q.no||q.code||q.number||`q_${String(i+1).padStart(4,'0')}`}
+function getCategory(q){return q.category||q.subject||q.field||q.unit||'未分類'}
+function getText(q){return q.text||q.question||q.questionText||q.title||''}
+function getChoices(q){return q.choices||q.options||q.answers||[]}
+function getAnswer(q){return q.answer??q.correct??q.correctAnswer??q.correct_choice??''}
+function getExplanation(q){return q.explanation||q.commentary||q.description||''}
+function setExplanation(q,v){q.explanation=String(v||'').trim()}
+function getImage(q){return q.image||q.explanationImage||q.imageName||q.explanation_image||''}
+function normalizeImagePath(v){v=String(v||'').trim();if(!v)return'';if(v.includes('/')||v.startsWith('http')||v.startsWith('data:'))return v;return`images/explanations/${v}`}
+function setImage(q,value){q.image=normalizeImagePath(value);delete q.explanationImage;delete q.imageName;delete q.explanation_image}
+function fileNameOnly(path){return String(path||'').split('/').pop()}
+function extractRound(q,item){const hay=[getId(q,item?.index),q.round,q.examRound,q.year,getText(q),item?.category].join(' ');const m=hay.match(/第\s*(\d+)\s*回|(^|[^0-9])(\d{2})回/);return m?`第${m[1]||m[3]}回`:''}
+function makeKey(q,i){return q.id||q.no||q.code||q.number||`q_${String(i+1).padStart(4,'0')}`}
+function normalizeAndFlatten(raw){originalData=raw;flatQuestions=[];if(Array.isArray(raw)){raw.forEach((q,i)=>flatQuestions.push({q,ref:raw,index:i,category:getCategory(q),key:makeKey(q,i)}))}else if(Array.isArray(raw.questions)){raw.questions.forEach((q,i)=>flatQuestions.push({q,ref:raw.questions,index:i,category:getCategory(q),key:makeKey(q,i)}))}else if(raw.questions&&typeof raw.questions==='object'){Object.entries(raw.questions).forEach(([cat,qs])=>(qs||[]).forEach((q,i)=>{if(!q.category)q.category=cat;flatQuestions.push({q,ref:qs,index:i,category:cat,key:makeKey(q,flatQuestions.length)})}))}else{throw new Error('questions.jsonの形式を読み取れませんでした')}}
+async function tryAutoLoad(){try{const res=await fetch('questions.json',{cache:'no-store'});if(!res.ok)return;loadData(await res.json(),'questions.jsonを自動読み込みしました')}catch(e){console.log('auto load skipped',e.message)}}
+function loadData(data,msg='questions.jsonを読み込みました'){normalizeAndFlatten(data);setupCategories();updateStats();renderList();autosaveNow();showToast(msg)}
+function setupCategories(){const cats=[...new Set(flatQuestions.map(item=>item.category||getCategory(item.q)))].sort();$('category-filter').innerHTML='<option value="all">全カテゴリ</option>';cats.forEach(cat=>{const op=document.createElement('option');op.value=cat;op.textContent=cat;$('category-filter').appendChild(op)})}
+function updateStats(){const total=flatQuestions.length,done=flatQuestions.filter(i=>!!getImage(i.q)).length,noexp=flatQuestions.filter(i=>!getExplanation(i.q)).length;$('total-count').textContent=total;$('done-count').textContent=done;$('missing-count').textContent=total-done;$('noexp-count').textContent=noexp}
+function getFiltered(){const key=$('search-input').value.trim().toLowerCase();const status=$('status-filter').value;const cat=$('category-filter').value;return flatQuestions.filter(item=>{const q=item.q;const hay=[getId(q,item.index),item.category,extractRound(q,item),getText(q),getChoices(q).join(' '),getImage(q),getExplanation(q)].join(' ').toLowerCase();if(key&&!hay.includes(key))return false;if(cat!=='all'&&item.category!==cat)return false;if(activeQuick==='55'&&!hay.includes('第55回')&&!hay.includes('55回')&&!String(getId(q,item.index)).includes('55'))return false;if(status==='missing'||activeQuick==='missing'){if(getImage(q))return false}if(status==='done'&& !getImage(q))return false;if(status==='noexp'||activeQuick==='noexp'){if(getExplanation(q))return false}return true})}
+function renderList(){const list=getFiltered();$('visible-count').textContent=`${list.length}件`;$('chip-all').classList.toggle('active',activeQuick==='all');$('chip-55').classList.toggle('active',activeQuick==='55');$('chip-missing').classList.toggle('active',activeQuick==='missing');$('chip-noexp').classList.toggle('active',activeQuick==='noexp');const box=$('question-list');if(!flatQuestions.length){box.innerHTML='<div class="empty-note">questions.jsonを読み込むと、ここに全問題が表示されます。</div>';return}if(!list.length){box.innerHTML='<div class="empty-note">条件に合う問題がありません。</div>';return}box.innerHTML=list.map(item=>{const q=item.q,img=getImage(q),exp=getExplanation(q),active=selectedKey===item.key?' active':'';return`<div class="question-item ${img?'done':'missing'} ${!exp?'noexp':''}${active}" onclick="selectQuestion('${escapeAttr(item.key)}')"><div class="q-row"><span class="memo-tag">${escapeHtml(getId(q,item.index))}</span><span class="memo-tag orange">${escapeHtml(item.category)}</span>${extractRound(q,item)?`<span class="memo-tag gray">${escapeHtml(extractRound(q,item))}</span>`:''}<span class="memo-tag ${img?'done':'missing'}">${img?'画像あり':'未画像'}</span>${!exp?'<span class="memo-tag missing">解説未入力</span>':''}</div><div class="q-title">${escapeHtml(getText(q)).slice(0,120)}${getText(q).length>120?'…':''}</div></div>`}).join('')}
+function quickFilter(type){activeQuick=type;if(type==='all'){$('status-filter').value='all';$('search-input').value=''}if(type==='missing')$('status-filter').value='missing';if(type==='noexp')$('status-filter').value='noexp';renderList()}
+function selectQuestion(key){selectedKey=key;const item=flatQuestions.find(x=>String(x.key)===String(key));if(!item)return;const q=item.q;$('detail-empty').style.display='none';$('detail-area').style.display='';$('selected-meta').innerHTML=`<span class="memo-tag">${escapeHtml(getId(q,item.index))}</span><span class="memo-tag orange">${escapeHtml(item.category)}</span>${extractRound(q,item)?`<span class="memo-tag gray">${escapeHtml(extractRound(q,item))}</span>`:''}<span class="memo-tag ${getImage(q)?'done':'missing'}">${getImage(q)?'画像あり':'未画像'}</span>${!getExplanation(q)?'<span class="memo-tag missing">解説未入力</span>':''}`;$('selected-question').textContent=getText(q);$('selected-choices').innerHTML=getChoices(q).map(c=>`<li>${escapeHtml(c)}</li>`).join('');$('answer-input').value=Array.isArray(getAnswer(q))?getAnswer(q).join(', '):getAnswer(q);$('theme-input').value=guessTheme(q,item.category);$('round-input').value=extractRound(q,item);$('explanation-input').value=getExplanation(q);$('image-input').value=fileNameOnly(getImage(q))||makeImageName(q,item);$('prompt-output').value='';updatePreview();renderList();if(window.innerWidth<1200)$('detail-card').scrollIntoView({behavior:'smooth',block:'start'})}
+function guessTheme(q,category){if(q.theme||q.topic||q.keyword)return q.theme||q.topic||q.keyword;const tags=q.tags||q.keywords||[];if(Array.isArray(tags)&&tags.length)return tags.slice(0,3).join('・');return category||'理学療法士国家試験'}
+function makeImageName(q,item){const round=extractRound(q,item).replace('第','').replace('回','');let base=[round?`r${round}`:'',String(getId(q,item.index)).toLowerCase()].filter(Boolean).join('_');base=base.replace(/第/g,'').replace(/回/g,'').replace(/午前/g,'am').replace(/午後/g,'pm').replace(/[^a-z0-9ぁ-んァ-ン一-龥]+/gi,'_').replace(/_+/g,'_').replace(/^_|_$/g,'');if(!base||base==='undefined')base=`q_${String(item.index+1).padStart(4,'0')}`;if(!base.startsWith('q')&&!base.startsWith('r'))base='q_'+base;return base+'.png'}
+function autoFillImageName(){const item=flatQuestions.find(x=>String(x.key)===String(selectedKey));if(!item)return showToast('問題を選択してください');$('image-input').value=makeImageName(item.q,item);saveImageName(false);showToast('画像名を自動生成しました')}
+function saveImageName(toast=true){const item=flatQuestions.find(x=>String(x.key)===String(selectedKey));if(!item)return showToast('問題を選択してください');setImage(item.q,$('image-input').value);updateStats();renderList();updatePreview();autosaveSoon();if(toast)showToast('画像名をJSONに反映しました')}
+function saveExplanation(){const item=flatQuestions.find(x=>String(x.key)===String(selectedKey));if(!item)return showToast('問題を選択してください');setExplanation(item.q,$('explanation-input').value);updateStats();renderList();autosaveSoon();showToast('解説を保存しました')}
+function updatePreview(){const name=$('image-input').value.trim(),img=$('image-preview');if(!name){img.style.display='none';img.src='';return}img.src=normalizeImagePath(name);img.style.display='';}
+function generatePrompt(copy=false){const item=flatQuestions.find(x=>String(x.key)===String(selectedKey));if(!item)return showToast('問題を選択してください');const q=item.q;const choices=getChoices(q).map((c,i)=>`${i+1}. ${stripHtml(c)}`).join('\n');const prompt=`理学療法士国家試験受験生向けの、X投稿用解説画像を作成してください。\n\n【問題ID】\n${getId(q,item.index)}\n\n【カテゴリー】\n${item.category}\n\n【テーマ】\n${$('theme-input').value||guessTheme(q,item.category)}\n\n【問題】\n${stripHtml(getText(q))}\n\n【選択肢】\n${choices}\n\n【正答】\n${$('answer-input').value||getAnswer(q)}\n\n【解説・メモ】\n${$('explanation-input').value||'この問題を解くための必須知識を、初学者向けに整理してください。'}\n\n【目的】\n保存されることを最優先にしてください。あとで見返したくなる、国試前に復習したくなる構成にしてください。\n\n【対象】\n理学療法士国家試験を受ける学生・浪人生。初学者でもパッと理解できるようにしてください。\n\n【デザイン】\n・スマホで見やすい縦長画像\n・育てるノートらしい、柔らかく親しみやすい雰囲気\n・黄色、ネイビー、オレンジを基調にした学習ノート風\n・余白をしっかり取り、情報を詰め込みすぎない\n・重要語句は大きく強調\n・図解、矢印、比較表、アイコンを使って直感的に理解できる構成\n・堅苦しい教科書風ではなく、保存したくなるまとめ画像\n\n【必ず入れてほしい要素】\n・1枚目で目を引くタイトル\n・「ここ試験に出る」などの強調\n・この問題を解くための必須知識\n・勘違いポイント\n・選択肢の正誤が理解できる整理\n・最後に「つまりこれを覚える」とまとめる\n・画像下部に @sodateru_note を入れる\n\n【注意】\n過去問の単なる解説ではなく、この問題を解くために必要な知識を図解でわかりやすくまとめてください。文字は読みやすく、スマホ表示でも潰れないようにしてください。`;$('prompt-output').value=prompt;if(copy)copyText(prompt,'プロンプトを生成してコピーしました');else showToast('プロンプトを生成しました')}
+async function copyPrompt(){await copyText($('prompt-output').value,'プロンプトをコピーしました')}
+async function copyJson(){if(!originalData)return showToast('JSONがありません');await copyText(JSON.stringify(originalData,null,2),'JSONをコピーしました')}
+async function copyText(text,msg){if(!text)return showToast('コピーする内容がありません');try{await navigator.clipboard.writeText(text)}catch(e){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove()}showToast(msg)}
+function downloadJson(){if(!originalData)return showToast('JSONがありません');const blob=new Blob([JSON.stringify(originalData,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='questions.json';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);showToast('questions.jsonをダウンロードしました')}
+function autosaveSoon(){if(!originalData)return;$('autosave-status').textContent='自動保存：保存中…';$('autosave-status').className='save-status warn';clearTimeout(autosaveTimer);autosaveTimer=setTimeout(autosaveNow,550)}
+function autosaveNow(){if(!originalData)return;localStorage.setItem(AUTOSAVE_KEY,JSON.stringify({savedAt:new Date().toISOString(),data:originalData}));$('autosave-status').textContent='自動保存：完了';$('autosave-status').className='save-status ok'}
+function loadAutosave(){const raw=localStorage.getItem(AUTOSAVE_KEY);if(!raw)return showToast('自動保存データがありません');try{const obj=JSON.parse(raw);loadData(obj.data,'前回の自動保存を復元しました')}catch(e){showToast('復元に失敗しました')}}
+function clearAutosave(){localStorage.removeItem(AUTOSAVE_KEY);$('autosave-status').textContent='自動保存：削除済み';$('autosave-status').className='save-status';showToast('自動保存を削除しました')}
+function openPreviewPath(){const name=$('image-input').value.trim();if(!name)return showToast('画像名がありません');window.open(normalizeImagePath(name),'_blank')}
+function handleJsonFile(file){if(!file)return;const reader=new FileReader();reader.onload=()=>{try{loadData(JSON.parse(reader.result),`${file.name}を読み込みました`)}catch(err){alert('JSONの読み込みに失敗しました: '+err.message)}};reader.readAsText(file)}
+function handleImageFile(file){if(!file)return;const item=flatQuestions.find(x=>String(x.key)===String(selectedKey));if(!item)return showToast('先に問題を選択してください');$('image-input').value=file.name;const preview=$('image-preview');preview.src=URL.createObjectURL(file);preview.style.display='';saveImageName(false);showToast('画像ファイル名を登録しました')}
+function setupDrop(id,handler){const el=$(id);['dragenter','dragover'].forEach(ev=>el.addEventListener(ev,e=>{e.preventDefault();el.classList.add('dragover')}));['dragleave','drop'].forEach(ev=>el.addEventListener(ev,e=>{e.preventDefault();el.classList.remove('dragover')}));el.addEventListener('drop',e=>handler(e.dataTransfer.files[0]))}
+function openHelp(){$('help-modal').classList.add('show')}function closeHelp(e){if(!e||e.target.id==='help-modal'||e.target.closest('.admin-btn'))$('help-modal').classList.remove('show')}
+$('json-file').addEventListener('change',e=>handleJsonFile(e.target.files[0]));$('image-file').addEventListener('change',e=>handleImageFile(e.target.files[0]));['search-input','status-filter','category-filter'].forEach(id=>$(id).addEventListener(id==='search-input'?'input':'change',renderList));['image-input','explanation-input','answer-input','theme-input'].forEach(id=>$(id).addEventListener('input',autosaveSoon));$('image-input').addEventListener('input',updatePreview);setupDrop('json-drop',handleJsonFile);setupDrop('image-drop',handleImageFile);tryAutoLoad();
 </script>
 </body>
 </html>
