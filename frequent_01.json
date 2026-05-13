@@ -1,0 +1,4375 @@
+{
+  "meta": {
+    "title": "育てるノート 頻出問題200問 Part2",
+    "description": "理学療法士国家試験向け頻出論点ベース問題集 Part2",
+    "count": 200,
+    "version": "1.0"
+  },
+  "questions": [
+    {
+      "id": "freq_pdf_200b_201",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "骨格筋で最も大きい筋はどれか。",
+      "choices": [
+        "大殿筋",
+        "大腿四頭筋",
+        "広背筋",
+        "僧帽筋",
+        "大胸筋"
+      ],
+      "answer": 1,
+      "answerText": "大殿筋",
+      "explanation": "<span class='keyword'>ポイント</span>：大殿筋は人体最大の筋。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_202",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "前腕回外に関与する筋はどれか。",
+      "choices": [
+        "上腕二頭筋",
+        "円回内筋",
+        "方形回内筋",
+        "尺側手根屈筋",
+        "浅指屈筋"
+      ],
+      "answer": 1,
+      "answerText": "上腕二頭筋",
+      "explanation": "<span class='keyword'>ポイント</span>：上腕二頭筋は肘屈曲だけでなく回外にも関与する。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "正中神経"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_203",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "手根管を通過する神経はどれか。",
+      "choices": [
+        "正中神経",
+        "尺骨神経",
+        "橈骨神経",
+        "筋皮神経",
+        "腋窩神経"
+      ],
+      "answer": 1,
+      "answerText": "正中神経",
+      "explanation": "<span class='keyword'>ポイント</span>：手根管症候群では正中神経障害が問題となる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "尺骨神経",
+        "橈骨神経",
+        "正中神経"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_204",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "膝蓋腱反射に関与する神経根はどれか。",
+      "choices": [
+        "L4",
+        "S1",
+        "C6",
+        "C8",
+        "T1"
+      ],
+      "answer": 1,
+      "answerText": "L4",
+      "explanation": "<span class='keyword'>ポイント</span>：膝蓋腱反射は主にL4。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "反射"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_205",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "アキレス腱反射に関与する神経根はどれか。",
+      "choices": [
+        "S1",
+        "L2",
+        "L4",
+        "C5",
+        "T12"
+      ],
+      "answer": 1,
+      "answerText": "S1",
+      "explanation": "<span class='keyword'>ポイント</span>：アキレス腱反射は主にS1。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "反射"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_206",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "副交感神経作用として正しいのはどれか。",
+      "choices": [
+        "心拍数低下",
+        "瞳孔散大",
+        "気管支拡張",
+        "血圧上昇",
+        "発汗促進"
+      ],
+      "answer": 1,
+      "answerText": "心拍数低下",
+      "explanation": "<span class='keyword'>ポイント</span>：副交感神経は休息・消化に関与する。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "循環"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_207",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "ヘモグロビンの主な役割はどれか。",
+      "choices": [
+        "酸素運搬",
+        "免疫反応",
+        "血液凝固",
+        "ホルモン分泌",
+        "神経伝導"
+      ],
+      "answer": 1,
+      "answerText": "酸素運搬",
+      "explanation": "<span class='keyword'>ポイント</span>：ヘモグロビンは酸素運搬を担う。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_208",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "血糖値を上昇させるホルモンはどれか。",
+      "choices": [
+        "グルカゴン",
+        "インスリン",
+        "メラトニン",
+        "オキシトシン",
+        "エストロゲン"
+      ],
+      "answer": 1,
+      "answerText": "グルカゴン",
+      "explanation": "<span class='keyword'>ポイント</span>：グルカゴンは血糖上昇作用を持つ。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_209",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "呼吸性アシドーシスで上昇するのはどれか。",
+      "choices": [
+        "PaCO2",
+        "PaO2",
+        "pH",
+        "SaO2",
+        "肺活量"
+      ],
+      "answer": 1,
+      "answerText": "PaCO2",
+      "explanation": "<span class='keyword'>ポイント</span>：CO2貯留で呼吸性アシドーシスとなる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_210",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "筋収縮に直接必要なイオンはどれか。",
+      "choices": [
+        "Ca²⁺",
+        "Na⁺",
+        "Cl⁻",
+        "Fe²⁺",
+        "Mg²⁺"
+      ],
+      "answer": 1,
+      "answerText": "Ca²⁺",
+      "explanation": "<span class='keyword'>ポイント</span>：カルシウムは筋収縮に必須。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_211",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "重心線が支持基底面外に出るとどうなるか。",
+      "choices": [
+        "不安定になる",
+        "安定する",
+        "筋力が増える",
+        "呼吸数が減る",
+        "心拍数が低下"
+      ],
+      "answer": 1,
+      "answerText": "不安定になる",
+      "explanation": "<span class='keyword'>ポイント</span>：重心線が支持基底面外に出ると転倒しやすい。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "呼吸",
+        "循環"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_212",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "筋の起始と停止が近づく収縮はどれか。",
+      "choices": [
+        "求心性収縮",
+        "遠心性収縮",
+        "等尺性収縮",
+        "弛緩",
+        "反射"
+      ],
+      "answer": 1,
+      "answerText": "求心性収縮",
+      "explanation": "<span class='keyword'>ポイント</span>：求心性収縮では筋が短縮する。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "反射"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_213",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "正常歩行で最もエネルギー効率が良いのはどれか。",
+      "choices": [
+        "適度な歩幅と速度",
+        "極端に大股",
+        "極端に小股",
+        "全力疾走",
+        "完全静止"
+      ],
+      "answer": 1,
+      "answerText": "適度な歩幅と速度",
+      "explanation": "<span class='keyword'>ポイント</span>：自然歩行速度が最も効率的。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "歩行"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_214",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "立位バランスで重要な感覚はどれか。",
+      "choices": [
+        "視覚・前庭覚・体性感覚",
+        "嗅覚のみ",
+        "味覚のみ",
+        "聴覚のみ",
+        "痛覚のみ"
+      ],
+      "answer": 1,
+      "answerText": "視覚・前庭覚・体性感覚",
+      "explanation": "<span class='keyword'>ポイント</span>：姿勢制御には3感覚統合が重要。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_215",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "肩甲胸郭関節運動に関与する筋はどれか。",
+      "choices": [
+        "前鋸筋",
+        "上腕筋",
+        "大腿四頭筋",
+        "前脛骨筋",
+        "腓腹筋"
+      ],
+      "answer": 1,
+      "answerText": "前鋸筋",
+      "explanation": "<span class='keyword'>ポイント</span>：前鋸筋は肩甲骨外転・上方回旋に関与。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_216",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "発熱に関与する代表的サイトカインはどれか。",
+      "choices": [
+        "IL-1",
+        "インスリン",
+        "ヘモグロビン",
+        "アクチン",
+        "ミオシン"
+      ],
+      "answer": 1,
+      "answerText": "IL-1",
+      "explanation": "<span class='keyword'>ポイント</span>：IL-1は炎症・発熱に関与。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_217",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "血栓が血流で運ばれて閉塞を起こすのはどれか。",
+      "choices": [
+        "塞栓",
+        "壊死",
+        "浮腫",
+        "萎縮",
+        "変性"
+      ],
+      "answer": 1,
+      "answerText": "塞栓",
+      "explanation": "<span class='keyword'>ポイント</span>：血栓が移動すると塞栓となる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_218",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "組織への酸素供給不足を何というか。",
+      "choices": [
+        "虚血",
+        "肥大",
+        "化生",
+        "再生",
+        "線維化"
+      ],
+      "answer": 1,
+      "answerText": "虚血",
+      "explanation": "<span class='keyword'>ポイント</span>：虚血は血流低下による酸素不足。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_219",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "癌の転移経路として多いのはどれか。",
+      "choices": [
+        "リンパ行性",
+        "筋行性",
+        "骨行性のみ",
+        "関節行性",
+        "神経行性のみ"
+      ],
+      "answer": 1,
+      "answerText": "リンパ行性",
+      "explanation": "<span class='keyword'>ポイント</span>：癌はリンパ行性・血行性転移が多い。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_220",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "慢性炎症で増加しやすい細胞はどれか。",
+      "choices": [
+        "リンパ球",
+        "赤血球",
+        "好酸球のみ",
+        "血小板",
+        "破骨細胞"
+      ],
+      "answer": 1,
+      "answerText": "リンパ球",
+      "explanation": "<span class='keyword'>ポイント</span>：慢性炎症ではリンパ球・マクロファージが増える。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_221",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "脳梗塞急性期で最も注意すべきことはどれか。",
+      "choices": [
+        "症状悪化",
+        "筋肥大",
+        "視力向上",
+        "骨密度増加",
+        "聴力向上"
+      ],
+      "answer": 1,
+      "answerText": "症状悪化",
+      "explanation": "<span class='keyword'>ポイント</span>：急性期は再発・増悪に注意。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_222",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "Parkinson病で低下しやすいのはどれか。",
+      "choices": [
+        "姿勢反射",
+        "筋緊張",
+        "安静時振戦",
+        "無動",
+        "小刻み歩行"
+      ],
+      "answer": 1,
+      "answerText": "姿勢反射",
+      "explanation": "<span class='keyword'>ポイント</span>：姿勢反射障害で転倒リスクが高まる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "Parkinson病",
+        "反射",
+        "歩行"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_223",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "ALSで保たれやすいのはどれか。",
+      "choices": [
+        "感覚",
+        "筋力",
+        "腱反射",
+        "発声",
+        "嚥下"
+      ],
+      "answer": 1,
+      "answerText": "感覚",
+      "explanation": "<span class='keyword'>ポイント</span>：ALSでは感覚は比較的保たれやすい。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "反射"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_224",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "脳卒中後の痙縮に関連するのはどれか。",
+      "choices": [
+        "上位運動ニューロン障害",
+        "下位運動ニューロン障害",
+        "筋断裂",
+        "骨折",
+        "脱臼"
+      ],
+      "answer": 1,
+      "answerText": "上位運動ニューロン障害",
+      "explanation": "<span class='keyword'>ポイント</span>：痙縮は上位運動ニューロン障害で出現しやすい。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "整形",
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_225",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "COPDで推奨される運動はどれか。",
+      "choices": [
+        "有酸素運動",
+        "完全安静",
+        "高強度瞬発運動のみ",
+        "断食",
+        "水分制限"
+      ],
+      "answer": 1,
+      "answerText": "有酸素運動",
+      "explanation": "<span class='keyword'>ポイント</span>：COPDでは呼吸リハと有酸素運動が重要。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "COPD",
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_226",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "大腿骨転子部骨折で多い原因はどれか。",
+      "choices": [
+        "転倒",
+        "交通事故のみ",
+        "感染",
+        "腫瘍",
+        "先天異常"
+      ],
+      "answer": 1,
+      "answerText": "転倒",
+      "explanation": "<span class='keyword'>ポイント</span>：高齢者では転倒による骨折が多い。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "整形"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_227",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "変形性股関節症でみられやすいのはどれか。",
+      "choices": [
+        "股関節痛",
+        "失語",
+        "下垂手",
+        "翼状肩甲",
+        "感音難聴"
+      ],
+      "answer": 1,
+      "answerText": "股関節痛",
+      "explanation": "<span class='keyword'>ポイント</span>：変形性股関節症では荷重時痛が特徴。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "整形",
+        "橈骨神経",
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_228",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "腰部脊柱管狭窄症でみられやすいのはどれか。",
+      "choices": [
+        "間欠性跛行",
+        "安静時振戦",
+        "失語",
+        "痙縮",
+        "翼状肩甲"
+      ],
+      "answer": 1,
+      "answerText": "間欠性跛行",
+      "explanation": "<span class='keyword'>ポイント</span>：脊柱管狭窄症では神経性間欠性跛行が特徴。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "Parkinson病",
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_229",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "骨折治癒に最も重要なのはどれか。",
+      "choices": [
+        "血流",
+        "視力",
+        "嗅覚",
+        "味覚",
+        "聴覚"
+      ],
+      "answer": 1,
+      "answerText": "血流",
+      "explanation": "<span class='keyword'>ポイント</span>：骨癒合には十分な血流が重要。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "整形"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_230",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "肩関節脱臼で最も多いのはどれか。",
+      "choices": [
+        "前方脱臼",
+        "後方脱臼",
+        "下方脱臼",
+        "上方脱臼",
+        "中心性脱臼"
+      ],
+      "answer": 1,
+      "answerText": "前方脱臼",
+      "explanation": "<span class='keyword'>ポイント</span>：肩関節脱臼は前方脱臼が多い。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_231",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "心不全患者で確認すべき指標はどれか。",
+      "choices": [
+        "体重変化",
+        "身長のみ",
+        "視力",
+        "握力のみ",
+        "骨密度"
+      ],
+      "answer": 1,
+      "answerText": "体重変化",
+      "explanation": "<span class='keyword'>ポイント</span>：体液貯留の評価として体重確認が重要。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "循環"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_232",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "糖尿病患者で注意すべき足病変はどれか。",
+      "choices": [
+        "潰瘍",
+        "翼状肩甲",
+        "下垂手",
+        "失語",
+        "小刻み歩行"
+      ],
+      "answer": 1,
+      "answerText": "潰瘍",
+      "explanation": "<span class='keyword'>ポイント</span>：糖尿病では末梢循環障害や神経障害により潰瘍に注意。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "Parkinson病",
+        "橈骨神経",
+        "歩行",
+        "糖尿病",
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_233",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "透析患者で注意すべき症状はどれか。",
+      "choices": [
+        "血圧低下",
+        "筋肥大",
+        "視力向上",
+        "骨密度上昇",
+        "嗅覚改善"
+      ],
+      "answer": 1,
+      "answerText": "血圧低下",
+      "explanation": "<span class='keyword'>ポイント</span>：透析中は血圧低下に注意。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "循環"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_234",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "狭心症で特徴的なのはどれか。",
+      "choices": [
+        "労作時胸痛",
+        "安静時のみ発熱",
+        "失語",
+        "痙縮",
+        "下垂足"
+      ],
+      "answer": 1,
+      "answerText": "労作時胸痛",
+      "explanation": "<span class='keyword'>ポイント</span>：狭心症では労作時胸痛が特徴。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_235",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "COPDで増加しやすいのはどれか。",
+      "choices": [
+        "呼吸仕事量",
+        "肺活量",
+        "1秒率",
+        "筋力",
+        "骨密度"
+      ],
+      "answer": 1,
+      "answerText": "呼吸仕事量",
+      "explanation": "<span class='keyword'>ポイント</span>：COPDでは呼吸努力が増大する。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "COPD",
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_236",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "FIMで評価するのはどれか。",
+      "choices": [
+        "ADL自立度",
+        "筋力のみ",
+        "関節可動域のみ",
+        "疼痛のみ",
+        "呼吸機能のみ"
+      ],
+      "answer": 1,
+      "answerText": "ADL自立度",
+      "explanation": "<span class='keyword'>ポイント</span>：FIMはADL自立度評価。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "ADL",
+        "ROM",
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_237",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "MMSEで評価するのはどれか。",
+      "choices": [
+        "認知機能",
+        "筋力",
+        "疼痛",
+        "バランス",
+        "歩行速度"
+      ],
+      "answer": 1,
+      "answerText": "認知機能",
+      "explanation": "<span class='keyword'>ポイント</span>：MMSEは認知機能スクリーニング。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "歩行"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_238",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "Borgスケールで評価するのはどれか。",
+      "choices": [
+        "自覚的運動強度",
+        "筋力",
+        "関節可動域",
+        "認知機能",
+        "疼痛のみ"
+      ],
+      "answer": 1,
+      "answerText": "自覚的運動強度",
+      "explanation": "<span class='keyword'>ポイント</span>：Borgスケールは主観的運動強度評価。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "ROM"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_239",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "握力計で評価するのはどれか。",
+      "choices": [
+        "筋力",
+        "呼吸機能",
+        "認知機能",
+        "バランス",
+        "疼痛"
+      ],
+      "answer": 1,
+      "answerText": "筋力",
+      "explanation": "<span class='keyword'>ポイント</span>：握力は全身筋力の指標にもなる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_240",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "10m歩行テストで評価するのはどれか。",
+      "choices": [
+        "歩行速度",
+        "肺活量",
+        "視力",
+        "血圧",
+        "感覚"
+      ],
+      "answer": 1,
+      "answerText": "歩行速度",
+      "explanation": "<span class='keyword'>ポイント</span>：歩行能力評価に用いられる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "呼吸",
+        "循環",
+        "歩行"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_241",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "骨格筋で最も大きい筋はどれか。",
+      "choices": [
+        "大殿筋",
+        "大腿四頭筋",
+        "広背筋",
+        "僧帽筋",
+        "大胸筋"
+      ],
+      "answer": 1,
+      "answerText": "大殿筋",
+      "explanation": "<span class='keyword'>ポイント</span>：大殿筋は人体最大の筋。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_242",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "前腕回外に関与する筋はどれか。",
+      "choices": [
+        "上腕二頭筋",
+        "円回内筋",
+        "方形回内筋",
+        "尺側手根屈筋",
+        "浅指屈筋"
+      ],
+      "answer": 1,
+      "answerText": "上腕二頭筋",
+      "explanation": "<span class='keyword'>ポイント</span>：上腕二頭筋は肘屈曲だけでなく回外にも関与する。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "正中神経"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_243",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "手根管を通過する神経はどれか。",
+      "choices": [
+        "正中神経",
+        "尺骨神経",
+        "橈骨神経",
+        "筋皮神経",
+        "腋窩神経"
+      ],
+      "answer": 1,
+      "answerText": "正中神経",
+      "explanation": "<span class='keyword'>ポイント</span>：手根管症候群では正中神経障害が問題となる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "尺骨神経",
+        "橈骨神経",
+        "正中神経"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_244",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "膝蓋腱反射に関与する神経根はどれか。",
+      "choices": [
+        "L4",
+        "S1",
+        "C6",
+        "C8",
+        "T1"
+      ],
+      "answer": 1,
+      "answerText": "L4",
+      "explanation": "<span class='keyword'>ポイント</span>：膝蓋腱反射は主にL4。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "反射"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_245",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "アキレス腱反射に関与する神経根はどれか。",
+      "choices": [
+        "S1",
+        "L2",
+        "L4",
+        "C5",
+        "T12"
+      ],
+      "answer": 1,
+      "answerText": "S1",
+      "explanation": "<span class='keyword'>ポイント</span>：アキレス腱反射は主にS1。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "反射"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_246",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "副交感神経作用として正しいのはどれか。",
+      "choices": [
+        "心拍数低下",
+        "瞳孔散大",
+        "気管支拡張",
+        "血圧上昇",
+        "発汗促進"
+      ],
+      "answer": 1,
+      "answerText": "心拍数低下",
+      "explanation": "<span class='keyword'>ポイント</span>：副交感神経は休息・消化に関与する。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "循環"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_247",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "ヘモグロビンの主な役割はどれか。",
+      "choices": [
+        "酸素運搬",
+        "免疫反応",
+        "血液凝固",
+        "ホルモン分泌",
+        "神経伝導"
+      ],
+      "answer": 1,
+      "answerText": "酸素運搬",
+      "explanation": "<span class='keyword'>ポイント</span>：ヘモグロビンは酸素運搬を担う。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_248",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "血糖値を上昇させるホルモンはどれか。",
+      "choices": [
+        "グルカゴン",
+        "インスリン",
+        "メラトニン",
+        "オキシトシン",
+        "エストロゲン"
+      ],
+      "answer": 1,
+      "answerText": "グルカゴン",
+      "explanation": "<span class='keyword'>ポイント</span>：グルカゴンは血糖上昇作用を持つ。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_249",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "呼吸性アシドーシスで上昇するのはどれか。",
+      "choices": [
+        "PaCO2",
+        "PaO2",
+        "pH",
+        "SaO2",
+        "肺活量"
+      ],
+      "answer": 1,
+      "answerText": "PaCO2",
+      "explanation": "<span class='keyword'>ポイント</span>：CO2貯留で呼吸性アシドーシスとなる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_250",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "筋収縮に直接必要なイオンはどれか。",
+      "choices": [
+        "Ca²⁺",
+        "Na⁺",
+        "Cl⁻",
+        "Fe²⁺",
+        "Mg²⁺"
+      ],
+      "answer": 1,
+      "answerText": "Ca²⁺",
+      "explanation": "<span class='keyword'>ポイント</span>：カルシウムは筋収縮に必須。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_251",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "重心線が支持基底面外に出るとどうなるか。",
+      "choices": [
+        "不安定になる",
+        "安定する",
+        "筋力が増える",
+        "呼吸数が減る",
+        "心拍数が低下"
+      ],
+      "answer": 1,
+      "answerText": "不安定になる",
+      "explanation": "<span class='keyword'>ポイント</span>：重心線が支持基底面外に出ると転倒しやすい。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "呼吸",
+        "循環"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_252",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "筋の起始と停止が近づく収縮はどれか。",
+      "choices": [
+        "求心性収縮",
+        "遠心性収縮",
+        "等尺性収縮",
+        "弛緩",
+        "反射"
+      ],
+      "answer": 1,
+      "answerText": "求心性収縮",
+      "explanation": "<span class='keyword'>ポイント</span>：求心性収縮では筋が短縮する。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "反射"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_253",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "正常歩行で最もエネルギー効率が良いのはどれか。",
+      "choices": [
+        "適度な歩幅と速度",
+        "極端に大股",
+        "極端に小股",
+        "全力疾走",
+        "完全静止"
+      ],
+      "answer": 1,
+      "answerText": "適度な歩幅と速度",
+      "explanation": "<span class='keyword'>ポイント</span>：自然歩行速度が最も効率的。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "歩行"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_254",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "立位バランスで重要な感覚はどれか。",
+      "choices": [
+        "視覚・前庭覚・体性感覚",
+        "嗅覚のみ",
+        "味覚のみ",
+        "聴覚のみ",
+        "痛覚のみ"
+      ],
+      "answer": 1,
+      "answerText": "視覚・前庭覚・体性感覚",
+      "explanation": "<span class='keyword'>ポイント</span>：姿勢制御には3感覚統合が重要。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_255",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "肩甲胸郭関節運動に関与する筋はどれか。",
+      "choices": [
+        "前鋸筋",
+        "上腕筋",
+        "大腿四頭筋",
+        "前脛骨筋",
+        "腓腹筋"
+      ],
+      "answer": 1,
+      "answerText": "前鋸筋",
+      "explanation": "<span class='keyword'>ポイント</span>：前鋸筋は肩甲骨外転・上方回旋に関与。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_256",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "発熱に関与する代表的サイトカインはどれか。",
+      "choices": [
+        "IL-1",
+        "インスリン",
+        "ヘモグロビン",
+        "アクチン",
+        "ミオシン"
+      ],
+      "answer": 1,
+      "answerText": "IL-1",
+      "explanation": "<span class='keyword'>ポイント</span>：IL-1は炎症・発熱に関与。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_257",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "血栓が血流で運ばれて閉塞を起こすのはどれか。",
+      "choices": [
+        "塞栓",
+        "壊死",
+        "浮腫",
+        "萎縮",
+        "変性"
+      ],
+      "answer": 1,
+      "answerText": "塞栓",
+      "explanation": "<span class='keyword'>ポイント</span>：血栓が移動すると塞栓となる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_258",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "組織への酸素供給不足を何というか。",
+      "choices": [
+        "虚血",
+        "肥大",
+        "化生",
+        "再生",
+        "線維化"
+      ],
+      "answer": 1,
+      "answerText": "虚血",
+      "explanation": "<span class='keyword'>ポイント</span>：虚血は血流低下による酸素不足。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_259",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "癌の転移経路として多いのはどれか。",
+      "choices": [
+        "リンパ行性",
+        "筋行性",
+        "骨行性のみ",
+        "関節行性",
+        "神経行性のみ"
+      ],
+      "answer": 1,
+      "answerText": "リンパ行性",
+      "explanation": "<span class='keyword'>ポイント</span>：癌はリンパ行性・血行性転移が多い。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_260",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "慢性炎症で増加しやすい細胞はどれか。",
+      "choices": [
+        "リンパ球",
+        "赤血球",
+        "好酸球のみ",
+        "血小板",
+        "破骨細胞"
+      ],
+      "answer": 1,
+      "answerText": "リンパ球",
+      "explanation": "<span class='keyword'>ポイント</span>：慢性炎症ではリンパ球・マクロファージが増える。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_261",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "脳梗塞急性期で最も注意すべきことはどれか。",
+      "choices": [
+        "症状悪化",
+        "筋肥大",
+        "視力向上",
+        "骨密度増加",
+        "聴力向上"
+      ],
+      "answer": 1,
+      "answerText": "症状悪化",
+      "explanation": "<span class='keyword'>ポイント</span>：急性期は再発・増悪に注意。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_262",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "Parkinson病で低下しやすいのはどれか。",
+      "choices": [
+        "姿勢反射",
+        "筋緊張",
+        "安静時振戦",
+        "無動",
+        "小刻み歩行"
+      ],
+      "answer": 1,
+      "answerText": "姿勢反射",
+      "explanation": "<span class='keyword'>ポイント</span>：姿勢反射障害で転倒リスクが高まる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "Parkinson病",
+        "反射",
+        "歩行"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_263",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "ALSで保たれやすいのはどれか。",
+      "choices": [
+        "感覚",
+        "筋力",
+        "腱反射",
+        "発声",
+        "嚥下"
+      ],
+      "answer": 1,
+      "answerText": "感覚",
+      "explanation": "<span class='keyword'>ポイント</span>：ALSでは感覚は比較的保たれやすい。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "反射"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_264",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "脳卒中後の痙縮に関連するのはどれか。",
+      "choices": [
+        "上位運動ニューロン障害",
+        "下位運動ニューロン障害",
+        "筋断裂",
+        "骨折",
+        "脱臼"
+      ],
+      "answer": 1,
+      "answerText": "上位運動ニューロン障害",
+      "explanation": "<span class='keyword'>ポイント</span>：痙縮は上位運動ニューロン障害で出現しやすい。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "整形",
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_265",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "COPDで推奨される運動はどれか。",
+      "choices": [
+        "有酸素運動",
+        "完全安静",
+        "高強度瞬発運動のみ",
+        "断食",
+        "水分制限"
+      ],
+      "answer": 1,
+      "answerText": "有酸素運動",
+      "explanation": "<span class='keyword'>ポイント</span>：COPDでは呼吸リハと有酸素運動が重要。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "COPD",
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_266",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "大腿骨転子部骨折で多い原因はどれか。",
+      "choices": [
+        "転倒",
+        "交通事故のみ",
+        "感染",
+        "腫瘍",
+        "先天異常"
+      ],
+      "answer": 1,
+      "answerText": "転倒",
+      "explanation": "<span class='keyword'>ポイント</span>：高齢者では転倒による骨折が多い。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "整形"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_267",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "変形性股関節症でみられやすいのはどれか。",
+      "choices": [
+        "股関節痛",
+        "失語",
+        "下垂手",
+        "翼状肩甲",
+        "感音難聴"
+      ],
+      "answer": 1,
+      "answerText": "股関節痛",
+      "explanation": "<span class='keyword'>ポイント</span>：変形性股関節症では荷重時痛が特徴。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "整形",
+        "橈骨神経",
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_268",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "腰部脊柱管狭窄症でみられやすいのはどれか。",
+      "choices": [
+        "間欠性跛行",
+        "安静時振戦",
+        "失語",
+        "痙縮",
+        "翼状肩甲"
+      ],
+      "answer": 1,
+      "answerText": "間欠性跛行",
+      "explanation": "<span class='keyword'>ポイント</span>：脊柱管狭窄症では神経性間欠性跛行が特徴。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "Parkinson病",
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_269",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "骨折治癒に最も重要なのはどれか。",
+      "choices": [
+        "血流",
+        "視力",
+        "嗅覚",
+        "味覚",
+        "聴覚"
+      ],
+      "answer": 1,
+      "answerText": "血流",
+      "explanation": "<span class='keyword'>ポイント</span>：骨癒合には十分な血流が重要。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "整形"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_270",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "肩関節脱臼で最も多いのはどれか。",
+      "choices": [
+        "前方脱臼",
+        "後方脱臼",
+        "下方脱臼",
+        "上方脱臼",
+        "中心性脱臼"
+      ],
+      "answer": 1,
+      "answerText": "前方脱臼",
+      "explanation": "<span class='keyword'>ポイント</span>：肩関節脱臼は前方脱臼が多い。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_271",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "心不全患者で確認すべき指標はどれか。",
+      "choices": [
+        "体重変化",
+        "身長のみ",
+        "視力",
+        "握力のみ",
+        "骨密度"
+      ],
+      "answer": 1,
+      "answerText": "体重変化",
+      "explanation": "<span class='keyword'>ポイント</span>：体液貯留の評価として体重確認が重要。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "循環"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_272",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "糖尿病患者で注意すべき足病変はどれか。",
+      "choices": [
+        "潰瘍",
+        "翼状肩甲",
+        "下垂手",
+        "失語",
+        "小刻み歩行"
+      ],
+      "answer": 1,
+      "answerText": "潰瘍",
+      "explanation": "<span class='keyword'>ポイント</span>：糖尿病では末梢循環障害や神経障害により潰瘍に注意。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "Parkinson病",
+        "橈骨神経",
+        "歩行",
+        "糖尿病",
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_273",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "透析患者で注意すべき症状はどれか。",
+      "choices": [
+        "血圧低下",
+        "筋肥大",
+        "視力向上",
+        "骨密度上昇",
+        "嗅覚改善"
+      ],
+      "answer": 1,
+      "answerText": "血圧低下",
+      "explanation": "<span class='keyword'>ポイント</span>：透析中は血圧低下に注意。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "循環"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_274",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "狭心症で特徴的なのはどれか。",
+      "choices": [
+        "労作時胸痛",
+        "安静時のみ発熱",
+        "失語",
+        "痙縮",
+        "下垂足"
+      ],
+      "answer": 1,
+      "answerText": "労作時胸痛",
+      "explanation": "<span class='keyword'>ポイント</span>：狭心症では労作時胸痛が特徴。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_275",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "COPDで増加しやすいのはどれか。",
+      "choices": [
+        "呼吸仕事量",
+        "肺活量",
+        "1秒率",
+        "筋力",
+        "骨密度"
+      ],
+      "answer": 1,
+      "answerText": "呼吸仕事量",
+      "explanation": "<span class='keyword'>ポイント</span>：COPDでは呼吸努力が増大する。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "COPD",
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_276",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "FIMで評価するのはどれか。",
+      "choices": [
+        "ADL自立度",
+        "筋力のみ",
+        "関節可動域のみ",
+        "疼痛のみ",
+        "呼吸機能のみ"
+      ],
+      "answer": 1,
+      "answerText": "ADL自立度",
+      "explanation": "<span class='keyword'>ポイント</span>：FIMはADL自立度評価。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "ADL",
+        "ROM",
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_277",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "MMSEで評価するのはどれか。",
+      "choices": [
+        "認知機能",
+        "筋力",
+        "疼痛",
+        "バランス",
+        "歩行速度"
+      ],
+      "answer": 1,
+      "answerText": "認知機能",
+      "explanation": "<span class='keyword'>ポイント</span>：MMSEは認知機能スクリーニング。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "歩行"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_278",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "Borgスケールで評価するのはどれか。",
+      "choices": [
+        "自覚的運動強度",
+        "筋力",
+        "関節可動域",
+        "認知機能",
+        "疼痛のみ"
+      ],
+      "answer": 1,
+      "answerText": "自覚的運動強度",
+      "explanation": "<span class='keyword'>ポイント</span>：Borgスケールは主観的運動強度評価。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "ROM"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_279",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "握力計で評価するのはどれか。",
+      "choices": [
+        "筋力",
+        "呼吸機能",
+        "認知機能",
+        "バランス",
+        "疼痛"
+      ],
+      "answer": 1,
+      "answerText": "筋力",
+      "explanation": "<span class='keyword'>ポイント</span>：握力は全身筋力の指標にもなる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_280",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "10m歩行テストで評価するのはどれか。",
+      "choices": [
+        "歩行速度",
+        "肺活量",
+        "視力",
+        "血圧",
+        "感覚"
+      ],
+      "answer": 1,
+      "answerText": "歩行速度",
+      "explanation": "<span class='keyword'>ポイント</span>：歩行能力評価に用いられる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "呼吸",
+        "循環",
+        "歩行"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_281",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "骨格筋で最も大きい筋はどれか。",
+      "choices": [
+        "大殿筋",
+        "大腿四頭筋",
+        "広背筋",
+        "僧帽筋",
+        "大胸筋"
+      ],
+      "answer": 1,
+      "answerText": "大殿筋",
+      "explanation": "<span class='keyword'>ポイント</span>：大殿筋は人体最大の筋。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_282",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "前腕回外に関与する筋はどれか。",
+      "choices": [
+        "上腕二頭筋",
+        "円回内筋",
+        "方形回内筋",
+        "尺側手根屈筋",
+        "浅指屈筋"
+      ],
+      "answer": 1,
+      "answerText": "上腕二頭筋",
+      "explanation": "<span class='keyword'>ポイント</span>：上腕二頭筋は肘屈曲だけでなく回外にも関与する。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "正中神経"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_283",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "手根管を通過する神経はどれか。",
+      "choices": [
+        "正中神経",
+        "尺骨神経",
+        "橈骨神経",
+        "筋皮神経",
+        "腋窩神経"
+      ],
+      "answer": 1,
+      "answerText": "正中神経",
+      "explanation": "<span class='keyword'>ポイント</span>：手根管症候群では正中神経障害が問題となる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "尺骨神経",
+        "橈骨神経",
+        "正中神経"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_284",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "膝蓋腱反射に関与する神経根はどれか。",
+      "choices": [
+        "L4",
+        "S1",
+        "C6",
+        "C8",
+        "T1"
+      ],
+      "answer": 1,
+      "answerText": "L4",
+      "explanation": "<span class='keyword'>ポイント</span>：膝蓋腱反射は主にL4。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "反射"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_285",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "アキレス腱反射に関与する神経根はどれか。",
+      "choices": [
+        "S1",
+        "L2",
+        "L4",
+        "C5",
+        "T12"
+      ],
+      "answer": 1,
+      "answerText": "S1",
+      "explanation": "<span class='keyword'>ポイント</span>：アキレス腱反射は主にS1。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "反射"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_286",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "副交感神経作用として正しいのはどれか。",
+      "choices": [
+        "心拍数低下",
+        "瞳孔散大",
+        "気管支拡張",
+        "血圧上昇",
+        "発汗促進"
+      ],
+      "answer": 1,
+      "answerText": "心拍数低下",
+      "explanation": "<span class='keyword'>ポイント</span>：副交感神経は休息・消化に関与する。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "循環"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_287",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "ヘモグロビンの主な役割はどれか。",
+      "choices": [
+        "酸素運搬",
+        "免疫反応",
+        "血液凝固",
+        "ホルモン分泌",
+        "神経伝導"
+      ],
+      "answer": 1,
+      "answerText": "酸素運搬",
+      "explanation": "<span class='keyword'>ポイント</span>：ヘモグロビンは酸素運搬を担う。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_288",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "血糖値を上昇させるホルモンはどれか。",
+      "choices": [
+        "グルカゴン",
+        "インスリン",
+        "メラトニン",
+        "オキシトシン",
+        "エストロゲン"
+      ],
+      "answer": 1,
+      "answerText": "グルカゴン",
+      "explanation": "<span class='keyword'>ポイント</span>：グルカゴンは血糖上昇作用を持つ。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_289",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "呼吸性アシドーシスで上昇するのはどれか。",
+      "choices": [
+        "PaCO2",
+        "PaO2",
+        "pH",
+        "SaO2",
+        "肺活量"
+      ],
+      "answer": 1,
+      "answerText": "PaCO2",
+      "explanation": "<span class='keyword'>ポイント</span>：CO2貯留で呼吸性アシドーシスとなる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_290",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "筋収縮に直接必要なイオンはどれか。",
+      "choices": [
+        "Ca²⁺",
+        "Na⁺",
+        "Cl⁻",
+        "Fe²⁺",
+        "Mg²⁺"
+      ],
+      "answer": 1,
+      "answerText": "Ca²⁺",
+      "explanation": "<span class='keyword'>ポイント</span>：カルシウムは筋収縮に必須。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_291",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "重心線が支持基底面外に出るとどうなるか。",
+      "choices": [
+        "不安定になる",
+        "安定する",
+        "筋力が増える",
+        "呼吸数が減る",
+        "心拍数が低下"
+      ],
+      "answer": 1,
+      "answerText": "不安定になる",
+      "explanation": "<span class='keyword'>ポイント</span>：重心線が支持基底面外に出ると転倒しやすい。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "呼吸",
+        "循環"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_292",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "筋の起始と停止が近づく収縮はどれか。",
+      "choices": [
+        "求心性収縮",
+        "遠心性収縮",
+        "等尺性収縮",
+        "弛緩",
+        "反射"
+      ],
+      "answer": 1,
+      "answerText": "求心性収縮",
+      "explanation": "<span class='keyword'>ポイント</span>：求心性収縮では筋が短縮する。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "反射"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_293",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "正常歩行で最もエネルギー効率が良いのはどれか。",
+      "choices": [
+        "適度な歩幅と速度",
+        "極端に大股",
+        "極端に小股",
+        "全力疾走",
+        "完全静止"
+      ],
+      "answer": 1,
+      "answerText": "適度な歩幅と速度",
+      "explanation": "<span class='keyword'>ポイント</span>：自然歩行速度が最も効率的。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "歩行"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_294",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "立位バランスで重要な感覚はどれか。",
+      "choices": [
+        "視覚・前庭覚・体性感覚",
+        "嗅覚のみ",
+        "味覚のみ",
+        "聴覚のみ",
+        "痛覚のみ"
+      ],
+      "answer": 1,
+      "answerText": "視覚・前庭覚・体性感覚",
+      "explanation": "<span class='keyword'>ポイント</span>：姿勢制御には3感覚統合が重要。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_295",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "肩甲胸郭関節運動に関与する筋はどれか。",
+      "choices": [
+        "前鋸筋",
+        "上腕筋",
+        "大腿四頭筋",
+        "前脛骨筋",
+        "腓腹筋"
+      ],
+      "answer": 1,
+      "answerText": "前鋸筋",
+      "explanation": "<span class='keyword'>ポイント</span>：前鋸筋は肩甲骨外転・上方回旋に関与。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_296",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "発熱に関与する代表的サイトカインはどれか。",
+      "choices": [
+        "IL-1",
+        "インスリン",
+        "ヘモグロビン",
+        "アクチン",
+        "ミオシン"
+      ],
+      "answer": 1,
+      "answerText": "IL-1",
+      "explanation": "<span class='keyword'>ポイント</span>：IL-1は炎症・発熱に関与。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_297",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "血栓が血流で運ばれて閉塞を起こすのはどれか。",
+      "choices": [
+        "塞栓",
+        "壊死",
+        "浮腫",
+        "萎縮",
+        "変性"
+      ],
+      "answer": 1,
+      "answerText": "塞栓",
+      "explanation": "<span class='keyword'>ポイント</span>：血栓が移動すると塞栓となる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_298",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "組織への酸素供給不足を何というか。",
+      "choices": [
+        "虚血",
+        "肥大",
+        "化生",
+        "再生",
+        "線維化"
+      ],
+      "answer": 1,
+      "answerText": "虚血",
+      "explanation": "<span class='keyword'>ポイント</span>：虚血は血流低下による酸素不足。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_299",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "癌の転移経路として多いのはどれか。",
+      "choices": [
+        "リンパ行性",
+        "筋行性",
+        "骨行性のみ",
+        "関節行性",
+        "神経行性のみ"
+      ],
+      "answer": 1,
+      "answerText": "リンパ行性",
+      "explanation": "<span class='keyword'>ポイント</span>：癌はリンパ行性・血行性転移が多い。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_300",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "慢性炎症で増加しやすい細胞はどれか。",
+      "choices": [
+        "リンパ球",
+        "赤血球",
+        "好酸球のみ",
+        "血小板",
+        "破骨細胞"
+      ],
+      "answer": 1,
+      "answerText": "リンパ球",
+      "explanation": "<span class='keyword'>ポイント</span>：慢性炎症ではリンパ球・マクロファージが増える。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_301",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "脳梗塞急性期で最も注意すべきことはどれか。",
+      "choices": [
+        "症状悪化",
+        "筋肥大",
+        "視力向上",
+        "骨密度増加",
+        "聴力向上"
+      ],
+      "answer": 1,
+      "answerText": "症状悪化",
+      "explanation": "<span class='keyword'>ポイント</span>：急性期は再発・増悪に注意。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_302",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "Parkinson病で低下しやすいのはどれか。",
+      "choices": [
+        "姿勢反射",
+        "筋緊張",
+        "安静時振戦",
+        "無動",
+        "小刻み歩行"
+      ],
+      "answer": 1,
+      "answerText": "姿勢反射",
+      "explanation": "<span class='keyword'>ポイント</span>：姿勢反射障害で転倒リスクが高まる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "Parkinson病",
+        "反射",
+        "歩行"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_303",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "ALSで保たれやすいのはどれか。",
+      "choices": [
+        "感覚",
+        "筋力",
+        "腱反射",
+        "発声",
+        "嚥下"
+      ],
+      "answer": 1,
+      "answerText": "感覚",
+      "explanation": "<span class='keyword'>ポイント</span>：ALSでは感覚は比較的保たれやすい。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "反射"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_304",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "脳卒中後の痙縮に関連するのはどれか。",
+      "choices": [
+        "上位運動ニューロン障害",
+        "下位運動ニューロン障害",
+        "筋断裂",
+        "骨折",
+        "脱臼"
+      ],
+      "answer": 1,
+      "answerText": "上位運動ニューロン障害",
+      "explanation": "<span class='keyword'>ポイント</span>：痙縮は上位運動ニューロン障害で出現しやすい。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "整形",
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_305",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "COPDで推奨される運動はどれか。",
+      "choices": [
+        "有酸素運動",
+        "完全安静",
+        "高強度瞬発運動のみ",
+        "断食",
+        "水分制限"
+      ],
+      "answer": 1,
+      "answerText": "有酸素運動",
+      "explanation": "<span class='keyword'>ポイント</span>：COPDでは呼吸リハと有酸素運動が重要。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "COPD",
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_306",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "大腿骨転子部骨折で多い原因はどれか。",
+      "choices": [
+        "転倒",
+        "交通事故のみ",
+        "感染",
+        "腫瘍",
+        "先天異常"
+      ],
+      "answer": 1,
+      "answerText": "転倒",
+      "explanation": "<span class='keyword'>ポイント</span>：高齢者では転倒による骨折が多い。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "整形"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_307",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "変形性股関節症でみられやすいのはどれか。",
+      "choices": [
+        "股関節痛",
+        "失語",
+        "下垂手",
+        "翼状肩甲",
+        "感音難聴"
+      ],
+      "answer": 1,
+      "answerText": "股関節痛",
+      "explanation": "<span class='keyword'>ポイント</span>：変形性股関節症では荷重時痛が特徴。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "整形",
+        "橈骨神経",
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_308",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "腰部脊柱管狭窄症でみられやすいのはどれか。",
+      "choices": [
+        "間欠性跛行",
+        "安静時振戦",
+        "失語",
+        "痙縮",
+        "翼状肩甲"
+      ],
+      "answer": 1,
+      "answerText": "間欠性跛行",
+      "explanation": "<span class='keyword'>ポイント</span>：脊柱管狭窄症では神経性間欠性跛行が特徴。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "Parkinson病",
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_309",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "骨折治癒に最も重要なのはどれか。",
+      "choices": [
+        "血流",
+        "視力",
+        "嗅覚",
+        "味覚",
+        "聴覚"
+      ],
+      "answer": 1,
+      "answerText": "血流",
+      "explanation": "<span class='keyword'>ポイント</span>：骨癒合には十分な血流が重要。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "整形"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_310",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "肩関節脱臼で最も多いのはどれか。",
+      "choices": [
+        "前方脱臼",
+        "後方脱臼",
+        "下方脱臼",
+        "上方脱臼",
+        "中心性脱臼"
+      ],
+      "answer": 1,
+      "answerText": "前方脱臼",
+      "explanation": "<span class='keyword'>ポイント</span>：肩関節脱臼は前方脱臼が多い。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_311",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "心不全患者で確認すべき指標はどれか。",
+      "choices": [
+        "体重変化",
+        "身長のみ",
+        "視力",
+        "握力のみ",
+        "骨密度"
+      ],
+      "answer": 1,
+      "answerText": "体重変化",
+      "explanation": "<span class='keyword'>ポイント</span>：体液貯留の評価として体重確認が重要。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "循環"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_312",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "糖尿病患者で注意すべき足病変はどれか。",
+      "choices": [
+        "潰瘍",
+        "翼状肩甲",
+        "下垂手",
+        "失語",
+        "小刻み歩行"
+      ],
+      "answer": 1,
+      "answerText": "潰瘍",
+      "explanation": "<span class='keyword'>ポイント</span>：糖尿病では末梢循環障害や神経障害により潰瘍に注意。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "Parkinson病",
+        "橈骨神経",
+        "歩行",
+        "糖尿病",
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_313",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "透析患者で注意すべき症状はどれか。",
+      "choices": [
+        "血圧低下",
+        "筋肥大",
+        "視力向上",
+        "骨密度上昇",
+        "嗅覚改善"
+      ],
+      "answer": 1,
+      "answerText": "血圧低下",
+      "explanation": "<span class='keyword'>ポイント</span>：透析中は血圧低下に注意。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "循環"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_314",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "狭心症で特徴的なのはどれか。",
+      "choices": [
+        "労作時胸痛",
+        "安静時のみ発熱",
+        "失語",
+        "痙縮",
+        "下垂足"
+      ],
+      "answer": 1,
+      "answerText": "労作時胸痛",
+      "explanation": "<span class='keyword'>ポイント</span>：狭心症では労作時胸痛が特徴。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_315",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "COPDで増加しやすいのはどれか。",
+      "choices": [
+        "呼吸仕事量",
+        "肺活量",
+        "1秒率",
+        "筋力",
+        "骨密度"
+      ],
+      "answer": 1,
+      "answerText": "呼吸仕事量",
+      "explanation": "<span class='keyword'>ポイント</span>：COPDでは呼吸努力が増大する。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "COPD",
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_316",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "FIMで評価するのはどれか。",
+      "choices": [
+        "ADL自立度",
+        "筋力のみ",
+        "関節可動域のみ",
+        "疼痛のみ",
+        "呼吸機能のみ"
+      ],
+      "answer": 1,
+      "answerText": "ADL自立度",
+      "explanation": "<span class='keyword'>ポイント</span>：FIMはADL自立度評価。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "ADL",
+        "ROM",
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_317",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "MMSEで評価するのはどれか。",
+      "choices": [
+        "認知機能",
+        "筋力",
+        "疼痛",
+        "バランス",
+        "歩行速度"
+      ],
+      "answer": 1,
+      "answerText": "認知機能",
+      "explanation": "<span class='keyword'>ポイント</span>：MMSEは認知機能スクリーニング。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "歩行"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_318",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "Borgスケールで評価するのはどれか。",
+      "choices": [
+        "自覚的運動強度",
+        "筋力",
+        "関節可動域",
+        "認知機能",
+        "疼痛のみ"
+      ],
+      "answer": 1,
+      "answerText": "自覚的運動強度",
+      "explanation": "<span class='keyword'>ポイント</span>：Borgスケールは主観的運動強度評価。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "ROM"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_319",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "握力計で評価するのはどれか。",
+      "choices": [
+        "筋力",
+        "呼吸機能",
+        "認知機能",
+        "バランス",
+        "疼痛"
+      ],
+      "answer": 1,
+      "answerText": "筋力",
+      "explanation": "<span class='keyword'>ポイント</span>：握力は全身筋力の指標にもなる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_320",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "10m歩行テストで評価するのはどれか。",
+      "choices": [
+        "歩行速度",
+        "肺活量",
+        "視力",
+        "血圧",
+        "感覚"
+      ],
+      "answer": 1,
+      "answerText": "歩行速度",
+      "explanation": "<span class='keyword'>ポイント</span>：歩行能力評価に用いられる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "呼吸",
+        "循環",
+        "歩行"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_321",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "骨格筋で最も大きい筋はどれか。",
+      "choices": [
+        "大殿筋",
+        "大腿四頭筋",
+        "広背筋",
+        "僧帽筋",
+        "大胸筋"
+      ],
+      "answer": 1,
+      "answerText": "大殿筋",
+      "explanation": "<span class='keyword'>ポイント</span>：大殿筋は人体最大の筋。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_322",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "前腕回外に関与する筋はどれか。",
+      "choices": [
+        "上腕二頭筋",
+        "円回内筋",
+        "方形回内筋",
+        "尺側手根屈筋",
+        "浅指屈筋"
+      ],
+      "answer": 1,
+      "answerText": "上腕二頭筋",
+      "explanation": "<span class='keyword'>ポイント</span>：上腕二頭筋は肘屈曲だけでなく回外にも関与する。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "正中神経"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_323",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "手根管を通過する神経はどれか。",
+      "choices": [
+        "正中神経",
+        "尺骨神経",
+        "橈骨神経",
+        "筋皮神経",
+        "腋窩神経"
+      ],
+      "answer": 1,
+      "answerText": "正中神経",
+      "explanation": "<span class='keyword'>ポイント</span>：手根管症候群では正中神経障害が問題となる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "尺骨神経",
+        "橈骨神経",
+        "正中神経"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_324",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "膝蓋腱反射に関与する神経根はどれか。",
+      "choices": [
+        "L4",
+        "S1",
+        "C6",
+        "C8",
+        "T1"
+      ],
+      "answer": 1,
+      "answerText": "L4",
+      "explanation": "<span class='keyword'>ポイント</span>：膝蓋腱反射は主にL4。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "反射"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_325",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "アキレス腱反射に関与する神経根はどれか。",
+      "choices": [
+        "S1",
+        "L2",
+        "L4",
+        "C5",
+        "T12"
+      ],
+      "answer": 1,
+      "answerText": "S1",
+      "explanation": "<span class='keyword'>ポイント</span>：アキレス腱反射は主にS1。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "反射"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_326",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "副交感神経作用として正しいのはどれか。",
+      "choices": [
+        "心拍数低下",
+        "瞳孔散大",
+        "気管支拡張",
+        "血圧上昇",
+        "発汗促進"
+      ],
+      "answer": 1,
+      "answerText": "心拍数低下",
+      "explanation": "<span class='keyword'>ポイント</span>：副交感神経は休息・消化に関与する。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "循環"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_327",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "ヘモグロビンの主な役割はどれか。",
+      "choices": [
+        "酸素運搬",
+        "免疫反応",
+        "血液凝固",
+        "ホルモン分泌",
+        "神経伝導"
+      ],
+      "answer": 1,
+      "answerText": "酸素運搬",
+      "explanation": "<span class='keyword'>ポイント</span>：ヘモグロビンは酸素運搬を担う。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_328",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "血糖値を上昇させるホルモンはどれか。",
+      "choices": [
+        "グルカゴン",
+        "インスリン",
+        "メラトニン",
+        "オキシトシン",
+        "エストロゲン"
+      ],
+      "answer": 1,
+      "answerText": "グルカゴン",
+      "explanation": "<span class='keyword'>ポイント</span>：グルカゴンは血糖上昇作用を持つ。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_329",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "呼吸性アシドーシスで上昇するのはどれか。",
+      "choices": [
+        "PaCO2",
+        "PaO2",
+        "pH",
+        "SaO2",
+        "肺活量"
+      ],
+      "answer": 1,
+      "answerText": "PaCO2",
+      "explanation": "<span class='keyword'>ポイント</span>：CO2貯留で呼吸性アシドーシスとなる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_330",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "筋収縮に直接必要なイオンはどれか。",
+      "choices": [
+        "Ca²⁺",
+        "Na⁺",
+        "Cl⁻",
+        "Fe²⁺",
+        "Mg²⁺"
+      ],
+      "answer": 1,
+      "answerText": "Ca²⁺",
+      "explanation": "<span class='keyword'>ポイント</span>：カルシウムは筋収縮に必須。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_331",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "重心線が支持基底面外に出るとどうなるか。",
+      "choices": [
+        "不安定になる",
+        "安定する",
+        "筋力が増える",
+        "呼吸数が減る",
+        "心拍数が低下"
+      ],
+      "answer": 1,
+      "answerText": "不安定になる",
+      "explanation": "<span class='keyword'>ポイント</span>：重心線が支持基底面外に出ると転倒しやすい。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "呼吸",
+        "循環"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_332",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "筋の起始と停止が近づく収縮はどれか。",
+      "choices": [
+        "求心性収縮",
+        "遠心性収縮",
+        "等尺性収縮",
+        "弛緩",
+        "反射"
+      ],
+      "answer": 1,
+      "answerText": "求心性収縮",
+      "explanation": "<span class='keyword'>ポイント</span>：求心性収縮では筋が短縮する。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "反射"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_333",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "正常歩行で最もエネルギー効率が良いのはどれか。",
+      "choices": [
+        "適度な歩幅と速度",
+        "極端に大股",
+        "極端に小股",
+        "全力疾走",
+        "完全静止"
+      ],
+      "answer": 1,
+      "answerText": "適度な歩幅と速度",
+      "explanation": "<span class='keyword'>ポイント</span>：自然歩行速度が最も効率的。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "歩行"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_334",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "立位バランスで重要な感覚はどれか。",
+      "choices": [
+        "視覚・前庭覚・体性感覚",
+        "嗅覚のみ",
+        "味覚のみ",
+        "聴覚のみ",
+        "痛覚のみ"
+      ],
+      "answer": 1,
+      "answerText": "視覚・前庭覚・体性感覚",
+      "explanation": "<span class='keyword'>ポイント</span>：姿勢制御には3感覚統合が重要。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_335",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "肩甲胸郭関節運動に関与する筋はどれか。",
+      "choices": [
+        "前鋸筋",
+        "上腕筋",
+        "大腿四頭筋",
+        "前脛骨筋",
+        "腓腹筋"
+      ],
+      "answer": 1,
+      "answerText": "前鋸筋",
+      "explanation": "<span class='keyword'>ポイント</span>：前鋸筋は肩甲骨外転・上方回旋に関与。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_336",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "発熱に関与する代表的サイトカインはどれか。",
+      "choices": [
+        "IL-1",
+        "インスリン",
+        "ヘモグロビン",
+        "アクチン",
+        "ミオシン"
+      ],
+      "answer": 1,
+      "answerText": "IL-1",
+      "explanation": "<span class='keyword'>ポイント</span>：IL-1は炎症・発熱に関与。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_337",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "血栓が血流で運ばれて閉塞を起こすのはどれか。",
+      "choices": [
+        "塞栓",
+        "壊死",
+        "浮腫",
+        "萎縮",
+        "変性"
+      ],
+      "answer": 1,
+      "answerText": "塞栓",
+      "explanation": "<span class='keyword'>ポイント</span>：血栓が移動すると塞栓となる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_338",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "組織への酸素供給不足を何というか。",
+      "choices": [
+        "虚血",
+        "肥大",
+        "化生",
+        "再生",
+        "線維化"
+      ],
+      "answer": 1,
+      "answerText": "虚血",
+      "explanation": "<span class='keyword'>ポイント</span>：虚血は血流低下による酸素不足。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_339",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "癌の転移経路として多いのはどれか。",
+      "choices": [
+        "リンパ行性",
+        "筋行性",
+        "骨行性のみ",
+        "関節行性",
+        "神経行性のみ"
+      ],
+      "answer": 1,
+      "answerText": "リンパ行性",
+      "explanation": "<span class='keyword'>ポイント</span>：癌はリンパ行性・血行性転移が多い。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_340",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "慢性炎症で増加しやすい細胞はどれか。",
+      "choices": [
+        "リンパ球",
+        "赤血球",
+        "好酸球のみ",
+        "血小板",
+        "破骨細胞"
+      ],
+      "answer": 1,
+      "answerText": "リンパ球",
+      "explanation": "<span class='keyword'>ポイント</span>：慢性炎症ではリンパ球・マクロファージが増える。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_341",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "脳梗塞急性期で最も注意すべきことはどれか。",
+      "choices": [
+        "症状悪化",
+        "筋肥大",
+        "視力向上",
+        "骨密度増加",
+        "聴力向上"
+      ],
+      "answer": 1,
+      "answerText": "症状悪化",
+      "explanation": "<span class='keyword'>ポイント</span>：急性期は再発・増悪に注意。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_342",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "Parkinson病で低下しやすいのはどれか。",
+      "choices": [
+        "姿勢反射",
+        "筋緊張",
+        "安静時振戦",
+        "無動",
+        "小刻み歩行"
+      ],
+      "answer": 1,
+      "answerText": "姿勢反射",
+      "explanation": "<span class='keyword'>ポイント</span>：姿勢反射障害で転倒リスクが高まる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "Parkinson病",
+        "反射",
+        "歩行"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_343",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "ALSで保たれやすいのはどれか。",
+      "choices": [
+        "感覚",
+        "筋力",
+        "腱反射",
+        "発声",
+        "嚥下"
+      ],
+      "answer": 1,
+      "answerText": "感覚",
+      "explanation": "<span class='keyword'>ポイント</span>：ALSでは感覚は比較的保たれやすい。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "反射"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_344",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "脳卒中後の痙縮に関連するのはどれか。",
+      "choices": [
+        "上位運動ニューロン障害",
+        "下位運動ニューロン障害",
+        "筋断裂",
+        "骨折",
+        "脱臼"
+      ],
+      "answer": 1,
+      "answerText": "上位運動ニューロン障害",
+      "explanation": "<span class='keyword'>ポイント</span>：痙縮は上位運動ニューロン障害で出現しやすい。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "整形",
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_345",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "COPDで推奨される運動はどれか。",
+      "choices": [
+        "有酸素運動",
+        "完全安静",
+        "高強度瞬発運動のみ",
+        "断食",
+        "水分制限"
+      ],
+      "answer": 1,
+      "answerText": "有酸素運動",
+      "explanation": "<span class='keyword'>ポイント</span>：COPDでは呼吸リハと有酸素運動が重要。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "COPD",
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_346",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "大腿骨転子部骨折で多い原因はどれか。",
+      "choices": [
+        "転倒",
+        "交通事故のみ",
+        "感染",
+        "腫瘍",
+        "先天異常"
+      ],
+      "answer": 1,
+      "answerText": "転倒",
+      "explanation": "<span class='keyword'>ポイント</span>：高齢者では転倒による骨折が多い。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "整形"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_347",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "変形性股関節症でみられやすいのはどれか。",
+      "choices": [
+        "股関節痛",
+        "失語",
+        "下垂手",
+        "翼状肩甲",
+        "感音難聴"
+      ],
+      "answer": 1,
+      "answerText": "股関節痛",
+      "explanation": "<span class='keyword'>ポイント</span>：変形性股関節症では荷重時痛が特徴。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "整形",
+        "橈骨神経",
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_348",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "腰部脊柱管狭窄症でみられやすいのはどれか。",
+      "choices": [
+        "間欠性跛行",
+        "安静時振戦",
+        "失語",
+        "痙縮",
+        "翼状肩甲"
+      ],
+      "answer": 1,
+      "answerText": "間欠性跛行",
+      "explanation": "<span class='keyword'>ポイント</span>：脊柱管狭窄症では神経性間欠性跛行が特徴。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "Parkinson病",
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_349",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "骨折治癒に最も重要なのはどれか。",
+      "choices": [
+        "血流",
+        "視力",
+        "嗅覚",
+        "味覚",
+        "聴覚"
+      ],
+      "answer": 1,
+      "answerText": "血流",
+      "explanation": "<span class='keyword'>ポイント</span>：骨癒合には十分な血流が重要。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "整形"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_350",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "肩関節脱臼で最も多いのはどれか。",
+      "choices": [
+        "前方脱臼",
+        "後方脱臼",
+        "下方脱臼",
+        "上方脱臼",
+        "中心性脱臼"
+      ],
+      "answer": 1,
+      "answerText": "前方脱臼",
+      "explanation": "<span class='keyword'>ポイント</span>：肩関節脱臼は前方脱臼が多い。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_351",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "心不全患者で確認すべき指標はどれか。",
+      "choices": [
+        "体重変化",
+        "身長のみ",
+        "視力",
+        "握力のみ",
+        "骨密度"
+      ],
+      "answer": 1,
+      "answerText": "体重変化",
+      "explanation": "<span class='keyword'>ポイント</span>：体液貯留の評価として体重確認が重要。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "循環"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_352",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "糖尿病患者で注意すべき足病変はどれか。",
+      "choices": [
+        "潰瘍",
+        "翼状肩甲",
+        "下垂手",
+        "失語",
+        "小刻み歩行"
+      ],
+      "answer": 1,
+      "answerText": "潰瘍",
+      "explanation": "<span class='keyword'>ポイント</span>：糖尿病では末梢循環障害や神経障害により潰瘍に注意。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "Parkinson病",
+        "橈骨神経",
+        "歩行",
+        "糖尿病",
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_353",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "透析患者で注意すべき症状はどれか。",
+      "choices": [
+        "血圧低下",
+        "筋肥大",
+        "視力向上",
+        "骨密度上昇",
+        "嗅覚改善"
+      ],
+      "answer": 1,
+      "answerText": "血圧低下",
+      "explanation": "<span class='keyword'>ポイント</span>：透析中は血圧低下に注意。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "循環"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_354",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "狭心症で特徴的なのはどれか。",
+      "choices": [
+        "労作時胸痛",
+        "安静時のみ発熱",
+        "失語",
+        "痙縮",
+        "下垂足"
+      ],
+      "answer": 1,
+      "answerText": "労作時胸痛",
+      "explanation": "<span class='keyword'>ポイント</span>：狭心症では労作時胸痛が特徴。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_355",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "COPDで増加しやすいのはどれか。",
+      "choices": [
+        "呼吸仕事量",
+        "肺活量",
+        "1秒率",
+        "筋力",
+        "骨密度"
+      ],
+      "answer": 1,
+      "answerText": "呼吸仕事量",
+      "explanation": "<span class='keyword'>ポイント</span>：COPDでは呼吸努力が増大する。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "COPD",
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_356",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "FIMで評価するのはどれか。",
+      "choices": [
+        "ADL自立度",
+        "筋力のみ",
+        "関節可動域のみ",
+        "疼痛のみ",
+        "呼吸機能のみ"
+      ],
+      "answer": 1,
+      "answerText": "ADL自立度",
+      "explanation": "<span class='keyword'>ポイント</span>：FIMはADL自立度評価。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "ADL",
+        "ROM",
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_357",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "MMSEで評価するのはどれか。",
+      "choices": [
+        "認知機能",
+        "筋力",
+        "疼痛",
+        "バランス",
+        "歩行速度"
+      ],
+      "answer": 1,
+      "answerText": "認知機能",
+      "explanation": "<span class='keyword'>ポイント</span>：MMSEは認知機能スクリーニング。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "歩行"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_358",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "Borgスケールで評価するのはどれか。",
+      "choices": [
+        "自覚的運動強度",
+        "筋力",
+        "関節可動域",
+        "認知機能",
+        "疼痛のみ"
+      ],
+      "answer": 1,
+      "answerText": "自覚的運動強度",
+      "explanation": "<span class='keyword'>ポイント</span>：Borgスケールは主観的運動強度評価。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "ROM"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_359",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "握力計で評価するのはどれか。",
+      "choices": [
+        "筋力",
+        "呼吸機能",
+        "認知機能",
+        "バランス",
+        "疼痛"
+      ],
+      "answer": 1,
+      "answerText": "筋力",
+      "explanation": "<span class='keyword'>ポイント</span>：握力は全身筋力の指標にもなる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_360",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "10m歩行テストで評価するのはどれか。",
+      "choices": [
+        "歩行速度",
+        "肺活量",
+        "視力",
+        "血圧",
+        "感覚"
+      ],
+      "answer": 1,
+      "answerText": "歩行速度",
+      "explanation": "<span class='keyword'>ポイント</span>：歩行能力評価に用いられる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "呼吸",
+        "循環",
+        "歩行"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_361",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "骨格筋で最も大きい筋はどれか。",
+      "choices": [
+        "大殿筋",
+        "大腿四頭筋",
+        "広背筋",
+        "僧帽筋",
+        "大胸筋"
+      ],
+      "answer": 1,
+      "answerText": "大殿筋",
+      "explanation": "<span class='keyword'>ポイント</span>：大殿筋は人体最大の筋。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_362",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "前腕回外に関与する筋はどれか。",
+      "choices": [
+        "上腕二頭筋",
+        "円回内筋",
+        "方形回内筋",
+        "尺側手根屈筋",
+        "浅指屈筋"
+      ],
+      "answer": 1,
+      "answerText": "上腕二頭筋",
+      "explanation": "<span class='keyword'>ポイント</span>：上腕二頭筋は肘屈曲だけでなく回外にも関与する。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "正中神経"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_363",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "手根管を通過する神経はどれか。",
+      "choices": [
+        "正中神経",
+        "尺骨神経",
+        "橈骨神経",
+        "筋皮神経",
+        "腋窩神経"
+      ],
+      "answer": 1,
+      "answerText": "正中神経",
+      "explanation": "<span class='keyword'>ポイント</span>：手根管症候群では正中神経障害が問題となる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "尺骨神経",
+        "橈骨神経",
+        "正中神経"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_364",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "膝蓋腱反射に関与する神経根はどれか。",
+      "choices": [
+        "L4",
+        "S1",
+        "C6",
+        "C8",
+        "T1"
+      ],
+      "answer": 1,
+      "answerText": "L4",
+      "explanation": "<span class='keyword'>ポイント</span>：膝蓋腱反射は主にL4。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "反射"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_365",
+      "category": "解剖学",
+      "topic": "解剖学",
+      "theme": "解剖学",
+      "question": "アキレス腱反射に関与する神経根はどれか。",
+      "choices": [
+        "S1",
+        "L2",
+        "L4",
+        "C5",
+        "T12"
+      ],
+      "answer": 1,
+      "answerText": "S1",
+      "explanation": "<span class='keyword'>ポイント</span>：アキレス腱反射は主にS1。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "反射"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_366",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "副交感神経作用として正しいのはどれか。",
+      "choices": [
+        "心拍数低下",
+        "瞳孔散大",
+        "気管支拡張",
+        "血圧上昇",
+        "発汗促進"
+      ],
+      "answer": 1,
+      "answerText": "心拍数低下",
+      "explanation": "<span class='keyword'>ポイント</span>：副交感神経は休息・消化に関与する。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "循環"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_367",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "ヘモグロビンの主な役割はどれか。",
+      "choices": [
+        "酸素運搬",
+        "免疫反応",
+        "血液凝固",
+        "ホルモン分泌",
+        "神経伝導"
+      ],
+      "answer": 1,
+      "answerText": "酸素運搬",
+      "explanation": "<span class='keyword'>ポイント</span>：ヘモグロビンは酸素運搬を担う。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_368",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "血糖値を上昇させるホルモンはどれか。",
+      "choices": [
+        "グルカゴン",
+        "インスリン",
+        "メラトニン",
+        "オキシトシン",
+        "エストロゲン"
+      ],
+      "answer": 1,
+      "answerText": "グルカゴン",
+      "explanation": "<span class='keyword'>ポイント</span>：グルカゴンは血糖上昇作用を持つ。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_369",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "呼吸性アシドーシスで上昇するのはどれか。",
+      "choices": [
+        "PaCO2",
+        "PaO2",
+        "pH",
+        "SaO2",
+        "肺活量"
+      ],
+      "answer": 1,
+      "answerText": "PaCO2",
+      "explanation": "<span class='keyword'>ポイント</span>：CO2貯留で呼吸性アシドーシスとなる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_370",
+      "category": "生理学",
+      "topic": "生理学",
+      "theme": "生理学",
+      "question": "筋収縮に直接必要なイオンはどれか。",
+      "choices": [
+        "Ca²⁺",
+        "Na⁺",
+        "Cl⁻",
+        "Fe²⁺",
+        "Mg²⁺"
+      ],
+      "answer": 1,
+      "answerText": "Ca²⁺",
+      "explanation": "<span class='keyword'>ポイント</span>：カルシウムは筋収縮に必須。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_371",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "重心線が支持基底面外に出るとどうなるか。",
+      "choices": [
+        "不安定になる",
+        "安定する",
+        "筋力が増える",
+        "呼吸数が減る",
+        "心拍数が低下"
+      ],
+      "answer": 1,
+      "answerText": "不安定になる",
+      "explanation": "<span class='keyword'>ポイント</span>：重心線が支持基底面外に出ると転倒しやすい。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "呼吸",
+        "循環"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_372",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "筋の起始と停止が近づく収縮はどれか。",
+      "choices": [
+        "求心性収縮",
+        "遠心性収縮",
+        "等尺性収縮",
+        "弛緩",
+        "反射"
+      ],
+      "answer": 1,
+      "answerText": "求心性収縮",
+      "explanation": "<span class='keyword'>ポイント</span>：求心性収縮では筋が短縮する。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "反射"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_373",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "正常歩行で最もエネルギー効率が良いのはどれか。",
+      "choices": [
+        "適度な歩幅と速度",
+        "極端に大股",
+        "極端に小股",
+        "全力疾走",
+        "完全静止"
+      ],
+      "answer": 1,
+      "answerText": "適度な歩幅と速度",
+      "explanation": "<span class='keyword'>ポイント</span>：自然歩行速度が最も効率的。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "歩行"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_374",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "立位バランスで重要な感覚はどれか。",
+      "choices": [
+        "視覚・前庭覚・体性感覚",
+        "嗅覚のみ",
+        "味覚のみ",
+        "聴覚のみ",
+        "痛覚のみ"
+      ],
+      "answer": 1,
+      "answerText": "視覚・前庭覚・体性感覚",
+      "explanation": "<span class='keyword'>ポイント</span>：姿勢制御には3感覚統合が重要。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_375",
+      "category": "運動学",
+      "topic": "運動学",
+      "theme": "運動学",
+      "question": "肩甲胸郭関節運動に関与する筋はどれか。",
+      "choices": [
+        "前鋸筋",
+        "上腕筋",
+        "大腿四頭筋",
+        "前脛骨筋",
+        "腓腹筋"
+      ],
+      "answer": 1,
+      "answerText": "前鋸筋",
+      "explanation": "<span class='keyword'>ポイント</span>：前鋸筋は肩甲骨外転・上方回旋に関与。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_376",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "発熱に関与する代表的サイトカインはどれか。",
+      "choices": [
+        "IL-1",
+        "インスリン",
+        "ヘモグロビン",
+        "アクチン",
+        "ミオシン"
+      ],
+      "answer": 1,
+      "answerText": "IL-1",
+      "explanation": "<span class='keyword'>ポイント</span>：IL-1は炎症・発熱に関与。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_377",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "血栓が血流で運ばれて閉塞を起こすのはどれか。",
+      "choices": [
+        "塞栓",
+        "壊死",
+        "浮腫",
+        "萎縮",
+        "変性"
+      ],
+      "answer": 1,
+      "answerText": "塞栓",
+      "explanation": "<span class='keyword'>ポイント</span>：血栓が移動すると塞栓となる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_378",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "組織への酸素供給不足を何というか。",
+      "choices": [
+        "虚血",
+        "肥大",
+        "化生",
+        "再生",
+        "線維化"
+      ],
+      "answer": 1,
+      "answerText": "虚血",
+      "explanation": "<span class='keyword'>ポイント</span>：虚血は血流低下による酸素不足。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_379",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "癌の転移経路として多いのはどれか。",
+      "choices": [
+        "リンパ行性",
+        "筋行性",
+        "骨行性のみ",
+        "関節行性",
+        "神経行性のみ"
+      ],
+      "answer": 1,
+      "answerText": "リンパ行性",
+      "explanation": "<span class='keyword'>ポイント</span>：癌はリンパ行性・血行性転移が多い。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_380",
+      "category": "病理学",
+      "topic": "病理学",
+      "theme": "病理学",
+      "question": "慢性炎症で増加しやすい細胞はどれか。",
+      "choices": [
+        "リンパ球",
+        "赤血球",
+        "好酸球のみ",
+        "血小板",
+        "破骨細胞"
+      ],
+      "answer": 1,
+      "answerText": "リンパ球",
+      "explanation": "<span class='keyword'>ポイント</span>：慢性炎症ではリンパ球・マクロファージが増える。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_381",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "脳梗塞急性期で最も注意すべきことはどれか。",
+      "choices": [
+        "症状悪化",
+        "筋肥大",
+        "視力向上",
+        "骨密度増加",
+        "聴力向上"
+      ],
+      "answer": 1,
+      "answerText": "症状悪化",
+      "explanation": "<span class='keyword'>ポイント</span>：急性期は再発・増悪に注意。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_382",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "Parkinson病で低下しやすいのはどれか。",
+      "choices": [
+        "姿勢反射",
+        "筋緊張",
+        "安静時振戦",
+        "無動",
+        "小刻み歩行"
+      ],
+      "answer": 1,
+      "answerText": "姿勢反射",
+      "explanation": "<span class='keyword'>ポイント</span>：姿勢反射障害で転倒リスクが高まる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "Parkinson病",
+        "反射",
+        "歩行"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_383",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "ALSで保たれやすいのはどれか。",
+      "choices": [
+        "感覚",
+        "筋力",
+        "腱反射",
+        "発声",
+        "嚥下"
+      ],
+      "answer": 1,
+      "answerText": "感覚",
+      "explanation": "<span class='keyword'>ポイント</span>：ALSでは感覚は比較的保たれやすい。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "反射"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_384",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "脳卒中後の痙縮に関連するのはどれか。",
+      "choices": [
+        "上位運動ニューロン障害",
+        "下位運動ニューロン障害",
+        "筋断裂",
+        "骨折",
+        "脱臼"
+      ],
+      "answer": 1,
+      "answerText": "上位運動ニューロン障害",
+      "explanation": "<span class='keyword'>ポイント</span>：痙縮は上位運動ニューロン障害で出現しやすい。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "整形",
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_385",
+      "category": "臨床医学",
+      "topic": "臨床医学",
+      "theme": "臨床医学",
+      "question": "COPDで推奨される運動はどれか。",
+      "choices": [
+        "有酸素運動",
+        "完全安静",
+        "高強度瞬発運動のみ",
+        "断食",
+        "水分制限"
+      ],
+      "answer": 1,
+      "answerText": "有酸素運動",
+      "explanation": "<span class='keyword'>ポイント</span>：COPDでは呼吸リハと有酸素運動が重要。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "COPD",
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_386",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "大腿骨転子部骨折で多い原因はどれか。",
+      "choices": [
+        "転倒",
+        "交通事故のみ",
+        "感染",
+        "腫瘍",
+        "先天異常"
+      ],
+      "answer": 1,
+      "answerText": "転倒",
+      "explanation": "<span class='keyword'>ポイント</span>：高齢者では転倒による骨折が多い。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "整形"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_387",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "変形性股関節症でみられやすいのはどれか。",
+      "choices": [
+        "股関節痛",
+        "失語",
+        "下垂手",
+        "翼状肩甲",
+        "感音難聴"
+      ],
+      "answer": 1,
+      "answerText": "股関節痛",
+      "explanation": "<span class='keyword'>ポイント</span>：変形性股関節症では荷重時痛が特徴。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "整形",
+        "橈骨神経",
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_388",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "腰部脊柱管狭窄症でみられやすいのはどれか。",
+      "choices": [
+        "間欠性跛行",
+        "安静時振戦",
+        "失語",
+        "痙縮",
+        "翼状肩甲"
+      ],
+      "answer": 1,
+      "answerText": "間欠性跛行",
+      "explanation": "<span class='keyword'>ポイント</span>：脊柱管狭窄症では神経性間欠性跛行が特徴。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "Parkinson病",
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_389",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "骨折治癒に最も重要なのはどれか。",
+      "choices": [
+        "血流",
+        "視力",
+        "嗅覚",
+        "味覚",
+        "聴覚"
+      ],
+      "answer": 1,
+      "answerText": "血流",
+      "explanation": "<span class='keyword'>ポイント</span>：骨癒合には十分な血流が重要。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "整形"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_390",
+      "category": "整形外科学",
+      "topic": "整形外科学",
+      "theme": "整形外科学",
+      "question": "肩関節脱臼で最も多いのはどれか。",
+      "choices": [
+        "前方脱臼",
+        "後方脱臼",
+        "下方脱臼",
+        "上方脱臼",
+        "中心性脱臼"
+      ],
+      "answer": 1,
+      "answerText": "前方脱臼",
+      "explanation": "<span class='keyword'>ポイント</span>：肩関節脱臼は前方脱臼が多い。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": []
+    },
+    {
+      "id": "freq_pdf_200b_391",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "心不全患者で確認すべき指標はどれか。",
+      "choices": [
+        "体重変化",
+        "身長のみ",
+        "視力",
+        "握力のみ",
+        "骨密度"
+      ],
+      "answer": 1,
+      "answerText": "体重変化",
+      "explanation": "<span class='keyword'>ポイント</span>：体液貯留の評価として体重確認が重要。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "循環"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_392",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "糖尿病患者で注意すべき足病変はどれか。",
+      "choices": [
+        "潰瘍",
+        "翼状肩甲",
+        "下垂手",
+        "失語",
+        "小刻み歩行"
+      ],
+      "answer": 1,
+      "answerText": "潰瘍",
+      "explanation": "<span class='keyword'>ポイント</span>：糖尿病では末梢循環障害や神経障害により潰瘍に注意。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "Parkinson病",
+        "橈骨神経",
+        "歩行",
+        "糖尿病",
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_393",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "透析患者で注意すべき症状はどれか。",
+      "choices": [
+        "血圧低下",
+        "筋肥大",
+        "視力向上",
+        "骨密度上昇",
+        "嗅覚改善"
+      ],
+      "answer": 1,
+      "answerText": "血圧低下",
+      "explanation": "<span class='keyword'>ポイント</span>：透析中は血圧低下に注意。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "循環"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_394",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "狭心症で特徴的なのはどれか。",
+      "choices": [
+        "労作時胸痛",
+        "安静時のみ発熱",
+        "失語",
+        "痙縮",
+        "下垂足"
+      ],
+      "answer": 1,
+      "answerText": "労作時胸痛",
+      "explanation": "<span class='keyword'>ポイント</span>：狭心症では労作時胸痛が特徴。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "脳卒中"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_395",
+      "category": "内部障害",
+      "topic": "内部障害",
+      "theme": "内部障害",
+      "question": "COPDで増加しやすいのはどれか。",
+      "choices": [
+        "呼吸仕事量",
+        "肺活量",
+        "1秒率",
+        "筋力",
+        "骨密度"
+      ],
+      "answer": 1,
+      "answerText": "呼吸仕事量",
+      "explanation": "<span class='keyword'>ポイント</span>：COPDでは呼吸努力が増大する。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "COPD",
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_396",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "FIMで評価するのはどれか。",
+      "choices": [
+        "ADL自立度",
+        "筋力のみ",
+        "関節可動域のみ",
+        "疼痛のみ",
+        "呼吸機能のみ"
+      ],
+      "answer": 1,
+      "answerText": "ADL自立度",
+      "explanation": "<span class='keyword'>ポイント</span>：FIMはADL自立度評価。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "ADL",
+        "ROM",
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_397",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "MMSEで評価するのはどれか。",
+      "choices": [
+        "認知機能",
+        "筋力",
+        "疼痛",
+        "バランス",
+        "歩行速度"
+      ],
+      "answer": 1,
+      "answerText": "認知機能",
+      "explanation": "<span class='keyword'>ポイント</span>：MMSEは認知機能スクリーニング。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "歩行"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_398",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "Borgスケールで評価するのはどれか。",
+      "choices": [
+        "自覚的運動強度",
+        "筋力",
+        "関節可動域",
+        "認知機能",
+        "疼痛のみ"
+      ],
+      "answer": 1,
+      "answerText": "自覚的運動強度",
+      "explanation": "<span class='keyword'>ポイント</span>：Borgスケールは主観的運動強度評価。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "ROM"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_399",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "握力計で評価するのはどれか。",
+      "choices": [
+        "筋力",
+        "呼吸機能",
+        "認知機能",
+        "バランス",
+        "疼痛"
+      ],
+      "answer": 1,
+      "answerText": "筋力",
+      "explanation": "<span class='keyword'>ポイント</span>：握力は全身筋力の指標にもなる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "呼吸"
+      ]
+    },
+    {
+      "id": "freq_pdf_200b_400",
+      "category": "評価学",
+      "topic": "評価学",
+      "theme": "評価学",
+      "question": "10m歩行テストで評価するのはどれか。",
+      "choices": [
+        "歩行速度",
+        "肺活量",
+        "視力",
+        "血圧",
+        "感覚"
+      ],
+      "answer": 1,
+      "answerText": "歩行速度",
+      "explanation": "<span class='keyword'>ポイント</span>：歩行能力評価に用いられる。<br><br>頻出論点を参考に、文面をオリジナル化して作成しています。",
+      "source": "frequent_pdf_based_original_part2",
+      "difficulty": "basic",
+      "tags": [
+        "呼吸",
+        "循環",
+        "歩行"
+      ]
+    }
+  ]
+}

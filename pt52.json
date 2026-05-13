@@ -66,7 +66,10 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
+          "尺骨神経",
           "末梢神経",
+          "橈骨神経",
+          "正中神経",
           "筋"
         ]
       },
@@ -146,8 +149,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "心臓",
-          "伝導系"
+          "伝導系",
+          "心臓"
         ]
       },
       {
@@ -169,8 +172,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "消化器",
-          "後腹膜"
+          "後腹膜",
+          "消化器"
         ]
       }
     ],
@@ -251,8 +254,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "神経生理",
-          "反射"
+          "反射",
+          "神経生理"
         ]
       },
       {
@@ -271,8 +274,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "神経生理",
-          "反射"
+          "反射",
+          "神経生理"
         ]
       },
       {
@@ -311,8 +314,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "血液",
-          "止血"
+          "止血",
+          "血液"
         ]
       }
     ],
@@ -431,8 +434,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "股関節",
-          "歩行"
+          "歩行",
+          "股関節"
         ]
       },
       {
@@ -470,8 +473,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "股関節",
-          "歩行"
+          "歩行",
+          "股関節"
         ]
       },
       {
@@ -530,6 +533,7 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
+          "小児",
           "発達"
         ]
       },
@@ -549,6 +553,7 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
+          "小児",
           "発達"
         ]
       },
@@ -568,7 +573,9 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "原始反射"
+          "原始反射",
+          "反射",
+          "小児"
         ]
       }
     ],
@@ -609,8 +616,9 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "心不全",
-          "リスク管理"
+          "リスク管理",
+          "循環",
+          "心不全"
         ]
       },
       {
@@ -629,8 +637,9 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "糖尿病",
-          "神経障害"
+          "反射",
+          "神経障害",
+          "糖尿病"
         ]
       },
       {
@@ -650,7 +659,9 @@
         "difficulty": "standard",
         "tags": [
           "ASO",
-          "循環"
+          "呼吸",
+          "循環",
+          "脳卒中"
         ]
       },
       {
@@ -669,7 +680,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "DVT"
+          "DVT",
+          "呼吸"
         ]
       }
     ],
@@ -691,7 +703,8 @@
         "difficulty": "standard",
         "tags": [
           "Parkinson病",
-          "歩行"
+          "歩行",
+          "脳卒中"
         ]
       },
       {
@@ -711,7 +724,8 @@
         "difficulty": "standard",
         "tags": [
           "GBS",
-          "呼吸"
+          "呼吸",
+          "脳卒中"
         ]
       },
       {
@@ -749,8 +763,11 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
+          "反射",
+          "失調",
           "小脳",
-          "失調"
+          "歩行",
+          "脳卒中"
         ]
       },
       {
@@ -769,8 +786,9 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "高次脳機能",
-          "USN"
+          "USN",
+          "脳卒中",
+          "高次脳機能"
         ]
       }
     ],
@@ -871,8 +889,11 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "肩脱臼",
-          "神経"
+          "尺骨神経",
+          "橈骨神経",
+          "正中神経",
+          "神経",
+          "肩脱臼"
         ]
       },
       {
@@ -891,7 +912,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "アキレス腱"
+          "アキレス腱",
+          "反射"
         ]
       },
       {
@@ -910,8 +932,9 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "骨折",
-          "股関節"
+          "整形",
+          "股関節",
+          "骨折"
         ]
       },
       {
@@ -930,7 +953,10 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "RA"
+          "RA",
+          "尺骨神経",
+          "橈骨神経",
+          "正中神経"
         ]
       },
       {
@@ -968,8 +994,11 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "膝",
-          "ACL"
+          "ACL",
+          "ROM",
+          "整形",
+          "歩行",
+          "膝"
         ]
       }
     ],
@@ -990,6 +1019,7 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
+          "ADL",
           "FIM"
         ]
       },
@@ -1068,7 +1098,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "ROM"
+          "ROM",
+          "整形"
         ]
       },
       {
@@ -1087,6 +1118,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
+          "ADL",
+          "筋力増強",
           "運動処方"
         ]
       },
@@ -1165,7 +1198,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "寒冷"
+          "寒冷",
+          "物理療法"
         ]
       },
       {
@@ -1184,6 +1218,7 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
+          "物理療法",
           "超音波"
         ]
       },
@@ -1203,6 +1238,7 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
+          "物理療法",
           "電気刺激"
         ]
       }
@@ -1224,7 +1260,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "MMT"
+          "MMT",
+          "筋力増強"
         ]
       },
       {
@@ -1262,7 +1299,9 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "感覚検査"
+          "呼吸",
+          "感覚検査",
+          "歩行"
         ]
       },
       {
@@ -1281,7 +1320,10 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "意識"
+          "ADL",
+          "ROM",
+          "意識",
+          "筋力増強"
         ]
       },
       {
@@ -1300,7 +1342,11 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "歩行評価"
+          "ROM",
+          "歩行",
+          "歩行評価",
+          "筋力増強",
+          "脳卒中"
         ]
       },
       {
@@ -1319,6 +1365,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
+          "ROM",
+          "脳卒中",
           "脳卒中評価"
         ]
       }
@@ -1341,6 +1389,7 @@
         "difficulty": "standard",
         "tags": [
           "COPD",
+          "呼吸",
           "呼吸理学療法"
         ]
       },
@@ -1379,6 +1428,7 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
+          "循環",
           "心不全"
         ]
       },
@@ -1398,7 +1448,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "リスク管理"
+          "リスク管理",
+          "呼吸"
         ]
       }
     ],
@@ -1419,6 +1470,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
+          "Parkinson病",
+          "歩行",
           "脳性麻痺"
         ]
       },
@@ -1438,7 +1491,9 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "Down症候群"
+          "Down症候群",
+          "呼吸",
+          "脳卒中"
         ]
       },
       {
@@ -1457,7 +1512,9 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "DMD"
+          "DMD",
+          "ROM",
+          "反射"
         ]
       },
       {
@@ -1497,6 +1554,7 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
+          "整形",
           "膝OA"
         ]
       },
@@ -1516,7 +1574,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "THA"
+          "THA",
+          "整形"
         ]
       },
       {
@@ -1535,6 +1594,7 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
+          "反射",
           "腰椎ヘルニア"
         ]
       },
@@ -1577,7 +1637,8 @@
         "difficulty": "standard",
         "tags": [
           "MCA",
-          "USN"
+          "USN",
+          "脳卒中"
         ]
       },
       {
@@ -1596,7 +1657,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "失語"
+          "失語",
+          "脳卒中"
         ]
       },
       {
@@ -1634,8 +1696,10 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
+          "リスク管理",
+          "循環",
           "急性期",
-          "リスク管理"
+          "脳卒中"
         ]
       }
     ],
@@ -1656,7 +1720,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "LMN"
+          "LMN",
+          "反射"
         ]
       },
       {
@@ -1675,7 +1740,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "UMN"
+          "UMN",
+          "反射"
         ]
       },
       {
@@ -1694,7 +1760,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "筋疾患"
+          "筋疾患",
+          "脳卒中"
         ]
       },
       {
@@ -1713,7 +1780,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "MG"
+          "MG",
+          "反射"
         ]
       }
     ],
@@ -1734,6 +1802,7 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
+          "小児",
           "頸髄損傷"
         ]
       },
@@ -1772,6 +1841,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
+          "反射",
+          "循環",
           "自律神経過反射"
         ]
       },
@@ -1812,7 +1883,9 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "AFO"
+          "AFO",
+          "歩行",
+          "義肢装具"
         ]
       },
       {
@@ -1831,8 +1904,11 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
+          "AFO",
+          "歩行",
           "片麻痺",
-          "AFO"
+          "義肢装具",
+          "脳卒中"
         ]
       },
       {
@@ -1851,6 +1927,7 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
+          "義肢装具",
           "義足"
         ]
       },
@@ -1870,7 +1947,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "杖"
+          "杖",
+          "義肢装具"
         ]
       }
     ],
@@ -1891,7 +1969,9 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "更衣"
+          "ADL",
+          "更衣",
+          "脳卒中"
         ]
       },
       {
@@ -1911,6 +1991,7 @@
         "difficulty": "standard",
         "tags": [
           "THA",
+          "整形",
           "自助具"
         ]
       },
@@ -1930,6 +2011,7 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
+          "ADL",
           "移乗"
         ]
       },
@@ -1949,7 +2031,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "住宅改修"
+          "住宅改修",
+          "脳卒中"
         ]
       }
     ],
@@ -2008,8 +2091,8 @@
         "image": "",
         "difficulty": "standard",
         "tags": [
-          "統計",
-          "検査"
+          "検査",
+          "統計"
         ]
       }
     ]
