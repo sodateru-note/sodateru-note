@@ -9,9 +9,7 @@ const files = [
   "pt57.json",
   "pt58.json",
   "pdfbase.json",
-  "additional.json",
-  "frequent_01.json",
-  "frequent_02.json"
+  "additional.json"
 ];
 
 const merged = {
