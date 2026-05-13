@@ -45,7 +45,7 @@ for (const file of files) {
   // パターン2：questions が配列の形（pt53など）
   if (Array.isArray(data.questions)) {
     for (const q of data.questions) {
-      const category = q.topic || q.category || "未分類";
+      const category = q.category || "未分類";
       if (!merged.questions[category]) merged.questions[category] = [];
 
       merged.questions[category].push({
