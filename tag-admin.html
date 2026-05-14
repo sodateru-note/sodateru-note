@@ -9,108 +9,84 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
 body{
 font-family:"Noto Sans JP",sans-serif;
 background:#f5f7fb;
 color:#1f2937;
 }
-
 header{
-background:#1a2847;
+background:#09152f;
 color:white;
 padding:28px;
 }
-
 header h1{
-font-size:32px;
-margin-bottom:8px;
+font-size:42px;
+font-weight:900;
 }
-
+header p{
+margin-top:8px;
+opacity:.8;
+}
 .container{
 max-width:1500px;
 margin:auto;
 padding:24px;
 }
-
 .topbar{
 display:flex;
 gap:12px;
 margin-bottom:24px;
 flex-wrap:wrap;
 }
-
 .btn{
-background:#274777;
+background:#16325c;
 color:white;
-border:none;
 padding:14px 18px;
+border:none;
 border-radius:14px;
 font-weight:700;
 cursor:pointer;
 }
-
 .search{
 flex:1;
-min-width:260px;
 padding:14px;
 border-radius:14px;
 border:1px solid #d5deeb;
 }
-
 .layout{
 display:grid;
 grid-template-columns:280px 1fr;
 gap:24px;
 }
-
-.sidebar{
-background:white;
-border-radius:20px;
-padding:20px;
-box-shadow:0 4px 12px rgba(0,0,0,.06);
-height:fit-content;
-max-height:85vh;
-overflow:auto;
-}
-
-.sidebar h2{
-margin-bottom:18px;
-font-size:22px;
-}
-
-.section-title{
-font-size:14px;
-font-weight:900;
-margin-top:24px;
-margin-bottom:12px;
-color:#274777;
-}
-
-.category-btn{
-width:100%;
-padding:12px 14px;
-margin-bottom:10px;
-border:none;
-border-radius:12px;
-background:#eef4fd;
-cursor:pointer;
-text-align:left;
-font-weight:700;
-}
-
-.content{
+.sidebar,.content{
 background:white;
 border-radius:20px;
 padding:24px;
 box-shadow:0 4px 12px rgba(0,0,0,.06);
 }
-
+.sidebar{
+height:fit-content;
+max-height:85vh;
+overflow:auto;
+}
+.section-title{
+font-size:14px;
+font-weight:900;
+margin:20px 0 12px;
+color:#274777;
+}
+.category-btn{
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border:none;
+border-radius:12px;
+background:#eef4fd;
+cursor:pointer;
+font-weight:700;
+text-align:left;
+}
 .info-box{
 padding:16px;
 background:#f3f7ff;
@@ -118,7 +94,6 @@ border-radius:14px;
 line-height:1.8;
 margin-bottom:24px;
 }
-
 .question-card{
 border:1px solid #e5eaf2;
 border-radius:18px;
@@ -126,7 +101,6 @@ padding:20px;
 margin-bottom:18px;
 background:#fcfdff;
 }
-
 .badge{
 display:inline-block;
 padding:5px 12px;
@@ -137,56 +111,43 @@ font-weight:700;
 margin-bottom:12px;
 color:#274777;
 }
-
 .question-id{
-font-size:18px;
+font-size:20px;
 font-weight:900;
 margin-bottom:12px;
 }
-
 .question-text{
 line-height:1.8;
 margin-bottom:18px;
 white-space:pre-wrap;
 }
-
 .tag-grid{
 display:grid;
 grid-template-columns:1fr 1fr 1fr 1fr;
 gap:12px;
 }
-
 .tag-grid select,
 .tag-grid input{
 padding:12px;
 border-radius:12px;
 border:1px solid #d5deeb;
-background:white;
 }
-
 .empty{
 padding:80px 20px;
 text-align:center;
 opacity:.6;
 }
-
 @media(max-width:1000px){
-.layout{
-grid-template-columns:1fr;
-}
-
-.tag-grid{
-grid-template-columns:1fr;
-}
+.layout{grid-template-columns:1fr}
+.tag-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
-
 <body>
 
 <header>
 <h1>タグ管理CMS</h1>
-<p>育てるノート｜questions.json 読み込み修正版</p>
+<p>育てるノート｜questions.json 完全対応版</p>
 </header>
 
 <div class="container">
@@ -223,29 +184,24 @@ tag.json 保存
 <button class="category-btn" onclick="filterCategory('内科学')">内科学</button>
 <button class="category-btn" onclick="filterCategory('整形外科学')">整形外科学</button>
 <button class="category-btn" onclick="filterCategory('神経内科学')">神経内科学</button>
-<button class="category-btn" onclick="filterCategory('精神医学')">精神医学</button>
-<button class="category-btn" onclick="filterCategory('臨床心理学')">臨床心理学</button>
 
 <div class="section-title">専門問題系</div>
 
 <button class="category-btn" onclick="filterCategory('PT評価学')">PT評価学</button>
 <button class="category-btn" onclick="filterCategory('運動療法')">運動療法</button>
 <button class="category-btn" onclick="filterCategory('物理療法')">物理療法</button>
-<button class="category-btn" onclick="filterCategory('日常生活活動')">日常生活活動</button>
 <button class="category-btn" onclick="filterCategory('義肢装具')">義肢装具</button>
 <button class="category-btn" onclick="filterCategory('神経系理学療法')">神経系理学療法</button>
 <button class="category-btn" onclick="filterCategory('運動器理学療法')">運動器理学療法</button>
 <button class="category-btn" onclick="filterCategory('内部障害理学療法')">内部障害理学療法</button>
 <button class="category-btn" onclick="filterCategory('小児理学療法')">小児理学療法</button>
-<button class="category-btn" onclick="filterCategory('地域理学療法')">地域理学療法</button>
 
 </div>
 
 <div class="content">
 
 <div class="info-box">
-questions.json の「配列形式」「questions配列形式」「カテゴリ別オブジェクト形式」に対応しました。<br>
-カテゴリー分け・タグ付け機能はそのまま維持しています。
+カテゴリー分け・タグ付け機能を維持したまま、深い階層の questions.json に対応しました。
 </div>
 
 <div id="questionArea">
@@ -273,25 +229,21 @@ const middleTags = {
 "内科学":["循環器","呼吸器","代謝"],
 "整形外科学":["骨折","関節疾患","脊椎"],
 "神経内科学":["脳卒中","神経変性疾患"],
-"精神医学":["統合失調症","うつ病"],
-"臨床心理学":["認知","行動"],
 "PT評価学":["ROM","MMT","歩行分析"],
-"運動療法":["筋力増強","持久力","ストレッチ"],
-"物理療法":["温熱","電気","寒冷"],
-"日常生活活動":["移乗","更衣","食事"],
+"運動療法":["筋力増強","持久力"],
+"物理療法":["温熱","電気"],
 "義肢装具":["下肢装具","義足"],
 "神経系理学療法":["脳卒中","パーキンソン病"],
 "運動器理学療法":["骨折","変形性関節症"],
 "内部障害理学療法":["心疾患","呼吸器疾患"],
-"小児理学療法":["脳性麻痺","発達障害"],
-"地域理学療法":["介護予防","地域包括"]
+"小児理学療法":["脳性麻痺","発達障害"]
 };
 
 const smallTags = {
 "神経":["中枢神経","末梢神経","脳神経","腕神経叢"],
 "筋":["上肢筋","下肢筋","体幹筋"],
-"骨":["脊椎","骨盤","下肢骨"],
-"関節":["肩関節","股関節","膝関節"]
+"関節":["肩関節","股関節","膝関節"],
+"歩行":["歩行周期","異常歩行"]
 };
 
 document.getElementById("jsonLoader").addEventListener("change", e => {
@@ -307,39 +259,7 @@ try{
 
 const raw = JSON.parse(event.target.result);
 
-questions = [];
-
-/* 修正ポイント：
-   categoryごとのオブジェクト構造に対応
-*/
-if(Array.isArray(raw)){
-
-questions = raw;
-
-}else if(raw.questions && Array.isArray(raw.questions)){
-
-questions = raw.questions;
-
-}else if(typeof raw === "object"){
-
-Object.entries(raw).forEach(([category, items]) => {
-
-if(Array.isArray(items)){
-
-items.forEach(item => {
-
-questions.push({
-...item,
-category: item.category || category
-});
-
-});
-
-}
-
-});
-
-}
+questions = extractQuestions(raw);
 
 if(!questions.length){
 alert("questions.json の構造を認識できません");
@@ -347,11 +267,11 @@ return;
 }
 
 tagData = questions.map(q => ({
-id: q.id || "",
-category: q.category || "未分類",
-middleTag: "",
-smallTag: "",
-freeTags: ""
+id:q.id || "",
+category:q.category || "未分類",
+middleTag:"",
+smallTag:"",
+freeTags:""
 }));
 
 renderQuestions(tagData);
@@ -369,13 +289,49 @@ reader.readAsText(file);
 
 });
 
-function filterCategory(category){
+function extractQuestions(data, category=""){
 
-currentCategory = category;
+let results = [];
 
-const filtered = tagData.filter(q => q.category === category);
+if(Array.isArray(data)){
 
-renderQuestions(filtered);
+data.forEach(item => {
+
+if(isQuestion(item)){
+
+results.push({
+...item,
+category:item.category || category || "未分類"
+});
+
+}else if(typeof item === "object"){
+
+results.push(...extractQuestions(item, category));
+
+}
+
+});
+
+}else if(typeof data === "object" && data !== null){
+
+Object.entries(data).forEach(([key, value]) => {
+
+results.push(...extractQuestions(value, key));
+
+});
+
+}
+
+return results;
+
+}
+
+function isQuestion(obj){
+
+return obj &&
+typeof obj === "object" &&
+(obj.id || obj.text || obj.question) &&
+(obj.choices || obj.answer);
 
 }
 
@@ -472,7 +428,7 @@ ${tag}
 
 function updateMiddle(id,value){
 
-const item = tagData.find(q => q.id === id);
+const item = tagData.find(q => q.id===id);
 
 if(!item) return;
 
@@ -485,7 +441,7 @@ refreshCurrent();
 
 function updateSmall(id,value){
 
-const item = tagData.find(q => q.id === id);
+const item = tagData.find(q => q.id===id);
 
 if(!item) return;
 
@@ -495,7 +451,7 @@ item.smallTag = value;
 
 function updateFree(id,value){
 
-const item = tagData.find(q => q.id === id);
+const item = tagData.find(q => q.id===id);
 
 if(!item) return;
 
@@ -508,7 +464,7 @@ function refreshCurrent(){
 if(currentCategory){
 
 renderQuestions(
-tagData.filter(q => q.category === currentCategory)
+tagData.filter(q => q.category===currentCategory)
 );
 
 }else{
@@ -521,14 +477,21 @@ renderQuestions(tagData);
 
 function getQuestion(id){
 
-const q = questions.find(q => q.id === id);
+const q = questions.find(q => q.id===id);
 
 if(!q) return "";
 
-/* 修正ポイント：
-   questionではなくtextを優先
-*/
 return q.text || q.question || "";
+
+}
+
+function filterCategory(category){
+
+currentCategory = category;
+
+const filtered = tagData.filter(q => q.category===category);
+
+renderQuestions(filtered);
 
 }
 
@@ -545,6 +508,7 @@ const a = document.createElement("a");
 
 a.href = url;
 a.download = "tag.json";
+
 a.click();
 
 URL.revokeObjectURL(url);
