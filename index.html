@@ -16,10 +16,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="育てるノート｜理学療法士国家試験">
 <meta name="twitter:description" content="過去問・解説・画像まとめができる学習サイト">
-<meta name="twitter:image" content="https://sodateru-note.github.io/ogp.png">
+<meta name="twitter:image" content="https://sodateru-note.github.io/sodateru-note/ogp.png">
 
-<link rel="stylesheet" href="style.css">
-</head>
 <meta name="theme-color" content="#1a2847">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -341,6 +339,28 @@ body {
 
 .note-folder-grid{display:flex;flex-direction:column;gap:12px}.note-folder-card{background:white;border-radius:var(--radius);padding:16px;box-shadow:var(--card-shadow);border-left:6px solid var(--yellow);cursor:pointer;display:flex;align-items:center;gap:12px}.note-folder-card:active{transform:scale(.98)}.note-folder-icon{font-size:30px}.note-folder-title{font-size:15px;font-weight:900;color:var(--navy)}.note-folder-sub{font-size:12px;color:var(--text-soft);margin-top:3px}.note-back-btn{border:none;background:var(--navy);color:var(--yellow);border-radius:12px;padding:10px 14px;font-size:13px;font-weight:700;margin-bottom:14px;cursor:pointer}.empty-note{background:white;border-radius:var(--radius);padding:22px 16px;text-align:center;box-shadow:var(--card-shadow);color:var(--text-soft);font-size:13px;line-height:1.7}.note-card-actions{display:flex;gap:8px;margin-top:10px}.note-mini-btn{flex:1;border:1px solid var(--border);background:var(--warm-white);border-radius:10px;padding:8px;font-size:12px;font-weight:700;color:var(--navy);cursor:pointer}
 
+.note-search-card {
+  background: white; border-radius: var(--radius); padding: 14px;
+  box-shadow: var(--card-shadow); margin-bottom: 14px;
+  border-left: 6px solid var(--teal);
+}
+.note-search-input {
+  width: 100%; border: 2px solid var(--border); border-radius: 12px;
+  padding: 12px; font-family: inherit; font-size: 13px; outline: none;
+}
+.note-search-input:focus { border-color: var(--teal); }
+.tag-chip-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.tag-chip {
+  border: 1px solid var(--border); background: var(--warm-white);
+  color: var(--navy); border-radius: 99px; padding: 6px 10px;
+  font-size: 11px; font-weight: 900; cursor: pointer; font-family: inherit;
+}
+.tag-chip:active { transform: scale(0.97); }
+.note-search-result-title {
+  font-size: 12px; font-weight: 900; color: var(--text-soft);
+  margin: 12px 0 8px;
+}
+
 .social-compose{background:white;border-radius:var(--radius);padding:14px;box-shadow:var(--card-shadow);margin-bottom:14px;border-top:5px solid var(--teal)}.social-compose-title{font-size:15px;font-weight:900;color:var(--navy);margin-bottom:8px}.social-input{width:100%;border:2px solid var(--border);border-radius:12px;padding:11px;font-family:inherit;font-size:13px;outline:none;margin-bottom:8px}.social-input:focus{border-color:var(--teal)}.social-post-btn{width:100%;border:none;border-radius:12px;background:var(--teal);color:white;padding:12px;font-weight:900;font-size:14px;font-family:inherit;cursor:pointer}.social-card{background:white;border-radius:var(--radius);box-shadow:var(--card-shadow);padding:14px;margin-bottom:12px}.social-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}.social-avatar{width:38px;height:38px;border-radius:50%;background:var(--yellow-light);display:flex;align-items:center;justify-content:center;font-size:20px}.social-name{font-size:13px;font-weight:900;color:var(--navy)}.social-date{font-size:11px;color:var(--text-light)}.social-title{font-size:14px;font-weight:900;color:var(--navy);margin-bottom:6px}.social-text{font-size:13px;color:var(--text-soft);line-height:1.7;margin-bottom:10px}.social-image-ph{width:100%;height:150px;border-radius:12px;background:linear-gradient(135deg,var(--yellow-light),var(--teal-light));display:flex;align-items:center;justify-content:center;font-size:44px;margin-bottom:10px}.social-actions{display:flex;gap:8px}.social-action-btn{flex:1;border:1px solid var(--border);background:var(--warm-white);border-radius:10px;padding:9px;font-size:12px;font-weight:700;color:var(--text-soft);cursor:pointer}
 
 
@@ -652,6 +672,12 @@ body {
 <div class="screen" id="screen-notes">
   <div id="notes-home">
     <button class="note-add-btn" onclick="alert('今後、自由ノート作成機能を追加できます')">＋ 新しいノートを追加</button>
+    <div class="note-search-card">
+      <div class="section-title">🔍 タグ・問題検索</div>
+      <input class="note-search-input" id="note-search-input" placeholder="例：腕神経叢 / 歩行 / pt52_001" oninput="renderNoteSearch()">
+      <div class="tag-chip-list" id="popular-tags"></div>
+      <div id="note-search-results"></div>
+    </div>
     <div class="note-folder-grid">
       <div class="note-folder-card" onclick="openNoteFolder('weak')" style="border-left-color:var(--wrong)"><div class="note-folder-icon">📁</div><div><div class="note-folder-title">苦手問題</div><div class="note-folder-sub"><span id="weak-count">0</span>問｜3回以上間違えた問題が自動で入ります</div></div></div>
       <div class="note-folder-card" onclick="openNoteFolder('bookmark')" style="border-left-color:var(--yellow)"><div class="note-folder-icon">📁</div><div><div class="note-folder-title">ブックマーク</div><div class="note-folder-sub"><span id="bookmark-count">0</span>問｜⭐を押した問題を保存</div></div></div>
@@ -765,7 +791,7 @@ function normalizeDB(raw) {
     common: ['解剖学','生理学','病理学','運動学','人間発達学','内科学','神経内科学','臨床心理学','精神医学','整形外科学','リハ概論'],
     special: ['運動療法','物理療法','PT評価学','内部障害','小児疾患','整形外科障害','脳血管障害','神経・筋障害','脊髄損傷','補装具療法','ADL','法規・研究・他']
   };
-  const normalized = { categories: raw.categories || defaultCategories, questions: {} };
+  const normalized = { categories: raw.categories || defaultCategories, questions: {}, tagLinks: normalizeTagLinks(raw.tagLinks || raw.noteLinks || {}) };
   [...normalized.categories.common, ...normalized.categories.special].forEach(cat => normalized.questions[cat] = []);
   if (Array.isArray(raw.questions)) {
     raw.questions.forEach(q => {
@@ -779,6 +805,15 @@ function normalizeDB(raw) {
       (qs || []).forEach(q => normalized.questions[cat].push({ ...q, text:q.text || q.question || '', image:q.image || '' }));
     });
   }
+  return normalized;
+}
+
+function normalizeTagLinks(links) {
+  const normalized = {};
+  Object.entries(links || {}).forEach(([tag, value]) => {
+    if (typeof value === 'string') normalized[tag] = { url: value, title: '' };
+    else if (value && typeof value === 'object') normalized[tag] = { url: value.url || value.noteUrl || '', title: value.title || value.noteTitle || '' };
+  });
   return normalized;
 }
 
@@ -808,6 +843,7 @@ function onLoaded() {
   buildWeekChart();
   updateCountdown();
   updateNoteCounts();
+  renderPopularTags();
   renderSocialFeed();
   setupCanvaLinks();
   if (currentQs.length === 0) {
@@ -916,7 +952,7 @@ function showScreen(id, tab) {
     buildStatsSection('stats-special', DB.categories.special);
     updateHomeStats();
   }
-  if (id === 'notes') { backToNotesHome(); updateNoteCounts(); }
+  if (id === 'notes') { backToNotesHome(); updateNoteCounts(); renderPopularTags(); renderNoteSearch(); }
   if (id === 'social') { renderSocialFeed(); }
 }
 function switchCatTab(type, btn) {
@@ -1071,11 +1107,17 @@ function getWeakQuestions(){return getAllQs().filter(q=>getWrongCount(q.id)>=3);
 function getBookmarkedQuestions(){return bookmarkedIds.map(id=>findQuestionById(id)).filter(Boolean);}
 function getMaterialQuestions(){return getAllQs().filter(q=>q.image&&q.image.trim()!=='');}
 function updateNoteCounts(){if(!DB)return;const w=document.getElementById('weak-count'),b=document.getElementById('bookmark-count'),m=document.getElementById('material-count');if(w)w.textContent=getWeakQuestions().length;if(b)b.textContent=getBookmarkedQuestions().length;if(m)m.textContent=getMaterialQuestions().length;}
-function openNoteFolder(type){document.getElementById('notes-home').style.display='none';document.getElementById('notes-folder-view').style.display='';const title=document.getElementById('notes-folder-title');const list=document.getElementById('notes-folder-list');let qs=[];if(type==='weak'){title.textContent='📁 苦手問題';qs=getWeakQuestions();}else if(type==='bookmark'){title.textContent='📁 ブックマーク';qs=getBookmarkedQuestions();}else{title.textContent='📁 解説資料';qs=getMaterialQuestions();}if(qs.length===0){const msg=type==='weak'?'まだ苦手問題はありません。<br>同じ問題を3回間違えると自動でここに入ります。':type==='bookmark'?'まだブックマークはありません。<br>問題画面で⭐を押すとここに保存されます。':'まだ解説資料はありません。<br>questions.json の image に画像パスが入るとここに表示されます。';list.innerHTML=`<div class="empty-note">${msg}</div>`;return;}list.innerHTML=qs.map(q=>{const cat=getCategoryOfId(q.id);const wrong=getWrongCount(q.id);const imageBadge=q.image?'<span class="memo-tag">🖼 資料あり</span>':'';const wrongBadge=wrong>=3?`<span class="memo-tag wrong-tag">❌ ${wrong}回ミス</span>`:'';return `<div class="memo-card"><div class="memo-q">Q. ${escapeHtml(q.text)}</div><div class="memo-preview">${escapeHtml(stripHtml(q.explanation).slice(0,90))}${stripHtml(q.explanation).length>90?'...':''}</div><div class="memo-tags"><span class="memo-tag">${cat||'未分類'}</span>${wrongBadge}${imageBadge}</div><div class="note-card-actions"><button class="note-mini-btn" onclick="startSingleQuestion('${q.id}')">この問題を解く</button>${type==='bookmark'?`<button class="note-mini-btn" onclick="removeBookmarkFromNotes('${q.id}')">解除</button>`:''}</div></div>`;}).join('');}
+function renderQuestionCards(qs, type='search'){if(qs.length===0)return `<div class="empty-note">該当する問題がありません</div>`;return qs.map(q=>{const cat=getCategoryOfId(q.id);const wrong=getWrongCount(q.id);const imageBadge=q.image?'<span class="memo-tag">🖼 資料あり</span>':'';const wrongBadge=wrong>=3?`<span class="memo-tag wrong-tag">❌ ${wrong}回ミス</span>`:'';const tagBadges=(q.tags||[]).slice(0,4).map(t=>`<span class="memo-tag">${escapeHtml(t)}</span>`).join('');const noteUrl=getQuestionCanvaUrl(q);const noteBtn=noteUrl?`<button class="note-mini-btn" onclick="openNoteForQuestion('${q.id}')">関連ノート</button>`:'';return `<div class="memo-card"><div class="memo-q">Q. ${escapeHtml(q.text)}</div><div class="memo-preview">${escapeHtml(stripHtml(q.explanation).slice(0,90))}${stripHtml(q.explanation).length>90?'...':''}</div><div class="memo-tags"><span class="memo-tag">${cat||'未分類'}</span>${tagBadges}${wrongBadge}${imageBadge}</div><div class="note-card-actions"><button class="note-mini-btn" onclick="startSingleQuestion('${q.id}')">この問題を解く</button>${noteBtn}${type==='bookmark'?`<button class="note-mini-btn" onclick="removeBookmarkFromNotes('${q.id}')">解除</button>`:''}</div></div>`;}).join('');}
+function openNoteFolder(type){document.getElementById('notes-home').style.display='none';document.getElementById('notes-folder-view').style.display='';const title=document.getElementById('notes-folder-title');const list=document.getElementById('notes-folder-list');let qs=[];if(type==='weak'){title.textContent='📁 苦手問題';qs=getWeakQuestions();}else if(type==='bookmark'){title.textContent='📁 ブックマーク';qs=getBookmarkedQuestions();}else{title.textContent='📁 解説資料';qs=getMaterialQuestions();}if(qs.length===0){const msg=type==='weak'?'まだ苦手問題はありません。<br>同じ問題を3回間違えると自動でここに入ります。':type==='bookmark'?'まだブックマークはありません。<br>問題画面で⭐を押すとここに保存されます。':'まだ解説資料はありません。<br>questions.json の image に画像パスが入るとここに表示されます。';list.innerHTML=`<div class="empty-note">${msg}</div>`;return;}list.innerHTML=renderQuestionCards(qs,type);}
 function backToNotesHome(){const h=document.getElementById('notes-home'),v=document.getElementById('notes-folder-view');if(h&&v){h.style.display='';v.style.display='none';}updateNoteCounts();}
 function stripHtml(s){const d=document.createElement('div');d.innerHTML=s||'';return d.textContent||d.innerText||'';}
 function startSingleQuestion(id){const q=findQuestionById(id);if(!q)return;currentQs=[q];currentIdx=0;document.querySelectorAll('.nav-tab').forEach((t,i)=>t.classList.toggle('active',i===1));document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('screen-quiz').classList.add('active');loadQuestion();}
 function removeBookmarkFromNotes(id){const idx=bookmarkedIds.indexOf(id);if(idx>=0)bookmarkedIds.splice(idx,1);localStorage.setItem('bookmarkedIds',JSON.stringify(bookmarkedIds));updateNoteCounts();openNoteFolder('bookmark');showToast('ブックマーク解除');}
+
+function getPopularTags(){const counts={};getAllQs().forEach(q=>(q.tags||[]).forEach(t=>{counts[t]=(counts[t]||0)+1;}));return Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,12).map(([tag,count])=>({tag,count}));}
+function renderPopularTags(){const el=document.getElementById('popular-tags');if(!el||!DB)return;const tags=getPopularTags();el.innerHTML=tags.map(({tag,count})=>`<button class="tag-chip" onclick="searchNoteTag('${escapeJs(tag)}')">${escapeHtml(tag)} ${count}</button>`).join('');}
+function searchNoteTag(tag){const input=document.getElementById('note-search-input');if(input)input.value=tag;renderNoteSearch();}
+function renderNoteSearch(){const input=document.getElementById('note-search-input');const area=document.getElementById('note-search-results');if(!input||!area||!DB)return;const key=input.value.trim().toLowerCase();if(!key){area.innerHTML='';return;}const qs=getAllQs().filter(q=>{const hay=[q.id,q.text,q.explanation,getCategoryOfId(q.id),...(q.tags||[])].join(' ').toLowerCase();return hay.includes(key);}).slice(0,50);area.innerHTML=`<div class="note-search-result-title">${qs.length}件見つかりました</div>${renderQuestionCards(qs,'search')}`;}
 
 function getSocialPosts(){const saved=JSON.parse(localStorage.getItem('socialPosts')||'[]');if(saved.length>0)return saved;return [{id:'sample_1',title:'心電図は「波の順番」で覚える',text:'P波→QRS波→T波の流れで、心房興奮・心室興奮・再分極を整理すると一気に覚えやすくなります。',author:'育てるノート',date:'サンプル',icon:'💓',likes:12},{id:'sample_2',title:'歩行周期は60：40でまず覚える',text:'立脚期60%、遊脚期40%。細かい相に入る前に、この土台を押さえると歩行問題が解きやすいです。',author:'育てるノート',date:'サンプル',icon:'🚶',likes:8}];}
 function renderSocialFeed(){const feed=document.getElementById('social-feed');if(!feed)return;const posts=getSocialPosts();feed.innerHTML=posts.map(p=>`<div class="social-card"><div class="social-head"><div class="social-avatar">${p.icon||'🌱'}</div><div><div class="social-name">${escapeHtml(p.author||'匿名ユーザー')}</div><div class="social-date">${escapeHtml(p.date||'')}</div></div></div><div class="social-title">${escapeHtml(p.title)}</div><div class="social-text">${escapeHtml(p.text)}</div><div class="social-image-ph">${p.icon||'📚'}</div><div class="social-actions"><button class="social-action-btn" onclick="likeSocialPost('${p.id}')">♡ ${p.likes||0}</button><button class="social-action-btn" onclick="showToast('保存しました（デモ）')">🔖 保存</button></div></div>`).join('');}
@@ -1087,8 +1129,9 @@ function setupCanvaLinks(){
   const links = ['home-canva-link','social-canva-link'];
   links.forEach(id=>{const el=document.getElementById(id);if(el)el.href=CANVA_NOTE_LIST_URL;});
 }
-function getQuestionCanvaUrl(q){return CANVA_NOTE_URL;}
-function getQuestionCanvaTitle(q){return q.canvaTitle || q.canva_title || q.noteTitle || q.note_title || `${getCategoryOfId(q.id)||'この分野'}の育てるノート`;}
+function getMatchingTagLink(q){const links=DB?.tagLinks||{};return (q.tags||[]).map(tag=>({tag,link:links[tag]})).find(x=>x.link&&(x.link.url||x.link.title))||null;}
+function getQuestionCanvaUrl(q){const tagLink=getMatchingTagLink(q);return q.canvaUrl || q.canva_url || q.noteUrl || q.note_url || tagLink?.link?.url || CANVA_NOTE_URL;}
+function getQuestionCanvaTitle(q){const tagLink=getMatchingTagLink(q);return q.canvaTitle || q.canva_title || q.noteTitle || q.note_title || tagLink?.link?.title || `${tagLink?.tag || getCategoryOfId(q.id)||'この分野'}の育てるノート`;}
 function getQuestionCanvaDescription(q){return q.canvaDescription || q.canva_description || q.noteDescription || q.note_description || 'この問題で必要な知識を、図解ノートでやさしく整理しています。解説だけで終わらず、関連知識まで育てていきましょう。';}
 function getQuestionCanvaPoints(q){
   if(Array.isArray(q.canvaPoints))return q.canvaPoints;
@@ -1097,6 +1140,7 @@ function getQuestionCanvaPoints(q){
   const cat=getCategoryOfId(q.id)||'関連知識';
   return [cat,'図解で整理','あとで復習'];
 }
+function openNoteForQuestion(id){const q=findQuestionById(id);if(!q)return;window.open(getQuestionCanvaUrl(q),'_blank','noopener');}
 function updateQuizCanvaCard(q){
   const title=document.getElementById('quiz-canva-title');
   const text=document.getElementById('quiz-canva-text');
@@ -1113,6 +1157,7 @@ function updateQuizCanvaCard(q){
 }
 
 function escapeHtml(str){return String(str||'').replace(/[&<>"']/g,s=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));}
+function escapeJs(str){return String(str||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");}
 
 function openCountdownModal() {
   const saved = localStorage.getItem('examDate');

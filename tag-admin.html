@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>タグ管理CMS｜育てるノート</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Noto Sans JP',sans-serif;
+background:#f4f7fb;
+color:#1a2847;
+}
+
+header{
+background:linear-gradient(135deg,#1a2847,#274777);
+padding:28px;
+color:white;
+box-shadow:0 4px 14px rgba(0,0,0,.12);
+}
+
+header h1{
+font-size:30px;
+font-weight:900;
+}
+
+header p{
+opacity:.85;
+margin-top:6px;
+}
+
+.container{
+max-width:1600px;
+margin:auto;
+padding:24px;
+}
+
+.topbar{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-bottom:24px;
+}
+
+button,input,select{
+font-family:inherit;
+}
+
+.btn{
+background:#1a2847;
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:14px;
+font-weight:700;
+cursor:pointer;
+transition:.2s;
+}
+
+.btn:hover{
+background:#274777;
+transform:translateY(-2px);
+}
+
+.search{
+flex:1;
+min-width:280px;
+padding:12px 16px;
+border-radius:14px;
+border:1px solid #d7dfeb;
+background:white;
+}
+
+.layout{
+display:grid;
+grid-template-columns:340px 1fr;
+gap:20px;
+}
+
+.sidebar{
+background:white;
+border-radius:20px;
+padding:20px;
+box-shadow:0 4px 12px rgba(0,0,0,.06);
+height:fit-content;
+max-height:85vh;
+overflow:auto;
+}
+
+.sidebar h2{
+margin-bottom:18px;
+font-size:22px;
+}
+
+.section-title{
+font-size:14px;
+font-weight:900;
+margin-top:24px;
+margin-bottom:12px;
+color:#274777;
+}
+
+.category-btn{
+width:100%;
+padding:12px 14px;
+margin-bottom:10px;
+border:none;
+border-radius:12px;
+background:#eef4fd;
+cursor:pointer;
+text-align:left;
+font-weight:700;
+transition:.2s;
+}
+
+.category-btn:hover{
+background:#dce8fa;
+}
+
+.content{
+background:white;
+border-radius:20px;
+padding:24px;
+box-shadow:0 4px 12px rgba(0,0,0,.06);
+}
+
+.info-box{
+padding:16px;
+background:#f3f7ff;
+border-radius:14px;
+line-height:1.8;
+margin-bottom:24px;
+}
+
+.panel{
+border:1px solid #e5eaf2;
+border-radius:18px;
+padding:16px;
+margin-bottom:18px;
+background:#fcfdff;
+}
+
+.panel-title{
+font-size:16px;
+font-weight:900;
+margin-bottom:10px;
+}
+
+.mini-help{
+font-size:12px;
+line-height:1.7;
+color:#60708a;
+margin-bottom:12px;
+}
+
+.tag-link-list{
+display:grid;
+grid-template-columns:1fr;
+gap:10px;
+max-height:280px;
+overflow:auto;
+}
+
+.tag-link-row{
+display:grid;
+grid-template-columns:180px 1fr 1fr;
+gap:10px;
+align-items:center;
+}
+
+.tag-link-name{
+font-weight:900;
+font-size:13px;
+color:#274777;
+}
+
+.question-card{
+border:1px solid #e5eaf2;
+border-radius:18px;
+padding:20px;
+margin-bottom:18px;
+background:#fcfdff;
+}
+
+.badge{
+display:inline-block;
+padding:5px 12px;
+background:#e8f0fd;
+border-radius:999px;
+font-size:12px;
+font-weight:700;
+margin-bottom:12px;
+color:#274777;
+}
+
+.question-id{
+font-size:18px;
+font-weight:900;
+margin-bottom:12px;
+}
+
+.question-text{
+line-height:1.8;
+margin-bottom:18px;
+}
+
+.tag-grid{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:12px;
+}
+
+.tag-grid label{
+font-size:12px;
+font-weight:900;
+color:#60708a;
+display:flex;
+flex-direction:column;
+gap:6px;
+}
+
+.tag-grid input{
+padding:12px;
+border-radius:12px;
+border:1px solid #d5deeb;
+background:white;
+}
+
+.empty{
+padding:80px 20px;
+text-align:center;
+opacity:.6;
+}
+
+@media(max-width:1000px){
+
+.layout{
+grid-template-columns:1fr;
+}
+
+.tag-grid{
+grid-template-columns:1fr;
+}
+
+.tag-link-row{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>タグ管理CMS</h1>
+<p>育てるノート｜tag-admin.html</p>
+</header>
+
+<div class="container">
+
+<div class="topbar">
+
+<input type="file" id="jsonLoader" accept=".json" hidden>
+
+<button class="btn" onclick="document.getElementById('jsonLoader').click()">
+questions.json 読み込み
+</button>
+
+<button class="btn" onclick="downloadQuestions()">
+タグ付き questions.json 保存
+</button>
+
+<input type="text" id="searchBox" class="search" placeholder="問題ID・問題文・タグ検索">
+
+</div>
+
+<div class="layout">
+
+<div class="sidebar">
+
+<h2>カテゴリー一覧</h2>
+
+<div id="categoryList">
+<button class="category-btn" onclick="filterCategory('')">すべて</button>
+</div>
+
+</div>
+
+<div class="content">
+
+<div class="info-box">
+questions.json を読み込むと、問題ごとにタグ付けできます。<br>
+タグはカンマ区切りで自由に追加できます。既存タグは入力候補として表示されます。<br>
+保存すると、本体の index.html がそのまま読める「タグ付き questions.json」が生成されます。
+</div>
+
+<datalist id="tagSuggestions"></datalist>
+
+<div class="panel" id="tagLinksPanel" style="display:none">
+  <div class="panel-title">タグ別 note 誘導</div>
+  <div class="mini-help">タグごとに note URL を設定すると、本体側でそのタグを持つ問題の「関連ノートを見る」が該当noteへ向きます。</div>
+  <input type="text" id="tagLinkSearch" placeholder="タグ名で絞り込み" oninput="renderTagLinks()">
+  <div class="tag-link-list" id="tagLinksArea"></div>
+</div>
+
+<div id="questionArea">
+
+<div class="empty">
+questions.json を読み込んでください
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let questions = [];
+let tagData = [];
+let currentCategory = "";
+let originalDB = null;
+let tagLinks = {};
+
+document.getElementById("jsonLoader").addEventListener("change",e=>{
+
+const file = e.target.files[0];
+
+if(!file) return;
+
+const reader = new FileReader();
+
+reader.onload = event=>{
+
+try{
+
+const raw = JSON.parse(event.target.result);
+originalDB = normalizeLoadedDB(raw);
+questions = flattenQuestions(originalDB);
+tagLinks = normalizeTagLinks(originalDB.tagLinks || originalDB.noteLinks || {});
+tagData = questions.map(q=>({
+id:q.id || "",
+category:q.category || "",
+tags:normalizeTags(q.tags),
+noteUrl:q.noteUrl || q.canvaUrl || "",
+noteTitle:q.noteTitle || q.canvaTitle || ""
+}));
+
+buildCategoryList();
+refreshSuggestions();
+renderTagLinks();
+document.getElementById("tagLinksPanel").style.display = "";
+renderQuestions(tagData);
+
+}catch(err){
+
+console.error(err);
+
+alert("JSON読み込みエラー");
+
+}
+
+};
+
+reader.readAsText(file);
+
+});
+
+function filterCategory(category){
+
+currentCategory = category;
+
+const filtered = category ? tagData.filter(q=>q.category===category) : tagData;
+
+renderQuestions(filtered);
+
+}
+
+function renderQuestions(data){
+
+const area = document.getElementById("questionArea");
+
+if(data.length===0){
+
+area.innerHTML=`
+<div class="empty">
+該当問題がありません
+</div>
+`;
+
+return;
+
+}
+
+area.innerHTML="";
+
+data.forEach(item=>{
+
+const card = document.createElement("div");
+
+card.className="question-card";
+
+card.innerHTML=`
+
+<div class="badge">${item.category}</div>
+
+<div class="question-id">${item.id}</div>
+
+<div class="question-text">
+${escapeHtml(getQuestion(item.id))}
+</div>
+
+<div class="tag-grid">
+
+<label>タグ（カンマ区切り）
+  <input type="text" list="tagSuggestions" placeholder="例：腕神経叢, 末梢神経" value="${escapeAttr(item.tags.join(", "))}" oninput="updateTags('${item.id}',this.value)">
+</label>
+
+<label>個別note URL
+  <input type="url" placeholder="この問題だけ誘導先を変える場合" value="${escapeAttr(item.noteUrl)}" oninput="updateNoteUrl('${item.id}',this.value)">
+</label>
+
+<label>noteタイトル
+  <input type="text" placeholder="未入力ならタグ名・カテゴリ名を使用" value="${escapeAttr(item.noteTitle)}" oninput="updateNoteTitle('${item.id}',this.value)">
+</label>
+
+<label>カテゴリ
+  <input type="text" value="${escapeAttr(item.category)}" readonly>
+</label>
+
+</div>
+`;
+
+area.appendChild(card);
+
+});
+
+}
+
+function updateTags(id,value){
+const item = tagData.find(q=>q.id===id);
+if(!item) return;
+item.tags = parseTags(value);
+applyItemToQuestion(item);
+refreshSuggestions();
+renderTagLinks();
+}
+
+function updateNoteUrl(id,value){
+const item = tagData.find(q=>q.id===id);
+if(!item) return;
+item.noteUrl = value.trim();
+applyItemToQuestion(item);
+}
+
+function updateNoteTitle(id,value){
+const item = tagData.find(q=>q.id===id);
+if(!item) return;
+item.noteTitle = value.trim();
+applyItemToQuestion(item);
+}
+
+function refreshCurrent(){
+
+if(currentCategory){
+
+renderQuestions(
+tagData.filter(q=>q.category===currentCategory)
+);
+
+}else{
+
+renderQuestions(tagData);
+
+}
+
+}
+
+function getQuestion(id){
+
+const q = questions.find(q=>q.id===id);
+
+if(!q) return "";
+
+return q.text || q.question || "";
+
+}
+
+function downloadQuestions(){
+
+if(!originalDB){
+alert("先に questions.json を読み込んでください");
+return;
+}
+
+tagData.forEach(applyItemToQuestion);
+originalDB.tagLinks = cleanTagLinks(tagLinks);
+
+const blob = new Blob(
+[JSON.stringify(originalDB,null,2)],
+{type:"application/json"}
+);
+
+const url = URL.createObjectURL(blob);
+
+const a = document.createElement("a");
+
+a.href = url;
+a.download = "questions.json";
+
+a.click();
+
+URL.revokeObjectURL(url);
+
+}
+
+document.getElementById("searchBox").addEventListener("input",e=>{
+
+const keyword = e.target.value.toLowerCase();
+
+const filtered = tagData.filter(item=>{
+
+const text = getQuestion(item.id).toLowerCase();
+const tags = item.tags.join(" ").toLowerCase();
+const note = `${item.noteUrl} ${item.noteTitle}`.toLowerCase();
+
+return (
+item.id.toLowerCase().includes(keyword)
+||
+text.includes(keyword)
+||
+tags.includes(keyword)
+||
+note.includes(keyword)
+);
+
+});
+
+renderQuestions(filtered);
+
+});
+
+function normalizeLoadedDB(raw){
+if(Array.isArray(raw)){
+return {categories:{common:[],special:[]},questions:{未分類:raw}};
+}
+if(!raw.questions){
+throw new Error("questions.json の構造を認識できません");
+}
+if(Array.isArray(raw.questions)){
+const grouped = {};
+raw.questions.forEach(q=>{
+const cat = q.category || "未分類";
+if(!grouped[cat]) grouped[cat] = [];
+grouped[cat].push(q);
+});
+return {...raw,questions:grouped};
+}
+return raw;
+}
+
+function flattenQuestions(db){
+const result = [];
+Object.entries(db.questions || {}).forEach(([category,qs])=>{
+(qs || []).forEach(q=>{
+q.category = q.category || category;
+q.tags = normalizeTags(q.tags);
+result.push(q);
+});
+});
+return result;
+}
+
+function buildCategoryList(){
+const list = document.getElementById("categoryList");
+const categories = Object.keys(originalDB.questions || {});
+list.innerHTML = `<button class="category-btn" onclick="filterCategory('')">すべて（${questions.length}問）</button>` +
+categories.map(cat=>{
+const count = questions.filter(q=>q.category===cat).length;
+return `<button class="category-btn" onclick="filterCategory('${escapeJs(cat)}')">${escapeHtml(cat)}（${count}）</button>`;
+}).join("");
+}
+
+function parseTags(value){
+return [...new Set(String(value || "")
+.split(/[、,]/)
+.map(t=>t.trim())
+.filter(Boolean))];
+}
+
+function normalizeTags(tags){
+if(Array.isArray(tags)) return [...new Set(tags.map(t=>String(t).trim()).filter(Boolean))];
+if(typeof tags === "string") return parseTags(tags);
+return [];
+}
+
+function getAllTags(){
+return [...new Set(tagData.flatMap(item=>item.tags).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"ja"));
+}
+
+function refreshSuggestions(){
+const suggestions = document.getElementById("tagSuggestions");
+if(!suggestions) return;
+suggestions.innerHTML = getAllTags().map(tag=>`<option value="${escapeAttr(tag)}"></option>`).join("");
+}
+
+function applyItemToQuestion(item){
+const q = questions.find(q=>q.id===item.id);
+if(!q) return;
+q.tags = normalizeTags(item.tags);
+if(item.noteUrl) q.noteUrl = item.noteUrl;
+else delete q.noteUrl;
+if(item.noteTitle) q.noteTitle = item.noteTitle;
+else delete q.noteTitle;
+}
+
+function normalizeTagLinks(links){
+const normalized = {};
+Object.entries(links || {}).forEach(([tag,value])=>{
+if(typeof value === "string"){
+normalized[tag] = {url:value,title:""};
+}else if(value && typeof value === "object"){
+normalized[tag] = {url:value.url || value.noteUrl || "",title:value.title || value.noteTitle || ""};
+}
+});
+return normalized;
+}
+
+function cleanTagLinks(links){
+const cleaned = {};
+Object.entries(links || {}).forEach(([tag,value])=>{
+const url = (value.url || "").trim();
+const title = (value.title || "").trim();
+if(url || title) cleaned[tag] = {url,title};
+});
+return cleaned;
+}
+
+function renderTagLinks(){
+const area = document.getElementById("tagLinksArea");
+if(!area) return;
+const keyword = (document.getElementById("tagLinkSearch")?.value || "").toLowerCase();
+const tags = getAllTags().filter(tag=>tag.toLowerCase().includes(keyword));
+if(tags.length===0){
+area.innerHTML = `<div class="empty">タグがまだありません</div>`;
+return;
+}
+area.innerHTML = tags.map(tag=>{
+const link = tagLinks[tag] || {url:"",title:""};
+return `<div class="tag-link-row">
+  <div class="tag-link-name">${escapeHtml(tag)}</div>
+  <input type="url" placeholder="note URL" value="${escapeAttr(link.url)}" oninput="updateTagLink('${escapeJs(tag)}','url',this.value)">
+  <input type="text" placeholder="表示タイトル" value="${escapeAttr(link.title)}" oninput="updateTagLink('${escapeJs(tag)}','title',this.value)">
+</div>`;
+}).join("");
+}
+
+function updateTagLink(tag,key,value){
+if(!tagLinks[tag]) tagLinks[tag] = {url:"",title:""};
+tagLinks[tag][key] = value.trim();
+}
+
+function escapeHtml(str){
+return String(str || "").replace(/[&<>"']/g,s=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[s]));
+}
+
+function escapeAttr(str){
+return escapeHtml(str).replace(/`/g,"&#96;");
+}
+
+function escapeJs(str){
+return String(str || "").replace(/\\/g,"\\\\").replace(/'/g,"\\'");
+}
+
+</script>
+
+</body>
+</html>
