@@ -1,0 +1,776 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>育てるノート AI CMS 完全版</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --yellow:#f5d547;
+  --navy:#1a2847;
+  --orange:#e8722a;
+  --cream:#fffef5;
+  --border:#e8e4d8;
+  --shadow:0 2px 18px rgba(26,40,71,.10);
+  --radius:18px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+  background:var(--cream);
+  font-family:'Noto Sans JP',sans-serif;
+  color:#222;
+}
+
+.header{
+  background:var(--navy);
+  padding:16px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo{
+  font-family:'M PLUS Rounded 1c',sans-serif;
+  color:var(--yellow);
+  font-size:28px;
+  font-weight:900;
+}
+
+.logo span{
+  display:block;
+  font-size:11px;
+  color:rgba(255,255,255,.6);
+}
+
+.btn{
+  border:none;
+  border-radius:14px;
+  padding:12px 18px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.btn-main{
+  background:var(--yellow);
+  color:var(--navy);
+}
+
+.btn-orange{
+  background:var(--orange);
+  color:white;
+}
+
+.layout{
+  width:min(1900px,calc(100% - 30px));
+  margin:20px auto;
+  display:grid;
+  grid-template-columns:320px 1fr 420px;
+  gap:18px;
+}
+
+.card{
+  background:white;
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:var(--shadow);
+  border-left:6px solid var(--yellow);
+}
+
+.orange{
+  border-left-color:var(--orange);
+}
+
+.title{
+  font-size:13px;
+  font-weight:900;
+  color:#666;
+  margin-bottom:14px;
+}
+
+.sidebar,.main,.right{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+input,textarea,select{
+  width:100%;
+  border:2px solid var(--border);
+  border-radius:14px;
+  padding:13px;
+  font-family:inherit;
+  margin-bottom:12px;
+}
+
+textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.problem-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  max-height:70vh;
+  overflow:auto;
+}
+
+.problem{
+  background:white;
+  border-radius:16px;
+  padding:14px;
+  box-shadow:var(--shadow);
+  border-left:5px solid var(--yellow);
+  cursor:pointer;
+}
+
+.problem.active{
+  outline:3px solid var(--orange);
+}
+
+.pid{
+  font-weight:900;
+  color:var(--navy);
+  margin-bottom:6px;
+}
+
+.pcat{
+  font-size:12px;
+  color:#777;
+  margin-bottom:8px;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.tag{
+  background:#fff6cf;
+  color:var(--navy);
+  border-radius:999px;
+  padding:4px 8px;
+  font-size:11px;
+  font-weight:800;
+}
+
+.row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.ai-output{
+  background:#fafaf5;
+  border:2px dashed var(--border);
+  border-radius:14px;
+  padding:16px;
+  white-space:pre-wrap;
+  line-height:1.8;
+  min-height:180px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.stat{
+  background:#fafaf2;
+  border-radius:16px;
+  padding:14px;
+  text-align:center;
+}
+
+.stat b{
+  display:block;
+  font-size:24px;
+  color:var(--navy);
+}
+
+.helper{
+  font-size:12px;
+  color:#777;
+  line-height:1.8;
+}
+
+.empty{
+  text-align:center;
+  color:#777;
+  padding:40px;
+}
+
+@media(max-width:1300px){
+  .layout{
+    grid-template-columns:1fr;
+  }
+
+  .row{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+
+  <div class="logo">
+    育てるノート
+    <span>AI CMS 完全版</span>
+  </div>
+
+  <button class="btn btn-main" onclick="downloadJson()">
+    JSON保存
+  </button>
+
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar">
+
+    <div class="card">
+      <div class="title">📂 QUESTIONS.JSON</div>
+
+      <input type="file" id="jsonFile" accept=".json">
+
+      <div class="helper">
+        questions.json を読み込んでください
+      </div>
+    </div>
+
+    <div class="card orange">
+      <div class="title">🔍 タグ検索</div>
+
+      <input id="searchBox" placeholder="神経 / 歩行 / ROM">
+
+      <button class="btn btn-orange" onclick="generateTeachingMaterial()">
+        教材生成
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="title">📚 問題一覧</div>
+
+      <div class="problem-list" id="problemList"></div>
+    </div>
+
+  </aside>
+
+  <main class="main">
+
+    <div class="card orange">
+
+      <div class="title">➕ 新しい問題を追加</div>
+
+      <div class="row">
+        <input id="newId" placeholder="問題ID">
+        <input id="newCategory" placeholder="カテゴリー">
+      </div>
+
+      <textarea id="newQuestion" placeholder="問題文"></textarea>
+
+      <textarea id="newChoices" placeholder="選択肢（1行ごと）"></textarea>
+
+      <div class="row">
+        <input id="newAnswer" placeholder="正答">
+        <input id="newTags" placeholder="タグ">
+      </div>
+
+      <input id="newNote" placeholder="note URL">
+
+      <textarea id="newExplanation" placeholder="解説"></textarea>
+
+      <button class="btn btn-orange" onclick="addProblem()">
+        問題追加
+      </button>
+
+    </div>
+
+    <div class="card">
+
+      <div class="title">✏️ 問題編集</div>
+
+      <div id="empty" class="empty">
+        左の問題を選択してください
+      </div>
+
+      <div id="editor" style="display:none">
+
+        <div class="row">
+          <input id="editId">
+          <input id="editCategory">
+        </div>
+
+        <textarea id="editQuestion"></textarea>
+
+        <textarea id="editChoices"></textarea>
+
+        <div class="row">
+          <input id="editAnswer">
+          <input id="editTags">
+        </div>
+
+        <input id="editNote">
+
+        <textarea id="editExplanation"></textarea>
+
+        <div class="row">
+          <button class="btn btn-main" onclick="saveProblem()">
+            保存
+          </button>
+
+          <button class="btn btn-orange" onclick="addKokushi()">
+            国試頻出追加
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <aside class="right">
+
+    <div class="card">
+      <div class="title">📊 管理状況</div>
+
+      <div class="stats">
+
+        <div class="stat">
+          <span>問題数</span>
+          <b id="countAll">0</b>
+        </div>
+
+        <div class="stat">
+          <span>タグ数</span>
+          <b id="countTags">0</b>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card orange">
+      <div class="title">📝 AI教材生成</div>
+
+      <div class="ai-output" id="materialOutput">
+ここに教材生成プロンプトが表示されます
+      </div>
+
+      <br>
+
+      <button class="btn btn-main" onclick="copyMaterial()">
+        教材コピー
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="title">🖼 画像生成プロンプト</div>
+
+      <div class="ai-output" id="imagePromptOutput">
+ここに画像生成プロンプトが表示されます
+      </div>
+
+      <br>
+
+      <button class="btn btn-orange" onclick="copyImagePrompt()">
+        プロンプトコピー
+      </button>
+    </div>
+
+  </aside>
+
+</div>
+
+<script>
+
+let DB = null;
+let flatQuestions = [];
+let currentQuestion = null;
+
+document.getElementById('jsonFile')
+  .addEventListener('change', loadJson);
+
+document.getElementById('searchBox')
+  .addEventListener('input', renderList);
+
+function loadJson(e){
+
+  const file = e.target.files[0];
+
+  if(!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function(event){
+
+    DB = JSON.parse(event.target.result);
+
+    flattenQuestions();
+
+    renderList();
+
+    updateStats();
+
+    alert('questions.json を読み込みました！');
+
+  };
+
+  reader.readAsText(file);
+
+}
+
+function flattenQuestions(){
+
+  flatQuestions = [];
+
+  Object.entries(DB.questions).forEach(([cat,qs])=>{
+
+    qs.forEach(q=>{
+
+      flatQuestions.push({
+        ...q,
+        category:cat
+      });
+
+    });
+
+  });
+
+}
+
+function renderList(){
+
+  const box =
+    document.getElementById('problemList');
+
+  box.innerHTML = '';
+
+  const search =
+    document.getElementById('searchBox')
+      .value
+      .toLowerCase();
+
+  flatQuestions.forEach(q=>{
+
+    const text =
+      JSON.stringify(q).toLowerCase();
+
+    if(search && !text.includes(search)) return;
+
+    const div = document.createElement('div');
+
+    div.className = 'problem';
+
+    if(currentQuestion && currentQuestion.id === q.id){
+      div.classList.add('active');
+    }
+
+    div.innerHTML = `
+      <div class="pid">${q.id}</div>
+      <div class="pcat">${q.category}</div>
+
+      <div class="tags">
+        ${(q.tags || [])
+          .slice(0,5)
+          .map(t=>`<span class="tag">${t}</span>`)
+          .join('')}
+      </div>
+    `;
+
+    div.onclick = ()=>openQuestion(q);
+
+    box.appendChild(div);
+
+  });
+
+}
+
+function openQuestion(q){
+
+  currentQuestion = q;
+
+  document.getElementById('empty').style.display = 'none';
+  document.getElementById('editor').style.display = '';
+
+  document.getElementById('editId').value = q.id || '';
+  document.getElementById('editCategory').value = q.category || '';
+  document.getElementById('editQuestion').value = q.text || '';
+
+  document.getElementById('editChoices').value =
+    (q.choices || []).join('\n');
+
+  document.getElementById('editAnswer').value =
+    Array.isArray(q.answer)
+      ? q.answer.join(',')
+      : q.answer || '';
+
+  document.getElementById('editTags').value =
+    (q.tags || []).join(', ');
+
+  document.getElementById('editNote').value =
+    q.canvaUrl || '';
+
+  document.getElementById('editExplanation').value =
+    q.explanation || '';
+
+  renderList();
+
+}
+
+function saveProblem(){
+
+  const target =
+    DB.questions[currentQuestion.category]
+      .find(x=>x.id===currentQuestion.id);
+
+  target.id =
+    document.getElementById('editId').value;
+
+  target.text =
+    document.getElementById('editQuestion').value;
+
+  target.choices =
+    document.getElementById('editChoices')
+      .value
+      .split('\n')
+      .filter(Boolean);
+
+  target.answer =
+    document.getElementById('editAnswer')
+      .value
+      .split(',')
+      .map(x=>Number(x.trim()));
+
+  target.tags =
+    document.getElementById('editTags')
+      .value
+      .split(',')
+      .map(x=>x.trim())
+      .filter(Boolean);
+
+  target.canvaUrl =
+    document.getElementById('editNote').value;
+
+  target.explanation =
+    document.getElementById('editExplanation').value;
+
+  flattenQuestions();
+  renderList();
+
+  alert('保存しました！');
+
+}
+
+function addProblem(){
+
+  const category =
+    document.getElementById('newCategory').value;
+
+  if(!DB.questions[category]){
+    DB.questions[category] = [];
+  }
+
+  DB.questions[category].push({
+
+    id:
+      document.getElementById('newId').value,
+
+    text:
+      document.getElementById('newQuestion').value,
+
+    choices:
+      document.getElementById('newChoices')
+        .value
+        .split('\n')
+        .filter(Boolean),
+
+    answer:
+      document.getElementById('newAnswer')
+        .value
+        .split(',')
+        .map(x=>Number(x.trim())),
+
+    tags:
+      document.getElementById('newTags')
+        .value
+        .split(',')
+        .map(x=>x.trim())
+        .filter(Boolean),
+
+    canvaUrl:
+      document.getElementById('newNote').value,
+
+    explanation:
+      document.getElementById('newExplanation').value
+
+  });
+
+  flattenQuestions();
+  renderList();
+  updateStats();
+
+  alert('問題を追加しました！');
+
+}
+
+function generateTeachingMaterial(){
+
+  const search =
+    document.getElementById('searchBox')
+      .value
+      .toLowerCase();
+
+  const related =
+    flatQuestions.filter(q=>
+      JSON.stringify(q)
+        .toLowerCase()
+        .includes(search)
+    );
+
+  const ids =
+    related.map(q=>q.id).join('\n');
+
+  const tags =
+    [...new Set(
+      related.flatMap(q=>q.tags || [])
+    )];
+
+  const material = `
+【タグ】
+${search}
+
+【関連問題】
+${ids}
+
+以下の理学療法士国家試験問題群を統合し、
+初学者向けnote教材を作成してください。
+
+■ 必須項目
+・共通点抽出
+・頻出整理
+・国家試験ポイント
+・ひっかけ
+・暗記法
+・初学者向け解説
+
+■ 関連タグ
+${tags.join(', ')}
+
+■ 問題群
+${ids}
+`;
+
+  document.getElementById('materialOutput')
+    .textContent = material;
+
+  const imagePrompt = `
+理学療法士国家試験向け
+保存特化X投稿画像を作成してください。
+
+【条件】
+・ネイビー×イエロー
+・初学者向け
+・図解風
+・保存したくなる構成
+・重要ポイント強調
+
+【教材内容】
+${material}
+`;
+
+  document.getElementById('imagePromptOutput')
+    .textContent = imagePrompt;
+
+}
+
+function copyMaterial(){
+
+  navigator.clipboard.writeText(
+    document.getElementById('materialOutput')
+      .textContent
+  );
+
+  alert('教材コピーしました');
+
+}
+
+function copyImagePrompt(){
+
+  navigator.clipboard.writeText(
+    document.getElementById('imagePromptOutput')
+      .textContent
+  );
+
+  alert('画像プロンプトコピーしました');
+
+}
+
+function addKokushi(){
+
+  let tags =
+    document.getElementById('editTags')
+      .value
+      .split(',')
+      .map(x=>x.trim())
+      .filter(Boolean);
+
+  if(!tags.includes('国試頻出')){
+    tags.push('国試頻出');
+  }
+
+  document.getElementById('editTags').value =
+    tags.join(', ');
+
+}
+
+function updateStats(){
+
+  document.getElementById('countAll')
+    .textContent = flatQuestions.length;
+
+  const tags =
+    new Set(
+      flatQuestions.flatMap(q=>q.tags || [])
+    );
+
+  document.getElementById('countTags')
+    .textContent = tags.size;
+
+}
+
+function downloadJson(){
+
+  const blob = new Blob(
+    [JSON.stringify(DB,null,2)],
+    {type:'application/json'}
+  );
+
+  const a = document.createElement('a');
+
+  a.href = URL.createObjectURL(blob);
+
+  a.download = 'questions.json';
+
+  a.click();
+
+}
+
+</script>
+
+</body>
+</html>
