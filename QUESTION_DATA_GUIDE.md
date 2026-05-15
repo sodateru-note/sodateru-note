@@ -30,6 +30,17 @@
 3. `questions.json` の件数を確認する
 4. GitHub にコミットする
 
+## tag-admin.html でタグを編集するとき
+
+1. `tag-admin.html` を開く
+2. `questions.json` を読み込む
+3. タグやnoteリンクを編集する
+4. `タグ付き questions.json 保存` を押す
+5. ダウンロードされた `questions.json` を、サイトフォルダ直下の `questions.json` に上書きする
+6. `sync-tags.command` をダブルクリックする
+
+`sync-tags.command` は、タグ付き `questions.json` の内容を `question-packs/` に戻してから `questions.json` を再生成します。これを実行しておけば、あとで `node merge.js` を実行してもタグが消えません。
+
 ## 問題を増やすとき
 
 次回以降は `question-packs/common-hard-02.json` のようにファイルを追加するだけで大丈夫です。`merge.js` は `question-packs/` 内の JSON を自動で読み込みます。

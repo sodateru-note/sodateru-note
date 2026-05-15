@@ -275,11 +275,11 @@ grid-template-columns:1fr;
 <input type="file" id="jsonLoader" accept=".json" hidden>
 
 <button class="btn" onclick="document.getElementById('jsonLoader').click()">
-questions.json 読み込み
+1. questions.json 読み込み
 </button>
 
 <button class="btn" onclick="downloadQuestions()">
-タグ付き questions.json 保存
+2. タグ付き questions.json 保存
 </button>
 
 <input type="text" id="searchBox" class="search" placeholder="問題ID・問題文・タグ検索">
@@ -303,7 +303,8 @@ questions.json 読み込み
 <div class="info-box">
 questions.json を読み込むと、問題ごとにタグ付けできます。<br>
 タグはカンマ区切りで自由に追加できます。既存タグは入力候補として表示されます。<br>
-保存すると、本体の index.html がそのまま読める「タグ付き questions.json」が生成されます。
+保存すると、本体の index.html がそのまま読める「タグ付き questions.json」が生成されます。<br>
+保存後は、このフォルダの questions.json に上書きしてから <b>sync-tags.command</b> をダブルクリックしてください。タグが question-packs にも反映され、今後の再生成でも消えなくなります。
 </div>
 
 <datalist id="tagSuggestions"></datalist>
@@ -526,6 +527,8 @@ a.download = "questions.json";
 a.click();
 
 URL.revokeObjectURL(url);
+
+alert("questions.json を保存しました。ダウンロードされたファイルをサイトフォルダの questions.json に上書きしてから、sync-tags.command をダブルクリックしてください。");
 
 }
 
